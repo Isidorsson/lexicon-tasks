@@ -1,0 +1,122 @@
+
+/*  {
+  font-family: "Poiret One", sans-serif;
+  font-family: "Spirax", sans-serif;
+} */
+
+#menu-hot { 
+  background-image: url("caffe-retro-assets/hot.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#menu-juicy {
+  background-image: url("caffe-retro-assets/juicy.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#menu-cosy {
+  background-image: url("caffe-retro-assets/cosy.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  scroll-snap-align: start;
+  height: 100vh;
+  width: 100%;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(97, 0, 68, 0.4);
+  padding: 1em;
+  font-size: 2em;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  font-family: "Spirax", sans-serif;
+  font-size: 1.5em;
+  padding: 0.5em;
+}
+
+h1,
+h2,
+h3,
+p {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  color: #fff;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  font-family: "Poiret One", sans-serif;
+  font-size: large;
+  margin-left: 150px;
+  margin-right: 150px;
+  padding: 5px 50px 10px 50px;
+}
+
+.menu-item > p {
+  letter-spacing: 0.1em;
+}
+h3 {
+  font-weight: 400;
+}
+
+h1 {
+  font-family: "Poiret One", sans-serif;
+  font-size: 100px;
+  color: rgba(255, 0, 0, 0.685);
+  padding: 0.5em;
+  font-family: "Spirax", sans-serif;
+  /* padding-top: 195px; */
+  padding-top: 384px;
+}
+
+h2 {
+  background-color: rgba(255, 0, 0, 0.4);
+  padding: 0.5em;
+  font-family: "Poiret One", sans-serif;
+  margin-left: 100px;
+  margin-right: 250px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 21px;
+  font-weight: 500;
+}
+
+section > p {
+  background-color: rgba(255, 0, 0, 0.4);
+  padding: 0.5em;
+  font-family: "Poiret One", sans-serif;
+  font-size: 21px;
+  margin-left: 250px;
+  margin-right: 100px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
