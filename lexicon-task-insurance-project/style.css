@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre|Fira+Sans");
+
+/* #F17949 */
+/* #FAB131 */
+/* #C7DDEA */
+/* #A9A19E */
+
+html, body {
+  /* margin: 0; */
+  /* padding: 0; */
+  font-family: 'Fira Sans', sans-serif;
+}
+
+header {
+
+}
+
+.header-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr ;  
+  grid-template-rows: 1fr 1; 
+  grid-template-areas: 
+    "header-con-one header-con-two "
+    "header-con-one header-con-three";
+
+
+}
+
+.header-con-one {
+  background-color: #C7DDEA;
+  grid-area: header-con-one;
+
+}
+.header-con-one img {
+  width: 60%;
+}
+
+.header-con-two {
+background-color: #F17949;
+grid-area: header-con-two;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+ 
+}
+
+.header-con-three {
+  background-color: #FAB131;
+  grid-area: header-con-three;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0;
+  margin: 25px;
+  
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
