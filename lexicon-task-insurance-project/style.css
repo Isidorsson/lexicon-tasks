@@ -5,54 +5,49 @@
 /* #C7DDEA */
 /* #A9A19E */
 
-html, body {
+html,
+body {
   /* margin: 0; */
   /* padding: 0; */
-  font-family: 'Fira Sans', sans-serif;
+  font-family: "Fira Sans", sans-serif;
 }
 
 header {
-
 }
 
 .header-container {
   display: grid;
-  grid-template-columns: 1fr 1fr ;  
-  grid-template-rows: 1fr 1; 
-  grid-template-areas: 
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1;
+  grid-template-areas:
     "header-con-one header-con-two "
     "header-con-one header-con-three";
-
-
 }
 
 .header-con-one {
-  background-color: #C7DDEA;
+  background-color: #c7ddea;
   grid-area: header-con-one;
-
 }
 .header-con-one img {
   width: 60%;
 }
 
 .header-con-two {
-background-color: #F17949;
-grid-area: header-con-two;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
- 
+  background-color: #f17949;
+  grid-area: header-con-two;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .header-con-three {
-  background-color: #FAB131;
+  background-color: #fab131;
   grid-area: header-con-three;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 }
 
 nav {
@@ -62,7 +57,6 @@ nav {
   width: 100%;
   padding: 0;
   margin: 25px;
-  
 }
 
 nav ul {
@@ -78,4 +72,68 @@ nav ul li {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+
+
+.card-first-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "text-one text-two"
+    "button-one text-two";
+  margin: 0 25px;
+  background-color: #A9A19E;
+}
+
+/* cards */
+.card-container {
+background-color: white;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+margin: 0 25px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 25px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+
+.picture-one {
+  background-color: #f7ddea;
+}
+.picture-two {
+  background-color: #fAB131;
+}
+.picture-three {
+  background-color: #f17949;
+}
+
+
+.picture img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+
+.card-about-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 25px;
+  background-color: #fAB131;
+
 }
