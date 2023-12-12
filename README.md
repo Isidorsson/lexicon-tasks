@@ -6,4 +6,4 @@
 - [x] [Task 4](lexicon-task-music-player) - [Music Player](https://cloticc.github.io/lexicon-tasks/lexicon-task-music-player/)
 - [x] [Task 5](lexicon-task-post-shop-flex) - [Post Shop Flex](https://cloticc.github.io/lexicon-tasks/lexicon-task-post-shop-flex/)
 - [x] [Task 6](lexicon-task-post-shop-grid) - [Post Shop Grid](https://cloticc.github.io/lexicon-tasks/lexicon-task-post-shop-grid/)
-- [ ] [Task 7] - [Insurance Project](https://cloticc.github.io/lexicon-tasks/lexicon-task-insurance-project/)
+- [ ] [Task 7](lexicon-task-insurance-project/) - [Insurance Project](https://cloticc.github.io/lexicon-tasks/lexicon-task-insurance-project/)
