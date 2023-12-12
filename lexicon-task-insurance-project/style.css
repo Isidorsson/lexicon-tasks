@@ -196,3 +196,69 @@ button {
 }
 
 /* card end */
+
+.box-container  {
+/* gird system area 3x2 */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1;
+  grid-template-areas:
+    "box-one box-two box-three"
+    "box-four box-five box-six";
+  /* margin: 0 25px; */
+}
+
+.box-one {
+  grid-area: box-one;
+  background-color: #C7DDEA;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.box-two {
+  grid-area: box-two;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.box-three {
+  grid-area: box-three;
+  background-color: #EBEBEB;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.box-four {
+  grid-area: box-four;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.box-five {
+  grid-area: box-five;
+  background-color: #f17949;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.box-six {
+  grid-area: box-six;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
