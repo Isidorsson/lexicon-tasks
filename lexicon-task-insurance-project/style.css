@@ -104,7 +104,6 @@ button {
   /* background-color: #a9a19e; */
 
   /* mix-blend-mode: multiply; */
-  
 }
 
 .card-first-section h2 {
@@ -125,11 +124,10 @@ button {
 
 .card-first-section button {
   grid-area: text-button;
-  /* max-width: 30%; */
-  padding: 1rem 2rem;
-
+  width: 25%;
+  height: auto;
+  transform: translate(80%, -150%);
   /* margin: 0 auto; */
-  /* transform: translate(110%, -235%); */
 }
 
 .card-container {
@@ -138,12 +136,7 @@ button {
   justify-content: center;
   align-items: center;
   margin: 0 25px;
-
-
-
-
-
-} 
+}
 
 .card {
   display: flex;
@@ -156,7 +149,6 @@ button {
   margin: 25px;
   padding: 25px;
   margin-top: 4rem;
-  
 }
 .picture {
   border-radius: 5%;
