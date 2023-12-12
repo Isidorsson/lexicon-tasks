@@ -260,5 +260,26 @@ button {
 .box p {
   font-size: 25px;
   margin: 0 50px;
-  
+}
+
+.take-me-up {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background-color: #A9A19E;
+  width: 100%; /* Stretch from left to right */
+
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.take-me-up .material-symbols-outlined {
+  font-size: 3rem; /* Increase the font size to make the icon larger */
+}
+
+.take-me-up h2 {
+  text-align: center; /* Center the h2 element */
 }
