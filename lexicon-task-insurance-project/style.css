@@ -21,6 +21,12 @@ h2 {
 p {
   font-family: "Fira Sans", sans-serif;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
 .header-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -272,10 +278,7 @@ button {
   width: 100%; /* Stretch from left to right */
 
 }
-a {
-  text-decoration: none;
-  color: black;
-}
+
 .take-me-up .material-symbols-outlined {
   font-size: 3rem; /* Increase the font size to make the icon larger */
 }
@@ -283,3 +286,6 @@ a {
 .take-me-up h2 {
   text-align: center; /* Center the h2 element */
 }
+
+
+/* footer start */
