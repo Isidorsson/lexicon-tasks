@@ -3,18 +3,24 @@
 /* #F17949 */
 /* #FAB131 */
 /* #C7DDEA */
-/* #A9A19E */
+/* */
 
 html,
 body {
   /* margin: 0; */
   /* padding: 0; */
-  font-family: "Fira Sans", sans-serif;
 }
 
 header {
+  font-family: "Fira Sans", sans-serif;
+}
+h2 {
+  font-family: "Frank Ruhl Libre", serif;
 }
 
+p {
+  font-family: "Fira Sans", sans-serif;
+}
 .header-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -74,66 +80,82 @@ nav ul li {
   margin: 0;
 }
 
+button {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+#card-section {
+  background: linear-gradient(#a9a19e 50%, #fab131 50%);
+  background-size: 200%;
+}
+
 .card-first-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   grid-template-areas:
     "text-one text-two"
-    "button-one text-two";
+    "text-button text-two";
   margin: 0 25px;
-  background-color: #a9a19e;
-}
+  /* background-color: #a9a19e; */
 
-button {
-  background-color: white;
-  color: black;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5%;
-  cursor: pointer;
+  /* mix-blend-mode: multiply; */
+  
 }
 
 .card-first-section h2 {
+  grid: text-one;
   color: white;
-  font-size: 1.5rem;
-  font-weight: 400;
-  padding: 100px 100px;
+  font-size: 4rem;
+  padding: 5rem 5rem;
+  margin-left: 4rem;
 }
 
 .card-first-section p {
+  grid-area: text-two;
   color: black;
   font-size: 1.5rem;
   font-weight: 400;
-  padding: 100px auto;
+  padding: 5rem 5rem;
 }
 
 .card-first-section button {
-  max-width: 25%;
-  margin: 0 auto;
+  grid-area: text-button;
+  /* max-width: 30%; */
+  padding: 1rem 2rem;
+
+  /* margin: 0 auto; */
+  /* transform: translate(110%, -235%); */
 }
 
-/* card start */
 .card-container {
-
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin: 0 25px;
-}
+
+
+
+
+
+} 
+
 .card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  /* set so they are same size */
   width: 300px;
   height: 300px;
   margin: 25px;
   padding: 25px;
+  margin-top: 4rem;
   
 }
 .picture {
@@ -166,6 +188,19 @@ button {
   align-items: center;
   justify-content: center;
   margin: 0 25px;
-  background-color: #fab131;
+  /* background-color: #fab131; */
 }
+
+.card-about-section h2 {
+  color: white;
+  font-size: 5rem;
+}
+
+.card-about-section p {
+  font-size: 1.5rem;
+  font-weight: 400;
+  max-width: 40rem;
+  white-space: pre;
+}
+
 /* card end */
