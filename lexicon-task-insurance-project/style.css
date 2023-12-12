@@ -196,69 +196,69 @@ button {
 }
 
 /* card end */
-
-.box-container  {
-/* gird system area 3x2 */
+.box-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1;
-  grid-template-areas:
-    "box-one box-two box-three"
-    "box-four box-five box-six";
-  /* margin: 0 25px; */
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  /* grid-gap: 20px;  */
+}
+
+.box {
+  position: relative; /* Add relative positioning to the parent container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.box-one,
+.box-two,
+.box-three,
+.box-four,
+.box-five,
+.box-six {
+  background-color: #c7ddea;
 }
 
 .box-one {
-  grid-area: box-one;
-  background-color: #C7DDEA;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  font-size: 4rem;
 }
 
 .box-two {
-  grid-area: box-two;
-  background-color: #FFFFFF;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-color: #ffffff;
 }
 
 .box-three {
-  grid-area: box-three;
-  background-color: #EBEBEB;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-color: #ebebeb;
 }
 
 .box-four {
-  grid-area: box-four;
-  background-color: #FFFFFF;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-color: #ffffff;
 }
 
 .box-five {
-  grid-area: box-five;
   background-color: #f17949;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 .box-six {
-  grid-area: box-six;
-  background-color: #FFFFFF;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-color: #ffffff;
 }
 
+.box h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 20px;
+  color: #999999;
+  opacity: 0.8;
+}
+
+.box p {
+  font-size: 25px;
+  margin: 0 50px;
+  
+}
