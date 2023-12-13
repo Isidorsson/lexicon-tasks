@@ -7,11 +7,13 @@
 
 html,
 body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  /* margin: 25px; */
+  /* padding: 0; */
+
   /* background-color: red; */
 }
+
+
 
 h1,
 h2 {
@@ -45,7 +47,7 @@ button {
     "header-con-one header-con-two "
     "header-con-one header-con-three";
 
-  max-height: fit-content;
+  /* max-height: fit-content; */
 }
 
 .header-con-one {
@@ -63,7 +65,6 @@ button {
   flex-direction: column;
   /* align-items: center; */
   justify-content: center;
-  margin: 0 25px;
   /* background-color: red; */
   width: 65%;
   height: auto;
@@ -133,7 +134,7 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 100%;
+  width: 90%;
   padding: 0;
   margin: 25px;
 }
@@ -158,16 +159,6 @@ nav ul li {
 #card-section {
   background: linear-gradient(#a9a19e 50%, #fab131 50%);
   background-size: 200%;
-}
-
-.card-first-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas:
-    "text-one text-two"
-    "text-button text-two";
-  margin: 0 25px;
 }
 
 .card-first-section {
@@ -211,6 +202,7 @@ nav ul li {
   justify-content: center;
   align-items: center;
   margin: 0 25px;
+  
 }
 
 .card {
@@ -224,6 +216,7 @@ nav ul li {
   margin: 25px;
   padding: 25px;
   margin-top: 4rem;
+  
 }
 .picture {
   border-radius: 5%;
@@ -256,6 +249,7 @@ nav ul li {
   justify-content: center;
   margin: 0 25px;
   /* background-color: #fab131; */
+  
 }
 
 .card-about-section h2 {
@@ -279,13 +273,14 @@ nav ul li {
 }
 
 .box {
-  position: relative; 
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
+  
 }
 
 .box-one,
@@ -346,6 +341,7 @@ nav ul li {
   background-color: #a9a19e;
   width: 100%;
   height: 90px;
+  
 }
 
 .take-me-up .material-symbols-outlined {
@@ -353,12 +349,14 @@ nav ul li {
 }
 
 .take-me-up h2 {
-  text-align: center; 
+  text-align: center;
+  
 }
 
 .gray-box {
   background-color: gray;
   height: 350px;
+  
 }
 
 .oh-hello-there {
@@ -370,6 +368,7 @@ nav ul li {
   /* margin: 0 0 -24px 0; */
   flex-wrap: nowrap;
   /* height: 100%; */
+  
 }
 
 .oh-hello-there h2 {
@@ -394,9 +393,10 @@ nav ul li {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 100%;
+  width: 90%;
   padding: 0;
   margin: 25px;
+  
 }
 
 .form-mail {
@@ -405,6 +405,7 @@ nav ul li {
   align-items: baseline;
   justify-content: center;
   background-color: #a9a19e;
+  
 }
 
 .form-mail h2 {
@@ -430,7 +431,7 @@ nav ul li {
 .form-content input {
   margin: 10px 0;
   padding: 10px;
-  width: 50%; 
+  width: 50%;
   border-radius: 12px;
   border: none;
 }
@@ -438,7 +439,7 @@ nav ul li {
 .form-content textarea {
   margin: 10px 0;
   padding: 10px;
-  width: 50%; 
+  width: 50%;
   height: 25%;
   border-radius: 12px;
   border: none;
@@ -464,6 +465,7 @@ nav ul li {
   flex-wrap: nowrap;
   align-content: stretch;
   align-items: center;
+  
 }
 
 .visit-us {
@@ -508,7 +510,7 @@ nav ul li {
   .header-con-one,
   .header-con-two,
   .header-con-three {
-    /* margin: 0; */
+    margin: 0;
   }
 
   .header-container img {
@@ -534,7 +536,7 @@ nav ul li {
   .card-first-section h2 {
     color: white;
     font-size: 3rem;
-    padding: 2rem 5rem 1rem; 
+    padding: 2rem 5rem 1rem;
     margin-left: 4rem;
   }
 
@@ -542,7 +544,7 @@ nav ul li {
     color: black;
     font-size: 1rem;
     font-weight: 400;
-    padding: 1rem 5rem 5rem; 
+    padding: 1rem 5rem 5rem;
     width: 442px;
   }
 
@@ -552,19 +554,20 @@ nav ul li {
     align-items: center;
     justify-content: center;
     margin: 0 25px;
-    /* background-color: #fab131; */
+    /* width: 100%;  */
+    /* overflow: hidden;  */
   }
 
   .card-about-section h2 {
     color: white;
     font-size: 5rem;
-    padding-bottom: 1rem; 
+    padding-bottom: 1rem;
   }
 
   .card-about-section p {
     font-size: 1.5rem;
     font-weight: 400;
-    max-width: 600px; 
+    max-width: 600px;
     white-space: pre-wrap;
     word-wrap: break-word;
   }
@@ -579,7 +582,6 @@ nav ul li {
   .visit-us p {
     margin: 10px;
   }
-
 
   .box-container {
     grid-template-columns: 1fr;
@@ -649,14 +651,14 @@ nav ul li {
     display: inline-block;
     color: black;
   }
-.nav-bar-footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  padding: 0;
-  margin: 25px;
-}
+  .nav-bar-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    margin: 25px;
+  }
 
   .form-content {
     width: 90%;
