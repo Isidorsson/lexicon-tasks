@@ -5,6 +5,14 @@
 /* #C7DDEA */
 /* */
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: red;
+}
+
 h1,
 h2 {
   font-family: "Frank Ruhl Libre", serif;
@@ -491,4 +499,178 @@ nav ul li {
   color: white;
   margin: 0 25px;
   display: inline-block;
+}
+@media only screen and (max-width: 600px) {
+  /* Adjust the styles for phone layout here */
+  .header-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "header-con-one"
+      "header-con-two"
+      "header-con-three";
+  }
+
+  .header-con-one,
+  .header-con-two,
+  .header-con-three {
+    margin: 0;
+  }
+
+  .header-container img {
+    margin: 0;
+  }
+
+  .card-first-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* margin: 0 25px; */
+  }
+
+  .card-first-section h2 {
+    color: white;
+    font-size: 3rem;
+    padding: 2rem 5rem 1rem; /* Adjust the padding values as per your requirement */
+    margin-left: 4rem;
+  }
+
+  .card-first-section p {
+    color: black;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 1rem 5rem 5rem; /* Adjust the padding values as per your requirement */
+    width: 442px;
+  }
+
+  .card-about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 25px;
+    /* background-color: #fab131; */
+  }
+
+  .card-about-section h2 {
+    color: white;
+    font-size: 5rem;
+    padding-bottom: 1rem; /* Adjust the padding-bottom value as per your requirement */
+  }
+
+  .card-about-section p {
+    font-size: 1.5rem;
+    font-weight: 400;
+    max-width: 600px; /* Set the max-width to 600px */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .visit-us {
+    width: 100%;
+    height: auto;
+    margin: 25px;
+  }
+
+  .visit-us h2,
+  .visit-us p {
+    margin: 10px;
+  }
+
+  .box-text-header {
+    width: 100%;
+    margin: 25px;
+  }
+
+  .box-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .card {
+    width: 90%;
+    margin: 10px;
+  }
+
+  .card-about-section h2 {
+    margin: 10px;
+  }
+
+  .box-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .box {
+    height: 200px;
+  }
+
+  .box h2 {
+    font-size: 3rem;
+  }
+
+  .box h3 {
+    font-size: 1.5rem;
+  }
+
+  .box p {
+    font-size: 1rem;
+  }
+
+  .take-me-up {
+    height: 100px;
+  }
+
+  .take-me-up .material-symbols-outlined {
+    font-size: 1.5rem;
+  }
+
+  .take-me-up h2 {
+    font-size: 1.5rem;
+  }
+
+  .gray-box {
+    height: 200px;
+  }
+
+  .oh-hello-there {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    background-color: #c7ddea;
+    flex-wrap: nowrap;
+  }
+
+  .oh-hello-there h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: white;
+    margin: 0 25px;
+    display: inline-block;
+    color: black;
+  }
+
+  .form-content {
+    width: 90%;
+    height: auto;
+    margin: 10px;
+  }
+
+  .form-content input,
+  .form-content textarea {
+    width: 50%;
+  }
+
+  .form-content button {
+    transform: none;
+    margin: 10px auto;
+    width: 30%;
+  }
+
+  .map {
+    justify-content: center;
+    margin: 10px;
+  }
 }
