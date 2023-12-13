@@ -31,6 +31,7 @@ button {
   padding: 10px 20px;
   border-radius: 12px;
   cursor: pointer;
+  width: 30%;
 }
 
 .header-container {
@@ -66,9 +67,9 @@ button {
 
 .header-container h1 {
   font-size: 4rem;
-  font-weight: 800;
+
   color: black;
-  margin: 0 25px;
+  margin: 0 0 0 25px;
   display: inline-block;
 }
 
@@ -88,15 +89,16 @@ button {
 
 
 .header-btn {
-  /* transform: translate(240%, -800%); */
   margin: 0 auto;
   transform: translate(-90%, 540%);
+  /* increase length of button */
+  /* width: 30%; */
 }
 
 .header-container img {
   width: 60%;
   height: auto;
-  transform: translate(40%, 0);
+  transform: translate(60%, 0);
 }
 
 
@@ -211,7 +213,7 @@ nav ul li {
 
 .card-first-section button {
   grid-area: text-button;
-  width: 15%;
+  width: 20%;
   height: auto;
   transform: translate(120%, -150%);
   /* margin: 0 auto; */
@@ -438,9 +440,9 @@ nav ul li {
 }
 
 .form-content button {
-  width: 25%;
+  width: 20%;
   height: auto;
-  transform: translate(55%, 55%);
+  transform: translate(85%, 55%);
   margin: 0 auto;
 }
 
