@@ -5,11 +5,6 @@
 /* #C7DDEA */
 /* */
 
-* {
-  /* margin: 0; */
-  /* padding: 0; */
-}
-
 h1,
 h2 {
   font-family: "Frank Ruhl Libre", serif;
@@ -41,11 +36,18 @@ button {
   grid-template-areas:
     "header-con-one header-con-two "
     "header-con-one header-con-three";
+
+  max-height: fit-content;
 }
 
 .header-con-one {
   background-color: #c7ddea;
   grid-area: header-con-one;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .box-text-header {
@@ -64,7 +66,6 @@ button {
 
 .header-container h1 {
   font-size: 4rem;
-
   color: black;
   margin: 0 0 0 25px;
   display: inline-block;
@@ -82,18 +83,15 @@ button {
   color: white;
   font-weight: bold;
 }
-
 .header-btn {
-  margin: 0 auto;
-  transform: translate(-90%, 540%);
-  /* increase length of button */
-  /* width: 30%; */
+  position: relative;
+  top: 220px;
+  left: 60px;
 }
-
 .header-container img {
   width: 60%;
   height: auto;
-  transform: translate(60%, 0);
+  margin: 0 0 0 300px;
 }
 
 .header-con-two {
@@ -105,7 +103,8 @@ button {
   justify-content: center;
 }
 
-.header-con-two h2 {
+.header-con-two h2,
+.header-con-three h2 {
   font-size: 3rem;
   font-weight: 800;
   color: white;
@@ -120,14 +119,6 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.header-con-three h2 {
-  font-size: 3rem;
-  font-weight: 800;
-  color: white;
-  margin: 0 25px;
-  display: inline-block;
 }
 
 nav {
@@ -201,13 +192,14 @@ nav ul li {
   font-size: 1.5rem;
   font-weight: 400;
   padding: 5rem 5rem;
+  width: 442px;
 }
 
 .card-first-section button {
   grid-area: text-button;
   width: 20%;
   height: auto;
-  transform: translate(120%, -150%);
+  transform: translate(85%, -150%);
   /* margin: 0 auto; */
 }
 
