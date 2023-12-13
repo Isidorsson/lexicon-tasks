@@ -5,10 +5,9 @@
 /* #C7DDEA */
 /* */
 
-html,
-body {
-  /* margin: 0; */
-  /* padding: 0; */
+* {
+  margin: 0;
+  padding: 0;
 }
 
 header {
@@ -274,25 +273,136 @@ button {
   align-items: center;
   justify-content: center;
   margin: 0;
-  background-color: #A9A19E;
+  background-color: #a9a19e;
   width: 100%; /* Stretch from left to right */
-
+  height: 60px;
 }
 
 .take-me-up .material-symbols-outlined {
-  font-size: 3rem; /* Increase the font size to make the icon larger */
+  font-size: 2rem;
 }
 
 .take-me-up h2 {
   text-align: center; /* Center the h2 element */
 }
 
+.gray-box {
+  background-color: gray;
+  height: 350px;
+}
 
 /* footer start */
 .oh-hello-there {
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-background-color: #A9A19E;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #c7ddea;
+  /* margin: 0 0 -24px 0; */
+}
+
+.nav-bar-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0;
+  margin: 25px;
+}
+
+.form-mail {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: center;
+  background-color: #a9a19e;
+}
+
+.form-mail h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: white;
+  margin: 0 25px;
+  display: inline-block;
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 50%;
+  height: 650px;
+  /* padding: 0; */
+  /* margin: 25px; */
+}
+
+.form-content input {
+  margin: 10px 0;
+  padding: 10px;
+  width: 50%; /* Adjust the width as desired */
+  border-radius: 12px;
+  border: none;
+}
+
+.form-content textarea {
+  margin: 10px 0;
+  padding: 10px;
+  width: 50%; /* Adjust the width as desired */
+  height: 25%;
+  border-radius: 12px;
+  border: none;
+}
+
+.form-content button {
+  width: 25%;
+  height: auto;
+  transform: translate(55%, 55%);
+  margin: 0 auto;
+}
+
+.map {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-image: url("https://v2cdn0.centralappstatic.com/provider/mapbox/io?u=aHR0cHM6Ly9hcGkubWFwYm94LmNvbS9zdHlsZXMvdjEvbWFwYm94L2RhcmstdjEwL3N0YXRpYy9waW4tcys3MzYxNWQoMi4zNDAxNjM2LDQ4Ljg1NTYwNjEpLzIuMzQwMTYzNiw0OC44NTUzNTYxLDEzLDAsMC8xMjAweDQwMEAyeD9sb2dvPWZhbHNl");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 40vh;
+  width: auto;
+  flex-wrap: nowrap;
+  align-content: stretch;
+  align-items: center;
+}
+
+.visit-us {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: center; */
+  background-color: #fab131;
+  width: 30%;
+  height: 50%;
+  opacity: 0.9;
+  border-radius: 12px;
+  margin: 50px 50px;
+
+}
+
+.visit-us h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: white;
+  margin: 0 25px;
+  display: inline-block;
+}
+
+.visit-us p {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: white;
+  margin: 0 25px;
+  display: inline-block;
 }
