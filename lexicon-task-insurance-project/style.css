@@ -168,9 +168,6 @@ nav ul li {
     "text-one text-two"
     "text-button text-two";
   margin: 0 25px;
-  /* background-color: #a9a19e; */
-
-  /* mix-blend-mode: multiply; */
 }
 
 .card-first-section {
@@ -181,9 +178,6 @@ nav ul li {
     "text-one text-two"
     "text-button text-two";
   margin: 0 25px;
-  /* background-color: #a9a19e; */
-
-  /* mix-blend-mode: multiply; */
 }
 
 .card-first-section h2 {
@@ -285,7 +279,7 @@ nav ul li {
 }
 
 .box {
-  position: relative; /* Add relative positioning to the parent container */
+  position: relative; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -359,7 +353,7 @@ nav ul li {
 }
 
 .take-me-up h2 {
-  text-align: center; /* Center the h2 element */
+  text-align: center; 
 }
 
 .gray-box {
@@ -436,7 +430,7 @@ nav ul li {
 .form-content input {
   margin: 10px 0;
   padding: 10px;
-  width: 50%; /* Adjust the width as desired */
+  width: 50%; 
   border-radius: 12px;
   border: none;
 }
@@ -444,7 +438,7 @@ nav ul li {
 .form-content textarea {
   margin: 10px 0;
   padding: 10px;
-  width: 50%; /* Adjust the width as desired */
+  width: 50%; 
   height: 25%;
   border-radius: 12px;
   border: none;
@@ -532,7 +526,7 @@ nav ul li {
   .card-first-section h2 {
     color: white;
     font-size: 3rem;
-    padding: 2rem 5rem 1rem; /* Adjust the padding values as per your requirement */
+    padding: 2rem 5rem 1rem; 
     margin-left: 4rem;
   }
 
@@ -540,7 +534,7 @@ nav ul li {
     color: black;
     font-size: 1rem;
     font-weight: 400;
-    padding: 1rem 5rem 5rem; /* Adjust the padding values as per your requirement */
+    padding: 1rem 5rem 5rem; 
     width: 442px;
   }
 
@@ -556,13 +550,13 @@ nav ul li {
   .card-about-section h2 {
     color: white;
     font-size: 5rem;
-    padding-bottom: 1rem; /* Adjust the padding-bottom value as per your requirement */
+    padding-bottom: 1rem; 
   }
 
   .card-about-section p {
     font-size: 1.5rem;
     font-weight: 400;
-    max-width: 600px; /* Set the max-width to 600px */
+    max-width: 600px; 
     white-space: pre-wrap;
     word-wrap: break-word;
   }
