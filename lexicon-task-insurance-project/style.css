@@ -10,7 +10,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: red;
+  /* background-color: red; */
 }
 
 h1,
@@ -508,17 +508,21 @@ nav ul li {
   .header-con-one,
   .header-con-two,
   .header-con-three {
-    margin: 0;
+    /* margin: 0; */
   }
 
   .header-container img {
     margin: 0;
   }
-.header-btn {
-  position: relative;
-  top: 130px;
-  left: 30px;
-}
+  .header-btn {
+    position: relative;
+    top: 130px;
+    left: 0;
+  }
+  .box-text-header {
+    width: 85%;
+    margin: 25px;
+  }
   .card-first-section {
     display: flex;
     flex-direction: column;
@@ -576,10 +580,6 @@ nav ul li {
     margin: 10px;
   }
 
-  .box-text-header {
-    width: 100%;
-    margin: 25px;
-  }
 
   .box-container {
     grid-template-columns: 1fr;
@@ -649,6 +649,14 @@ nav ul li {
     display: inline-block;
     color: black;
   }
+.nav-bar-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+  margin: 25px;
+}
 
   .form-content {
     width: 90%;
@@ -669,6 +677,6 @@ nav ul li {
 
   .map {
     justify-content: center;
-    margin: 10px;
+    /* margin: 10px; */
   }
 }
