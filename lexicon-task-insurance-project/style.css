@@ -35,8 +35,6 @@ button {
   grid-template-areas:
     "header-con-one header-con-two "
     "header-con-one header-con-three";
-
-  /* max-height: fit-content; */
 }
 
 .header-con-one {
@@ -69,7 +67,6 @@ button {
 .header-container p {
   font-size: 1.5rem;
   font-weight: 400;
-  /* color: black; */
   margin: 0 25px;
   display: inline-block;
 }
@@ -142,7 +139,6 @@ nav ul li {
   font-family: "Fira Sans", sans-serif;
 }
 
-/* New section for shit */
 
 #card-section {
   background: linear-gradient(#a9a19e 50%, #fab131 50%);
@@ -181,7 +177,6 @@ nav ul li {
   width: 20%;
   height: auto;
   transform: translate(85%, -150%);
-  /* margin: 0 auto; */
 }
 
 .card-container {
@@ -254,7 +249,6 @@ nav ul li {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  /* grid-gap: 20px;  */
 }
 
 .box {
@@ -500,7 +494,6 @@ nav ul li {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* margin: 0 25px; */
   }
 
   .card-first-section h2 {
@@ -524,8 +517,6 @@ nav ul li {
     align-items: center;
     justify-content: center;
     margin: 0 25px;
-    /* width: 100%;  */
-    /* overflow: hidden;  */
   }
 
   .card-about-section h2 {
@@ -649,6 +640,6 @@ nav ul li {
 
   .map {
     justify-content: center;
-    /* margin: 10px; */
+
   }
 }
