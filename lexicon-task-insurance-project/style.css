@@ -3,17 +3,6 @@
 /* #F17949 */
 /* #FAB131 */
 /* #C7DDEA */
-/* */
-
-html,
-body {
-  /* margin: 25px; */
-  /* padding: 0; */
-
-  /* background-color: red; */
-}
-
-
 
 h1,
 h2 {
@@ -63,13 +52,10 @@ button {
 .box-text-header {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: center;
-  /* background-color: red; */
   width: 65%;
   height: auto;
   transform: translateY(2%);
-  /* padding: 50px 50px; */
   margin: 50px 50px;
 }
 
@@ -204,7 +190,6 @@ nav ul li {
   justify-content: center;
   align-items: center;
   margin: 0 25px;
-  
 }
 
 .card {
@@ -218,7 +203,6 @@ nav ul li {
   margin: 25px;
   padding: 25px;
   margin-top: 4rem;
-  
 }
 .picture {
   border-radius: 5%;
@@ -251,7 +235,6 @@ nav ul li {
   justify-content: center;
   margin: 0 25px;
   /* background-color: #fab131; */
-  
 }
 
 .card-about-section h2 {
@@ -282,7 +265,6 @@ nav ul li {
   justify-content: center;
   width: 100%;
   height: 100%;
-  
 }
 
 .box-one,
@@ -343,7 +325,6 @@ nav ul li {
   background-color: #a9a19e;
   width: 100%;
   height: 90px;
-  
 }
 
 .take-me-up .material-symbols-outlined {
@@ -352,13 +333,11 @@ nav ul li {
 
 .take-me-up h2 {
   text-align: center;
-  
 }
 
 .gray-box {
   background-color: gray;
   height: 350px;
-  
 }
 
 .oh-hello-there {
@@ -367,17 +346,13 @@ nav ul li {
   align-items: flex-end;
   justify-content: flex-end;
   background-color: #c7ddea;
-  /* margin: 0 0 -24px 0; */
   flex-wrap: nowrap;
-  /* height: 100%; */
-  
 }
 
 .oh-hello-there h2 {
   font-size: 3rem;
   font-weight: 800;
   color: white;
-  /* margin: 0 25px; */
   margin: 250px 200px;
   display: inline-block;
   color: black;
@@ -387,8 +362,6 @@ nav ul li {
   width: 20%;
   height: auto;
   margin: 0 100px;
-  /* transform: translate(0, 0); */
-  /* margin: 0 0 -24px 0; */
 }
 
 .nav-bar-footer {
@@ -398,7 +371,6 @@ nav ul li {
   width: 90%;
   padding: 0;
   margin: 25px;
-  
 }
 
 .form-mail {
@@ -407,7 +379,6 @@ nav ul li {
   align-items: baseline;
   justify-content: center;
   background-color: #a9a19e;
-  
 }
 
 .form-mail h2 {
@@ -467,14 +438,11 @@ nav ul li {
   flex-wrap: nowrap;
   align-content: stretch;
   align-items: center;
-  
 }
 
 .visit-us {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* justify-content: center; */
   background-color: #fab131;
   width: 30%;
   height: 50%;
