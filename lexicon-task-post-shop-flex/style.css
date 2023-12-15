@@ -107,33 +107,29 @@ button {
 
 .footer-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #555555;
-  padding: 20px;
+  justify-content: space-around;
+  background-color: #333333;
+  /* padding: 20px; */
   color: white;
-  margin-top: 100px;
+  margin-top: 120px;
+  align-items: center;
+  height: 250px;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .footer-left ul {
+  display: flex;
+  flex-direction: column;
   list-style: none;
   padding: 0;
 }
 
-.footer-left ul li {
-  display: inline;
-  margin-right: 10px;
-}
 
-.footer-left img {
-  width: 100px;
-  height: auto;
-}
-
-.footer-left p {
-  font-size: 14px;
-  color: #ffffff;
-}
 
 .footer-middle {
   text-align: center;
@@ -143,7 +139,7 @@ button {
 ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 10px;
 }
 
 ul li a {
@@ -223,7 +219,7 @@ ul li a:hover {
   .footer-right ul {
     display: flex;
     flex-direction: column;
-    flex-direction: column;
+
     gap: 10px;
   }
 }
