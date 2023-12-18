@@ -523,11 +523,11 @@ nav ul li {
   }
 
   .card-about-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 25px;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* margin: 0 25px; */
   }
 
   .card-about-section h2 {
@@ -537,11 +537,11 @@ nav ul li {
   }
 
   .card-about-section p {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 400;
-    max-width: 600px;
     white-space: pre-wrap;
-    word-wrap: break-word;
+
+
   }
 
   .visit-us {
