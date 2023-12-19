@@ -2,7 +2,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  padding: 50px 50px;
+  padding: 10rem 10rem;
 }
 
 .calendar {
@@ -15,11 +15,23 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 20px;
+  background-color: #fe2c2c;
+  color: white;
 }
 
 .prev-month,
 .next-month {
   cursor: pointer;
+}
+
+button {
+  background-color: #fe2c2c;
+  border: none;
+}
+
+button:hover {
+  background-color: #fe2c2c;
+  opacity: 0.8;
 }
 
 .month-year {
@@ -29,31 +41,43 @@ body {
 .days-of-week {
   width: 100%;
   table-layout: fixed;
+  background-color: gray;
 }
-
 .dates-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  gap: 10px;
+  align-items: stretch;
+  justify-items: stretch;
+
+  height: 400px;
+}
+
+.dates-grid span {
+  border: 1px solid gray;
+  box-sizing: border-box;
+
+}
+
+.old-month {
+  color: gray;
+}
+
+.new-month {
+  color: gray;
+}
+
+.old-month,
+.curr-month,
+.new-month {
+  display: flex;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
-.days-of-week span {
-  text-align: center;
-  padding: 10px 0;
-  border: 1px solid #ccc;
-}
-
-.prev-month {
-  color: #ccc;
-}
-
-.next-month {
-  color: #ccc;
-}
-
+/*
 .highlighted-day {
   border-radius: 50%;
   background-color: red;
@@ -63,4 +87,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}*/
+.highlighted-day {
+  border-radius: 50%;
+  background-color: red;
+  opacity: 0.9;
+  width: 40%;
+  height: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  color: white;
 }
