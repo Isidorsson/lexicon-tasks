@@ -4,11 +4,50 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-  /* overflow: hidden; */
-  background-color: gray;
+
 }
+
 
 #canvas {
   background-color: white;
 }
 
+#clock-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  transform: translate(119%, -178%);
+}
+
+.number {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  transform-origin: 50% 100px;
+}
+
+.text {
+  display: inline-block;
+}
+
+#time {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-100%, 70%);
+  font-size: 30px;
+  font-weight: bold;
+  color: #555;
+}
+
+#timeNum {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-149%, 190%);
+  font-size: 30px;
+  font-weight: bold;
+  color: #555;
+}
