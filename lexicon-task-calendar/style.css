@@ -1,0 +1,66 @@
+/* flexbox and grid */
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 50px 50px;
+}
+
+.calendar {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.prev-month,
+.next-month {
+  cursor: pointer;
+}
+
+.month-year {
+  margin: 0;
+}
+
+.days-of-week {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.dates-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 10px;
+  align-items: center;
+  justify-items: center;
+}
+
+.days-of-week span {
+  text-align: center;
+  padding: 10px 0;
+  border: 1px solid #ccc;
+}
+
+.prev-month {
+  color: #ccc;
+}
+
+.next-month {
+  color: #ccc;
+}
+
+.highlighted-day {
+  border-radius: 50%;
+  background-color: red;
+  opacity: 0.9;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
