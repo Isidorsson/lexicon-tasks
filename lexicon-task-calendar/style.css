@@ -19,8 +19,6 @@ body {
   color: white;
 }
 
-
-
 .prev-month,
 .next-month {
   cursor: pointer;
@@ -55,14 +53,15 @@ button:hover {
 
   height: 400px;
 }
-.dates-grid span:nth-child(7n+6),
-.dates-grid span:nth-child(7n+7) {
-  background-color: #f0f0f0; /* Change this to the color you want */
+.dates-grid span:nth-child(7n + 6),
+.dates-grid span:nth-child(7n + 7) {
+  background-color: #f0f0f0;
 }
 
 .dates-grid span {
   border: 1px solid black;
   box-sizing: border-box;
+
 }
 
 .old-month {
@@ -83,22 +82,9 @@ button:hover {
   height: 100%;
 }
 
-/*
-.highlighted-day {
+.dates-grid span.highlighted-day {
   border-radius: 50%;
-  background-color: red;
-  opacity: 0.9;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}*/
-
-.highlighted-day {
-  border-radius: 50%;
-  background-color: red;
-  opacity: 0.7;
+  background-color: rgba(255, 0, 0, 0.7);
   width: 40%;
   height: 40%;
   display: flex;
