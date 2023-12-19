@@ -6,15 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <script src="app.js" defer></script>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <title>Document</title>
 </head>
 
 <body>
   <section class="calendar">
     <header class="calendar-header">
-      <button class="prev-month" aria-label="Previous Month">&lt;</button>
+      <button class="prev-month" aria-label="Previous Month">
+        <span class="material-symbols-outlined">
+          chevron_left
+        </span>
+      </button>
       <h2 class="month-year" aria-live="polite">September 2020</h2>
-      <button class="next-month" aria-label="Next Month">&gt;</button>
+      <button class="next-month" aria-label="Next Month"> <span class="material-symbols-outlined"> chevron_right </span>
+      </button>
     </header>
     <table class="days-of-week">
       <thead>
@@ -30,44 +37,46 @@
       </thead>
     </table>
     <div class="dates-grid">
-      <!-- <div class="week"> -->
-      <span class="prev-month">1</span>
-      <span class="prev-month">2</span>
-      <span class="prev-month">3</span>
-      <span class="prev-month">4</span>
-      <span class="prev-month">5</span>
-      <span class="prev-month">6</span>
-      <span class="prev-month">7</span>
-      <span class="prev-month">8</span>
-      <span class="prev-month">9</span>
-      <span class="prev-month">10</span>
-      <span class="prev-month">11</span>
-      <span class="prev-month">12</span>
-      <span class="prev-month">13</span>
-      <span class="prev-month">14</span>
-      <span class="prev-month">15</span>
-      <span class="prev-month">16</span>
-      <span class="prev-month">17</span>
-      <span class="prev-month">18</span>
-      <span class="prev-month">19</span>
-      <span class="prev-month">20</span>
-      <span class="prev-month">21</span>
-      <span class="prev-month">22</span>
-      <span class="prev-month">23</span>
-      <span class="prev-month">24</span>
-      <span class="prev-month">25</span>
-      <span class="prev-month">26</span>
-      <span class="prev-month">27</span>
-      <span class="prev-month">28</span>
-      <span class="prev-month">29</span>
-      <span class="prev-month">30</span>
-      <span class="prev-month">31</span>
-      <!-- next -->
-      <span class="next-month">1</span>
-      <span class="next-month">2</span>
-      <span class="next-month">3</span>
-      <span class="next-month">4</span>
-      <!-- </div> -->
+
+      <span class="old-month"><div class="date-number">31</div></span>
+
+      <span class="curr-month"><div class="date-number">1</div></span>
+      <span class="curr-month"><div class="date-number">2</div></span>
+      <span class="curr-month"><div class="date-number">3</div></span>
+      <span class="curr-month"><div class="date-number">4</div></span>
+      <span class="curr-month"><div class="date-number">5</div></span>
+      <span class="curr-month"><div class="date-number">6</div></span>
+      <span class="curr-month"><div class="date-number">7</div></span>
+      <span class="curr-month"><div class="date-number">8</div></span>
+      <span class="curr-month"><div class="date-number">9</div></span>
+      <span class="curr-month"><div class="date-number">10</div></span>
+      <span class="curr-month"><div class="date-number">11</div></span>
+      <span class="curr-month"><div class="date-number">12</div></span>
+      <span class="curr-month"><div class="date-number">12</div></span>
+      <span class="curr-month"><div class="date-number">13</div></span>
+      <span class="curr-month"><div class="date-number">14</div></span>
+      <span class="curr-month"><div class="date-number">15</div></span>
+      <span class="curr-month"><div class="date-number">16</div></span>
+      <span class="curr-month"><div class="date-number">17</div></span>
+      <span class="curr-month"><div class="date-number">18</div></span>
+      <span class="curr-month"><div class="date-number">19</div></span>
+      <span class="curr-month"><div class="date-number">20</div></span>
+      <span class="curr-month"><div class="date-number">21</div></span>
+      <span class="curr-month"><div class="date-number">22</div></span>
+      <span class="curr-month"><div class="date-number">23</div></span>
+      <span class="curr-month"><div class="date-number">24</div></span>
+      <span class="curr-month"><div class="date-number">25</div></span>
+      <span class="curr-month"><div class="date-number">26</div></span>
+      <span class="curr-month"><div class="date-number">27</div></span>
+      <span class="curr-month"><div class="date-number">28</div></span>
+      <span class="curr-month"><div class="date-number">29</div></span>
+      <span class="curr-month"><div class="date-number">30</div></span>
+
+      <span class="new-month"><div class="date-number"></div>1</span>
+      <span class="new-month"><div class="date-number"></div>2</span>
+      <span class="new-month"><div class="date-number"></div>3</span>
+
+
     </div>
   </section>
 
