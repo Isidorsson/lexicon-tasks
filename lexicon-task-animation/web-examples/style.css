@@ -69,8 +69,9 @@ button {
 
 #pop-up {
   /* top: -400px; */
+transform-origin: 10px;
 
- animation: drop 3s ease-in-out forwards;
+ animation: drop 3s ease-in-out forwards, swing 6s  ease-in-out forwards;
 }
 
 @keyframes drop {
@@ -85,6 +86,24 @@ button {
   }
   
 }
+
+@keyframes swing {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+  70% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+  
+}
+
+
 /*// BASKET BASE STYLES //*/
 
 header {
