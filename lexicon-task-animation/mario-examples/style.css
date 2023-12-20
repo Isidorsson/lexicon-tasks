@@ -57,6 +57,23 @@ body {
   animation: drive 10s both infinite linear;
 }
 
+.cloud {
+  position: absolute;
+}
+
+.cloud:nth-child(1) {
+  top: 100px;
+  left: 20px;
+  opacity: 0.5;
+  animation: wind 80s linear infinite reverse;
+}
+
+.cloud:nth-child(2) {
+  top: 50px;
+  left: 50px;
+  animation: wind 40s linear infinite reverse;
+}
+
 /*// KEYFRAMES //*/
 @keyframes drive {
   from {
@@ -64,5 +81,16 @@ body {
   }
   to {
     transform: translateX(105vw);
+  }
+}
+
+@keyframes wind {
+  from {
+    /* transform: translateX(-200px); */
+    /* do negative vw so it pass  */
+    transform: translateX(-200px);
+  }
+  to {
+    transform: translateX(100%);
   }
 }
