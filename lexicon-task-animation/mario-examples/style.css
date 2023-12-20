@@ -48,7 +48,7 @@ body {
   top: -40px;
   left: 0px;
   animation-name: drive;
-  animation-duration: 10s;
+  animation-duration: 3s;
   animation-fill-mode: both;
   animation-delay: 2s;
   animation-iteration-count: infinite;
@@ -62,9 +62,9 @@ body {
   animation-name: drive;
   animation-duration: 10s;
   animation-fill-mode: both;
-  animation-delay: 2s;
+  animation-delay: 5s;
   animation-iteration-count: infinite;
-  animation-direction: reverse;
+  animation-direction: linnear;
 }
 
 /*// KEYFRAMES //*/
