@@ -41,7 +41,14 @@
       <button>Add to Basket</button>
     </li>
   </ul>
+
+
   <script>
-    
+      $("button").click(function(){
+    $(this).closest("li").find("img").clone().addClass("zoom").appendTo("body");
+    setTimeout(function(){
+      $("li.zoom").remove();
+    });
+  });
   </script>
 </body>
