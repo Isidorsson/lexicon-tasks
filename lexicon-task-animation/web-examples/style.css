@@ -69,22 +69,24 @@ button {
 
 #pop-up {
   /* top: -400px; */
-transform-origin: 10px;
+  transform-origin: 10px;
 
- animation: drop 3s ease-in-out forwards, swing 6s  ease-in-out forwards;
+  animation: drop 3s ease-in-out forwards, swing 6s ease-in-out forwards;
 }
 
 @keyframes drop {
   0% {
-    top: -400px; opacity: 0;
+    top: -400px;
+    opacity: 0;
   }
   50% {
-    top: 200px; opacity: 0.5;
+    top: 200px;
+    opacity: 0.5;
   }
   100% {
-    top: 200px; opacity: 1;
+    top: 200px;
+    opacity: 1;
   }
-  
 }
 
 @keyframes swing {
@@ -100,9 +102,7 @@ transform-origin: 10px;
   100% {
     transform: rotate(0deg);
   }
-  
 }
-
 
 /*// BASKET BASE STYLES //*/
 
@@ -141,3 +141,23 @@ header:after {
 }
 
 /*// BASKET ANIMATION STYLES //*/
+.zoom {
+  position: absolute;
+  top: 50px;
+  right: 50%;
+  width: 50px;
+  opacity: 0;
+  animation: zoom 1s ease-in-out forwards;
+}
+
+@keyframes zoom {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0; right:50px;
+  }
+}
