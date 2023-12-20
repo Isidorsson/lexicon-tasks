@@ -51,15 +51,16 @@ animation-name: drive;
 animation-duration: 10s;
 animation-fill-mode: both;
 animation-delay: 2s;
+animation-iteration-count: infinite;
 
 }
 
 /*// KEYFRAMES //*/
 @keyframes drive {
   from {
-    transform: translateX(0);
+    transform: translateX(-200px);
   }
   to {
-    transform: translateX(100vw);
+    transform: translateX(105vw);
   }
 }
