@@ -47,7 +47,10 @@ body {
   position: absolute;
   top: -40px;
   left: 0px;
-  animation: drive 2s linear infinite;
+animation-name: drive;
+animation-duration: 10s;
+animation-fill-mode: both;
+animation-delay: 2s;
 
 }
 
