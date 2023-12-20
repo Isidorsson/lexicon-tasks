@@ -14,18 +14,18 @@ img {
 }
 
 .circle {
-width: 100px;
-padding: 50px 0;
-line-height: 0;
-margin: 60px auto;
-background: pink;
-color: white;
-border-radius: 50%;
-cursor: pointer;
-
-transition: 1s;
+  width: 100px;
+  padding: 50px 0;
+  line-height: 0;
+  margin: 60px auto;
+  background: pink;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 1s, transform 0.5s 1s linear;
 }
 
 .circle:hover {
   background: red;
+  transform: rotate(360deg);
 }
