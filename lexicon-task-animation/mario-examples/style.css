@@ -55,6 +55,19 @@ animation-iteration-count: infinite;
 
 }
 
+.luigi {
+  position: absolute;
+  top: 150px;
+  left: 0px;
+animation-name: drive;
+animation-duration: 10s;
+animation-fill-mode: both;
+animation-delay: 2s;
+animation-iteration-count: infinite;
+animation-direction: reverse;
+
+}
+
 /*// KEYFRAMES //*/
 @keyframes drive {
   from {
@@ -64,3 +77,5 @@ animation-iteration-count: infinite;
     transform: translateX(105vw);
   }
 }
+
+
