@@ -47,25 +47,24 @@ body {
   position: absolute;
   top: -40px;
   left: 0px;
-animation-name: drive;
-animation-duration: 10s;
-animation-fill-mode: both;
-animation-delay: 2s;
-animation-iteration-count: infinite;
-
+  animation-name: drive;
+  animation-duration: 10s;
+  animation-fill-mode: both;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 .luigi {
   position: absolute;
   top: 150px;
   left: 0px;
-animation-name: drive;
-animation-duration: 10s;
-animation-fill-mode: both;
-animation-delay: 2s;
-animation-iteration-count: infinite;
-animation-direction: reverse;
-
+  animation-name: drive;
+  animation-duration: 10s;
+  animation-fill-mode: both;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
 }
 
 /*// KEYFRAMES //*/
@@ -77,5 +76,3 @@ animation-direction: reverse;
     transform: translateX(105vw);
   }
 }
-
-
