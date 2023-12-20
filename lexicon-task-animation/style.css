@@ -1,6 +1,31 @@
-.wrapper{
+body {
+  background-color: lightblue;
+  text-align: center;
+}
+
+.wrapper {
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
 }
 
+img {
+  transform: translate(0, 50px);
+}
+
+.circle {
+width: 100px;
+padding: 50px 0;
+line-height: 0;
+margin: 60px auto;
+background: pink;
+color: white;
+border-radius: 50%;
+cursor: pointer;
+
+transition: 1s;
+}
+
+.circle:hover {
+  background: red;
+}
