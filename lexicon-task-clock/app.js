@@ -28,7 +28,7 @@ function drawFace(ctx, radius) {
   ctx.fill();
 
   ctx.strokeStyle = grad;
-  ctx.lineWidth = radius*0.1;
+  ctx.lineWidth = radius*0.05; 
   ctx.stroke();
 
   ctx.beginPath();
@@ -94,16 +94,44 @@ const button = document.querySelector("button");
 const timeWord = document.querySelector(".time-word");
 const timeNum = document.querySelector(".time-num");
 
-button.addEventListener("click", () => {
+function timeToWords(hours, minutes) {
+  const numbersToWords = {
+    1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five',
+    6: 'six', 7: 'seven', 8: 'eight', 9: 'nine', 10: 'ten',
+    11: 'eleven', 12: 'twelve', 13: 'thirteen', 14: 'fourteen',
+    15: 'quarter', 16: 'sixteen', 17: 'seventeen', 18: 'eighteen',
+    19: 'nineteen', 20: 'twenty', 30: 'half'
+  };
+
+  let words = '';
+
+  if (minutes <= 30) {
+    words += numbersToWords[minutes] + ' past ' + numbersToWords[hours];
+  } else {
+    words += numbersToWords[60 - minutes] + ' to ' + numbersToWords[(hours % 12) + 1];
+  }
+
+  return words;
+}
+
+
+
+function updateTime() {
+  let currentTime = new Date();
+  let hours = currentTime.getHours();
+  let minutes = currentTime.getMinutes();
+  
+  let timeWords = timeToWords(hours, minutes);
+
   if (timeWord.style.display === "none") {
     timeWord.style.display = "block";
     timeNum.style.display = "none";
+    timeWord.textContent = timeWords;
   } else {
     timeWord.style.display = "none";
     timeNum.style.display = "block";
+    timeNum.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
   }
 }
-);
-
-
-
+button.addEventListener("click", updateTime);
+updateTime();
