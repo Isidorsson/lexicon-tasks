@@ -8,6 +8,14 @@ body {
   flex-direction: column; 
 } 
 
+img {
+  /* width: 100%; */
+  max-width: 450px;
+  /* height: auto; */
+  transform: translate(0, 105%);
+
+}
+
 .time-word, .time-num {
   display: flex;
   justify-content: center;
