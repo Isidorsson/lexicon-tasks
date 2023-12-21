@@ -4,24 +4,25 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: #F2C62A;
-  flex-direction: column; 
-} 
+  background-color: #f2c62a;
+  flex-direction: column;
+}
 
 img {
-  position: absolute;
+  position: relative;
   /* width: 100%; */
   max-width: 450px;
   /* height: auto; */
   /* transform: translate(0, 105%); */
-  top: 409px;
+  top: 473px;
   display: none;
 }
 
-.time-word, .time-num {
+.time-word,
+.time-num {
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   font-size: 2rem;
   font-weight: bold;
   margin: 0;
