@@ -7,13 +7,9 @@ radius = radius * 0.9;
 setInterval(drawClock, 1000);
 
 function drawClock() {
-  ctx.arc(0, 0, radius, 0, 2 * Math.PI);
-  ctx.fillStyle = "white";
-  ctx.fill();
-}
-
-function drawClock() {
   drawFace(ctx, radius);
+  drawNumbers(ctx, radius);
+  drawTime(ctx, radius);
 }
 
 function drawFace(ctx, radius) {
@@ -35,7 +31,7 @@ function drawFace(ctx, radius) {
   ctx.fill();
 
   ctx.strokeStyle = grad;
-  ctx.lineWidth = radius * 0.02;
+  ctx.lineWidth = radius * 0.05;
   ctx.stroke();
 
   ctx.beginPath();
@@ -44,12 +40,12 @@ function drawFace(ctx, radius) {
   ctx.fill();
 }
 
-function drawClock() {
-  drawFace(ctx, radius);
-  drawNumbers(ctx, radius);
-}
+let displayNumbers = true;
 
 function drawNumbers(ctx, radius) {
+  if (!displayNumbers) {
+    return;
+  }
   ctx.font = radius * 0.15 + "px arial";
   ctx.textBaseline = "middle";
   ctx.textAlign = "center";
@@ -65,11 +61,22 @@ function drawNumbers(ctx, radius) {
   }
 }
 
-function drawClock() {
-  drawFace(ctx, radius);
-  drawNumbers(ctx, radius);
-  drawTime(ctx, radius);
-}
+const toggleNumbersButton = document.getElementById("toggleNumbers");
+const img = document.querySelector("img"); 
+
+toggleNumbersButton.addEventListener("click", function () {
+  displayNumbers = !displayNumbers;
+  
+  if (displayNumbers) {
+    img.style.display = "none"; 
+  } else {
+    img.style.display = "block";
+  }
+
+  drawClock();
+});
+
+
 
 function drawTime(ctx, radius) {
   const now = new Date();
@@ -85,7 +92,7 @@ function drawTime(ctx, radius) {
   minute = (minute * Math.PI) / 30 + (second * Math.PI) / (30 * 60);
   drawHand(ctx, minute, radius * 0.8, radius * 0.05);
   second = (second * Math.PI) / 30;
-  drawHand(ctx, second, radius * 0.9, radius * 0.02);
+  drawHand(ctx, second, radius * 0.9, radius * 0.03);
 }
 
 function drawHand(ctx, pos, length, width) {
