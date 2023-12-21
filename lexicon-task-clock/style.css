@@ -1,53 +1,54 @@
-html,
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+
+/*   <p id="time-word"></p>
+  <p id="time-num"></p>
+<button>Show time in text</button>*/
+ 
+.time-word {
+  font-size: 2rem;
+  font-weight: bold;
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
-
+  display: none;
 }
 
-
-#canvas {
-  background-color: white;
-}
-
-#clock-container {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  transform: translate(119%, -178%);
-}
-
-.number {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  text-align: center;
-  line-height: 20px;
-  transform-origin: 50% 100px;
-}
-
-.text {
-  display: inline-block;
-}
-
-#time {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-100%, 70%);
-  font-size: 30px;
+.time-num {
+  font-size: 2rem;
   font-weight: bold;
-  color: #555;
+  margin: 0;
+  padding: 0;
+
 }
 
-#timeNum {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-149%, 190%);
-  font-size: 30px;
+button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #f0f0f0;
+  font-size: 1rem;
   font-weight: bold;
-  color: #555;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
+
+button:hover {
+  background-color: #e0e0e0;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
