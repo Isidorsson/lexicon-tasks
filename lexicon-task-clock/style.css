@@ -16,6 +16,7 @@ body {
 }
 
 .clock-box img {
+  display: none;
   width: 454px;
   height: auto;
   position: absolute;
