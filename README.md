@@ -7,5 +7,5 @@
 - [x] [Task 5](lexicon-task-post-shop-flex) - [Post Shop Flex site](https://cloticc.github.io/lexicon-tasks/lexicon-task-post-shop-flex/)
 - [x] [Task 6](lexicon-task-post-shop-grid) - [Post Shop Grid site](https://cloticc.github.io/lexicon-tasks/lexicon-task-post-shop-grid/)
 - [x] [Task 7](lexicon-task-insurance-project/) - [Insurance Project site](https://cloticc.github.io/lexicon-tasks/lexicon-task-insurance-project/)
-- [ ] [Task 8](lexicon-task-calendar/) - [Calendar site](https://cloticc.github.io/lexicon-tasks/lexicon-task-calendar/)
+- [x] [Task 8](lexicon-task-calendar/) - [Calendar site](https://cloticc.github.io/lexicon-tasks/lexicon-task-calendar/)
 - [ ] [Task 9](lexicon-task-clock/) - [Clock site](https://cloticc.github.io/lexicon-tasks/lexicon-task-clock/)
