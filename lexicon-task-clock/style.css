@@ -15,6 +15,7 @@ img {
   /* height: auto; */
   /* transform: translate(0, 105%); */
   top: 409px;
+  display: none;
 }
 
 .time-word, .time-num {
