@@ -61,10 +61,10 @@ button:hover {
 }
 
 .dates-grid span {
-  border: 2px solid gray;
+  border: 1px solid gray;
   box-sizing: border-box;
-  cursor: pointer;
   font-size: 1.2rem;
+  position: relative;
 }
 
 .old-month {
@@ -83,31 +83,20 @@ button:hover {
   justify-content: center;
   width: 100%;
   height: 100%;
+  position: relative; /* Add this line */
+  z-index: 2; /* Add this line */
   
 }
-
-/* .dates-grid span.highlighted-day {
-  border-radius: 50%;
+.dates-grid span.highlighted-day::after {
+  content: "";
   background-color: rgba(255, 0, 0, 0.7);
-  width: 40%;
-  height: 40%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  color: white;
-} */
-
-
-.dates-grid span.highlighted-day {
-  /* border: 1px solid gray;  */
   border-radius: 50%;
-  background-color: rgba(255, 0, 0, 0.7);
-  width: 40%;
-  height: 40%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  color: white;
+  width: 50%; 
+  height: 50%; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
 }
+
