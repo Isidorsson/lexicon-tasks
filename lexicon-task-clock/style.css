@@ -9,11 +9,12 @@ body {
 } 
 
 img {
+  position: absolute;
   /* width: 100%; */
   max-width: 450px;
   /* height: auto; */
-  transform: translate(0, 105%);
-
+  /* transform: translate(0, 105%); */
+  top: 409px;
 }
 
 .time-word, .time-num {
