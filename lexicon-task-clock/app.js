@@ -124,34 +124,20 @@ function timeToWords(hours, minutes) {
     10: "ten",
     11: "eleven",
     12: "twelve",
-    13: "thirteen",
-    14: "fourteen",
     15: "quarter",
-    16: "sixteen",
-    17: "seventeen",
-    18: "eighteen",
-    19: "nineteen",
     20: "twenty",
-    21: "twenty-one",
-    22: "twenty-two",
-    23: "twenty-three",
-    24: "twenty-four",
     25: "twenty-five",
-    26: "twenty-six",
-    27: "twenty-seven",
-    28: "twenty-eight",
-    29: "twenty-nine",
     30: "half",
-    
   };
 
   let words = "";
 
-  if (minutes <= 30) {
-    words += numbersToWords[minutes] + " past " + numbersToWords[hours];
+  if (minutes === 0) {
+    words += numbersToWords[hours % 12 === 0 ? 12 : hours % 12] + " o'clock";
+  } else if (minutes <= 30) {
+    words += numbersToWords[minutes] + " past " + numbersToWords[hours % 12 === 0 ? 12 : hours % 12];
   } else {
-    words +=
-      numbersToWords[60 - minutes] + " to " + numbersToWords[(hours % 12) + 1];
+    words += numbersToWords[60 - minutes] + " to " + numbersToWords[(hours % 12) + 1];
   }
 
   return words;
