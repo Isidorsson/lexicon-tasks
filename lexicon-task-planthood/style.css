@@ -294,11 +294,15 @@ body {
 
 .footer-contact-left h2 {
   position: relative;
-  top: 38%;
-  left: 38%;
-  color: white;
-  font-size: 3rem;
-  font-weight: bold;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+top: 30%;
+color: white;
+font-size: 3rem;
+font-weight: bold;
+
 }
 
 .footer-contact-bottom {
