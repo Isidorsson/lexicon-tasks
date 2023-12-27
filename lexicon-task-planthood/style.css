@@ -285,53 +285,48 @@ body {
 }
 
 .footer-background .footer-contact-left {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .footer-background .footer-contact-right {
   background: rgba(25, 0, 255, 0.1);
 }
 
-.footer-contact-left {
-  grid-area: left;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-}
-
 .footer-contact-left h2 {
+  position: relative;
+  top: 38%;
+  left: 38%;
   color: white;
   font-size: 3rem;
   font-weight: bold;
 }
 
 .footer-contact-bottom {
+  position: relative;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
+  flex-direction: row;
+  top: 71%;
+  padding: 0 30px;
+}
+.footer-contact-bottom p {
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
-.footer-contact-bottom p {
-  align-self: flex-end;
-  order: 2;
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
+.footer-contact-bottom .material-icons {
+  position: relative;
+  top: 5px;
 }
 
 .footer-contact-bottom span {
-  align-self: flex-end;
-  order: 1;
   color: white;
-  font-size: 1.5rem;
   font-weight: bold;
+  font-size: 1.5rem;
 }
-
 .footer-contact-right {
-  grid-area: right;
   display: flex;
   justify-content: center;
   align-items: center;
