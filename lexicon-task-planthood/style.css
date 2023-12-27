@@ -7,21 +7,19 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-
-  /* #0A846E set var for it button */
   --btn-color: #0a846e;
   --brown-color: #9e6d52;
 }
 
 .head-grid-con {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* This will make the right column twice as wide as the left */
-  grid-template-rows: 1fr 1fr; /* This will make the height of the two rows equal */
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: 1fr 1fr;
   grid-template-areas:
     "left-one right-one"
     "left-one right-two";
-  justify-items: center; /* This will center the items horizontally */
-  align-items: center; /* This will center the items vertically */
+  justify-items: center; 
+  align-items: center; 
   border: 10px solid black;
   height: 100%;
   width: 100%;
