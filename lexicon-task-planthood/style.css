@@ -1,3 +1,51 @@
 * {
   background-color: gray;
 }
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.head-grid-con {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "big right1"
+    "big right2"
+    "nav nav";
+  height: 100%;
+  justify-items: center;
+  align-items: center;
+}
+
+.big {
+  grid-area: big;
+}
+
+.right1 {
+  grid-area: right1;
+}
+
+.right2 {
+  grid-area: right2;
+}
+
+nav {
+  grid-area: nav;
+  background-color: red;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  margin: 0px;
+  padding: 0;
+}
