@@ -89,7 +89,7 @@ body {
 .plan-box {
   display: grid;
   grid-template-areas:
-    "h1 h1"
+    "img h1"
     "img text"
     "img btn";
   grid-template-columns: 1fr 1fr;
@@ -102,6 +102,17 @@ body {
   color: var(--btn-color);
   font-size: 3rem;
   font-weight: bold;
+}
+
+.plant-img-plan-hood {
+  grid-area: img;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25vw; /* adjust as needed */
+  height: 25vw; /* adjust as needed */
+  background-color: var(--btn-color);
+  border-radius: 50%;
 }
 
 .plan-box > img {
@@ -119,11 +130,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
+  width: auto;
   height: auto;
-  margin: 10px;
-  padding: 0;
+  margin: 10px auto;
+  padding: 10px 20px; /* Adjust as needed to change the size of the button */
+  background-color: var(--btn-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
+
 .plan-box h2 {
   color: black;
   font-size: 2rem;
