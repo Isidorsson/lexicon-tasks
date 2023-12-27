@@ -81,50 +81,51 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 100%;
   height: auto;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-direction: column;
-  margin: 10px;
-  padding: 0;
 }
 
+.plan-box {
+  display: grid;
+  grid-template-areas:
+    "h1 h1"
+    "img text"
+    "img btn";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  width: 60%;
+  height: auto;
+}
 .plan-hood h1 {
+  grid-area: h1;
   color: var(--btn-color);
   font-size: 3rem;
   font-weight: bold;
 }
-.plan-box {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: auto;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-direction: row;
+
+.plan-box > img {
+  grid-area: img;
+  background-color: var(--btn-color);
+  border-radius: 50%;
 }
 
 .plan-box .text-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: 20px; /* Adjust as needed */
+  grid-area: text;
 }
 
 .tips-btn {
+  grid-area: btn;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100px;
   height: auto;
-  flex-wrap: wrap;
-  justify-content: center;
   margin: 10px;
   padding: 0;
 }
-
-.plan-box > img {
-  background-color: var(--btn-color);
-  border-radius: 50%;
+.plan-box h2 {
+  color: black;
+  font-size: 2rem;
+  font-weight: bold;
 }
