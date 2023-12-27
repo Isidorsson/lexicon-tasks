@@ -146,6 +146,7 @@ body {
   margin: 10px;
   padding: 0;
   background-color: white;
+  
 }
 
 .plant-box img {
@@ -177,4 +178,66 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* show more button */
+.show-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  margin: 10px auto;
+  padding: 10px 20px; /* Adjust as needed to change the size of the button */
+  background-color: var(--btn-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.last-plant {
+  display: grid;
+  grid-template-areas:
+    "h2 img"
+    "txt img"
+    "btn img";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  width: 80%;
+  height: auto;
+  margin: 10px auto;
+  padding: 0;
+}
+
+.last-plant h2 {
+  grid-area: h2;
+  color: var(--btn-color);
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.last-plant .txt {
+  grid-area: txt;
+}
+
+.last-plant .btn {
+  grid-area: btn;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: auto;
+  margin: 10px;
+  padding: 0;
+}
+
+.last-plant-picture {
+  grid-area: img;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25vw; /* adjust as needed */
+  height: 25vw; /* adjust as needed */
+  background-color: var(--btn-color);
+  border-radius: 50%;
 }
