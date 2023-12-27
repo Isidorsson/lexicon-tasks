@@ -162,7 +162,6 @@ body {
   margin: 10px;
   padding: 0;
   background-color: white;
-  
 }
 
 .plant-box img {
@@ -221,30 +220,35 @@ body {
   grid-template-rows: auto;
   width: 80%;
   height: auto;
-  margin: 10px auto;
+  margin: 100px auto;
   padding: 0;
 }
 
 .last-plant h2 {
   grid-area: h2;
   color: var(--btn-color);
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
+  color: black;
 }
 
 .last-plant .txt {
   grid-area: txt;
+  color: black;
 }
 
-.last-plant .btn {
-  grid-area: btn;
+.last-plant .last-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
+  width: auto;
   height: auto;
-  margin: 10px;
-  padding: 0;
+  /* margin: 10px auto; */
+  padding: 10px 20px;
+  background-color: var(--btn-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
 .last-plant-picture {
@@ -256,4 +260,82 @@ body {
   height: 25vw; /* adjust as needed */
   background-color: var(--btn-color);
   border-radius: 50%;
+}
+
+.footer {
+  height: 800px;
+  width: 100%;
+}
+
+.footer-background {
+  /* https://images.unsplash.com/photo-1586281010691-f9da4be5b1f7?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D */
+  background-image: url("https://images.unsplash.com/photo-1586281010691-f9da4be5b1f7?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+
+  display: grid;
+  grid-template-areas: "left right";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  height: 100%;
+  width: 100%;
+}
+
+.footer-background .footer-contact-left {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.footer-background .footer-contact-right {
+  background: rgba(25, 0, 255, 0.1);
+}
+
+.footer-contact-left {
+  grid-area: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.footer-contact-left h2 {
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.footer-contact-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.footer-contact-bottom p {
+  align-self: flex-end;
+  order: 2;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.footer-contact-bottom span {
+  align-self: flex-end;
+  order: 1;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.footer-contact-right {
+  grid-area: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
 }
