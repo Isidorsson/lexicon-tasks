@@ -174,8 +174,7 @@ body {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-template-rows: repeat(2, 1fr);
   gap: 25px;
-  padding: 50px; 
-
+  padding: 50px;
 }
 
 .plant-box {
@@ -187,12 +186,12 @@ body {
 
 .plant-box img {
   /* width: 20rem; */
-width: 100%;
-height: 15rem;
+  width: 100%;
+  height: 12rem;
   /* aspect-ratio: 1/2; */
 
   /* max-height: 30rem; */
- 
+
   object-fit: cover;
 }
 
@@ -262,6 +261,10 @@ height: 15rem;
   padding: 0;
 }
 
+.text-content-two {
+  margin-left: 6rem;
+}
+
 .last-plant h2 {
   grid-area: h2;
   color: var(--btn-color);
@@ -270,9 +273,10 @@ height: 15rem;
   color: black;
 }
 
-.last-plant .txt {
+.last-plant p {
   grid-area: txt;
   color: black;
+  width: 400px;
 }
 
 .last-plant .last-btn {
@@ -297,6 +301,7 @@ height: 15rem;
   background-color: var(--btn-color);
   align-items: center;
   justify-content: center;
+  margin-left: 10rem;
 }
 
 .last-plant-picture img {
