@@ -107,6 +107,13 @@ body {
   font-weight: bold;
 }
 
+.plan-hood p {
+  grid-area: text;
+  color: black;
+  width: 22rem;
+
+}
+
 .plant-img-plan-hood {
   grid-area: img;
   display: flex;
@@ -116,7 +123,7 @@ body {
   background-color: var(--btn-color);
   align-items: center;
   justify-content: center;
-  margin-left: 150px;
+  margin-left: 6rem;
 }
 
 .plant-img-plan-hood img {
