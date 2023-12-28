@@ -86,7 +86,7 @@ body {
 }
 
 .plan-box {
-  display: grid;
+  /* display: grid;
   grid-template-areas:
     "img h1"
     "img text"
@@ -94,7 +94,13 @@ body {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   width: 60%;
-  height: auto;
+  height: auto; */
+  display: flex;
+  flex-direction: row;
+}
+
+.text-content {
+  margin-left: 6rem;
 }
 
 .plan-hood h1 {
@@ -130,24 +136,19 @@ body {
 }
 
 .plan-box > img {
-  grid-area: img;
   background-color: var(--btn-color);
   border-radius: 50%;
 }
 
-.plan-box .text-content {
-  grid-area: text;
-}
-
 .tips-btn {
-  grid-area: btn;
   display: flex;
   justify-content: center;
   align-items: center;
   width: auto;
   height: auto;
-  margin: 10px auto;
-  padding: 10px 20px;
+  /* margin: 20px 10rem; */
+  transform: translate(210%, 20%);
+  padding: 10px 30px;
   background-color: var(--btn-color);
   color: white;
   border: none;
@@ -251,29 +252,15 @@ body {
 }
 
 .last-plant {
-  /* display: grid;
-  grid-template-areas:
-    "h2 img"
-    "txt img"
-    "btn img";
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  width: 70%;
-  height: auto; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-}
-
-.text-content-two {
-  /* margin-left: 6rem; */
-
+  margin: 8rem;
 }
 
 .last-plant h2 {
-  grid-area: h2;
   color: var(--btn-color);
   font-size: 2rem;
   font-weight: bold;
@@ -281,18 +268,16 @@ body {
 }
 
 .last-plant p {
-  grid-area: txt;
   color: black;
   width: 400px;
 }
 
-.last-plant .last-btn {
+.last-btn {
   display: flex;
   justify-content: center;
   align-items: center;
   width: auto;
   height: auto;
-  /* margin: 10px auto; */
   padding: 10px 20px;
   background-color: var(--btn-color);
   color: white;
