@@ -395,3 +395,135 @@ body {
   background-color: var(--btn-color);
   color: white;
 }
+
+@media only screen and (max-width: 600px) {
+  .plan-hood {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+  }
+
+  .plan-box {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .tips-btn {
+    transform: translate(60%, 0);
+    margin: 2rem 0;
+  }
+
+  .grid-box {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(3, 1fr);
+    gap: 25px;
+    padding: 50px;
+  }
+
+  .last-plant {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: baseline;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+  }
+
+  .text-content-two {
+    text-align: center;
+    transform: translate(-20%, 0);
+  }
+
+  .last-btn {
+    transform: translate(90%, 0);
+    margin: 2rem 0;
+  }
+
+  .footer-background {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .footer-background .footer-contact-left {
+    background: rgba(0, 0, 0, 0.8);
+    height: 100%;
+    width: 100%;
+  }
+
+  .footer-background .footer-contact-right {
+    background: rgba(25, 0, 255, 0.1);
+    height: 100%;
+    width: 100%;
+  }
+
+  .footer-contact-left h2 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 30%;
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+  }
+
+  .footer-contact-bottom {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 0 30px;
+    top: 41%;
+  }
+  .footer-contact-bottom p {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  .footer-contact-bottom .material-icons {
+    position: relative;
+    top: 5px;
+  }
+
+  .footer-contact-bottom span {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  .footer-contact-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  }
+
+  .footer .footer-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    /* margin: 10px auto; */
+    padding: 30px;
+    background-color: white;
+    border: none;
+  }
+
+  .footer .footer-btn:hover {
+    background-color: var(--btn-color);
+    color: white;
+  }
+}
