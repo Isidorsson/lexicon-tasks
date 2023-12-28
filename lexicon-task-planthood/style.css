@@ -117,6 +117,7 @@ body {
   background-color: var(--btn-color);
   align-items: center;
   justify-content: center;
+  margin-left: 150px;
 }
 
 .plant-img-plan-hood img {
@@ -161,6 +162,16 @@ body {
   border-bottom: 2px solid var(--btn-color);
   padding-bottom: 50px;
   width: 20%;
+}
+
+.planned {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin: 50px 0;
+  padding: 0;
 }
 
 .grid-box {
@@ -265,8 +276,6 @@ body {
   border: none;
   border-radius: 5px;
 }
-
-
 
 .last-plant-picture {
   display: flex;
