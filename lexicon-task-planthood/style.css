@@ -9,7 +9,7 @@ body {
   padding: 0;
   --btn-color: #0a846e;
   --brown-color: #9e6d52;
-  --btn-color-pink: #B93857;
+  --btn-color-pink: #b93857;
 }
 
 .head-grid-con {
@@ -21,8 +21,6 @@ body {
     "left-one right-two";
   justify-items: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
 }
 
 .head-grid-con > img {
@@ -170,36 +168,31 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
-  margin: 50px 0;
-  padding: 0;
 }
-
 .grid-box {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-template-rows: repeat(2, 1fr);
-  gap: 10px;
+  gap: 25px;
+  padding: 50px; 
+
 }
+
 .plant-box {
   position: relative;
-  /*  box shadows */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  /* border-radius: 5px; */
-  /* margin: 10px; */
   padding: 0;
   background-color: white;
 }
 
 .plant-box img {
   /* width: 20rem; */
+width: 100%;
+height: 15rem;
+  /* aspect-ratio: 1/2; */
 
-  aspect-ratio: 1/1;
-
-  max-height: 30rem;
-/* height: 50%; */
-  /* height: 297px; */
+  /* max-height: 30rem; */
+ 
   object-fit: cover;
 }
 
@@ -231,7 +224,7 @@ body {
 }
 
 .remove-btn {
- background: var(--btn-color-pink);
+  background: var(--btn-color-pink);
   color: white;
   border: none;
   border-radius: 5px;
@@ -239,8 +232,6 @@ body {
 
   font-weight: bold;
   cursor: pointer;
-
-
 }
 
 .show-more {
