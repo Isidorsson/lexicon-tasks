@@ -406,6 +406,15 @@ body {
     height: auto;
   }
 
+  .plan-hood h1 {
+    font-size: 2rem;
+  }
+  .plan-box .text-content {
+    text-align: center;
+    margin-left: 0;
+    transform: translate(0, 0);
+  }
+
   .plan-box {
     display: flex;
     flex-direction: column-reverse;
@@ -413,7 +422,7 @@ body {
   }
 
   .tips-btn {
-    transform: translate(60%, 0);
+    transform: translate(105%, 0);
     margin: 2rem 0;
   }
 
