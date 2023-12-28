@@ -63,8 +63,11 @@ body {
   /* width: 100%; */
   /* height: 100%; */
   align-items: center;
-  margin: 10px;
-  padding: 0;
+  /* margin: 20px; */
+  padding: 0 0 10px 0;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+  border-bottom: 2px solid #e7eceb;
 }
 
 .nav-links li a {
@@ -97,6 +100,7 @@ body {
   width: 60%;
   height: auto;
 }
+
 .plan-hood h1 {
   grid-area: h1;
   color: var(--btn-color);
@@ -107,12 +111,19 @@ body {
 .plant-img-plan-hood {
   grid-area: img;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 25vw; /* adjust as needed */
-  height: 25vw; /* adjust as needed */
-  background-color: var(--btn-color);
+  height: 250px;
+  width: 250px;
   border-radius: 50%;
+  background-color: var(--btn-color);
+  align-items: center;
+  justify-content: center;
+}
+
+.plant-img-plan-hood img {
+  height: 50%;
+  width: auto;
+  object-fit: cover;
+  /* border-radius: 50%; */
 }
 
 .plan-box > img {
@@ -133,7 +144,7 @@ body {
   width: auto;
   height: auto;
   margin: 10px auto;
-  padding: 10px 20px; /* Adjust as needed to change the size of the button */
+  padding: 10px 20px;
   background-color: var(--btn-color);
   color: white;
   border: none;
@@ -146,6 +157,12 @@ body {
   font-weight: bold;
 }
 
+.a-line {
+  border-bottom: 2px solid var(--btn-color);
+  padding-bottom: 50px;
+  width: 20%;
+}
+
 .grid-box {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -154,7 +171,6 @@ body {
 }
 .plant-box {
   position: relative;
-
   /*  box shadows */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -180,7 +196,7 @@ body {
   background-image: url("assets/plant.svg");
   background-repeat: no-repeat;
   background-position: center;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .plant-box .plant-top {
@@ -195,7 +211,6 @@ body {
   align-items: center;
 }
 
-/* show more button */
 .show-more {
   display: flex;
   justify-content: center;
@@ -203,7 +218,7 @@ body {
   width: auto;
   height: auto;
   margin: 10px auto;
-  padding: 10px 20px; /* Adjust as needed to change the size of the button */
+  padding: 10px 20px;
   background-color: var(--btn-color);
   color: white;
   border: none;
@@ -251,15 +266,23 @@ body {
   border-radius: 5px;
 }
 
+
+
 .last-plant-picture {
-  grid-area: img;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 25vw; /* adjust as needed */
-  height: 25vw; /* adjust as needed */
-  background-color: var(--btn-color);
+  height: 250px;
+  width: 250px;
   border-radius: 50%;
+  background-color: var(--btn-color);
+  align-items: center;
+  justify-content: center;
+}
+
+.last-plant-picture img {
+  height: 50%;
+  width: auto;
+  object-fit: cover;
+  /* border-radius: 50%; */
 }
 
 .footer {
@@ -294,15 +317,14 @@ body {
 
 .footer-contact-left h2 {
   position: relative;
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-top: 30%;
-color: white;
-font-size: 3rem;
-font-weight: bold;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  top: 30%;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
 }
 
 .footer-contact-bottom {
@@ -337,4 +359,21 @@ font-weight: bold;
   flex-direction: column;
   height: 100%;
   width: 100%;
+}
+
+.footer .footer-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  /* margin: 10px auto; */
+  padding: 30px;
+  background-color: white;
+  border: none;
+}
+
+.footer .footer-btn:hover {
+  background-color: var(--btn-color);
+  color: white;
 }
