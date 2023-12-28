@@ -4,9 +4,6 @@
 
 html,
 body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
   --btn-color: #0a846e;
   --brown-color: #9e6d52;
   --btn-color-pink: #b93857;
@@ -111,19 +108,18 @@ body {
   grid-area: text;
   color: black;
   width: 22rem;
-
 }
 
 .plant-img-plan-hood {
   grid-area: img;
-  display: flex;
+  display: inherit;
   height: 250px;
   width: 250px;
   border-radius: 50%;
   background-color: var(--btn-color);
   align-items: center;
   justify-content: center;
-  margin-left: 6rem;
+  /* margin-left: 6rem; */
 }
 
 .plant-img-plan-hood img {
@@ -194,8 +190,8 @@ body {
 .plant-box img {
   /* width: 20rem; */
   width: 100%;
-  height: 12rem;
   /* aspect-ratio: 1/2; */
+  height: 18rem;
 
   /* max-height: 30rem; */
 
@@ -255,7 +251,7 @@ body {
 }
 
 .last-plant {
-  display: grid;
+  /* display: grid;
   grid-template-areas:
     "h2 img"
     "txt img"
@@ -263,13 +259,17 @@ body {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   width: 70%;
-  height: auto;
-  margin: 100px auto;
-  padding: 0;
+  height: auto; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .text-content-two {
-  margin-left: 6rem;
+  /* margin-left: 6rem; */
+
 }
 
 .last-plant h2 {
