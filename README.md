@@ -9,3 +9,4 @@
 - [x] [Task 7](lexicon-task-insurance-project/) - [Insurance Project site](https://cloticc.github.io/lexicon-tasks/lexicon-task-insurance-project/)
 - [x] [Task 8](lexicon-task-calendar/) - [Calendar site](https://cloticc.github.io/lexicon-tasks/lexicon-task-calendar/)
 - [ ] [Task 9](lexicon-task-clock/) - [Clock site](https://cloticc.github.io/lexicon-tasks/lexicon-task-clock/)
+- [ ] [Task 10](lexicon-task-planthood/) - [Planthood site](https://cloticc.github.io/lexicon-tasks/lexicon-task-planthood/)
