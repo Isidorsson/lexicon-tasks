@@ -32,14 +32,21 @@
       <div class="add-or-remove-text">
         <h2>Lägg till ny plantering:</h2>
         <!-- a form with Planta: and Datum: -->
-        <form action="cake" method="post">
-          <label for="planta">Planta:</label>
-          <input type="text" name="planta" id="planta" placeholder="Skriv planta här">
-          <label for="datum">Datum:</label>
-          <input type="date" name="datum" id="datum">
+
+        <form class="form" action="cake" method="post">
+          <div class="form-fields">
+            <div class="form-group">
+              <label for="planta">Planta:</label>
+              <input type="text" name="planta" id="planta" placeholder="Skriv planta här">
+            </div>
+            <div class="form-group">
+              <label for="datum">Datum:</label>
+              <input type="date" name="datum" id="datum">
+            </div>
+          </div>
           <input type="submit" value="Lägg till">
         </form>
-      </div>
+
     </div>
   </section>
 
