@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="checkout.css">
   <title>Document</title>
 </head>
+
 <body>
-  
+
 
   <header>
-    <div class="footer-contact-right">
-      <img src="assets/Logo.svg" alt="">
-    </div>
     <nav>
       <ul class="nav-links">
         <li><a href="#">PLANER</a></li>
@@ -22,10 +21,90 @@
       </ul>
     </nav>
 
-
+    <div class="header-picture">
+      <img src="assets/Logo.svg" alt="">
+      <h1>Mina sidor</h1>
+    </div>
   </header>
 
+  <section class="add-or-remove">
+    <div class="add-or-remove-box">
+      <div class="add-or-remove-text">
+        <h2>Lägg till ny plantering:</h2>
+        <!-- a form with Planta: and Datum: -->
+        <form action="cake" method="post">
+          <label for="planta">Planta:</label>
+          <input type="text" name="planta" id="planta" placeholder="Skriv planta här">
+          <label for="datum">Datum:</label>
+          <input type="date" name="datum" id="datum">
+          <input type="submit" value="Lägg till">
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="your-planned-plant">
+
+    <div class="plant-box">
+      <img
+        src="https://images.unsplash.com/photo-1518568403628-df55701ade9e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="">
+      <div class="plant-top">
+        <h3>Gurka</h3>
+        <span>15 april 2024</span>
+      </div>
+      <div class="plant-bottom">
+        <p>Rico Coolio</p>
+        <button class="remove-btn">ta bort</button>
+      </div>
+    </div>
+
+
+
+
+  </section>
+  <section class="your-planted-plants">
+
+    <div class="grid-box-planted">
+      <div class="plant-box">
+        <img
+          src="https://images.unsplash.com/photo-1518568403628-df55701ade9e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="">
+        <div class="plant-top">
+          <h3>Gurka</h3>
+          <span>15 april 2024</span>
+        </div>
+        <div class="plant-bottom">
+          <p>Rico Coolio</p>
+          <button class="remove-btn">ta bort</button>
+        </div>
+      </div>
+      <div class="plant-box">
+        <img
+          src="https://images.unsplash.com/photo-1518568403628-df55701ade9e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="">
+        <div class="plant-top">
+          <h3>Gurka</h3>
+          <span>15 april 2024</span>
+        </div>
+        <div class="plant-bottom">
+          <p>Rico Coolio</p>
+          <button class="remove-btn">ta bort</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="big-foot">
+    <div class="cute-frame-picture-box">
+
+
+    </div>
+    <button class="beam-me-up">Till toppen av sidan</button>
+  </footer>
 
 
 </body>
+
 </html>
