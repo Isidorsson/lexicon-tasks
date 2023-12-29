@@ -117,3 +117,30 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
+
+.big-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 0 20px 0;
+}
+
+.cute-frame-pic-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--brown-color);
+  margin: 5rem 0 20px 0;
+  width: 99%;
+}
+
+.footer-pic-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(1, 1fr);
+  gap: 25px;
+  padding: 10px;
+  width: 70%;
+}
