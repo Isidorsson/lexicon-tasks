@@ -45,12 +45,109 @@ body {
   margin: 0;
 }
 
-.your-planned-planting {
+/* <section class="add-or-remove">
+<div class="add-or-remove-box">
+  <div class="add-or-remove-text">
+    <h2>Lägg till ny plantering:</h2>
+    <!-- a form with Planta: and Datum: -->
+    <form action="cake" method="post">
+      <label for="planta">Planta:</label>
+      <input type="text" name="planta" id="planta" placeholder="Skriv planta här">
+      <label for="datum">Datum:</label>
+      <input type="date" name="datum" id="datum">
+      <input type="submit" value="Lägg till">
+    </form>
+  </div>
+</div>
+</section> */
+
+.add-or-remove {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   margin: 0 0 20px 0;
+}
+
+.add-or-remove-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* background-color: var(--brown-color); */
+  margin: 2rem 0 0 0;
+  width: 99%;
+}
+
+.add-or-remove-text {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 0 0 2rem 0;
+  width: 100%;
+}
+
+.add-or-remove-text h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  text-align: left;
+}
+
+.add-or-remove-text form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5rem 0 20px 0;
+  width: 100%;
+  height: auto;
+  justify-content: space-around;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-fields {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%; /* Ensure the form fields take up the full width */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px; /* Add horizontal margin */
+}
+
+.add-or-remove-text form label {
+  /* font-size: 1.5rem; */
+  font-weight: 700;
+  margin: 0;
+}
+
+.add-or-remove-text form input {
+  margin: 0 0 20px 0;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 10rem;
+  height: 100%;
+}
+
+.add-or-remove-text form input[type="submit"] {
+  background: var(--btn-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-weight: bold;
+  cursor: pointer;
+  width: fit-content;
 }
 
 .grid-box {
