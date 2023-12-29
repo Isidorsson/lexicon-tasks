@@ -67,6 +67,8 @@ body {
   align-items: center;
   flex-direction: column;
   margin: 0 0 20px 0;
+  width: 100%;
+  height: auto;
 }
 
 .add-or-remove-box {
@@ -74,7 +76,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* background-color: var(--brown-color); */
+  background-color: var(--brown-color);
   margin: 2rem 0 0 0;
   width: 99%;
 }
@@ -85,51 +87,46 @@ body {
   align-items: flex-start;
   flex-direction: column;
   margin: 0 0 2rem 0;
-  width: 100%;
 }
 
 .add-or-remove-text h2 {
-  font-size: 2rem;
   font-weight: 700;
   margin: 0;
   text-align: left;
-}
-
-.add-or-remove-text form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 5rem 0 20px 0;
-  width: 100%;
-  height: auto;
-  justify-content: space-around;
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
 }
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .form-fields {
   display: flex;
   justify-content: space-evenly;
-  width: 100%; /* Ensure the form fields take up the full width */
+  width: 100%;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  margin: 0 10px; /* Add horizontal margin */
+  margin: 0 10px;
 }
 
-.add-or-remove-text form label {
+.form label {
   /* font-size: 1.5rem; */
   font-weight: 700;
   margin: 0;
 }
 
-.add-or-remove-text form input {
+.form input {
   margin: 0 0 20px 0;
   padding: 5px;
   border-radius: 5px;
@@ -139,7 +136,7 @@ body {
   height: 100%;
 }
 
-.add-or-remove-text form input[type="submit"] {
+.form input[type="submit"] {
   background: var(--btn-color);
   color: white;
   border: none;
