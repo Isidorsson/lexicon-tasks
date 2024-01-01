@@ -3,6 +3,11 @@ body {
   --btn-color: #0a846e;
   --brown-color: #9e6d52;
   --btn-color-pink: #b93857;
+
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
 }
 
 .nav-links {
@@ -44,22 +49,6 @@ body {
   font-weight: 700;
   margin: 0;
 }
-
-/* <section class="add-or-remove">
-<div class="add-or-remove-box">
-  <div class="add-or-remove-text">
-    <h2>Lägg till ny plantering:</h2>
-    <!-- a form with Planta: and Datum: -->
-    <form action="cake" method="post">
-      <label for="planta">Planta:</label>
-      <input type="text" name="planta" id="planta" placeholder="Skriv planta här">
-      <label for="datum">Datum:</label>
-      <input type="date" name="datum" id="datum">
-      <input type="submit" value="Lägg till">
-    </form>
-  </div>
-</div>
-</section> */
 
 .add-or-remove {
   display: flex;
@@ -128,16 +117,23 @@ body {
 }
 
 .form input[type="submit"] {
+  font-size: 1rem;
+  font-weight: bold;
   background: var(--btn-color);
   color: white;
   border: none;
   border-radius: 5px;
   padding: 10px 25px;
-  font-weight: bold;
+  bottom: 10rem;
   cursor: pointer;
   width: fit-content;
 }
 
+.grid-box-planted h2,
+.your-planned-plant h2 {
+  text-align: center;
+  padding: 2rem;
+}
 .grid-box {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -145,6 +141,9 @@ body {
   gap: 25px;
   padding: 10px;
   width: 70%;
+  margin: auto;
+  justify-items: center;
+  align-items: center;
 }
 
 .plant-box {
@@ -155,13 +154,8 @@ body {
 }
 
 .plant-box img {
-  /* width: 20rem; */
   width: 100%;
-  /* aspect-ratio: 1/2; */
   height: 15rem;
-
-  /* max-height: 30rem; */
-
   object-fit: cover;
 }
 
@@ -178,14 +172,8 @@ body {
   opacity: 0.9;
 }
 
-.plant-box .plant-top {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: row;
-}
-
-.plant-box .plant-bottom {
+.plant-top,
+.plant-bottom {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -217,8 +205,8 @@ body {
   align-items: center;
   flex-direction: column;
   background-color: var(--brown-color);
-  margin: 5rem 0 20px 0;
-  width: 99%;
+  margin-top: 5rem;
+  width: auto;
 }
 
 .footer-pic-grid {
@@ -227,5 +215,158 @@ body {
   grid-template-rows: repeat(1, 1fr);
   gap: 25px;
   padding: 10px;
-  width: 70%;
+}
+
+.beam-me-up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  /* margin: 10px auto; */
+  padding: 30px;
+  /* background-color: white; */
+  border: none;
+}
+
+.beam-me-up:hover {
+  background-color: var(--btn-color);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  nav {
+    position: absolute;
+    top: -3rem;
+    left: 16rem;
+    background-image: url("assets/buger.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 10rem;
+    width: auto;
+    transform: scale(0.2);
+
+
+  }
+
+  .nav-links {
+  opacity: 0;
+  }
+  
+
+  .add-or-remove-box {
+    width: 100%;
+    /* center text */
+    text-align: center;
+  }
+
+  .form-fields {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .planta {
+    order: 1;
+  }
+
+  .datum {
+    order: 2;
+  }
+
+  .button {
+    order: 3;
+  }
+
+  .grid-box {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(1px, 1fr));
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 95%;
+  }
+
+  .plant-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .grid-box-planted h2,
+  .your-planned-plant h2 {
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .plant-box .plant-top::before {
+    display: none;
+  }
+
+  .plant-box h3,
+  .plant-box span,
+  .plant-box p {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+  }
+
+  .remove-btn {
+    all: unset;
+    font-size: 0;
+  }
+
+  .remove-btn::before {
+    background-image: url("assets/trash.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 18px;
+    height: 35px;
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .footer-pic-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, 1fr);
+    gap: 25px;
+    padding: 10px;
+    /* width: 100%; */
+  }
+
+  .cute-frame-pic-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--brown-color);
+    margin-top: 5rem;
+    width: auto;
+  }
+
+  .footer-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+  }
+
+  .beam-me-up {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    /* margin: 10px auto; */
+    padding: 30px;
+    /* background-color: white; */
+    border: none;
+  }
+
+  .beam-me-up:hover {
+    background-color: var(--btn-color);
+    color: white;
+  }
 }
