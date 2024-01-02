@@ -16,7 +16,6 @@ body {
   list-style: none;
   align-items: center;
   padding: 0 0 10px 0;
-
 }
 
 .nav-links li a {
@@ -59,14 +58,12 @@ body {
 
 } */
 
-.add-or-remove-box {
+.add-or-remove {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   margin: 0 0 20px 0;
-  width: 100%;
-  height: auto;
 }
 
 .add-or-remove-text {
@@ -74,10 +71,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 0 0 20px 0;
-  width: 100%;
-  height: auto;
-  align-items: flex-start;
+  margin: 0 43rem 20px 0;
 }
 
 .form {
@@ -100,7 +94,6 @@ body {
 .form-group {
   display: flex;
   flex-direction: column;
-  margin: 0 10px;
   transform: translate(0, -70%);
 }
 
@@ -256,11 +249,13 @@ body {
 
   .add-or-remove-text {
     align-items: center;
+    margin: 0 0 10px 0;
   }
 
   .form-fields {
     display: flex;
     flex-direction: column;
+    scale: 0.9;
   }
 
   .planta {
