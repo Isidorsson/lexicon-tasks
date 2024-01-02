@@ -280,7 +280,9 @@ body {
   align-items: center;
   flex-direction: column;
 
-  height: 50rem;
+  /* height: 10rem; */
+  height: 40rem;
+
   width: 100%;
 }
 
@@ -290,6 +292,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  /* background-size: 150%; */
   height: 100%;
   width: 100%;
 
@@ -318,7 +321,6 @@ body {
   color: white;
   font-size: 3rem;
   font-weight: bold;
-  
 }
 
 .footer-contact-bottom {
@@ -327,7 +329,7 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  top: 71%;
+  top: 60%;
   padding: 0 30px;
 }
 .footer-contact-bottom p {
