@@ -138,8 +138,8 @@ body {
 }
 
 .a-line {
-  border-bottom: 2px solid var(--btn-color);
-  padding-bottom: 50px;
+  border-bottom: 4px solid var(--btn-color);
+  padding-bottom: 4rem;
   width: 20%;
 }
 
@@ -148,6 +148,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-top: 4rem;
 }
 .grid-box {
   display: grid;
