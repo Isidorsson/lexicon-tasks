@@ -1,7 +1,3 @@
-* {
-  /* background-color: black; */
-}
-
 html,
 body {
   --btn-color: #0a846e;
@@ -56,13 +52,8 @@ body {
   display: flex;
   justify-content: space-evenly;
   list-style: none;
-  /* width: 100%; */
-  /* height: 100%; */
   align-items: center;
-  /* margin: 20px; */
   padding: 0 0 10px 0;
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
   border-bottom: 2px solid #e7eceb;
 }
 
@@ -86,15 +77,6 @@ body {
 }
 
 .plan-box {
-  /* display: grid;
-  grid-template-areas:
-    "img h1"
-    "img text"
-    "img btn";
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  width: 60%;
-  height: auto; */
   display: flex;
   flex-direction: row;
 }
@@ -125,14 +107,12 @@ body {
   background-color: var(--btn-color);
   align-items: center;
   justify-content: center;
-  /* margin-left: 6rem; */
 }
 
 .plant-img-plan-hood img {
   height: 50%;
   width: auto;
   object-fit: cover;
-  /* border-radius: 50%; */
 }
 
 .plan-box > img {
@@ -146,7 +126,6 @@ body {
   align-items: center;
   width: auto;
   height: auto;
-  /* margin: 20px 10rem; */
   transform: translate(210%, 20%);
   padding: 10px 30px;
   background-color: var(--btn-color);
@@ -189,13 +168,8 @@ body {
 }
 
 .plant-box img {
-  /* width: 20rem; */
   width: 99%;
-  /* aspect-ratio: 1/2; */
   height: 15rem;
-
-  /* max-height: 30rem; */
-
   object-fit: cover;
 }
 
@@ -419,14 +393,11 @@ body {
     height: 10rem;
     width: auto;
     transform: scale(0.2);
-
-
   }
 
   .nav-links {
-  opacity: 0;
+    opacity: 0;
   }
-  
 
   .plan-hood {
     display: flex;
@@ -493,7 +464,6 @@ body {
     content: "\1F5D1";
     color: var(--btn-color-pink);
     font-size: 1.3rem;
-    /* background-color: var(--btn-color-pink); */
   }
 
   .plant-box img {
