@@ -16,12 +16,6 @@ body {
   align-items: center;
 }
 
-.head-grid-con > img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .grid-item {
   height: 100%;
   width: 100%;
@@ -152,29 +146,26 @@ body {
   align-items: center;
   flex-direction: column;
 }
-
-
-
 .grid-box {
   display: grid;
-  grid-template-columns: repeat(2, minmax(1px, 1fr));
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  width: 95%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, 1fr);
+  gap: 25px;
+  padding: 10px;
 }
+
 .plant-box {
   position: relative;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 0;
   background-color: white;
 }
+
 .plant-box img {
-  width: 100%;
-  height: 100%;
+  width: 99%;
+  height: 15rem;
   object-fit: cover;
 }
-
 
 .plant-box .plant-top::before {
   content: "";
