@@ -3,6 +3,9 @@ body {
   --btn-color: #0a846e;
   --brown-color: #9e6d52;
   --btn-color-pink: #b93857;
+
+  margin: 0;
+  padding: 0;
 }
 
 .head-grid-con {
@@ -272,7 +275,12 @@ body {
 }
 
 .footer {
-  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  height: 50rem;
   width: 100%;
 }
 
@@ -289,8 +297,7 @@ body {
   grid-template-areas: "left right";
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-  height: 100%;
-  width: 100%;
+  /* scale: 0.8; */
 }
 
 .footer-background .footer-contact-left {
@@ -311,6 +318,7 @@ body {
   color: white;
   font-size: 3rem;
   font-weight: bold;
+  
 }
 
 .footer-contact-bottom {
