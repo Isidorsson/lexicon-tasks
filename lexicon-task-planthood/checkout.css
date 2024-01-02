@@ -44,19 +44,6 @@ body {
   margin: 0;
 }
 
-/* .add-or-remove-box {
-  position: relative;
-  margin: 2rem 0 0 0;
-  width: 99%;
-} */
-
-/* .add-or-remove-text {
-  position: absolute;
-  top: -2rem;
-  left: 0;
-  width: 100%;
-
-} */
 
 .add-or-remove {
   display: flex;
