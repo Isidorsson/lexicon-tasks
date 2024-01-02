@@ -234,14 +234,11 @@ body {
     height: 10rem;
     width: auto;
     transform: scale(0.2);
-
-
   }
 
   .nav-links {
-  opacity: 0;
+    opacity: 0;
   }
-  
 
   .add-or-remove-box {
     width: 100%;
@@ -320,16 +317,6 @@ body {
     grid-template-rows: repeat(2, 1fr);
     gap: 25px;
     padding: 10px;
-  }
-
-  .cute-frame-pic-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: var(--brown-color);
-    margin-top: 5rem;
-    width: auto;
   }
 
   .footer-pic {
