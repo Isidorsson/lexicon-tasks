@@ -1,4 +1,3 @@
-
 let display = document.getElementById('display');
 let operation = null;
 let firstNumber = '';
