@@ -15,4 +15,4 @@
 
 ## JavaScript
 
-- [ ] [Task 1](lexicon-task-calculator/) - [JS Task 1](https://cloticc.github.io/lexicon-tasks/lexicon-task-calculator/)
+- [ ] [Task 1](lexicon-task-calculator/) - [calculator](https://cloticc.github.io/lexicon-tasks/lexicon-task-calculator/)
