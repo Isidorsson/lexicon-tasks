@@ -448,7 +448,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0.9;
-    transform: scale(0.6); /* adjust as needed */
+    transform: scale(0.6); 
   }
   .plant-box h3,
   .plant-box p,
