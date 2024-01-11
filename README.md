@@ -16,5 +16,5 @@
 ## JavaScript
 
 - [x] [Task JS - Variables and Datatypes](lexicon-task-variable-datatype/)
-- [x] [lexicon-task-Data-entry-alert-cal](lexicon-task-Data-entry-alert-cal/)
+- [x] [Task JS - Data-entry-alert-cal](lexicon-task-Data-entry-alert-cal/)
 - [ ] [Task 1](lexicon-task-calculator/) - [simple calculator](https://cloticc.github.io/lexicon-tasks/lexicon-task-calculator/)
