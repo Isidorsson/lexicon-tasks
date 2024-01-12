@@ -6,7 +6,7 @@ let result = null;
 
 function appendNumber(number) {
   if (operation === null) {
-    firstNumber += number;
+    firstNumber += number; 
     display.value = firstNumber;
   } else {
     secondNumber += number;
@@ -43,4 +43,5 @@ function clearDisplay() {
   secondNumber = '';
   result = null;
 }
+
 
