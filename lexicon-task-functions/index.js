@@ -129,3 +129,25 @@ function Systembolaget(age) {
 const age = parseInt(prompt("Enter your age:"));
 const message = Systembolaget(age);
 console.log(message);
+
+// List a persons' skills (Needs knowledge of Objects)
+// Create an person object that has the following attributes: - name - age - city - skills
+// The skills attribute should be an array that contains strings of different skills, like: "Pokemon Master", "Kung Fu Legend", "Football Ninja" or any other skill. At least five of them.
+
+const person = {
+  name: "John",
+  age: 30,
+  city: "Los santos",
+  skills: ["Javascript", "HTML", "CSS", "Python", "Lua"]
+};
+
+// Then create a function that takes the person as argument and lists all the skills of the person to the console.
+
+function ListSkills(person) {
+  for (let i = 0; i < person.skills.length; i++) {
+    console.log(person.skills[i]);
+  }
+}
+
+ListSkills(person);
+
