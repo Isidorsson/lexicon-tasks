@@ -102,3 +102,30 @@ function MeanValue(arr) {
 const arr = [1, 2, 3, 4, 5];
 const mean = MeanValue(arr);
 console.log(`The mean value is ${mean}`); // The mean value is 3
+
+// Systembolaget
+// Create a function that takes an age as an argument. Check the age and return one of the following messages.
+// 0 - 14 "Get out of here!"
+// 15 - 17: "Sorry, you are not old enough"
+// 18-19: "Sorry, you must be atleast 20. Why don't you try a bar instead?"
+// 20-80: "Thank you! Welcome!"
+// 80+ I'm sorry, where is your caretaker?
+// Sum (Needs knowledge of Arrays)
+
+function Systembolaget(age) {
+  if (age >= 0 && age <= 14) {
+    return "Get out of here!";
+  } else if (age >= 15 && age <= 17) {
+    return "Sorry, you are not old enough";
+  } else if (age >= 18 && age <= 19) {
+    return "Sorry, you must be atleast 20. Why don't you try a bar instead?";
+  } else if (age >= 20 && age <= 80) {
+    return "Thank you! Welcome!";
+  } else if (age > 80) {
+    return "I'm sorry, where is your caretaker?";
+  }
+}
+
+const age = parseInt(prompt("Enter your age:"));
+const message = Systembolaget(age);
+console.log(message);
