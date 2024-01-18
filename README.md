@@ -19,5 +19,6 @@
 - [x] [Task JS - Data-entry-alert-cal](lexicon-task-Data-entry-alert-cal/)
 - [x] [Task JS - Functions](lexicon-task-functions/)
 - [x] [Task JS - Arrays-Loops](lexicon-task-array-loop/)
+- [x] [Task JS - Objects-school-task](lexicon-task-objects/)
 - [ ] [Task ?](lexicon-task-calculator/) - [simple calculator](https://cloticc.github.io/lexicon-tasks/lexicon-task-calculator/)
 - [ ] [Task 1](lexicon-task-sauna/) - [Sauna](https://cloticc.github.io/lexicon-task-sauna/)
