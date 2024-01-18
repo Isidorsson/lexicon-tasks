@@ -4,9 +4,9 @@ Create an object representing a person with properties like name, age, and city.
 
 ```js
 const person = {
-  name: "Henrik",
+  name: "John",
   age: 35,
-  city: "Stockholm",
+  city: "New York",
 };
 
 console.log(person);
@@ -34,9 +34,9 @@ Create an object representing a car with properties like make, model, and a meth
 
 ```js
 const car = {
-  make: "Volvo",
-  model: "V70",
-  year: 2016,
+  make: "Subaru",
+  model: "123",
+  year: 123,
   manualTransmission: true,
   start: function () {
     console.log("The car is running");
@@ -61,13 +61,13 @@ Create an object representing a student with nested properties for subjects and 
 
 ```js
 const student = {
-  name: "Niklas",
-  age: 32,
-  city: "Stockholm",
+  name: "John",
+  age: 30,
+  city: "New York",
   subjects: {
-    math: 5,
-    science: 4,
-    english: 5,
+    math: 1,
+    science: 2,
+    english: 3,
   },
 };
 ```
@@ -76,10 +76,37 @@ const student = {
 
 Modify the science grade of the student from the previous exercise.
 
+```js
+student.subjects.science = 10;
+```
+
 ### Array of Objects
 
 Create an array of objects representing different books with properties like title and author.
 
+```js
+const books = [
+  {
+    title: "Harry Potter",
+    author: "J.K. Rowling",
+  },
+  {
+    title: "Lord of the Rings",
+    author: "J.R.R. Tolkien",
+  },
+  {
+    title: "The Hobbit",
+    author: "J.R.R. Tolkien",
+  },
+];
+```
+
 ### Loop through Array of Objects
 
 Loop through the books array from the previous exercise and print the title and author of each book.
+
+```js
+for (let book of books) {
+  console.log(`${book.title} by ${book.author}`);
+}
+```
