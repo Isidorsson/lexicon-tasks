@@ -49,9 +49,28 @@ car.start();
 
 Loop through the person object from exercise 1 and print each property and its value.
 
+```js
+for (let key in person) {
+  console.log(`${key}: ${person[key]}`);
+}
+```
+
 ### Object with Nested Properties
 
 Create an object representing a student with nested properties for subjects and grades.
+
+```js
+const student = {
+  name: "Niklas",
+  age: 32,
+  city: "Stockholm",
+  subjects: {
+    math: 5,
+    science: 4,
+    english: 5,
+  },
+};
+```
 
 ### Modify Nested Object Property
 
