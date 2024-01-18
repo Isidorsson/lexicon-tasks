@@ -42,8 +42,8 @@ const car = {
     console.log("The car is running");
   }
 };
+car.start();
 ```
-
 
 ### Loop through Object Properties
 
