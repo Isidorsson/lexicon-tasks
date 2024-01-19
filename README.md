@@ -20,5 +20,6 @@
 - [x] [Task JS - Functions](lexicon-task-functions/)
 - [x] [Task JS - Arrays-Loops](lexicon-task-array-loop/)
 - [ ] [Task JS - Objects](lexicon-task-objects/)
+- [ ] [Task JS - Class](lexicon-task-class/)
 - [x] [Task ?](lexicon-task-calculator/) - [simple calculator](https://cloticc.github.io/lexicon-tasks/lexicon-task-calculator/)
 - [x] [Task 1](lexicon-task-sauna/)
