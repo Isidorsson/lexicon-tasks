@@ -1,20 +1,19 @@
 
+const listContainer = document.getElementById('list-container');
 
 
 const p = document.createElement("p");
-p.innerText = "travel";
+p.innerText = "learn go";
 document.body.appendChild(p);
 
-
 const p2 = document.createElement("p");
-p2.innerText = "diving";
-// document.body.insertAdjacentElement("beforeend", p2);
+p2.innerText = "learn svelte";
 document.body.insertAdjacentElement("beforeend", p2);
-
-
 
 const list = document.querySelector(".list");
 console.log(list.innerHTML);
+
+list.innerHTML = "<div>This is a div element as a string</div>";
 
 
 
