@@ -13,11 +13,27 @@
 
 // list.innerHTML = "<div>This is a div element as a string</div>";
 
+const list = document.querySelector(".list"); 
 
-const randomText =[ "eaque", "autem", "quis", "in", "nemo" ]
-for (let i = 0; i < randomText.length; i++) {
+const randomText = ["eaque", "autem", "quis", "in", "nemo", "aut"];
+randomText.forEach(text => {
   const li = document.createElement("p");
-  li.innerText = randomText[i];
-  document.body.appendChild(li);
-}
+  li.innerText = text;
+  list.appendChild(li); 
+});
 
+console.log('Number of items', list.children.length);
+
+const owner = document.querySelector(".owner");
+owner.innerText = "Andreas";
+
+
+const newLi = document.createElement("p");
+newLi.innerText = "This is a new";
+list.replaceChild(newLi, list.children[0]);
+
+//one way to change instead of using replaceChild
+list.children[3].innerText = "This is a new line";
+
+
+list.removeChild(list.lastElementChild);
