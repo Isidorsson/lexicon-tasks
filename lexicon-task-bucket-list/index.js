@@ -1,7 +1,4 @@
 
-const listContainer = document.getElementById('list-container');
-
-
 const p = document.createElement("p");
 p.innerText = "learn go";
 document.body.appendChild(p);
