@@ -19,7 +19,7 @@ const randomText = ["eaque", "autem", "quis", "in", "nemo", "aut"];
 randomText.forEach(text => {
   const li = document.createElement("p");
   li.innerText = text;
-  list.appendChild(li); 
+  list.appendChild(li);
 });
 
 console.log('Number of items', list.children.length);
