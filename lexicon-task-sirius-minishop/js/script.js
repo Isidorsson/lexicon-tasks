@@ -37,3 +37,10 @@ document.querySelectorAll('p').forEach(p => {
 document.querySelectorAll('button').forEach(button => {
   button.textContent = 'Add to cart';
 });
+
+//10. add class to the active menu home
+document.querySelectorAll('a').forEach(link => {
+  if (link.textContent === 'Start') {
+    link.classList.add('active');
+  }
+});
