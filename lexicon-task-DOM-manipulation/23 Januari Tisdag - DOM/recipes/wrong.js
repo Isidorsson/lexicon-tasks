@@ -52,3 +52,8 @@ const liTag3 = ingredientsListPaste.querySelector('li:nth-child(3)')
 liTag3.innerText = '3tsk vaniljsocker'
 
 
+// 11. There is also a missing ingredient in the list of ingredients to the paste. Look and see what it is and add that one the the end of the list.
+// 400g naturell philadelphiaost
+const liTag4 = document.createElement('li')
+liTag4.innerText = '400g naturell philadelphiaost'
+ingredientsListPaste.appendChild(liTag4)
