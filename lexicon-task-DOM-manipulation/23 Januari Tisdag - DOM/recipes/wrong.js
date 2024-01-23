@@ -45,3 +45,10 @@ liTag2.innerText = 'Lite smör'
 ingredientsListBottom.appendChild(liTag)
 ingredientsListBottom.appendChild(liTag2)
 
+// 10. The third ingredient in the list of ingredients to the paste is wrong. Change that specific ingredient to the correct one.
+// replace 1dl lakrispulver with 3tsk vaniljsocker 
+const ingredientsListPaste = document.querySelector('.ingredients-list-paste')
+const liTag3 = ingredientsListPaste.querySelector('li:nth-child(3)')
+liTag3.innerText = '3tsk vaniljsocker'
+
+
