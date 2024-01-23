@@ -8,3 +8,9 @@ document.querySelectorAll('a').forEach(link => {
   }
 });
 
+//3. chance contact to mail us
+document.querySelectorAll('a').forEach(link => {
+  if (link.textContent === 'Contact') {
+    link.textContent = 'Mail Us';
+  }
+});
