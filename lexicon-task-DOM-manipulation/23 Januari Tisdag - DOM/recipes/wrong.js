@@ -62,3 +62,11 @@ ingredientsListPaste.appendChild(liTag4)
 const instructions = document.querySelector('.instructions')
 instructions.classList.remove('shadow')
 
+// 13. Two list elements of the list of instructions are incorrect. Find them and change them to the correct ones.
+const instructionsList = document.querySelector('.instructions-list')
+const liTag5 = instructionsList.querySelector('li:nth-child(2)')
+const liTag6 = instructionsList.querySelector('li:nth-child(9)')
+liTag5.innerText = 'Separera ägggulor och äggvitor. Äggvitorna lägger du i en stor bunke, äggulorna i en liten bunke.'
+liTag6.innerText = 'Ställ in i frysen över natten.'
+
+
