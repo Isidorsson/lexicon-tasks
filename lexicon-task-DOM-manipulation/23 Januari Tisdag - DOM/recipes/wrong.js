@@ -10,3 +10,6 @@ header.style.justifyContent = 'flex-start'
 // 3. The header has a border at the bottom, but it has the wrong color. Change it do the correct one.
 header.style.borderBottom = '1px solid lightgray'
 
+// 4. The recipe name is wrong, change it to the correct one.
+const recipeName = document.querySelector('#recipe-name')
+recipeName.innerText = 'Frozen Cheescake'
