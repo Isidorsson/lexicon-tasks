@@ -22,7 +22,7 @@
 - [x] [Task JS - Objects](lexicon-task-objects/)
 - [x] [Task JS - Class](lexicon-task-class/)
 - [x] [Task JS - Bucket-List](lexicon-task-bucket-list/) - [Bucket List](https://cloticc.github.io/lexicon-tasks/lexicon-task-bucket-list/)
-- [ ] [Task JS - DOM Manipulation](lexicon-task-DOM-manipulation/) - [DOM Manipulation](https://cloticc.github.io/lexicon-tasks/lexicon-task-DOM-manipulation/)
+- [ ] [Task JS - DOM Manipulation](lexicon-task-DOM-manipulation/) - [DOM Manipulation](https://cloticc.github.io/lexicon-tasks/lexicon-task-DOM-manipulation/recipes/)
 - [ ] [Task JS - Sirius Minishop](lexicon-task-sirius-minishop/)  - [Sirius Minishop](https://cloticc.github.io/lexicon-tasks/lexicon-task-sirius-minishop/)
 - [ ] [Task JS - Todo-List](lexicon-task-todo-list/) - [Todo-List](https://cloticc.github.io/lexicon-tasks/lexicon-task-todo-list/)  
 - [x] [Task ?](lexicon-task-calculator/) - [simple calculator](https://cloticc.github.io/lexicon-tasks/lexicon-task-calculator/)
