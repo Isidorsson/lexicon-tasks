@@ -57,3 +57,8 @@ liTag3.innerText = '3tsk vaniljsocker'
 const liTag4 = document.createElement('li')
 liTag4.innerText = '400g naturell philadelphiaost'
 ingredientsListPaste.appendChild(liTag4)
+
+// 12. The text "Instructions" to the left, beneath the image, has some shadow styling applied to it. Remove that styling.
+const instructions = document.querySelector('.instructions')
+instructions.classList.remove('shadow')
+
