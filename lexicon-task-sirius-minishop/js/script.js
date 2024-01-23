@@ -21,3 +21,7 @@ document.querySelector('.art-2 p').textContent = 'Some cool information about Si
 //5. change background color and text on one of the buttons
 document.querySelector('.art-3 button').style.backgroundColor = 'red';
 document.querySelector('.art-3 button').textContent = 'Ok';
+
+//6. change the background of a product
+document.querySelector('.art-1').style.backgroundColor = 'lightblue';
+
