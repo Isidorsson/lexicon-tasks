@@ -67,3 +67,16 @@ const newProductHTML = `
 `;
 
 document.querySelector('main').insertAdjacentHTML('beforeend', newProductHTML);
+
+//14. add a event click on the logotype (.logo) when you register a click console.log('found you');
+document.querySelector('header img').addEventListener('click', () => {
+  console.log('found you');
+});
+
+
+//15. Listen after clicking on all products ( <article>). When it registers a click, console.log "Hi, Im article Fire / Ash / Water".
+document.querySelectorAll('article').forEach(article => {
+  article.addEventListener('click', () => {
+    console.log(`Hi, I'm article ${article.querySelector('h3').textContent}`);
+  });
+});
