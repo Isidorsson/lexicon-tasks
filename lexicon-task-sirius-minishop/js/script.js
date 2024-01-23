@@ -33,3 +33,7 @@ document.querySelectorAll('p').forEach(p => {
   p.style.color = 'green';
 });
 
+//9. change button text add to cart
+document.querySelectorAll('button').forEach(button => {
+  button.textContent = 'Add to cart';
+});
