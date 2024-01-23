@@ -13,3 +13,9 @@ header.style.borderBottom = '1px solid lightgray'
 // 4. The recipe name is wrong, change it to the correct one.
 const recipeName = document.querySelector('#recipe-name')
 recipeName.innerText = 'Frozen Cheescake'
+
+// 5. The clock icon beneath the recipe name has disappeared and been replaced by a text instead. This can be fixed by adding a class to that element.
+const timeContainer = document.querySelector('span')
+timeContainer.classList.add('material-icons')
+
+
