@@ -47,3 +47,11 @@ document.querySelectorAll('a').forEach(link => {
 
 //11. remove the class logo on the logo
 document.querySelector('.logo').classList.remove('logo');
+
+
+// 12. add a new menyalternative to the menu before img
+const newLink = document.createElement('a');
+newLink.textContent = 'New Link'; 
+newLink.setAttribute('href', '#');
+document.querySelector('nav').insertBefore(newLink, document.querySelector('nav img'));
+
