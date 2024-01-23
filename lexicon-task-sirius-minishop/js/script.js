@@ -44,3 +44,6 @@ document.querySelectorAll('a').forEach(link => {
     link.classList.add('active');
   }
 });
+
+//11. remove the class logo on the logo
+document.querySelector('.logo').classList.remove('logo');
