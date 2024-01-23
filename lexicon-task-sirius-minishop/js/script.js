@@ -51,7 +51,19 @@ document.querySelector('.logo').classList.remove('logo');
 
 // 12. add a new menyalternative to the menu before img
 const newLink = document.createElement('a');
-newLink.textContent = 'New Link'; 
+newLink.textContent = 'New Link';
 newLink.setAttribute('href', '#');
 document.querySelector('nav').insertBefore(newLink, document.querySelector('nav img'));
 
+// 13. add new product containing img hoodie-forest.png, h2 Sinus Hoodie, h3 Forrest, p use lorem
+const newProductHTML = `
+  <article class="art-4">
+    <figure><img src="img/hoodie-forrest.png" alt="hoodie"></figure>
+    <h2>Sinus Hoodie</h2>
+    <h3>Forrest</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolores.</p>
+    <button>Buy Now</button>
+  </article>
+`;
+
+document.querySelector('main').insertAdjacentHTML('beforeend', newProductHTML);
