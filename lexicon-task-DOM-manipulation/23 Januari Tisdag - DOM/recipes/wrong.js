@@ -1,6 +1,6 @@
 // 1. The logo text of the site has the wrong color. Change it to the correct one.
 const logo = document.querySelector('.logo-text')
-logo.style.color = 'lightgray'
+logo.style.color = '#384241'
 
 // 2. The alignment of the elements inside the header element are wrong. Change it to the correct one. `Hint`, check the flex properties for the correct alignment. Here is a link that might help:
 
@@ -25,3 +25,23 @@ time.innerText = '60+ min'
 // 7. The src path to the image is wrong, or atleast it's showing the wrong image. Change it to the correct one. The available images can be found in the assets folder.
 const image = document.querySelector('img')
 image.src = 'assets/frozen-cheesecake-slice.jpg'
+
+// 8. The background color of the ingredients list container is wrong. Fix it.
+const ingredients = document.querySelector('.ingredients-container')
+ingredients.style.backgroundColor = '#f9f9f9'
+
+// 9. The ingredients are divided in to two parts, one for the bottom and one for the paste. In the list of the ingredients to the bottom, there is a text instead of two list items. Remove the text and add those two list items.
+
+const ingredientsListBottom = document.querySelector('.ingredients-list-bottom')
+const pTag = ingredientsListBottom.querySelector('p');
+pTag.remove()
+
+const liTag = document.createElement('li')
+liTag.innerText = '15st digestivekex'
+
+const liTag2 = document.createElement('li')
+liTag2.innerText = 'Lite smör'
+
+ingredientsListBottom.appendChild(liTag)
+ingredientsListBottom.appendChild(liTag2)
+
