@@ -25,6 +25,6 @@
 - [x] [Task JS - Sauna](lexicon-task-sauna/)
 - [x] [Task JS - Bucket-List](lexicon-task-bucket-list/) - [Bucket List](https://cloticc.github.io/lexicon-tasks/lexicon-task-bucket-list/)
 - [x] [Task JS - DOM Manipulation](lexicon-task-DOM-manipulation/) - [DOM Manipulation](https://cloticc.github.io/lexicon-tasks/lexicon-task-DOM-manipulation/recipes/)
-- [ ] [Task JS - Account Registration](lexicon-task-account-registration/) - [Account Registration](https://cloticc.github.io/lexicon-tasks/lexicon-task-account-registration/)
 - [x] [Task JS - Sirius Minishop](lexicon-task-sirius-minishop/)  - [Sirius Minishop](https://cloticc.github.io/lexicon-tasks/lexicon-task-sirius-minishop/)
+- [ ] [Task JS - Account Registration](lexicon-task-account-registration/) - [Account Registration](https://cloticc.github.io/lexicon-tasks/lexicon-task-account-registration/)
 - [ ] [Task JS - Todo-List](lexicon-task-todo-list/) - [Todo-List](https://cloticc.github.io/lexicon-tasks/lexicon-task-todo-list/)  
