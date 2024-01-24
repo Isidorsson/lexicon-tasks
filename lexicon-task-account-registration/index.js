@@ -1,6 +1,11 @@
 const form = document.querySelector('form');
 const submitButton = document.querySelector('button[type="submit"]');
 const messageDiv = document.querySelector('.message');
+const togglePassword = document.querySelector('#togglePassword');
+const toggleConfirmPassword = document.querySelector('#toggleConfirmPassword');
+const passwordField = document.querySelector('#password');
+const confirmPasswordField = document.querySelector('#confirm-password');
+
 
 
 const fields = {
@@ -42,7 +47,22 @@ function checkFormCompletion() {
   }
 }
 
-form.addEventListener('submit', function (event) { // 1st event listener
+function togglePasswordField(field, toggleButton) {
+  const type = field.getAttribute('type') === 'password' ? 'text' : 'password';
+  field.setAttribute('type', type);
+  toggleButton.classList.toggle('fa-eye-slash');
+}
+
+togglePassword.addEventListener('click', function (event) {
+  togglePasswordField(passwordField, this);
+  togglePasswordField(confirmPasswordField, toggleConfirmPassword);
+});
+
+toggleConfirmPassword.addEventListener('click', function (event) {
+  togglePasswordField(passwordField, togglePassword);
+  togglePasswordField(confirmPasswordField, this);
+});
+form.addEventListener('submit', function (event) {
   event.preventDefault();
   console.log(getInputValues());
 });
