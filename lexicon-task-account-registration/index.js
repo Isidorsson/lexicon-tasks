@@ -3,8 +3,7 @@ const submitButton = document.querySelector('button[type="submit"]');
 const messageDiv = document.querySelector('.message');
 const togglePassword = document.querySelector('#togglePassword');
 const toggleConfirmPassword = document.querySelector('#toggleConfirmPassword');
-const passwordField = document.querySelector('#password');
-const confirmPasswordField = document.querySelector('#confirm-password');
+
 
 
 
@@ -54,13 +53,13 @@ function togglePasswordField(field, toggleButton) {
 }
 
 togglePassword.addEventListener('click', function (event) {
-  togglePasswordField(passwordField, this);
-  togglePasswordField(confirmPasswordField, toggleConfirmPassword);
+  togglePasswordField(fields.password, this);
+  togglePasswordField(fields.confirmPassword, toggleConfirmPassword);
 });
 
 toggleConfirmPassword.addEventListener('click', function (event) {
-  togglePasswordField(passwordField, togglePassword);
-  togglePasswordField(confirmPasswordField, this);
+  togglePasswordField(fields.password, togglePassword);
+  togglePasswordField(fields.confirmPassword, this);
 });
 form.addEventListener('submit', function (event) {
   event.preventDefault();
