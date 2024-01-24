@@ -2,6 +2,7 @@ const form = document.querySelector('form');
 const submitButton = document.querySelector('button[type="submit"]');
 const messageDiv = document.querySelector('.message');
 
+
 const fields = {
   name: document.getElementById('name'),
   username: document.getElementById('username'),
@@ -41,10 +42,15 @@ function checkFormCompletion() {
   }
 }
 
-form.addEventListener('submit', function (event) {
+form.addEventListener('submit', function (event) { // 1st event listener
   event.preventDefault();
   console.log(getInputValues());
 });
+
+// form.addEventListener('submit', function (event) {  // its for alert but disabled it cus i dont like alers:D
+//   event.preventDefault();
+//   alert(JSON.stringify(getInputValues()));
+// });
 
 Object.values(fields).forEach(input => {
   input.addEventListener('input', () => {
@@ -54,3 +60,4 @@ Object.values(fields).forEach(input => {
 });
 
 checkFormCompletion();
+
