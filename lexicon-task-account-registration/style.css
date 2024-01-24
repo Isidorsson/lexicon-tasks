@@ -38,6 +38,13 @@ label {
   border: 1px solid #ccc;
   border-radius: 3px;
 }
+.fa-eye {
+  position: relative;
+  top: -25px;
+  left: 90%;
+  color: #004c91;
+  cursor: pointer;
+}
 
 .btn {
   margin-top: 10px;
