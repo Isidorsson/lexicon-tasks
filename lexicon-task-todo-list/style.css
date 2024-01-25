@@ -5,3 +5,24 @@ body {
   align-items: center;
   height: 100%;
 }
+#todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#todo-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 400px;
+  height: 50px;
+  border: 1px solid black;
+  margin-bottom: 10px;
+}
+/* 
+#todo-list li button {
+  width: 100px;
+  height: 30px;
+}
+ */
