@@ -91,7 +91,13 @@ function createMoveDownButton(index) {
 // Function to create a complete button
 function createCompleteButton(taskText) {
   const button = document.createElement('button');
-  button.textContent = 'Complete';
+
+  const icon = document.createElement('i');
+  icon.className = 'material-icons-outlined';
+  icon.textContent = 'done';
+  button.appendChild(icon);
+  
+
   button.addEventListener('click', () => {
     taskText.style.textDecoration = taskText.style.textDecoration === 'line-through' ? 'none' : 'line-through';
   });
