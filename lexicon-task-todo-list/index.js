@@ -118,7 +118,12 @@ function createEditButton(task, index, li) {
     newInput.type = 'text';
     newInput.value = task;
     const saveButton = document.createElement('button');
-    saveButton.textContent = 'Save';
+
+    const icon = document.createElement('i');
+    icon.className = 'material-icons-outlined';
+    icon.textContent = 'save';
+    saveButton.appendChild(icon);
+    
     saveButton.addEventListener('click', () => {
       tasks[index] = newInput.value;
       renderTasks();
