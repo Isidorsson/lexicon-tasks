@@ -53,7 +53,7 @@ function createMoveUpButton(index) {
 
   const icon = document.createElement('i');
   icon.className = 'material-icons-outlined';
-  icon.textContent = 'arrow_upward'; 
+  icon.textContent = 'arrow_upward';
   button.appendChild(icon);
 
   button.addEventListener('click', () => {
@@ -74,7 +74,7 @@ function createMoveDownButton(index) {
 
   const icon = document.createElement('i');
   icon.className = 'material-icons-outlined';
-  icon.textContent = 'arrow_downward'; 
+  icon.textContent = 'arrow_downward';
   button.appendChild(icon);
 
   button.addEventListener('click', () => {
@@ -96,7 +96,7 @@ function createCompleteButton(taskText) {
   icon.className = 'material-icons-outlined';
   icon.textContent = 'done';
   button.appendChild(icon);
-  
+
 
   button.addEventListener('click', () => {
     taskText.style.textDecoration = taskText.style.textDecoration === 'line-through' ? 'none' : 'line-through';
@@ -107,7 +107,12 @@ function createCompleteButton(taskText) {
 // Function to create an edit button
 function createEditButton(task, index, li) {
   const button = document.createElement('button');
-  button.textContent = 'Edit';
+
+  const icon = document.createElement('i');
+  icon.className = 'material-icons-outlined';
+  icon.textContent = 'edit';
+  button.appendChild(icon);
+
   button.addEventListener('click', () => {
     const newInput = document.createElement('input');
     newInput.type = 'text';
