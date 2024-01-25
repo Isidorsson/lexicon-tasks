@@ -133,7 +133,12 @@ function createEditButton(task, index, li) {
 // Function to create a delete button
 function createDeleteButton(index) {
   const button = document.createElement('button');
-  button.textContent = 'Delete';
+
+  const icon = document.createElement('i');
+  icon.className = 'material-icons-outlined';
+  icon.textContent = 'delete';
+  button.appendChild(icon);
+  
   button.addEventListener('click', () => {
     tasks.splice(index, 1);
     renderTasks();
