@@ -26,6 +26,13 @@ function renderTasks() {
   });
 }
 
+// Function to add a new task when the enter key is pressed
+todoInput.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') {
+    addTask();
+  }
+});
+
 // Function to create a task element
 function createTaskElement(task, index) {
   const li = document.createElement('li');
