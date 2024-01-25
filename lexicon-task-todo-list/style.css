@@ -86,6 +86,7 @@ body {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  padding-left: 10px;
 }
 
 #todo-list li button {
