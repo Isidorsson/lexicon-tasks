@@ -19,8 +19,27 @@ body {
   border-radius: 5px;
   padding: 20px;
   box-sizing: border-box;
-  overflow: auto; /* Add this line */
+  overflow: auto; 
 }
+
+
+#todo-app::-webkit-scrollbar {
+  width: 10px;
+}
+
+#todo-app::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+#todo-app::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+#todo-app::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 #todo-app h1 {
   margin: 0;
   margin-bottom: 20px;
@@ -54,7 +73,7 @@ body {
 
 #todo-list li {
   display: flex;
-  justify-content: space-between; /* Align items on the line */
+  justify-content: space-between; 
   align-items: center;
   width: 400px;
   height: 50px;
@@ -63,16 +82,16 @@ body {
 }
 
 #todo-list li span {
-  flex-grow: 1; /* Allow the text to take up the remaining space */
-  overflow: hidden; /* Prevent the text from overflowing */
-  white-space: nowrap; /* Prevent the text from wrapping to the next line */
-  text-overflow: ellipsis; /* Add an ellipsis when the text overflows */
+  flex-grow: 1; 
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 #todo-list li button {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  margin-left: auto; /* Push the button to the right */
+  margin-left: auto; 
   margin-right: 10px;
 }
