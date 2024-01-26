@@ -37,8 +37,7 @@ function cleanTask() {
 //   });
 // }
 
-
-// Use Array.prototype.map and the spread operator instead of function above
+// Array.prototype.map and the spread operator instead of function above
 const renderTasks = () => {
   todoList.innerHTML = '';
   const taskElements = tasks.map((task, index) => createTaskElement(task, index)); 
@@ -59,9 +58,9 @@ const createTaskElement = (task, index) => {
   taskText.textContent = task;
 
   const [moveUpButton, moveDownButton, completeButton, editButton, deleteButton] = 
-    [createMoveUpButton(index), createMoveDownButton(index), createCompleteButton(taskText), createEditButton(task, index, li), createDeleteButton(index)];
+    [createMoveUpButton(index), createMoveDownButton(index), createCompleteButton(taskText), createEditButton(task, index, li), createDeleteButton(index)]; 
 
-  [taskText, moveUpButton, moveDownButton, completeButton, editButton, deleteButton].forEach(element => li.appendChild(element));
+  [taskText, moveUpButton, moveDownButton, completeButton, editButton, deleteButton].forEach(element => li.appendChild(element));  
 
   return li;
 };
