@@ -11,20 +11,37 @@ let tasks = [];
 addTaskButton.addEventListener('click', addTask);
 
 // Function to add a new task
+// function addTask() {
+//   const task = todoInput.value;
+//   tasks.push(task);
+//   renderTasks();
+//   todoInput.value = '';
+// }
+
 function addTask() {
   const task = todoInput.value;
   tasks.push(task);
+
+  localStorage.setItem('tasks', JSON.stringify(tasks));
   renderTasks();
   todoInput.value = '';
+  console.log(tasks);
 }
 
 // Add event listener for the clean-task button
 cleanTaskButton.addEventListener('click', cleanTask);
 
 // Function to clean tasks
+// function cleanTask() {
+//   tasks = [];
+//   renderTasks();
+// }
+
 function cleanTask() {
   tasks = [];
+  localStorage.setItem('tasks', JSON.stringify(tasks));
   renderTasks();
+  console.log(tasks);
 }
 
 
@@ -37,10 +54,19 @@ function cleanTask() {
 //   });
 // }
 
+// Load tasks from localStorage when the page loads
+window.addEventListener('DOMContentLoaded', (event) => {
+  const storedTasks = localStorage.getItem('tasks');
+  if (storedTasks) {
+    tasks = JSON.parse(storedTasks);
+    renderTasks();
+  }
+});
+
 // Array.prototype.map and the spread operator instead of function above
 const renderTasks = () => {
   todoList.innerHTML = '';
-  const taskElements = tasks.map((task, index) => createTaskElement(task, index)); 
+  const taskElements = tasks.map((task, index) => createTaskElement(task, index));
   taskElements.forEach(element => todoList.appendChild(element));
 };
 
@@ -57,10 +83,10 @@ const createTaskElement = (task, index) => {
   const taskText = document.createElement('span');
   taskText.textContent = task;
 
-  const [moveUpButton, moveDownButton, completeButton, editButton, deleteButton] = 
-    [createMoveUpButton(index), createMoveDownButton(index), createCompleteButton(taskText), createEditButton(task, index, li), createDeleteButton(index)]; 
+  const [moveUpButton, moveDownButton, completeButton, editButton, deleteButton] =
+    [createMoveUpButton(index), createMoveDownButton(index), createCompleteButton(taskText), createEditButton(task, index, li), createDeleteButton(index)];
 
-  [taskText, moveUpButton, moveDownButton, completeButton, editButton, deleteButton].forEach(element => li.appendChild(element));  
+  [taskText, moveUpButton, moveDownButton, completeButton, editButton, deleteButton].forEach(element => li.appendChild(element));
 
   return li;
 };
@@ -142,7 +168,7 @@ function createEditButton(task, index, li) {
     icon.className = 'material-icons-outlined';
     icon.textContent = 'save';
     saveButton.appendChild(icon);
-    
+
     saveButton.addEventListener('click', () => {
       tasks[index] = newInput.value;
       renderTasks();
@@ -162,7 +188,7 @@ function createDeleteButton(index) {
   icon.className = 'material-icons-outlined';
   icon.textContent = 'delete';
   button.appendChild(icon);
-  
+
   button.addEventListener('click', () => {
     tasks.splice(index, 1);
     renderTasks();
