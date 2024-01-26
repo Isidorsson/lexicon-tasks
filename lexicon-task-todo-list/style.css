@@ -45,26 +45,32 @@ body {
   margin-bottom: 20px;
 }
 
-#add-task {
-  width: 100px;
-  height: 30px;
-  font-size: 20px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 5px;
+#button-container {
+  display: flex;
+  justify-content: space-between; /* This will put some space between the buttons */
+  width: 210px; /* Adjust this value based on your needs */
   margin-bottom: 10px;
 }
 
-#clean-task {
+#add-task, #clean-task {
   width: 100px;
   height: 30px;
   font-size: 20px;
-  background-color: #f44336;
   color: white;
   border: none;
   border-radius: 5px;
-  margin-bottom: 10px;
+}
+
+#add-task {
+  background-color: #4caf50;
+}
+
+#clean-task {
+  background-color: #f44336;
+}
+
+#add-task:hover, #clean-task:hover {
+  opacity: 0.8;
 }
 
 #todo-input {
