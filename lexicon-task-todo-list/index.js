@@ -2,6 +2,7 @@
 const todoInput = document.getElementById('todo-input');
 const addTaskButton = document.getElementById('add-task');
 const todoList = document.getElementById('todo-list');
+const cleanTaskButton = document.getElementById('clean-task');
 
 // Initialize tasks array
 let tasks = [];
@@ -16,6 +17,16 @@ function addTask() {
   renderTasks();
   todoInput.value = '';
 }
+
+// Add event listener for the clean-task button
+cleanTaskButton.addEventListener('click', cleanTask);
+
+// Function to clean tasks
+function cleanTask() {
+  tasks = [];
+  renderTasks();
+}
+
 
 // // Function to render tasks
 // function renderTasks() {
