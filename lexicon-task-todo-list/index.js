@@ -17,14 +17,22 @@ function addTask() {
   todoInput.value = '';
 }
 
-// Function to render tasks
-function renderTasks() {
+// // Function to render tasks
+// function renderTasks() {
+//   todoList.innerHTML = '';
+//   tasks.forEach((task, index) => {
+//     const li = createTaskElement(task, index);
+//     todoList.appendChild(li);
+//   });
+// }
+
+
+// Use Array.prototype.map and the spread operator instead of function above
+const renderTasks = () => {
   todoList.innerHTML = '';
-  tasks.forEach((task, index) => {
-    const li = createTaskElement(task, index);
-    todoList.appendChild(li);
-  });
-}
+  const taskElements = tasks.map((task, index) => createTaskElement(task, index)); 
+  taskElements.forEach(element => todoList.appendChild(element));
+};
 
 // Function to add a new task when the enter key is pressed
 todoInput.addEventListener('keypress', (event) => {
@@ -33,27 +41,21 @@ todoInput.addEventListener('keypress', (event) => {
   }
 });
 
-// Function to create a task element
-function createTaskElement(task, index) {
+// Use template literals and destructuring assignment
+const createTaskElement = (task, index) => {
   const li = document.createElement('li');
   const taskText = document.createElement('span');
   taskText.textContent = task;
 
-  const moveUpButton = createMoveUpButton(index);
-  const moveDownButton = createMoveDownButton(index);
-  const completeButton = createCompleteButton(taskText);
-  const editButton = createEditButton(task, index, li);
-  const deleteButton = createDeleteButton(index);
+  const [moveUpButton, moveDownButton, completeButton, editButton, deleteButton] = 
+    [createMoveUpButton(index), createMoveDownButton(index), createCompleteButton(taskText), createEditButton(task, index, li), createDeleteButton(index)];
 
-  li.appendChild(taskText);
-  li.appendChild(moveUpButton);
-  li.appendChild(moveDownButton);
-  li.appendChild(completeButton);
-  li.appendChild(editButton);
-  li.appendChild(deleteButton);
+  [taskText, moveUpButton, moveDownButton, completeButton, editButton, deleteButton].forEach(element => li.appendChild(element));
 
   return li;
-}
+};
+
+
 // Function to create a move up button
 function createMoveUpButton(index) {
   const button = document.createElement('button');
@@ -157,3 +159,4 @@ function createDeleteButton(index) {
   });
   return button;
 }
+
