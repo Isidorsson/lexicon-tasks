@@ -45,7 +45,7 @@ export const songsList = [
     "title": "Little Moscow ft. RudeNoodleNPC",
     "artist": "RudeNoodle",
     "album": "RudeNoodle 1 year",
-    "link": "x2mate.com-RudeNoodleNPC - Little Moscow-(480p).mp4",
+    "link": "x2mate.com - RudeNoodleNPC - Little Moscow (128 kbps).mp3",
     "thumb": "https://i3.ytimg.com/vi/KwTVvu3dcsg/maxresdefault.jpg"
   },
   {
