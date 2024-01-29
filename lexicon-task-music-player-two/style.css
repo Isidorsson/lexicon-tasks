@@ -90,7 +90,7 @@ body {
   color: #f0f0f0;
   letter-spacing: 1px;
   font-size: 16px;
-  width: 500px;
+  width: auto;
   position: relative;
   overflow: hidden;
   white-space: nowrap;
@@ -98,10 +98,6 @@ body {
   margin: 10px auto;
   text-align: center;
   margin-top: 0.5rem;
-
-  
-
-
 }
 
 .song-info-album {
@@ -125,6 +121,10 @@ body {
   color: #f0f0f0;
 }
 
+.player-move-btn:hover {
+  color: #ae80d6;
+}
+
 .player-state-btn {
   font-size: 3rem;
   color: #ae80d6;
@@ -136,10 +136,13 @@ body {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
-
 
 .shuffle-btn.active {
   color: #ae80d6;
@@ -150,18 +153,19 @@ body {
 }
 
 @keyframes shuffle {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-
 .fa-volume-up {
- 
   color: #ae80d6;
 }
 
 .fa-volume-off {
- 
   color: #ae80d6;
 }
 
@@ -233,8 +237,8 @@ body {
 }
 
 .active-song {
-  background-color: #4d3f61; 
-  color: #000; 
+  background-color: #4d3f61;
+  color: #000;
 }
 #song-list li:hover {
   background-color: #4d3f61;
@@ -255,5 +259,4 @@ body {
 
 #song-list::-webkit-scrollbar-thumb:hover {
   background: #8f8f8f;
-
 }
