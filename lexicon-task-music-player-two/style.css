@@ -281,3 +281,12 @@ body {
 #song-list::-webkit-scrollbar-thumb:hover {
   background: #8f8f8f;
 }
+
+#eq {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  display: block;
+  margin: 0 auto; 
+
+}

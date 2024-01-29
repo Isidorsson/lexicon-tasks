@@ -17,6 +17,11 @@ const songProgressBar = document.querySelector(".song-progress-value");
 const volumeSlider = document.querySelector("#volume-slider");
 const volumeTrail = document.querySelector(".volume-trail");
 
+let canvas = document.getElementById('eq');
+let ctx = canvas.getContext('2d');
+let color1 = parseInt('4d3f61', 16); 
+let color2 = parseInt('ae80d6', 16); 
+
 let playedSongs = [];
 
 let audioContext;
@@ -69,6 +74,51 @@ function draw() {
 
   // Store the current average frequency value for the next frame
   previousAverage = average;
+}
+
+function lerpColor(a, b, amount) { 
+  const ar = a >> 16,
+      ag = a >> 8 & 0xff,
+      ab = a & 0xff,
+
+      br = b >> 16,
+      bg = b >> 8 & 0xff,
+      bb = b & 0xff,
+
+      rr = ar + amount * (br - ar),
+      rg = ag + amount * (bg - ag),
+      rb = ab + amount * (bb - ab);
+
+  return `rgb(${Math.round(rr)}, ${Math.round(rg)}, ${Math.round(rb)})`;
+}
+
+
+
+
+function drawEQ() {
+  requestAnimationFrame(drawEQ);
+
+
+  let dataArray = new Uint8Array(analyser.frequencyBinCount);
+  analyser.getByteFrequencyData(dataArray);
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  let barWidth = (canvas.width / bufferLength) * 2.5;
+  let barHeight;
+  let x = 0;
+
+  for (let i = 0; i < bufferLength; i++) {
+    barHeight = dataArray[i];
+
+    // ctx.fillStyle = 'rgb(' + (barHeight + 100) + ',50,50)';
+    
+    ctx.fillStyle = lerpColor(color1, color2, barHeight / 255);
+    ctx.fillRect(x, canvas.height - barHeight / 2, barWidth, barHeight / 2);
+
+
+    x += barWidth + 1;
+  }
 }
 
 
@@ -196,6 +246,7 @@ window.prevSong = prevSong;
 function toggleState() {
   if (!audioContext) {
     initializeAudioContext();
+    drawEQ();
   }
 
   if (audioContext.state === 'suspended') {
