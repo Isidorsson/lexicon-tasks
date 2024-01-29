@@ -6,7 +6,6 @@ export const songsList = [
     "link": "MARINA - Immortal (CodeMiko Intro) MewOne! Syberian Beast Remix [TubeRipper.com].m4a",
     "thumb": "https://i.ytimg.com/vi/Z0PqfNHiwO8/maxresdefault.jpg"
   },
-
   {
     "title": "Little Payo PPC - Ykanic ft. Payo",
     "artist": "Ykanic SoundCloud",
