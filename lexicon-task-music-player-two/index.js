@@ -35,6 +35,7 @@ let maxAverage = 0;
 let maxAverageDecay = 0.995;
 let beatThreshold = 0.99;
 
+// TODO - This shit so dumb
 function draw() {
   requestAnimationFrame(draw);
 
