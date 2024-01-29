@@ -5,7 +5,6 @@ let isPlaying = false;
 let isRepeating = false;
 let isShuffling = false;
 
-
 const currSong = new Audio();
 
 const songThumb = document.querySelector(".song-thumb");
@@ -27,7 +26,6 @@ let bufferLength;
 let dataArray;
 
 
-
 function initializeAudioContext() {
   audioContext = new (window.AudioContext || window.webkitAudioContext)();
   source = audioContext.createMediaElementSource(currSong);
@@ -42,12 +40,13 @@ function initializeAudioContext() {
 
 
 let previousAverage = 0;
-let beatThreshold = 255 / 150;
+let beatThreshold = 255 / 166;
 /**
  * The function `draw` continuously updates the average value of the audio data and adds a CSS class to
  * pulse a thumbnail if the average value exceeds a certain threshold.
  */
 function draw() {
+  // this function isnt great, but it works:)
   requestAnimationFrame(draw);
 
   analyser.getByteFrequencyData(dataArray);
@@ -61,10 +60,10 @@ function draw() {
 
   // Check if the average frequency value has increased significantly compared to the previous frame
   if (average > previousAverage + beatThreshold) {
-    console.log(`beat detected: ${average}`);
+    // console.log(`beat detected: ${average}`);
     document.querySelector('.song-thumb').classList.add('pulse');
   } else {
-    console.log(`no beat detected: ${average}`);
+    // console.log(`no beat detected: ${average}`);
     document.querySelector('.song-thumb').classList.remove('pulse');
   }
 
@@ -228,6 +227,23 @@ function adjustVolume(currVol) {
   volumeSlider.value = currVol;
 }
 window.adjustVolume = adjustVolume;
+
+
+/* The code snippet `window.addEventListener('keydown', function(e) { ... })` adds an event listener to
+the window object for the 'keydown' event. This event is triggered when a key on the keyboard is
+pressed. */
+window.addEventListener('keydown', function (e) {
+  if (e.key === 'ArrowRight') {
+    let newTime = currSong.currentTime + 5;
+    if (newTime > currSong.duration) newTime = currSong.duration;
+    currSong.currentTime = newTime;
+  } else if (e.key === 'ArrowLeft') {
+    let newTime = currSong.currentTime - 5;
+    if (newTime < 0) newTime = 0;
+    currSong.currentTime = newTime;
+  }
+});
+
 
 /* The code `currSong.addEventListener('timeupdate', () => { ... })` adds an event listener to the
 `currSong` audio element. The event being listened to is the `timeupdate` event, which is fired when
