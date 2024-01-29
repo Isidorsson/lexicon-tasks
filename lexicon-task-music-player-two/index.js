@@ -5,6 +5,7 @@ let isPlaying = false;
 let isRepeating = false;
 let isShuffling = false;
 
+
 const currSong = new Audio();
 
 const songThumb = document.querySelector(".song-thumb");
@@ -17,7 +18,63 @@ const songProgressBar = document.querySelector(".song-progress-value");
 const volumeSlider = document.querySelector("#volume-slider");
 const volumeTrail = document.querySelector(".volume-trail");
 
-let playedSongs = []; // array of played songs
+let playedSongs = [];
+
+let audioContext;
+let source;
+let analyser;
+let bufferLength;
+let dataArray;
+
+
+
+function initializeAudioContext() {
+  audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  source = audioContext.createMediaElementSource(currSong);
+  analyser = audioContext.createAnalyser();
+  analyser.fftSize = 1024;
+  source.connect(analyser);
+  analyser.connect(audioContext.destination);
+
+  bufferLength = analyser.frequencyBinCount;
+  dataArray = new Uint8Array(bufferLength);
+}
+
+
+let previousAverage = 0;
+let beatThreshold = 255 / 40;
+/**
+ * The function `draw` continuously updates the average value of the audio data and adds a CSS class to
+ * pulse a thumbnail if the average value exceeds a certain threshold.
+ */
+function draw() {
+  requestAnimationFrame(draw);
+
+  analyser.getByteFrequencyData(dataArray);
+
+  let sum = 0;
+  for (let i = 0; i < bufferLength; i++) {
+    sum += dataArray[i];
+  }
+
+  let average = sum / bufferLength;
+
+  // Check if the average frequency value has increased significantly compared to the previous frame
+  if (average > previousAverage + beatThreshold) {
+    console.log(`beat detected: ${average}`);
+    document.querySelector('.song-thumb').classList.add('pulse');
+  } else {
+    console.log(`no beat detected: ${average}`);
+    document.querySelector('.song-thumb').classList.remove('pulse');
+  }
+
+  // Store the current average frequency value for the next frame
+  previousAverage = average;
+}
+
+
+
+
 
 /**
  * The function "changeSong" updates the song information and audio source based on the current index
@@ -135,12 +192,29 @@ window.prevSong = prevSong;
  * The function toggles the state of a player between playing and paused, and updates the button icon
  * accordingly.
  */
+
+
 function toggleState() {
+  if (!audioContext) {
+    initializeAudioContext();
+  }
+
+  if (audioContext.state === 'suspended') {
+    audioContext.resume();
+  }
+
   isPlaying ? currSong.pause() : currSong.play();
   stateButton.classList = isPlaying ? "fas fa-play-circle player-state-btn" : "fas fa-pause-circle player-state-btn";
   isPlaying = !isPlaying;
+
+  // Draw() when start playing
+  if (isPlaying) {
+    draw();
+  }
 }
 window.toggleState = toggleState;
+
+
 
 /**
  * The function adjusts the volume of a current song and updates the volume trail and slider
