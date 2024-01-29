@@ -8,7 +8,6 @@ body {
   align-items: center;
   background: rgb(87, 59, 241);
   background: linear-gradient(315deg, rgb(5, 1, 31) 0%, rgb(95, 80, 109) 100%);
-  /* font family roboto */
   font-family: "Roboto", sans-serif;
 }
 
