@@ -18,9 +18,16 @@ const volumeSlider = document.querySelector("#volume-slider");
 const volumeTrail = document.querySelector(".volume-trail");
 
 let canvas = document.getElementById('eq');
+let canvasTwo = document.getElementById('eqTwo');
+
 let ctx = canvas.getContext('2d');
+let ctxTwo = canvasTwo.getContext('2d');
+
 let color1 = parseInt('4d3f61', 16);
 let color2 = parseInt('ae80d6', 16);
+
+let color3 = parseInt('4d3f61', 16);
+let color4 = parseInt('ae80d6', 16);
 
 let playedSongs = [];
 
@@ -35,7 +42,7 @@ let maxAverage = 0;
 let maxAverageDecay = 0.995;
 let beatThreshold = 0.99;
 
-// TODO - This shit so dumb
+// TODO - It works for now
 function draw() {
   requestAnimationFrame(draw);
 
@@ -120,6 +127,31 @@ function drawEQ() {
     x += barWidth + 1;
   }
 }
+function drawEQTwo() {
+  requestAnimationFrame(drawEQTwo);
+
+
+  let dataArray = new Uint8Array(analyser.frequencyBinCount);
+  analyser.getByteFrequencyData(dataArray);
+
+  ctxTwo.clearRect(0, 0, canvasTwo.width, canvasTwo.height);
+
+  let barWidth = (canvasTwo.width / bufferLength) * 2.5;
+  let barHeight;
+  let x = 0;
+
+  for (let i = 0; i < bufferLength; i++) {
+    barHeight = dataArray[i];
+
+    // ctx.fillStyle = 'rgb(' + (barHeight + 100) + ',50,50)';
+
+    ctxTwo.fillStyle = lerpColor(color3, color4, barHeight / 255);
+    ctxTwo.fillRect(x, canvasTwo.height - barHeight / 2, barWidth, barHeight / 2);
+
+
+    x += barWidth + 1;
+  }
+}
 
 
 /**
@@ -169,6 +201,7 @@ function changeSong() {
 
   draw();
   drawEQ();
+  drawEQTwo()
 
 
 }
@@ -265,23 +298,12 @@ window.prevSong = prevSong;
 
 
 function toggleState() {
-  // if (!audioContext) {
-  //   initializeAudioContext();
-  //   drawEQ();
-  // }
-
   if (audioContext.state === 'suspended') {
     audioContext.resume();
   }
-
   isPlaying ? currSong.pause() : currSong.play();
   stateButton.classList = isPlaying ? "fas fa-play-circle player-state-btn" : "fas fa-pause-circle player-state-btn";
   isPlaying = !isPlaying;
-
-  // Draw() when start playing
-  // if (isPlaying) {
-  //   draw();
-  // }
 }
 window.toggleState = toggleState;
 
