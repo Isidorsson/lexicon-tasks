@@ -42,7 +42,7 @@ function initializeAudioContext() {
 
 
 let previousAverage = 0;
-let beatThreshold = 255 / 40;
+let beatThreshold = 255 / 150;
 /**
  * The function `draw` continuously updates the average value of the audio data and adds a CSS class to
  * pulse a thumbnail if the average value exceeds a certain threshold.
