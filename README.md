@@ -1,5 +1,7 @@
 # lexicon-tasks
 
+This repository contains all the tasks I have done during my time at Lexicon.
+
 ## Html, Css and JavaScript
 
 - [ ] [Task](lexicon-task-music-player-two/) - [Music player](https://cloticc.github.io/lexicon-tasks/lexicon-task-music-player-two/)
