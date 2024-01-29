@@ -63,12 +63,12 @@ function draw() {
     maxAverage = average;
   }
 
-  // If the current average volume is higher than the beat threshold, consider it a beat
+  // If the current average volume is higher than the beat threshold, consider it a beat and pulse the background
   if (average > maxAverage * beatThreshold) {
-    console.log(` Beat! ${average} > ${maxAverage * beatThreshold}`)
+    // console.log(` Beat! ${average} > ${maxAverage * beatThreshold}`)
     document.querySelector('.song-thumb').classList.add('pulse');
   } else {
-    console.log(` No beat! ${average} < ${maxAverage * beatThreshold}`)
+    // console.log(` No beat! ${average} < ${maxAverage * beatThreshold}`)
     document.querySelector('.song-thumb').classList.remove('pulse');
   }
 }
