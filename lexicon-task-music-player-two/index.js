@@ -69,7 +69,7 @@ function populateSongList() {
 function toggleShuffle() {
   isShuffling = !isShuffling;
   document.querySelector('.shuffle-btn').classList.toggle('active', isShuffling);
-  if (isShuffling) {
+  if (isShuffling && currSong.paused) {
     let newIndex;
     do {
       newIndex = Math.floor(Math.random() * songsList.length);
@@ -81,6 +81,10 @@ function toggleShuffle() {
 window.toggleShuffle = toggleShuffle;
 
 
+/**
+ * The function toggles the repeat functionality of a song by changing the loop property of the current
+ * song and updating the class of the repeat button.
+ */
 function toggleRepeat() {
   isRepeating = !isRepeating;
   document.querySelector('.repeat-btn').classList.toggle('active', isRepeating);
