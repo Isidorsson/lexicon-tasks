@@ -47,7 +47,9 @@ body {
   background-image: url("https://avatars.githubusercontent.com/u/53121361?s=400&u=9385246a9d48a242abb9da605748cac6b86af822&v=4"); /* should default to this if err */
   background-position: center center;
   background-size: cover;
-  transition: all ease-in-out 0.5s;
+  /* transition: all ease-in-out 0.5s; */
+  transition: all ease-in-out 0.5s, box-shadow 0.3s ease-in-out;
+  
 }
 
 .song-thumb.playing {
@@ -61,18 +63,23 @@ body {
 @keyframes pulse {
   0% {
     transform: translate(-50%, -50%) scale(1);
+    box-shadow: none;
   }
   25% {
-    transform: translate(-50%, -50%) scale(1.05);
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 0 20px 5px rgba(174, 128, 214, 0.7);
   }
   50% {
-    transform: translate(-50%, -50%) scale(1.1);
+    transform: translate(-50%, -50%) scale(1.2);
+    box-shadow: 0 0 30px 10px rgba(174, 128, 214, 0.7);
   }
   75% {
-    transform: translate(-50%, -50%) scale(1.05);
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 0 20px 5px rgba(174, 128, 214, 0.7);
   }
   100% {
     transform: translate(-50%, -50%) scale(1);
+    box-shadow: none;
   }
 }
 
@@ -116,10 +123,6 @@ body {
 
 .song-info-album {
   color: #54376d;
-}
-
-.song-info-album {
-  color: #8f8f8f;
 }
 
 .player-wrapper {
