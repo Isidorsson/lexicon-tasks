@@ -35,3 +35,7 @@ This repository contains all the tasks I have done during my time at Lexicon.
 - [x] [Task 8](lexicon-task-calendar/) - [Calendar site](https://cloticc.github.io/lexicon-tasks/lexicon-task-calendar/)
 - [x] [Task 9](lexicon-task-clock/) - [Clock site](https://cloticc.github.io/lexicon-tasks/lexicon-task-clock/)
 - [x] [Task 10](lexicon-task-planthood/) - [Planthood site](https://cloticc.github.io/lexicon-tasks/lexicon-task-planthood/index.html)
+
+## Disclaimer
+
+The content of this repository is for educational purposes only. The owner is not responsible for any misuse or damages caused by the use or misuse of the information, code, or tasks contained within. The owner makes no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability with respect to the information, products, services, or related graphics contained in this repository for any purpose. Any reliance you place on such information is therefore strictly at your own risk.
