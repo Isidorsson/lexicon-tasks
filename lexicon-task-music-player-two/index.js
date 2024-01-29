@@ -5,7 +5,7 @@ let isPlaying = false;
 let isRepeating = false;
 let isShuffling = false;
 
-const currSong = new Audio();
+let currSong = new Audio();
 
 const songThumb = document.querySelector(".song-thumb");
 const songTitle = document.querySelector(".song-info-title");
@@ -19,8 +19,8 @@ const volumeTrail = document.querySelector(".volume-trail");
 
 let canvas = document.getElementById('eq');
 let ctx = canvas.getContext('2d');
-let color1 = parseInt('4d3f61', 16); 
-let color2 = parseInt('ae80d6', 16); 
+let color1 = parseInt('4d3f61', 16);
+let color2 = parseInt('ae80d6', 16);
 
 let playedSongs = [];
 
@@ -31,27 +31,11 @@ let bufferLength;
 let dataArray;
 
 
-function initializeAudioContext() {
-  audioContext = new (window.AudioContext || window.webkitAudioContext)();
-  source = audioContext.createMediaElementSource(currSong);
-  analyser = audioContext.createAnalyser();
-  analyser.fftSize = 1024;
-  source.connect(analyser);
-  analyser.connect(audioContext.destination);
+let maxAverage = 0;
+let maxAverageDecay = 0.995;
+let beatThreshold = 0.99;
 
-  bufferLength = analyser.frequencyBinCount;
-  dataArray = new Uint8Array(bufferLength);
-}
-
-
-let previousAverage = 0;
-let beatThreshold = 255 / 166;
-/**
- * The function `draw` continuously updates the average value of the audio data and adds a CSS class to
- * pulse a thumbnail if the average value exceeds a certain threshold.
- */
 function draw() {
-  // this function isnt great, but it works:)
   requestAnimationFrame(draw);
 
   analyser.getByteFrequencyData(dataArray);
@@ -63,38 +47,53 @@ function draw() {
 
   let average = sum / bufferLength;
 
-  // Check if the average frequency value has increased significantly compared to the previous frame
-  if (average > previousAverage + beatThreshold) {
-    // console.log(`beat detected: ${average}`);
-    document.querySelector('.song-thumb').classList.add('pulse');
-  } else {
-    // console.log(`no beat detected: ${average}`);
-    document.querySelector('.song-thumb').classList.remove('pulse');
+  // Decay the max average volume over time
+  maxAverage *= maxAverageDecay;
+
+  // If the current average volume is higher than the max, update the max
+  if (average > maxAverage) {
+    maxAverage = average;
   }
 
-  // Store the current average frequency value for the next frame
-  previousAverage = average;
+  // If the current average volume is higher than the beat threshold, consider it a beat
+  if (average > maxAverage * beatThreshold) {
+    console.log(` Beat! ${average} > ${maxAverage * beatThreshold}`)
+    document.querySelector('.song-thumb').classList.add('pulse');
+  } else {
+    console.log(` No beat! ${average} < ${maxAverage * beatThreshold}`)
+    document.querySelector('.song-thumb').classList.remove('pulse');
+  }
 }
 
-function lerpColor(a, b, amount) { 
+/**
+ * The lerpColor function takes two RGB color values and a blending amount, and returns a new color
+ * that is a linear interpolation between the two input colors.
+ * @param a - The parameter `a` represents the starting color value in RGB format.
+ * @param b - The parameter `b` represents the end color that you want to interpolate towards.
+ * @param amount - The `amount` parameter represents the interpolation amount between color `a` and
+ * color `b`. It is a value between 0 and 1, where 0 represents color `a` and 1 represents color `b`.
+ * @returns a string representing an RGB color value.
+ */
+function lerpColor(a, b, amount) {
   const ar = a >> 16,
-      ag = a >> 8 & 0xff,
-      ab = a & 0xff,
+    ag = a >> 8 & 0xff,
+    ab = a & 0xff,
 
-      br = b >> 16,
-      bg = b >> 8 & 0xff,
-      bb = b & 0xff,
+    br = b >> 16,
+    bg = b >> 8 & 0xff,
+    bb = b & 0xff,
 
-      rr = ar + amount * (br - ar),
-      rg = ag + amount * (bg - ag),
-      rb = ab + amount * (bb - ab);
+    rr = ar + amount * (br - ar),
+    rg = ag + amount * (bg - ag),
+    rb = ab + amount * (bb - ab);
 
   return `rgb(${Math.round(rr)}, ${Math.round(rg)}, ${Math.round(rb)})`;
 }
 
-
-
-
+/**
+ * The function `drawEQ` is responsible for drawing an equalizer visualization on a canvas using
+ * frequency data from an audio analyser.
+ */
 function drawEQ() {
   requestAnimationFrame(drawEQ);
 
@@ -112,7 +111,7 @@ function drawEQ() {
     barHeight = dataArray[i];
 
     // ctx.fillStyle = 'rgb(' + (barHeight + 100) + ',50,50)';
-    
+
     ctx.fillStyle = lerpColor(color1, color2, barHeight / 255);
     ctx.fillRect(x, canvas.height - barHeight / 2, barWidth, barHeight / 2);
 
@@ -122,6 +121,21 @@ function drawEQ() {
 }
 
 
+/**
+ * The function initializes the audio context, creates a media element source, connects it to the audio
+ * context destination, creates an analyser, and sets up a buffer and array for frequency analysis.
+ */
+function initializeAudioContext() {
+  if (!audioContext) {
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    source = audioContext.createMediaElementSource(currSong);
+    source.connect(audioContext.destination);
+    analyser = audioContext.createAnalyser();
+    source.connect(analyser);
+    bufferLength = analyser.frequencyBinCount;
+    dataArray = new Uint8Array(bufferLength);
+  }
+}
 
 
 
@@ -146,10 +160,16 @@ function changeSong() {
   const activeSong = listItems[currIndex];
   activeSong.classList.add('active-song');
 
-
-
   if (currentStatus) toggleState();
   playedSongs.push(currIndex);
+
+
+  initializeAudioContext();
+
+  draw();
+  drawEQ();
+
+
 }
 
 
@@ -244,10 +264,10 @@ window.prevSong = prevSong;
 
 
 function toggleState() {
-  if (!audioContext) {
-    initializeAudioContext();
-    drawEQ();
-  }
+  // if (!audioContext) {
+  //   initializeAudioContext();
+  //   drawEQ();
+  // }
 
   if (audioContext.state === 'suspended') {
     audioContext.resume();
@@ -258,9 +278,9 @@ function toggleState() {
   isPlaying = !isPlaying;
 
   // Draw() when start playing
-  if (isPlaying) {
-    draw();
-  }
+  // if (isPlaying) {
+  //   draw();
+  // }
 }
 window.toggleState = toggleState;
 
