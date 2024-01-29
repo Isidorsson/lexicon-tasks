@@ -156,6 +156,15 @@ body {
 }
 
 
+.fa-volume-up {
+ 
+  color: #ae80d6;
+}
+
+.fa-volume-off {
+ 
+  color: #ae80d6;
+}
 
 .volume-wrapper {
   display: flex;
@@ -247,5 +256,5 @@ body {
 
 #song-list::-webkit-scrollbar-thumb:hover {
   background: #8f8f8f;
-  
+
 }
