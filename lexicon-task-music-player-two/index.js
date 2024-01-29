@@ -16,8 +16,8 @@ const stateButton = document.querySelector(".player-state-btn");
 const songProgressBar = document.querySelector(".song-progress-value");
 const volumeSlider = document.querySelector("#volume-slider");
 const volumeTrail = document.querySelector(".volume-trail");
- 
 
+let playedSongs = []; // array of played songs
 
 /**
  * The function "changeSong" updates the song information and audio source based on the current index
@@ -33,15 +33,17 @@ function changeSong() {
   songAlbum.innerHTML = album;
   songThumb.style.backgroundImage = `url(${thumb})`;
   currSong.src = link;
-  
+
   const listItems = document.querySelectorAll('#song-list li');
   listItems.forEach(item => item.classList.remove('active-song'));
-  
+
   const activeSong = listItems[currIndex];
   activeSong.classList.add('active-song');
 
 
+
   if (currentStatus) toggleState();
+  playedSongs.push(currIndex);
 }
 
 
@@ -111,19 +113,18 @@ function nextSong() {
     currIndex = (currIndex + 1) % songsList.length;
   }
   changeSong();
+  playedSongs.push(currIndex);
 }
 window.nextSong = nextSong;
+
 
 /**
  * The function "prevSong" changes the current song to the previous song in a list of songs.
  */
 function prevSong() {
-  if (isShuffling) {
-    let newIndex;
-    do {
-      newIndex = Math.floor(Math.random() * songsList.length);
-    } while (newIndex === currIndex);
-    currIndex = newIndex;
+  if (playedSongs.length > 1) {
+    playedSongs.pop();
+    currIndex = playedSongs.pop();
   } else {
     currIndex = (currIndex - 1 + songsList.length) % songsList.length;
   }
@@ -159,7 +160,7 @@ window.adjustVolume = adjustVolume;
 the playback position of the audio changes. */
 currSong.addEventListener('timeupdate', () => {
   const currPosition = currSong.currentTime / currSong.duration * 600;
-  songProgressBar.setAttribute("stroke-dasharray", !isNaN(currPosition) ? `${currPosition} ${600-currPosition}` : "0 600");
+  songProgressBar.setAttribute("stroke-dasharray", !isNaN(currPosition) ? `${currPosition} ${600 - currPosition}` : "0 600");
 });
 
 currSong.addEventListener('ended', () => {
