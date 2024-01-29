@@ -2,7 +2,7 @@ export const songsList = [
   {
     "title": "Immortal ft. MARINA",
     "artist": "MewOne! & Syberian",
-    "album": "Dont know",
+    "album": "Intro 3 years for codeMiko",
     "link": "MARINA - Immortal (CodeMiko Intro) MewOne! Syberian Beast Remix [TubeRipper.com].m4a",
     "thumb": "https://i.ytimg.com/vi/Z0PqfNHiwO8/maxresdefault.jpg"
   },
