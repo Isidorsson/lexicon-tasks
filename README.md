@@ -2,7 +2,7 @@
 
 ## Html, Css and JavaScript
 
-- [ ] [Task](lexicon-task-music-player) - [Music player](https://cloticc.github.io/lexicon-tasks/lexicon-task-music-player-two/)
+- [ ] [Task](lexicon-task-music-player-two/) - [Music player](https://cloticc.github.io/lexicon-tasks/lexicon-task-music-player-two/)
 
 ## JavaScript
 
