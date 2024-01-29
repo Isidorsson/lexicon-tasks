@@ -11,7 +11,7 @@ export const songsList = [
     "artist": "Ykanic SoundCloud",
     "album": "Ykanic 3 years",
     "link": "Y2meta.app - Little Payo PPC - Ykanic (128 kbps).mp3",
-    "thumb": "https://i3.ytimg.com/vi/gsprhoGhz3A/hqdefault.jpg"
+    "thumb": "https://i1.sndcdn.com/artworks-b44IaEDk14Y8JsAm-AwiyCQ-t500x500.jpg"
   },
   {
     "title": "THAT'S WHAT'S UP ft. Mitch Jones",
@@ -25,7 +25,7 @@ export const songsList = [
     "artist": "Constera & ASMONGOLD",
     "album": "Constera 5 years",
     "link": "x2mate.com - 🎵 SUP YALL (Asmongold Music Video) 🎵 (128 kbps).mp3",
-    "thumb": "https://img.youtube.com/vi/DaJ5tQWPS9A/sddefault.jpg"
+    "thumb": "https://img.youtube.com/vi/DaJ5tQWPS9A/maxresdefault.jpg"
   },
   {
     "title": "SODA YOU'RE SO ft. SODAPOPPIN",
