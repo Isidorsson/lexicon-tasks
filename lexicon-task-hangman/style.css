@@ -15,15 +15,14 @@ body {
   width: 500px;
   height: 600px;
   margin: 0 auto;
-
 }
 
 header {
   margin-bottom: 2rem;
 }
 
-#hangman-image {
-  margin-bottom: 2rem;
+#legs, #arms, #body, #head {
+  display: block;
 }
 
 #word-to-guess {
@@ -33,7 +32,6 @@ header {
   color: #fff;
   letter-spacing: 0.2rem;
   text-align: center;
-
 }
 
 #used-letters {
@@ -43,7 +41,6 @@ header {
   color: #fff;
   letter-spacing: 0.2rem;
   text-align: center;
-  
 }
 
 #game-message {
