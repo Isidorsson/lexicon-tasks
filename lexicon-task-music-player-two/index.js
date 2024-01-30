@@ -38,24 +38,9 @@ let dataArray;
 
 let maxAverage = 0;
 let maxAverageDecay = 0.995;
-let beatThreshold = 0.99;
+let beatThreshold = 0.9;
 
-function drawSpace() {
-  let x = Math.random() * starsCanvas.width;
-  let y = Math.random() * starsCanvas.height;
-  starsCtx.fillStyle = lerpColor(color1, color2, Math.random());
-  starsCtx.beginPath();
-  starsCtx.arc(x, y, 1, 0, 2 * Math.PI); // x, y, radius, startAngle, endAngle
-  starsCtx.fill();
 
-  // setTimeout(function () {
-  //   starsCtx.clearRect(x - 1, y - 1, 3, 3);
-  // }, 100);
-
-  setTimeout(function () {
-    starsCtx.clearRect(0, 0, starsCanvas.width, starsCanvas.height);
-  }, 150);
-}
 
 // TODO - It works for now
 function draw() {
@@ -90,6 +75,24 @@ function draw() {
 
   // starsCtx.clearRect(0, 0, starsCanvas.width, starsCanvas.height);
 }
+
+function drawSpace() {
+  let x = Math.random() * starsCanvas.width;
+  let y = Math.random() * starsCanvas.height;
+  starsCtx.fillStyle = lerpColor(color1, color2, Math.random());
+  starsCtx.beginPath();
+  starsCtx.arc(x, y, 1, 0, 2 * Math.PI); // x, y, radius, startAngle, endAngle
+  starsCtx.fill();
+
+  // setTimeout(function () {
+  //   starsCtx.clearRect(x - 1, y - 1, 3, 3);
+  // }, 100);
+
+  setTimeout(function () {
+    starsCtx.clearRect(0, 0, starsCanvas.width, starsCanvas.height);
+  }, 150);
+}
+
 
 /**
  * The lerpColor function takes two RGB color values and a blending amount, and returns a new color
@@ -134,7 +137,7 @@ function drawEQ() {
     barHeight = dataArray[i];
 
     // ctx.fillStyle = 'rgb(' + (barHeight + 100) + ',50,50)';
-
+    
     ctx.fillStyle = lerpColor(color1, color2, barHeight / 255);
     ctx.fillRect(x, canvas.height - barHeight / 2, barWidth, barHeight / 2);
 
