@@ -18,10 +18,31 @@ body {
 }
 
 header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 2rem;
 }
 
-#legs, #arms, #body, #head {
+#game-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+#lives-left,
+#timer {
+  font-size: 1.2rem;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  color: #4caf50;
+  letter-spacing: 0.2rem;
+}
+
+#legs,
+#arms,
+#body,
+#head {
   display: none;
 }
 
@@ -44,8 +65,51 @@ header {
 }
 
 #game-message {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-bottom: 1rem;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  letter-spacing: 0.2rem;
+  text-align: center;
+}
+
+.bacon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#hint-message {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  letter-spacing: 0.2rem;
+  text-align: center;
+}
+
+#restart-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+#hint-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 #alphabet-letters {
