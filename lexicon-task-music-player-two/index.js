@@ -54,7 +54,7 @@ function drawSpace() {
 
   setTimeout(function () {
     starsCtx.clearRect(0, 0, starsCanvas.width, starsCanvas.height);
-  }, 500);
+  }, 150);
 }
 
 // TODO - It works for now
