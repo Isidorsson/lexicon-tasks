@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: gray;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+#hangman-image {
+  margin-bottom: 2rem;
+}
+
+#word-to-guess {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#used-letters {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+#game-message {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+#alphabet-letters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#alphabet-letters button {
+  padding: 1rem;
+  margin: 0.5rem;
+  font-size: 1.2rem;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#alphabet-letters button:hover {
+  background-color: lightgray;
+}
