@@ -1,4 +1,4 @@
-import { songsList } from './songList.js';
+import { songsList } from "./songList.js";
 
 let currIndex = 0;
 let isPlaying = false;
@@ -17,17 +17,19 @@ const songProgressBar = document.querySelector(".song-progress-value");
 const volumeSlider = document.querySelector("#volume-slider");
 const volumeTrail = document.querySelector(".volume-trail");
 
-let canvas = document.getElementById('eq');
-let canvasTwo = document.getElementById('eqTwo');
+let canvas = document.getElementById("eq");
+let canvasTwo = document.getElementById("eqTwo");
+let starsCanvas = document.getElementById("stars-canvas");
 
-let ctx = canvas.getContext('2d');
-let ctxTwo = canvasTwo.getContext('2d');
+let ctx = canvas.getContext("2d");
+let ctxTwo = canvasTwo.getContext("2d");
+let starsCtx = starsCanvas.getContext("2d");
 
-let color1 = parseInt('4d3f61', 16);
-let color2 = parseInt('ae80d6', 16);
+const color1 = parseInt("4d3f61", 16);
+const color2 = parseInt("ae80d6", 16);
 
-let color3 = parseInt('4d3f61', 16);
-let color4 = parseInt('ae80d6', 16);
+let color3 = parseInt("4d3f61", 16);
+let color4 = parseInt("ae80d6", 16);
 
 let playedSongs = [];
 
@@ -37,10 +39,26 @@ let analyser;
 let bufferLength;
 let dataArray;
 
-
 let maxAverage = 0;
 let maxAverageDecay = 0.995;
 let beatThreshold = 0.99;
+
+function drawStar() {
+  let x = Math.random() * starsCanvas.width;
+  let y = Math.random() * starsCanvas.height;
+  starsCtx.fillStyle = lerpColor(color1, color2, Math.random());
+  starsCtx.beginPath();
+  starsCtx.arc(x, y, 1, 0, 2 * Math.PI);
+  starsCtx.fill();
+
+  // setTimeout(function () {
+  //   starsCtx.clearRect(x - 1, y - 1, 3, 3);
+  // }, 100);
+
+  setTimeout(function () {
+    starsCtx.clearRect(0, 0, starsCanvas.width, starsCanvas.height);
+  }, 500);
+}
 
 // TODO - It works for now
 function draw() {
@@ -66,11 +84,14 @@ function draw() {
   // If the current average volume is higher than the beat threshold, consider it a beat and pulse the background
   if (average > maxAverage * beatThreshold) {
     // console.log(` Beat! ${average} > ${maxAverage * beatThreshold}`)
-    document.querySelector('.song-thumb').classList.add('pulse');
+    document.querySelector(".song-thumb").classList.add("pulse");
+    drawStar();
   } else {
     // console.log(` No beat! ${average} < ${maxAverage * beatThreshold}`)
-    document.querySelector('.song-thumb').classList.remove('pulse');
+    document.querySelector(".song-thumb").classList.remove("pulse");
   }
+
+  // starsCtx.clearRect(0, 0, starsCanvas.width, starsCanvas.height);
 }
 
 /**
@@ -84,13 +105,11 @@ function draw() {
  */
 function lerpColor(a, b, amount) {
   const ar = a >> 16,
-    ag = a >> 8 & 0xff,
+    ag = (a >> 8) & 0xff,
     ab = a & 0xff,
-
     br = b >> 16,
-    bg = b >> 8 & 0xff,
+    bg = (b >> 8) & 0xff,
     bb = b & 0xff,
-
     rr = ar + amount * (br - ar),
     rg = ag + amount * (bg - ag),
     rb = ab + amount * (bb - ab);
@@ -104,7 +123,6 @@ function lerpColor(a, b, amount) {
  */
 function drawEQ() {
   requestAnimationFrame(drawEQ);
-
 
   let dataArray = new Uint8Array(analyser.frequencyBinCount);
   analyser.getByteFrequencyData(dataArray);
@@ -123,13 +141,11 @@ function drawEQ() {
     ctx.fillStyle = lerpColor(color1, color2, barHeight / 255);
     ctx.fillRect(x, canvas.height - barHeight / 2, barWidth, barHeight / 2);
 
-
     x += barWidth + 1;
   }
 }
 function drawEQTwo() {
   requestAnimationFrame(drawEQTwo);
-
 
   let dataArray = new Uint8Array(analyser.frequencyBinCount);
   analyser.getByteFrequencyData(dataArray);
@@ -146,13 +162,16 @@ function drawEQTwo() {
     // ctx.fillStyle = 'rgb(' + (barHeight + 100) + ',50,50)';
 
     ctxTwo.fillStyle = lerpColor(color3, color4, barHeight / 255);
-    ctxTwo.fillRect(x, canvasTwo.height - barHeight / 2, barWidth, barHeight / 2);
-
+    ctxTwo.fillRect(
+      x,
+      canvasTwo.height - barHeight / 2,
+      barWidth,
+      barHeight / 2
+    );
 
     x += barWidth + 1;
   }
 }
-
 
 /**
  * The function initializes the audio context, creates a media element source, connects it to the audio
@@ -170,8 +189,6 @@ function initializeAudioContext() {
   }
 }
 
-
-
 /**
  * The function "changeSong" updates the song information and audio source based on the current index
  * in the songsList array.
@@ -187,36 +204,32 @@ function changeSong() {
   songThumb.style.backgroundImage = `url(${thumb})`;
   currSong.src = link;
 
-  const listItems = document.querySelectorAll('#song-list li');
-  listItems.forEach(item => item.classList.remove('active-song'));
+  const listItems = document.querySelectorAll("#song-list li");
+  listItems.forEach((item) => item.classList.remove("active-song"));
 
   const activeSong = listItems[currIndex];
-  activeSong.classList.add('active-song');
+  activeSong.classList.add("active-song");
 
   if (currentStatus) toggleState();
   playedSongs.push(currIndex);
-
 
   initializeAudioContext();
 
   draw();
   drawEQ();
-  drawEQTwo()
-
-
+  drawEQTwo();
 }
-
 
 /**
  * The function `populateSongList` creates a list of songs and adds them to the DOM, with each song
  * item having a click event listener that triggers the `changeSong` function.
  */
 function populateSongList() {
-  const songListElement = document.getElementById('song-list');
+  const songListElement = document.getElementById("song-list");
   songsList.forEach((song, index) => {
-    const listItem = document.createElement('li');
+    const listItem = document.createElement("li");
     listItem.textContent = song.title; // assuming each song is an object with a title property
-    listItem.addEventListener('click', () => {
+    listItem.addEventListener("click", () => {
       currIndex = index;
       changeSong();
     });
@@ -230,7 +243,9 @@ function populateSongList() {
 
 function toggleShuffle() {
   isShuffling = !isShuffling;
-  document.querySelector('.shuffle-btn').classList.toggle('active', isShuffling);
+  document
+    .querySelector(".shuffle-btn")
+    .classList.toggle("active", isShuffling);
   if (isShuffling && currSong.paused) {
     let newIndex;
     do {
@@ -242,14 +257,13 @@ function toggleShuffle() {
 }
 window.toggleShuffle = toggleShuffle;
 
-
 /**
  * The function toggles the repeat functionality of a song by changing the loop property of the current
  * song and updating the class of the repeat button.
  */
 function toggleRepeat() {
   isRepeating = !isRepeating;
-  document.querySelector('.repeat-btn').classList.toggle('active', isRepeating);
+  document.querySelector(".repeat-btn").classList.toggle("active", isRepeating);
 
   if (isRepeating) {
     currSong.loop = true;
@@ -277,7 +291,6 @@ function nextSong() {
 }
 window.nextSong = nextSong;
 
-
 /**
  * The function "prevSong" changes the current song to the previous song in a list of songs.
  */
@@ -296,18 +309,17 @@ window.prevSong = prevSong;
  * accordingly.
  */
 
-
 function toggleState() {
-  if (audioContext.state === 'suspended') {
+  if (audioContext.state === "suspended") {
     audioContext.resume();
   }
   isPlaying ? currSong.pause() : currSong.play();
-  stateButton.classList = isPlaying ? "fas fa-play-circle player-state-btn" : "fas fa-pause-circle player-state-btn";
+  stateButton.classList = isPlaying
+    ? "fas fa-play-circle player-state-btn"
+    : "fas fa-pause-circle player-state-btn";
   isPlaying = !isPlaying;
 }
 window.toggleState = toggleState;
-
-
 
 /**
  * The function adjusts the volume of a current song and updates the volume trail and slider
@@ -317,48 +329,45 @@ window.toggleState = toggleState;
  */
 function adjustVolume(currVol) {
   currSong.volume = currVol;
-  volumeTrail.style.width = currVol !== "0" && currVol !== 0 ? `${currVol * 100 - 2}%` : "0%";
+  volumeTrail.style.width =
+    currVol !== "0" && currVol !== 0 ? `${currVol * 100 - 2}%` : "0%";
   volumeSlider.value = currVol;
 }
 window.adjustVolume = adjustVolume;
 
-
 /* The code snippet `window.addEventListener('keydown', function(e) { ... })` adds an event listener to
 the window object for the 'keydown' event. This event is triggered when a key on the keyboard is
 pressed. */
-window.addEventListener('keydown', function (e) {
-  if (e.key === 'ArrowRight') {
+window.addEventListener("keydown", function (e) {
+  if (e.key === "ArrowRight") {
     let newTime = currSong.currentTime + 5;
     if (newTime > currSong.duration) newTime = currSong.duration;
     currSong.currentTime = newTime;
-  } else if (e.key === 'ArrowLeft') {
+  } else if (e.key === "ArrowLeft") {
     let newTime = currSong.currentTime - 5;
     if (newTime < 0) newTime = 0;
     currSong.currentTime = newTime;
   }
 });
 
-
 /* The code `currSong.addEventListener('timeupdate', () => { ... })` adds an event listener to the
 `currSong` audio element. The event being listened to is the `timeupdate` event, which is fired when
 the playback position of the audio changes. */
-currSong.addEventListener('timeupdate', () => {
-  const currPosition = currSong.currentTime / currSong.duration * 600;
-  songProgressBar.setAttribute("stroke-dasharray", !isNaN(currPosition) ? `${currPosition} ${600 - currPosition}` : "0 600");
+currSong.addEventListener("timeupdate", () => {
+  const currPosition = (currSong.currentTime / currSong.duration) * 600;
+  songProgressBar.setAttribute(
+    "stroke-dasharray",
+    !isNaN(currPosition) ? `${currPosition} ${600 - currPosition}` : "0 600"
+  );
 });
 
-currSong.addEventListener('ended', () => {
+currSong.addEventListener("ended", () => {
   if (isRepeating) {
     currSong.play();
   } else {
     nextSong();
   }
-}
-);
-
-
-
-
+});
 
 populateSongList();
 changeSong();
