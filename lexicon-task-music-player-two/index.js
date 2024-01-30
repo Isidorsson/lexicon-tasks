@@ -28,9 +28,6 @@ let starsCtx = starsCanvas.getContext("2d");
 const color1 = parseInt("4d3f61", 16);
 const color2 = parseInt("ae80d6", 16);
 
-let color3 = parseInt("4d3f61", 16);
-let color4 = parseInt("ae80d6", 16);
-
 let playedSongs = [];
 
 let audioContext;
@@ -43,12 +40,12 @@ let maxAverage = 0;
 let maxAverageDecay = 0.995;
 let beatThreshold = 0.99;
 
-function drawStar() {
+function drawSpace() {
   let x = Math.random() * starsCanvas.width;
   let y = Math.random() * starsCanvas.height;
   starsCtx.fillStyle = lerpColor(color1, color2, Math.random());
   starsCtx.beginPath();
-  starsCtx.arc(x, y, 1, 0, 2 * Math.PI);
+  starsCtx.arc(x, y, 1, 0, 2 * Math.PI); // x, y, radius, startAngle, endAngle
   starsCtx.fill();
 
   // setTimeout(function () {
@@ -85,7 +82,7 @@ function draw() {
   if (average > maxAverage * beatThreshold) {
     // console.log(` Beat! ${average} > ${maxAverage * beatThreshold}`)
     document.querySelector(".song-thumb").classList.add("pulse");
-    drawStar();
+    drawSpace();
   } else {
     // console.log(` No beat! ${average} < ${maxAverage * beatThreshold}`)
     document.querySelector(".song-thumb").classList.remove("pulse");
@@ -161,7 +158,7 @@ function drawEQTwo() {
 
     // ctx.fillStyle = 'rgb(' + (barHeight + 100) + ',50,50)';
 
-    ctxTwo.fillStyle = lerpColor(color3, color4, barHeight / 255);
+    ctxTwo.fillStyle = lerpColor(color1, color2, barHeight / 255);
     ctxTwo.fillRect(
       x,
       canvasTwo.height - barHeight / 2,
