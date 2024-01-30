@@ -22,7 +22,7 @@ header {
 }
 
 #legs, #arms, #body, #head {
-  display: block;
+  display: none;
 }
 
 #word-to-guess {
