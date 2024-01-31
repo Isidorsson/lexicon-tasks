@@ -50,6 +50,25 @@ let maxAverage = 0;
 let maxAverageDecay = 0.995;
 let beatThreshold = 0.9;
 
+// let timeout = null;
+// const elementsToHide = document.querySelectorAll("");
+
+// document.addEventListener("mousemove", () => {
+//   if (timeout !== null) {
+//     clearTimeout(timeout);
+//   }
+
+//   elementsToHide.forEach((element) => {
+//     element.style.display = "block";
+//   });
+
+//   timeout = setTimeout(() => {
+//     elementsToHide.forEach((element) => {
+//       element.style.display = "none";
+//     });
+//   }, 5000);
+// });
+
 songListElement.addEventListener("click", () => {
   activeList = primaryList;
 });
@@ -310,8 +329,8 @@ function populateSongList() {
     const listItem = document.createElement("li");
     listItem.textContent = song.title;
     listItem.draggable = true;
-    listItem.dataset.index = index; 
-
+    listItem.dataset.index = index;
+    listItem.classList.add("song-list-item");
 
     listItem.addEventListener("dragstart", (event) => {
       event.dataTransfer.setData("text/plain", event.target.dataset.index);
@@ -322,12 +341,26 @@ function populateSongList() {
       event.stopPropagation();
     });
 
- 
     listItem.addEventListener("click", () => {
       activeList = list;
       currIndex = index;
       changeSong();
     });
+
+    if (list === favoritList) {
+      const removeButton = document.createElement("button");
+      removeButton.textContent = "Remove";
+      removeButton.classList.add("remove-btn");
+      removeButton.addEventListener("click", (event) => {
+        event.stopPropagation();
+
+        list.splice(index, 1);
+
+        populateSongList();
+      });
+
+      listItem.appendChild(removeButton);
+    }
 
     return listItem;
   };
@@ -361,7 +394,18 @@ function handleDrop(sourceList, targetList, event) {
 
   const index = event.dataTransfer.getData("text/plain");
 
-  const [song] = sourceList.splice(index, 1);
+  // const [song] = sourceList.splice(index, 1); // Remove the song from the source list and store it in a variable
+  
+  if (event.currentTarget.id === "song-list" && listName === "favorit") {
+    return;
+  }
+  const song = sourceList[index];
+  
+
+  if (targetList.includes(song)) {
+    return;
+  }
+
   targetList.push(song);
 
   populateSongList();
