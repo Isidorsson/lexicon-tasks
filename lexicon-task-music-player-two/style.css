@@ -436,6 +436,9 @@ body {
   .volume-wrapper {
     width: 80%;
   }
+ .song-list-wrapper {
+    width: 80%;
+  }
   #song-list,
   #song-list-favorit {
     width: 300px;
