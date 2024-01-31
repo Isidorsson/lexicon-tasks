@@ -216,6 +216,7 @@ body {
 
 .volume-bar #volume-slider {
   -webkit-appearance: none;
+  appearance: none;
   outline: none;
   margin: 0;
   width: 100%;
@@ -255,6 +256,7 @@ body {
   margin: 0;
   height: 300px;
   overflow-y: auto;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 #song-list li {
   padding: 10px;
@@ -288,6 +290,56 @@ body {
 #song-list::-webkit-scrollbar-thumb:hover {
   background: #8f8f8f;
 }
+
+#song-list-favorit{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 300px;
+  overflow-y: auto;
+  margin-top: 50px;
+  /* background-color: red; */
+  /* boxshadow */
+   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+#song-list-favorit li {
+  padding: 10px;
+  /* border-bottom: 1px solid #ddd; */
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+  color: #ae80d6;
+}
+
+.active-song {
+  background-color: #4d3f61;
+  color: #000;
+}
+
+#song-list-favorit li:hover {
+  background-color: #4d3f61;
+}
+
+#song-list-favorit::-webkit-scrollbar {
+  width: 10px;
+}
+
+#song-list-favorit::-webkit-scrollbar-track {
+  background: #4d3f61;
+}
+
+#song-list-favorit::-webkit-scrollbar-thumb {
+  background: #ae80d6;
+  border-radius: 10px;
+}
+
+#song-list-favorit::-webkit-scrollbar-thumb:hover {
+  background: #8f8f8f;
+}
+
+
+
+
 
 #stars-canvas {
   position: fixed;
@@ -328,7 +380,7 @@ body {
 
 @media screen and (max-width: 768px) {
 
-/* move all up */
+
   .song-wrapper {
     margin-top: -5rem;
   }

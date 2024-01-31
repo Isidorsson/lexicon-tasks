@@ -5,6 +5,9 @@ let isPlaying = false;
 let isRepeating = false;
 let isShuffling = false;
 
+let currPlaylist = songsList; // The current playlist
+let currPlaylistIndex = 0; // The current index within the playlist
+
 let currSong = new Audio();
 
 const songThumb = document.querySelector(".song-thumb");
@@ -16,6 +19,8 @@ const stateButton = document.querySelector(".player-state-btn");
 const songProgressBar = document.querySelector(".song-progress-value");
 const volumeSlider = document.querySelector("#volume-slider");
 const volumeTrail = document.querySelector(".volume-trail");
+const songListElement = document.getElementById("song-list");
+const songListFavorit = document.getElementById("song-list-favorit");
 
 let canvas = document.getElementById("eq");
 let canvasTwo = document.getElementById("eqTwo");
@@ -29,6 +34,11 @@ const color1 = parseInt("4d3f61", 16);
 const color2 = parseInt("ae80d6", 16);
 
 let playedSongs = [];
+// let primaryList = [...songsList];
+let primaryList = songsList;
+let favoritList = [];
+
+let activeList = primaryList;
 
 let audioContext;
 let source;
@@ -40,7 +50,13 @@ let maxAverage = 0;
 let maxAverageDecay = 0.995;
 let beatThreshold = 0.9;
 
+songListElement.addEventListener("click", () => {
+  activeList = primaryList;
+});
 
+songListFavorit.addEventListener("click", () => {
+  activeList = favoritList;
+});
 
 // TODO - It works for now
 function draw() {
@@ -93,7 +109,6 @@ function drawSpace() {
   }, 150);
 }
 
-
 /**
  * The lerpColor function takes two RGB color values and a blending amount, and returns a new color
  * that is a linear interpolation between the two input colors.
@@ -137,7 +152,7 @@ function drawEQ() {
     barHeight = dataArray[i];
 
     // ctx.fillStyle = 'rgb(' + (barHeight + 100) + ',50,50)';
-    
+
     ctx.fillStyle = lerpColor(color1, color2, barHeight / 255);
     ctx.fillRect(x, canvas.height - barHeight / 2, barWidth, barHeight / 2);
 
@@ -193,22 +208,31 @@ function initializeAudioContext() {
  * The function "changeSong" updates the song information and audio source based on the current index
  * in the songsList array.
  */
+
 function changeSong() {
   const currentStatus = isPlaying;
   if (currentStatus) toggleState();
 
-  const { title, artist, album, thumb, link } = songsList[currIndex];
+  const { title, artist, album, thumb, link } = activeList[currIndex];
   songTitle.innerHTML = title;
   songArtist.innerHTML = artist;
   songAlbum.innerHTML = album;
   songThumb.style.backgroundImage = `url(${thumb})`;
   currSong.src = link;
 
-  const listItems = document.querySelectorAll("#song-list li");
+  const listItems = document.querySelectorAll(
+    "#song-list li, #song-list-favorit li"
+  );
   listItems.forEach((item) => item.classList.remove("active-song"));
 
-  const activeSong = listItems[currIndex];
-  activeSong.classList.add("active-song");
+  const activeSong = document.querySelector(
+    `#${
+      activeList === primaryList ? "song-list" : "song-list-favorit"
+    } li[data-index='${currIndex}']`
+  );
+  if (activeSong) {
+    activeSong.classList.add("active-song");
+  }
 
   if (currentStatus) toggleState();
   playedSongs.push(currIndex);
@@ -220,22 +244,146 @@ function changeSong() {
   drawEQTwo();
 }
 
+// function changeSong() {
+//   const currentStatus = isPlaying;
+//   if (currentStatus) toggleState();
+
+//   const { title, artist, album, thumb, link } = songsList[currIndex];
+//   songTitle.innerHTML = title;
+//   songArtist.innerHTML = artist;
+//   songAlbum.innerHTML = album;
+//   songThumb.style.backgroundImage = `url(${thumb})`;
+//   currSong.src = link;
+
+//   const listItems = document.querySelectorAll("#song-list li");
+//   listItems.forEach((item) => item.classList.remove("active-song"));
+
+//   const activeSong = listItems[currIndex];
+//   activeSong.classList.add("active-song");
+
+//   if (currentStatus) toggleState();
+//   playedSongs.push(currIndex);
+
+//   initializeAudioContext();
+
+//   draw();
+//   drawEQ();
+//   drawEQTwo();
+// }
+
 /**
  * The function `populateSongList` creates a list of songs and adds them to the DOM, with each song
  * item having a click event listener that triggers the `changeSong` function.
  */
+// function populateSongList() {
+//   const songListElement = document.getElementById("song-list");
+//   songsList.forEach((song, index) => {
+//     const listItem = document.createElement("li");
+//     listItem.textContent = song.title; // assuming each song is an object with a title property
+//     listItem.addEventListener("click", () => {
+//       currIndex = index;
+//       changeSong();
+//     });
+//     songListElement.appendChild(listItem);
+//   });
+// }
+
+// function populateSongList() {
+//   const songListElement = document.getElementById("song-list");
+//   songsList.forEach((song, index) => {
+//     const listItem = document.createElement("li");
+//     listItem.textContent = song.title;
+//     listItem.draggable = true;  // Make the list item draggable
+//     listItem.addEventListener("click", () => {
+//       currIndex = index;
+//       changeSong();
+//     });
+//     songListElement.appendChild(listItem);
+//   });
+// }
+
 function populateSongList() {
-  const songListElement = document.getElementById("song-list");
-  songsList.forEach((song, index) => {
+  songListElement.innerHTML = "";
+  songListFavorit.innerHTML = "";
+
+  const createListItem = (song, index, list) => {
     const listItem = document.createElement("li");
-    listItem.textContent = song.title; // assuming each song is an object with a title property
+    listItem.textContent = song.title;
+    listItem.draggable = true;
+    listItem.dataset.index = index; 
+
+
+    listItem.addEventListener("dragstart", (event) => {
+      event.dataTransfer.setData("text/plain", event.target.dataset.index);
+      event.dataTransfer.setData(
+        "text/list",
+        list === primaryList ? "primary" : "favorit"
+      );
+      event.stopPropagation();
+    });
+
+ 
     listItem.addEventListener("click", () => {
+      activeList = list;
       currIndex = index;
       changeSong();
     });
+
+    return listItem;
+  };
+
+  primaryList.forEach((song, index) => {
+    const listItem = createListItem(song, index, primaryList);
     songListElement.appendChild(listItem);
   });
+
+  favoritList.forEach((song, index) => {
+    const listItem = createListItem(song, index, favoritList);
+    songListFavorit.appendChild(listItem);
+  });
 }
+
+/**
+ * The function `handleDrop` is used to handle the drop event when dragging and dropping songs between
+ * two lists.
+ * @param sourceList - sourceList is an array that represents the list of songs from which a song is
+ * being dragged and dropped.
+ * @param targetList - The targetList parameter represents the list where the dragged item will be
+ * dropped. It can be either the primaryList or the favoritList, depending on the event listener that
+ * triggers the handleDrop function.
+ * @param event - The event parameter is the event object that is triggered when the drop event occurs.
+ * It contains information about the event, such as the target element and any data that is being
+ * transferred.
+ */
+
+function handleDrop(sourceList, targetList, event) {
+  event.preventDefault();
+
+  const index = event.dataTransfer.getData("text/plain");
+
+  const [song] = sourceList.splice(index, 1);
+  targetList.push(song);
+
+  populateSongList();
+}
+
+songListFavorit.addEventListener("dragover", (event) => {
+  event.preventDefault();
+});
+
+songListFavorit.addEventListener(
+  "drop",
+  handleDrop.bind(null, primaryList, favoritList)
+);
+
+songListElement.addEventListener("dragover", (event) => {
+  event.preventDefault();
+});
+
+songListElement.addEventListener(
+  "drop",
+  handleDrop.bind(null, favoritList, primaryList)
+);
 /**
  * The function toggles the shuffle mode by adding or removing the 'active' class from the shuffle
  * button and updating the isShuffling variable.
@@ -249,7 +397,7 @@ function toggleShuffle() {
   if (isShuffling && currSong.paused) {
     let newIndex;
     do {
-      newIndex = Math.floor(Math.random() * songsList.length);
+      newIndex = Math.floor(Math.random() * activeList.length);
     } while (newIndex === currIndex);
     currIndex = newIndex;
     changeSong();
@@ -269,9 +417,20 @@ function toggleRepeat() {
     currSong.loop = true;
   } else {
     currSong.loop = false;
+    // It should target new song if not active
+    if (isShuffling) {
+      let newIndex;
+      do {
+        newIndex = Math.floor(Math.random() * activeList.length);
+      } while (newIndex === currIndex);
+      currIndex = newIndex;
+      changeSong();
+    }
   }
 }
+
 window.toggleRepeat = toggleRepeat;
+
 /**
  * The function "nextSong" increments the current index by 1 and wraps around to the beginning of the
  * songs list if it reaches the end, then calls the "changeSong" function.
@@ -280,17 +439,16 @@ function nextSong() {
   if (isShuffling) {
     let newIndex;
     do {
-      newIndex = Math.floor(Math.random() * songsList.length);
+      newIndex = Math.floor(Math.random() * activeList.length);
     } while (newIndex === currIndex);
     currIndex = newIndex;
   } else {
-    currIndex = (currIndex + 1) % songsList.length;
+    currIndex = (currIndex + 1) % activeList.length;
   }
   changeSong();
   playedSongs.push(currIndex);
 }
 window.nextSong = nextSong;
-
 /**
  * The function "prevSong" changes the current song to the previous song in a list of songs.
  */
@@ -299,7 +457,7 @@ function prevSong() {
     playedSongs.pop();
     currIndex = playedSongs.pop();
   } else {
-    currIndex = (currIndex - 1 + songsList.length) % songsList.length;
+    currIndex = (currIndex - 1 + activeList.length) % activeList.length;
   }
   changeSong();
 }
