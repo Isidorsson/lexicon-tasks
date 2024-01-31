@@ -261,15 +261,29 @@ body {
 #toggle-song-lists {
   margin: 1rem;
   /* color: #ae80d6; */
-  color:  #623f80;
+  color: #623f80;
   cursor: pointer;
-
-  /* remove boarder */
   border: none;
   background-color: transparent;
   outline: none;
   font-size: 1.5rem;
   transition: all ease-in-out 0.2s;
+}
+
+.tutorial {
+  opacity: 0;
+  font-size: 1.5rem;
+  color: #ae80d6;
+  margin: 1rem;
+
+  background-color: transparent;
+  outline: none;
+  transition: all ease-in-out 0.2s;
+}
+
+.tutorial.visible {
+  opacity: 1;
+  color: #623f80;
 }
 
 /* #623f80; */

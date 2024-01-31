@@ -71,10 +71,11 @@ let beatThreshold = 0.9;
 
 
 const toggleButton = document.getElementById('toggle-song-lists');
-
+const tutorial = document.querySelector('.tutorial');
 toggleButton.addEventListener('click', () => {
   songListElement.classList.toggle('visible');
   songListFavorit.classList.toggle('visible');
+  tutorial.classList.toggle('visible');
 });
 songListElement.addEventListener("click", () => {
   activeList = primaryList;
