@@ -107,7 +107,7 @@ function draw() {
   if (average > maxAverage * beatThreshold) {
     // console.log(` Beat! ${average} > ${maxAverage * beatThreshold}`)
     document.querySelector(".song-thumb").classList.add("pulse");
-    drawSpace();
+    // drawSpace();
   } else {
     // console.log(` No beat! ${average} < ${maxAverage * beatThreshold}`)
     document.querySelector(".song-thumb").classList.remove("pulse");
