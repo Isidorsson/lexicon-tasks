@@ -5,9 +5,6 @@ let isPlaying = false;
 let isRepeating = false;
 let isShuffling = false;
 
-let currPlaylist = songsList; // The current playlist
-let currPlaylistIndex = 0; // The current index within the playlist
-
 let currSong = new Audio();
 
 const songThumb = document.querySelector(".song-thumb");
@@ -21,14 +18,16 @@ const volumeSlider = document.querySelector("#volume-slider");
 const volumeTrail = document.querySelector(".volume-trail");
 const songListElement = document.getElementById("song-list");
 const songListFavorit = document.getElementById("song-list-favorit");
+const toggleButton = document.getElementById('toggle-song-lists');
+const tutorial = document.querySelector('.tutorial');
 
-let canvas = document.getElementById("eq");
-let canvasTwo = document.getElementById("eqTwo");
-let starsCanvas = document.getElementById("stars-canvas");
+const canvas = document.getElementById("eq");
+const canvasTwo = document.getElementById("eqTwo");
+const starsCanvas = document.getElementById("stars-canvas");
 
-let ctx = canvas.getContext("2d");
-let ctxTwo = canvasTwo.getContext("2d");
-let starsCtx = starsCanvas.getContext("2d");
+const ctx = canvas.getContext("2d");
+const ctxTwo = canvasTwo.getContext("2d");
+const starsCtx = starsCanvas.getContext("2d");
 
 const color1 = parseInt("4d3f61", 16);
 const color2 = parseInt("ae80d6", 16);
@@ -70,8 +69,6 @@ let beatThreshold = 0.9;
 // });
 
 
-const toggleButton = document.getElementById('toggle-song-lists');
-const tutorial = document.querySelector('.tutorial');
 toggleButton.addEventListener('click', () => {
   songListElement.classList.toggle('visible');
   songListFavorit.classList.toggle('visible');
