@@ -421,70 +421,24 @@ body {
   margin: 0 auto;
   background: transparent;
 }
-/* 
-@media screen and (max-width: 768px) {
-  .song-wrapper {
-    margin-top: -5rem;
-  }
 
+@media screen and (max-width: 768px) {
   .song-info-title {
-    width: 100%;
-    white-space: normal;
-  }
-  .song-info-title {
-    font-size: 16px;
+    width: 300px;
   }
   .song-info-artist,
   .song-info-album {
-    font-size: 14px;
-  }
-  .song-info-artist {
-    margin-top: 0.2rem;
-  }
-  .song-info-album {
-    margin-top: 0.2rem;
-  }
-  .song-progress {
-    width: 100%;
+    width: 300px;
   }
   .player-wrapper {
-    font-size: 0.8rem;
-  }
-  .player-move-btn {
-    font-size: 2rem;
-  }
-  .player-state-btn {
-    font-size: 2.5rem;
+    width: 80%;
   }
   .volume-wrapper {
-    margin: 0.5rem;
+    width: 80%;
   }
-  .volume-wrapper > i {
-    width: 15px;
+  #song-list,
+  #song-list-favorit {
+    width: 300px;
   }
-  .volume-bar {
-    width: 50%;
-  }
-  .volume-bar #volume-slider {
-    height: 8px;
-  }
-  .volume-bar #volume-slider::-webkit-slider-thumb {
-    width: 7px;
-    height: 7px;
-  }
-  .volume-bar .volume-trail {
-    top: 5px;
-    height: 3px;
-  }
-  #song-list {
-    height: 200px;
-  }
-  #eq {
-    height: 15%;
-    width: 98%;
-  }
-  #eqTwo {
-    height: 30%;
-    width: 98%;
-  }
-} */
+}
+
