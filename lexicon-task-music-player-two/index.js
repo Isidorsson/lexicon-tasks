@@ -69,6 +69,13 @@ let beatThreshold = 0.9;
 //   }, 5000);
 // });
 
+
+const toggleButton = document.getElementById('toggle-song-lists');
+
+toggleButton.addEventListener('click', () => {
+  songListElement.classList.toggle('visible');
+  songListFavorit.classList.toggle('visible');
+});
 songListElement.addEventListener("click", () => {
   activeList = primaryList;
 });
