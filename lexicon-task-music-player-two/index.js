@@ -19,8 +19,14 @@ const volumeSlider = document.querySelector("#volume-slider");
 const volumeTrail = document.querySelector(".volume-trail");
 const songListElement = document.getElementById("song-list");
 const songListFavorit = document.getElementById("song-list-favorit");
-const toggleButton = document.getElementById('toggle-song-lists');
-const tutorial = document.querySelector('.tutorial');
+const toggleButton = document.getElementById("toggle-song-lists");
+const tutorial = document.querySelector(".tutorial");
+
+const repeatBtn =document.getElementById('repeatBtn').addEventListener('click', toggleRepeat);
+const prevBtn = document.getElementById('prevBtn').addEventListener('click', prevSong);
+const playBtn=document.getElementById('playBtn').addEventListener('click', toggleState);
+const nextBtn =document.getElementById('nextBtn').addEventListener('click', nextSong);
+const shuffleBtn= document.getElementById('shuffleBtn').addEventListener('click', toggleShuffle);
 
 const canvas = document.getElementById("eq");
 const canvasTwo = document.getElementById("eqTwo");
@@ -69,19 +75,6 @@ let beatThreshold = 0.9;
 //   }, 5000);
 // });
 
-
-toggleButton.addEventListener('click', () => {
-  songListElement.classList.toggle('visible');
-  songListFavorit.classList.toggle('visible');
-  tutorial.classList.toggle('visible');
-});
-songListElement.addEventListener("click", () => {
-  activeList = primaryList;
-});
-
-songListFavorit.addEventListener("click", () => {
-  activeList = favoritList;
-});
 
 
 function draw() {
@@ -143,7 +136,7 @@ function drawSpace() {
  * color `b`. It is a value between 0 and 1, where 0 represents color `a` and 1 represents color `b`.
  * @returns a string representing an RGB color value.
  */
-function lerpColor(a, b, amount) {  
+function lerpColor(a, b, amount) {
   const ar = a >> 16,
     ag = (a >> 8) & 0xff,
     ab = a & 0xff,
@@ -156,8 +149,6 @@ function lerpColor(a, b, amount) {
 
   return `rgb(${Math.round(rr)}, ${Math.round(rg)}, ${Math.round(rb)})`;
 }
-
-
 
 /**
  * The function `drawEQ` is a JavaScript function that continuously draws an equalizer visualization on
@@ -377,12 +368,11 @@ function handleDrop(sourceList, targetList, event) {
   const index = event.dataTransfer.getData("text/plain");
 
   // const [song] = sourceList.splice(index, 1); // Remove the song from the source list and store it in a variable
-  
+
   if (event.currentTarget.id === "song-list" && listName === "favorit") {
     return;
   }
   const song = sourceList[index];
-  
 
   if (targetList.includes(song)) {
     return;
@@ -429,7 +419,7 @@ function toggleShuffle() {
     changeSong();
   }
 }
-window.toggleShuffle = toggleShuffle;
+
 
 /**
  * The function toggles the repeat functionality of a song by changing the loop property of the current
@@ -455,7 +445,7 @@ function toggleRepeat() {
   }
 }
 
-window.toggleRepeat = toggleRepeat;
+
 
 /**
  * The function "nextSong" increments the current index by 1 and wraps around to the beginning of the
@@ -474,7 +464,7 @@ function nextSong() {
   changeSong();
   playedSongs.push(currIndex);
 }
-window.nextSong = nextSong;
+
 /**
  * The function "prevSong" changes the current song to the previous song in a list of songs.
  */
@@ -487,8 +477,8 @@ function prevSong() {
   }
   changeSong();
 }
-window.prevSong = prevSong;
 /**
+
  * The function toggles the state of a player between playing and paused, and updates the button icon
  * accordingly.
  */
@@ -503,7 +493,7 @@ function toggleState() {
     : "fas fa-pause-circle player-state-btn";
   isPlaying = !isPlaying;
 }
-window.toggleState = toggleState;
+
 
 /**
  * The function adjusts the volume of a current song and updates the volume trail and slider
@@ -517,7 +507,7 @@ function adjustVolume(currVol) {
     currVol !== "0" && currVol !== 0 ? `${currVol * 100 - 2}%` : "0%";
   volumeSlider.value = currVol;
 }
-window.adjustVolume = adjustVolume;
+
 
 /* The code snippet `window.addEventListener('keydown', function(e) { ... })` adds an event listener to
 the window object for the 'keydown' event. This event is triggered when a key on the keyboard is
@@ -553,5 +543,29 @@ currSong.addEventListener("ended", () => {
   }
 });
 
-populateSongList();
+toggleButton.addEventListener("click", () => {
+  songListElement.classList.toggle("visible");
+  songListFavorit.classList.toggle("visible");
+  tutorial.classList.toggle("visible");
+});
+songListElement.addEventListener("click", () => {
+  activeList = primaryList;
+});
+
+songListFavorit.addEventListener("click", () => {
+  activeList = favoritList;
+});
+
+
+fetch("jsonList.json")
+  .then((response) => response.json())
+  .then((songs) => {
+    console.log(songs);
+    populateSongList(songs);
+  })
+  .catch((error) => console.error("Error:", error));
+
+  
+
+// populateSongList();
 changeSong();
