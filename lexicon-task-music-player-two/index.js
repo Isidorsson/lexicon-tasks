@@ -4,6 +4,7 @@ let currIndex = 0;
 let isPlaying = false;
 let isRepeating = false;
 let isShuffling = false;
+let sizeOfBar = 5;
 
 let currSong = new Audio();
 
@@ -82,7 +83,7 @@ songListFavorit.addEventListener("click", () => {
   activeList = favoritList;
 });
 
-// TODO - It works for now
+
 function draw() {
   requestAnimationFrame(draw);
 
@@ -142,7 +143,7 @@ function drawSpace() {
  * color `b`. It is a value between 0 and 1, where 0 represents color `a` and 1 represents color `b`.
  * @returns a string representing an RGB color value.
  */
-function lerpColor(a, b, amount) {
+function lerpColor(a, b, amount) {  
   const ar = a >> 16,
     ag = (a >> 8) & 0xff,
     ab = a & 0xff,
@@ -156,57 +157,33 @@ function lerpColor(a, b, amount) {
   return `rgb(${Math.round(rr)}, ${Math.round(rg)}, ${Math.round(rb)})`;
 }
 
+
+
 /**
- * The function `drawEQ` is responsible for drawing an equalizer visualization on a canvas using
- * frequency data from an audio analyser.
+ * The function `drawEQ` is a JavaScript function that continuously draws an equalizer visualization on
+ * a canvas using frequency data from an audio analyser.
+ * @param canvas - The canvas parameter is the HTML canvas element on which the equalizer will be
+ * drawn. It is used to access the canvas context and set its properties.
+ * @param ctx - The `ctx` parameter is the 2D rendering context of the canvas element. It is used to
+ * draw on the canvas using various drawing methods and properties.
  */
-function drawEQ() {
-  requestAnimationFrame(drawEQ);
+function drawEQ(canvas, ctx) {
+  requestAnimationFrame(() => drawEQ(canvas, ctx));
 
   let dataArray = new Uint8Array(analyser.frequencyBinCount);
   analyser.getByteFrequencyData(dataArray);
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  let barWidth = (canvas.width / bufferLength) * 2.5;
+  let barWidth = (canvas.width / bufferLength) * sizeOfBar;
   let barHeight;
   let x = 0;
 
   for (let i = 0; i < bufferLength; i++) {
     barHeight = dataArray[i];
-
-    // ctx.fillStyle = 'rgb(' + (barHeight + 100) + ',50,50)';
 
     ctx.fillStyle = lerpColor(color1, color2, barHeight / 255);
     ctx.fillRect(x, canvas.height - barHeight / 2, barWidth, barHeight / 2);
-
-    x += barWidth + 1;
-  }
-}
-function drawEQTwo() {
-  requestAnimationFrame(drawEQTwo);
-
-  let dataArray = new Uint8Array(analyser.frequencyBinCount);
-  analyser.getByteFrequencyData(dataArray);
-
-  ctxTwo.clearRect(0, 0, canvasTwo.width, canvasTwo.height);
-
-  let barWidth = (canvasTwo.width / bufferLength) * 2.5;
-  let barHeight;
-  let x = 0;
-
-  for (let i = 0; i < bufferLength; i++) {
-    barHeight = dataArray[i];
-
-    // ctx.fillStyle = 'rgb(' + (barHeight + 100) + ',50,50)';
-
-    ctxTwo.fillStyle = lerpColor(color1, color2, barHeight / 255);
-    ctxTwo.fillRect(
-      x,
-      canvasTwo.height - barHeight / 2,
-      barWidth,
-      barHeight / 2
-    );
 
     x += barWidth + 1;
   }
@@ -264,8 +241,8 @@ function changeSong() {
   initializeAudioContext();
 
   draw();
-  drawEQ();
-  drawEQTwo();
+  drawEQ(canvas, ctx);
+  drawEQ(canvasTwo, ctxTwo);
 }
 
 // function changeSong() {
