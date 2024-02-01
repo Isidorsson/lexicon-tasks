@@ -4,7 +4,7 @@ let currIndex = 0;
 let isPlaying = false;
 let isRepeating = false;
 let isShuffling = false;
-let sizeOfBar = 5;
+let sizeOfBar = 2.5;
 
 let currSong = new Audio();
 
