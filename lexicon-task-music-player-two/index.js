@@ -1,4 +1,4 @@
-import { songsList } from "./songList.js";
+// import { songsList } from "./songList.js";
 
 let currIndex = 0;
 let isPlaying = false;
@@ -49,10 +49,32 @@ const starsCtx = starsCanvas.getContext("2d");
 const color1 = parseInt("4d3f61", 16);
 const color2 = parseInt("ae80d6", 16);
 
+let primaryList;
 let playedSongs = [];
-// let primaryList = [...songsList];
-let primaryList = songsList;
 let favoritList = [];
+
+async function fetchData() {
+  try {
+    const response = await fetch("./jsonList.json");
+    const data = await response.json();
+    console.log(data);
+    primaryList = data;
+  } catch (error) {
+    console.error(
+      `There has been a problem with your fetch operation: ${error}`
+    );
+  }
+}
+
+fetchData();
+
+async function main() {
+  await fetchData();
+  populateSongList();
+  addEventListeners();
+}
+
+main();
 
 let activeList = primaryList;
 
@@ -68,7 +90,7 @@ let beatThreshold = 0.9;
 
 let timeout = null;
 const elementsToHide = document.querySelectorAll(
-  ".song-info, .player-controls, .player-wrapper, .volume-wrapper, .song-list, .song-list-favorit, .player-state-btn, .toggle-song-lists,  .eq, .eqTwo, .stars-canvas"
+  ".song-info, .player-controls, .player-wrapper, .volume-wrapper, .song-list, .song-list-favorit, .song-list-wrapper, .tutorial, .player-state-btn, .toggle-song-lists,  .eq, .eqTwo, .stars-canvas"
 );
 
 document.addEventListener("mousemove", () => {
@@ -168,6 +190,7 @@ function lerpColor(a, b, amount) {
  * @param ctx - The `ctx` parameter is the 2D rendering context of the canvas element. It is used to
  * draw on the canvas using various drawing methods and properties.
  */
+
 function drawEQ(canvas, ctx) {
   requestAnimationFrame(() => drawEQ(canvas, ctx));
 
@@ -186,7 +209,7 @@ function drawEQ(canvas, ctx) {
     ctx.fillStyle = lerpColor(color1, color2, barHeight / 255);
     ctx.fillRect(x, canvas.height - barHeight / 2, barWidth, barHeight / 2);
 
-    x += barWidth + 1;
+    x += barWidth + 1; // Add spacing between the bars
   }
 }
 
@@ -205,7 +228,6 @@ function initializeAudioContext() {
     dataArray = new Uint8Array(bufferLength);
   }
 }
-
 
 /**
  * The function `changeSong()` updates the currently playing song and its details, updates the active
@@ -359,19 +381,6 @@ function populateSongList() {
   });
 }
 
-/**
- * The function `handleDrop` is used to handle the drop event when dragging and dropping songs between
- * two lists.
- * @param sourceList - sourceList is an array that represents the list of songs from which a song is
- * being dragged and dropped.
- * @param targetList - The targetList parameter represents the list where the dragged item will be
- * dropped. It can be either the primaryList or the favoritList, depending on the event listener that
- * triggers the handleDrop function.
- * @param event - The event parameter is the event object that is triggered when the drop event occurs.
- * It contains information about the event, such as the target element and any data that is being
- * transferred.
- */
-
 function handleDrop(sourceList, targetList, event) {
   event.preventDefault();
 
@@ -379,37 +388,42 @@ function handleDrop(sourceList, targetList, event) {
 
   // const [song] = sourceList.splice(index, 1); // Remove the song from the source list and store it in a variable
 
-  if (event.currentTarget.id === "song-list" && listName === "favorit") { // If the song is being dropped from the favorit list to the primary list,
+  if (event.currentTarget.id === "song-list" && listName === "favorit") {
+    // If the song is being dropped from the favorit list to the primary list,
     return;
   }
-  const song = sourceList[index]; // Get the song from the source list
+  const song = sourceList[index]; 
 
-  if (targetList.includes(song)) { // If the target list already contains the song, return
+  if (targetList.includes(song)) {
+    
     return;
   }
 
-  targetList.push(song); // Add the song to the target list
+  targetList.push(song);
 
   populateSongList();
 }
 
-songListFavorit.addEventListener("dragover", (event) => {
-  event.preventDefault();
-});
+function addEventListeners() {
+  songListFavorit.addEventListener("dragover", (event) => {
+    event.preventDefault();
+  });
 
-songListFavorit.addEventListener(
-  "drop",
-  handleDrop.bind(null, primaryList, favoritList)
-);
+  songListFavorit.addEventListener(
+    "drop",
+    handleDrop.bind(null, primaryList, favoritList)
+  );
 
-songListElement.addEventListener("dragover", (event) => {
-  event.preventDefault();
-});
+  songListElement.addEventListener("dragover", (event) => {
+    event.preventDefault();
+  });
 
-songListElement.addEventListener(
-  "drop",
-  handleDrop.bind(null, favoritList, primaryList)
-);
+  songListElement.addEventListener(
+    "drop",
+    handleDrop.bind(null, favoritList, primaryList)
+  );
+}
+
 /**
  * The function toggles the shuffle mode by adding or removing the 'active' class from the shuffle
  * button and updating the isShuffling variable.
@@ -444,9 +458,9 @@ function toggleRepeat() {
     currSong.loop = false;
     // It should target new song if not active
     if (isShuffling) {
-      let newIndex; 
+      let newIndex;
       do {
-        newIndex = Math.floor(Math.random() * activeList.length); 
+        newIndex = Math.floor(Math.random() * activeList.length);
       } while (newIndex === currIndex);
       currIndex = newIndex;
       changeSong();
@@ -551,6 +565,7 @@ currSong.addEventListener("ended", () => {
 toggleButton.addEventListener("click", () => {
   songListElement.classList.toggle("visible");
   songListFavorit.classList.toggle("visible");
+  //change so if mouseover it gets removed
   tutorial.classList.toggle("visible");
 });
 songListElement.addEventListener("click", () => {
@@ -560,8 +575,3 @@ songListElement.addEventListener("click", () => {
 songListFavorit.addEventListener("click", () => {
   activeList = favoritList;
 });
-
-
-
-populateSongList();
-changeSong();
