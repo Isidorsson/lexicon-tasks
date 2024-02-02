@@ -17,16 +17,26 @@ const stateButton = document.querySelector(".player-state-btn");
 const songProgressBar = document.querySelector(".song-progress-value");
 const volumeSlider = document.querySelector("#volume-slider");
 const volumeTrail = document.querySelector(".volume-trail");
-const songListElement = document.getElementById("song-list");
-const songListFavorit = document.getElementById("song-list-favorit");
-const toggleButton = document.getElementById("toggle-song-lists");
+const songListElement = document.querySelector(".song-list");
+const songListFavorit = document.querySelector(".song-list-favorit");
+const toggleButton = document.querySelector(".toggle-song-lists");
 const tutorial = document.querySelector(".tutorial");
 
-const repeatBtn =document.getElementById('repeatBtn').addEventListener('click', toggleRepeat);
-const prevBtn = document.getElementById('prevBtn').addEventListener('click', prevSong);
-const playBtn=document.getElementById('playBtn').addEventListener('click', toggleState);
-const nextBtn =document.getElementById('nextBtn').addEventListener('click', nextSong);
-const shuffleBtn= document.getElementById('shuffleBtn').addEventListener('click', toggleShuffle);
+const repeatBtn = document
+  .getElementById("repeatBtn")
+  .addEventListener("click", toggleRepeat);
+const prevBtn = document
+  .getElementById("prevBtn")
+  .addEventListener("click", prevSong);
+const playBtn = document
+  .getElementById("playBtn")
+  .addEventListener("click", toggleState);
+const nextBtn = document
+  .getElementById("nextBtn")
+  .addEventListener("click", nextSong);
+const shuffleBtn = document
+  .getElementById("shuffleBtn")
+  .addEventListener("click", toggleShuffle);
 
 const canvas = document.getElementById("eq");
 const canvasTwo = document.getElementById("eqTwo");
@@ -56,26 +66,34 @@ let maxAverage = 0;
 let maxAverageDecay = 0.995;
 let beatThreshold = 0.9;
 
-// let timeout = null;
-// const elementsToHide = document.querySelectorAll("");
+let timeout = null;
+const elementsToHide = document.querySelectorAll(
+  ".song-info, .player-controls, .player-wrapper, .volume-wrapper, .song-list, .song-list-favorit, .player-state-btn, .toggle-song-lists,  .eq, .eqTwo, .stars-canvas"
+);
 
-// document.addEventListener("mousemove", () => {
-//   if (timeout !== null) {
-//     clearTimeout(timeout);
-//   }
+document.addEventListener("mousemove", () => {
+  if (timeout !== null) {
+    clearTimeout(timeout);
+  }
 
-//   elementsToHide.forEach((element) => {
-//     element.style.display = "block";
-//   });
+  elementsToHide.forEach((element) => {
+    element.classList.remove("fade-out");
+  });
 
-//   timeout = setTimeout(() => {
-//     elementsToHide.forEach((element) => {
-//       element.style.display = "none";
-//     });
-//   }, 5000);
-// });
+  timeout = setTimeout(() => {
+    elementsToHide.forEach((element) => {
+      element.classList.add("fade-out");
+    });
+  }, 100);
+});
 
-
+function setFavicon(url) {
+  let link = document.querySelector('link[rel*="icon"]') || document.createElement('link');
+  link.type = 'image/x-icon';
+  link.rel = 'shortcut icon';
+  link.href = url;
+  document.getElementsByTagName('head')[0].appendChild(link);
+}
 
 function draw() {
   requestAnimationFrame(draw);
@@ -228,7 +246,7 @@ function changeSong() {
 
   if (currentStatus) toggleState();
   playedSongs.push(currIndex);
-
+setFavicon(thumb);
   initializeAudioContext();
 
   draw();
@@ -420,7 +438,6 @@ function toggleShuffle() {
   }
 }
 
-
 /**
  * The function toggles the repeat functionality of a song by changing the loop property of the current
  * song and updating the class of the repeat button.
@@ -444,8 +461,6 @@ function toggleRepeat() {
     }
   }
 }
-
-
 
 /**
  * The function "nextSong" increments the current index by 1 and wraps around to the beginning of the
@@ -494,7 +509,6 @@ function toggleState() {
   isPlaying = !isPlaying;
 }
 
-
 /**
  * The function adjusts the volume of a current song and updates the volume trail and slider
  * accordingly.
@@ -507,7 +521,6 @@ function adjustVolume(currVol) {
     currVol !== "0" && currVol !== 0 ? `${currVol * 100 - 2}%` : "0%";
   volumeSlider.value = currVol;
 }
-
 
 /* The code snippet `window.addEventListener('keydown', function(e) { ... })` adds an event listener to
 the window object for the 'keydown' event. This event is triggered when a key on the keyboard is
@@ -560,12 +573,10 @@ songListFavorit.addEventListener("click", () => {
 fetch("jsonList.json")
   .then((response) => response.json())
   .then((songs) => {
-    console.log(songs);
+    // console.log(songs);
     populateSongList(songs);
   })
   .catch((error) => console.error("Error:", error));
-
-  
 
 // populateSongList();
 changeSong();
