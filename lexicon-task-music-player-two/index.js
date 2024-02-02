@@ -87,14 +87,6 @@ document.addEventListener("mousemove", () => {
   }, 1000);
 });
 
-function setFavicon(url) {
-  let link = document.querySelector('link[rel*="icon"]') || document.createElement('link');
-  link.type = 'image/x-icon';
-  link.rel = 'shortcut icon';
-  link.href = url;
-  document.getElementsByTagName('head')[0].appendChild(link);
-}
-
 function draw() {
   requestAnimationFrame(draw);
 
@@ -142,7 +134,7 @@ function drawSpace() {
 
   setTimeout(function () {
     starsCtx.clearRect(0, 0, starsCanvas.width, starsCanvas.height);
-  }, 150);
+  }, 1000);
 }
 
 /**
@@ -214,11 +206,12 @@ function initializeAudioContext() {
   }
 }
 
-/**
- * The function "changeSong" updates the song information and audio source based on the current index
- * in the songsList array.
- */
 
+/**
+ * The function `changeSong()` updates the currently playing song and its details, updates the active
+ * song in the song list, toggles the play/pause state if necessary, adds the current song to the list
+ * of played songs, and redraws the audio equalizer.
+ */
 function changeSong() {
   const currentStatus = isPlaying;
   if (currentStatus) toggleState();
@@ -246,7 +239,6 @@ function changeSong() {
 
   if (currentStatus) toggleState();
   playedSongs.push(currIndex);
-setFavicon(thumb);
   initializeAudioContext();
 
   draw();
@@ -387,16 +379,16 @@ function handleDrop(sourceList, targetList, event) {
 
   // const [song] = sourceList.splice(index, 1); // Remove the song from the source list and store it in a variable
 
-  if (event.currentTarget.id === "song-list" && listName === "favorit") {
+  if (event.currentTarget.id === "song-list" && listName === "favorit") { // If the song is being dropped from the favorit list to the primary list,
     return;
   }
-  const song = sourceList[index];
+  const song = sourceList[index]; // Get the song from the source list
 
-  if (targetList.includes(song)) {
+  if (targetList.includes(song)) { // If the target list already contains the song, return
     return;
   }
 
-  targetList.push(song);
+  targetList.push(song); // Add the song to the target list
 
   populateSongList();
 }
@@ -452,9 +444,9 @@ function toggleRepeat() {
     currSong.loop = false;
     // It should target new song if not active
     if (isShuffling) {
-      let newIndex;
+      let newIndex; 
       do {
-        newIndex = Math.floor(Math.random() * activeList.length);
+        newIndex = Math.floor(Math.random() * activeList.length); 
       } while (newIndex === currIndex);
       currIndex = newIndex;
       changeSong();
@@ -485,10 +477,10 @@ function nextSong() {
  */
 function prevSong() {
   if (playedSongs.length > 1) {
-    playedSongs.pop();
-    currIndex = playedSongs.pop();
+    playedSongs.pop(); // Remove the last played song
+    currIndex = playedSongs.pop(); // Get the last played song
   } else {
-    currIndex = (currIndex - 1 + activeList.length) % activeList.length;
+    currIndex = (currIndex - 1 + activeList.length) % activeList.length; // Wrap around to the end of the list
   }
   changeSong();
 }
@@ -570,13 +562,6 @@ songListFavorit.addEventListener("click", () => {
 });
 
 
-fetch("jsonList.json")
-  .then((response) => response.json())
-  .then((songs) => {
-    // console.log(songs);
-    populateSongList(songs);
-  })
-  .catch((error) => console.error("Error:", error));
 
-// populateSongList();
+populateSongList();
 changeSong();
