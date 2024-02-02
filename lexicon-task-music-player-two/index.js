@@ -94,6 +94,9 @@ const elementsToHide = document.querySelectorAll(
 );
 
 document.addEventListener("mousemove", () => {
+  // if in mobile mode, don't hide the elements
+  if (window.innerWidth < 768) return;
+  
   if (timeout !== null) {
     clearTimeout(timeout);
   }
@@ -422,6 +425,7 @@ function addEventListeners() {
     "drop",
     handleDrop.bind(null, favoritList, primaryList)
   );
+  volumeSlider.addEventListener("input", adjustVolume);
 }
 
 /**
@@ -521,12 +525,23 @@ function toggleState() {
  * @param currVol - The `currVol` parameter represents the current volume level. It is a numeric value
  * between 0 and 1, where 0 represents no volume (muted) and 1 represents maximum volume.
  */
+
+{/* <i class="fas fa-volume-off" style="text-align: right" onclick="adjustVolume(0)"></i>
+<div class="volume-bar">
+  <input type="range" name="volume-slider" id="volume-slider" min="0" max="1" step="0.1" value="0.5"
+    onchange="adjustVolume(event.target.value)">
+  <div class="volume-trail"></div>
+ */}
+
+ 
+ 
 function adjustVolume(currVol) {
   currSong.volume = currVol;
   volumeTrail.style.width =
     currVol !== "0" && currVol !== 0 ? `${currVol * 100 - 2}%` : "0%";
   volumeSlider.value = currVol;
 }
+window.adjustVolume = adjustVolume; // Expose the function to the global scope
 
 /* The code snippet `window.addEventListener('keydown', function(e) { ... })` adds an event listener to
 the window object for the 'keydown' event. This event is triggered when a key on the keyboard is
