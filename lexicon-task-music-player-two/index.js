@@ -84,7 +84,7 @@ document.addEventListener("mousemove", () => {
     elementsToHide.forEach((element) => {
       element.classList.add("fade-out");
     });
-  }, 100);
+  }, 1000);
 });
 
 function setFavicon(url) {
