@@ -38,13 +38,15 @@ const shuffleBtn = document
   .getElementById("shuffleBtn")
   .addEventListener("click", toggleShuffle);
 
-const canvas = document.getElementById("eq");
-const canvasTwo = document.getElementById("eqTwo");
+const eqCanvas = document.getElementById("eq");
+const eqCanvasTwo = document.getElementById("eqTwo");
 const starsCanvas = document.getElementById("stars-canvas");
+const eqCircle = document.getElementById("eq-circle");
 
-const ctx = canvas.getContext("2d");
-const ctxTwo = canvasTwo.getContext("2d");
+const ctx = eqCanvas.getContext("2d");
+const ctxTwo = eqCanvasTwo.getContext("2d");
 const starsCtx = starsCanvas.getContext("2d");
+const eqCircleCtx = eqCircle.getContext("2d");
 
 const color1 = parseInt("4d3f61", 16);
 const color2 = parseInt("ae80d6", 16);
@@ -96,7 +98,7 @@ const elementsToHide = document.querySelectorAll(
 document.addEventListener("mousemove", () => {
   // if in mobile mode, don't hide the elements
   if (window.innerWidth < 768) return;
-  
+
   if (timeout !== null) {
     clearTimeout(timeout);
   }
@@ -186,6 +188,25 @@ function lerpColor(a, b, amount) {
 }
 
 /**
+ * The lerpColorH function calculates a new color by linearly interpolating between two given colors
+ * based on a given ratio.
+ * @param color1 - The first color object, which should have properties r, g, and b representing the
+ * red, green, and blue values respectively.
+ * @param color2 - The second color object that you want to interpolate towards.
+ * @param ratio - The ratio parameter represents the interpolation ratio between color1 and color2. It
+ * determines how much of each color should be blended together. A ratio of 0 would result in color1, a
+ * ratio of 1 would result in color2, and a ratio between 0 and 1 would result in
+ * @returns an object with the properties `r`, `g`, and `b`, which represent the red, green, and blue
+ * values of a color respectively.
+ */
+function lerpColorH(color1, color2, ratio) {
+  let r = color1.r + (color2.r - color1.r) * ratio;
+  let g = color1.g + (color2.g - color1.g) * ratio;
+  let b = color1.b + (color2.b - color1.b) * ratio;
+  return { r: Math.round(r), g: Math.round(g), b: Math.round(b) };
+}
+
+/**
  * The function `drawEQ` is a JavaScript function that continuously draws an equalizer visualization on
  * a canvas using frequency data from an audio analyser.
  * @param canvas - The canvas parameter is the HTML canvas element on which the equalizer will be
@@ -216,6 +237,50 @@ function drawEQ(canvas, ctx) {
   }
 }
 
+
+function drawCircleBeat(canvas, ctx) {
+  // Request the next animation frame
+  requestAnimationFrame(() => drawCircleBeat(canvas, ctx));
+
+  let dataArray = new Uint8Array(analyser.frequencyBinCount);
+  
+  analyser.getByteFrequencyData(dataArray);
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  let innerRadius = 50;
+  let outerRadius = 50;
+  let bars = dataArray.length * 0.8;
+
+  let barWidth = (2 * Math.PI * outerRadius) / bars;
+
+  for (let i = 0; i < bars; i++) {
+    let barHeight = dataArray[Math.floor(i / 10)];
+
+    let x1 =
+      canvas.width / 2 + innerRadius * Math.cos((2 * Math.PI * i) / bars);
+    let y1 =
+      canvas.height / 2 + innerRadius * Math.sin((2 * Math.PI * i) / bars);
+    let x2 =
+      canvas.width / 2 +
+      (innerRadius + barHeight) * Math.cos((2 * Math.PI * i) / bars);
+    let y2 =
+      canvas.height / 2 +
+      (innerRadius + barHeight) * Math.sin((2 * Math.PI * i) / bars);
+
+   
+
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.lineWidth = barWidth;
+    ctx.strokeStyle = lerpColor(color1, color2, barHeight / 255);
+    
+    ctx.stroke();
+  }
+  
+}
+
 /**
  * The function initializes the audio context, creates a media element source, connects it to the audio
  * context destination, creates an analyser, and sets up a buffer and array for frequency analysis.
@@ -226,12 +291,12 @@ function initializeAudioContext() {
     source = audioContext.createMediaElementSource(currSong);
     source.connect(audioContext.destination);
     analyser = audioContext.createAnalyser();
+    analyser.fftSize = 2048; // Increase this value
     source.connect(analyser);
-    bufferLength = analyser.frequencyBinCount;
+    bufferLength = analyser.frequencyBinCount; // This should now be larger
     dataArray = new Uint8Array(bufferLength);
   }
 }
-
 /**
  * The function `changeSong()` updates the currently playing song and its details, updates the active
  * song in the song list, toggles the play/pause state if necessary, adds the current song to the list
@@ -267,8 +332,9 @@ function changeSong() {
   initializeAudioContext();
 
   draw();
-  drawEQ(canvas, ctx);
-  drawEQ(canvasTwo, ctxTwo);
+  drawEQ(eqCanvas, ctx);
+  drawEQ(eqCanvasTwo, ctxTwo);
+  drawCircleBeat(eqCircle, eqCircleCtx);
 }
 
 // function changeSong() {
@@ -395,10 +461,9 @@ function handleDrop(sourceList, targetList, event) {
     // If the song is being dropped from the favorit list to the primary list,
     return;
   }
-  const song = sourceList[index]; 
+  const song = sourceList[index];
 
   if (targetList.includes(song)) {
-    
     return;
   }
 
@@ -526,15 +591,15 @@ function toggleState() {
  * between 0 and 1, where 0 represents no volume (muted) and 1 represents maximum volume.
  */
 
-{/* <i class="fas fa-volume-off" style="text-align: right" onclick="adjustVolume(0)"></i>
+{
+  /* <i class="fas fa-volume-off" style="text-align: right" onclick="adjustVolume(0)"></i>
 <div class="volume-bar">
   <input type="range" name="volume-slider" id="volume-slider" min="0" max="1" step="0.1" value="0.5"
     onchange="adjustVolume(event.target.value)">
   <div class="volume-trail"></div>
- */}
+ */
+}
 
- 
- 
 function adjustVolume(currVol) {
   currSong.volume = currVol;
   volumeTrail.style.width =
