@@ -40,7 +40,6 @@ fetch("https://majazocom.github.io/Data/books.json")
       // console.log(book);
       const bookDiv = document.createElement("grid-book");
       if (book.pages < 500) {
-        bookDiv.innerHTML = `<h2>Books with less than 500 pages</h2>`;
         bookDiv.innerHTML += `<h3>Book title: ${book.title}</h3>`;
         bookDiv.innerHTML += `<p>Author: ${book.author}</p>`;
         bookDiv.innerHTML += `<p>Pages: ${book.pages}</p>`;
@@ -54,21 +53,20 @@ fetch("https://majazocom.github.io/Data/books.json")
 fetch("https://majazocom.github.io/Data/attendees.json")
   .then((response) => response.json())
   .then((data) => {
+    console.log(data);
     const parentDiv = document.querySelector(".display-attendees");
-    data.forEach((attendee) => {
-      // console.log(attendee);
-      const attendeeDiv = document.createElement("grid-attendee");
-      const attendeesWithoutAllergies = data.filter(
-        (attendee) => attendee.allergies === ""
-      );
-      if (attendee.attending === true && attendeesWithoutAllergies) {
+    const attendeesWithAllergies = data.filter(
+      (attendee) => attendee.allergies.length > 0
+    );
+    attendeesWithAllergies.forEach((attendee) => {
+      if (attendee.attending === true) {
+        const attendeeDiv = document.createElement("grid-attendee");
         attendeeDiv.innerHTML = `<h2>Attendees</h2>`;
         attendeeDiv.innerHTML += `<h3>Name: ${attendee.name}</h3>`;
         attendeeDiv.innerHTML += `<p>Age: ${attendee.age}</p>`;
         attendeeDiv.innerHTML += `<p>Allergies: ${attendee.allergies}</p>`;
         attendeeDiv.innerHTML += `<p>Attending: ${attendee.attending}</p>`;
         attendeeDiv.innerHTML += `<img src="${attendee.image}">`;
-
         parentDiv.appendChild(attendeeDiv);
       }
     });
