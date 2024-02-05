@@ -1,3 +1,10 @@
+.wrapper {
+  position: relative;
+  top: 579px;
+  left: 197px;
+  background: #ffffff;
+}
+
 /* Desktop - 1 */
 body {
   position: relative;
@@ -5,6 +12,71 @@ body {
   height: 1024px;
   background: #ffffff;
 }
+
+/* Search */
+.search {
+  position: absolute;
+  left: 872px;
+  top: 162px;
+  z-index: 1;
+}
+
+/* Search Input */
+.search-input {
+  position: absolute;
+  width: 400px;
+  height: 44px;
+  left: 0px;
+  top: 0px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 10px 0px 0px 10px;
+  padding-left: 10px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.2em;
+  color: #000000;
+}
+
+/* Search Button */
+.search-button {
+  position: absolute;
+  width: 84px;
+  height: 44px;
+  left: 400px;
+  top: 0px;
+  background: #ffd600;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 0px 10px 10px 0px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.2em;
+  color: #000000;
+}
+
+/* Search Results */
+/* .search-results {
+  position: absolute;
+  width: 484px;
+  height: 44px;
+  left: 176px;
+  top: 44px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.2em;
+  color: #000000;
+} */
 
 /* Header */
 header {
@@ -55,9 +127,9 @@ header {
 /* Rectangle 2 */
 .rectangle-2 {
   position: absolute;
-  width: 1560px;
+  width: 1440px;
   height: 677px;
-  left: -120px;
+  left: 0px;
   top: 43px;
   background: #424242;
 }
@@ -73,7 +145,7 @@ header {
 }
 
 /* Rectangle 1 */
-.rectangle-1 {
+.rectangle-right-1 {
   position: absolute;
   width: 484px;
   height: 624px;
@@ -84,7 +156,7 @@ header {
 }
 
 /* Rectangle 3 */
-.rectangle-3 {
+.rectangle-right-3 {
   position: absolute;
   width: 484px;
   height: 550px;
@@ -213,7 +285,7 @@ header {
 }
 
 /* Rectangle 1 */
-.rectangle-1 {
+.rectangle-left-1 {
   position: absolute;
   width: 484px;
   height: 624px;
@@ -224,7 +296,7 @@ header {
 }
 
 /* Rectangle 3 */
-.rectangle-3 {
+.rectangle-left-3 {
   position: absolute;
   width: 484px;
   height: 547px;
@@ -250,6 +322,8 @@ header {
   height: 55px;
   left: 0px;
   top: 0px;
+
+  list-style-type: none;
 }
 
 /* Rectangle 4 */
