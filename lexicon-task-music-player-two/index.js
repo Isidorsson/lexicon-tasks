@@ -55,6 +55,8 @@ let primaryList;
 let playedSongs = [];
 let favoritList = [];
 
+
+
 async function fetchData() {
   try {
     const response = await fetch("./jsonList.json");
@@ -248,8 +250,8 @@ function drawCircleBeat(canvas, ctx) {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  let innerRadius = 50;
-  let outerRadius = 50;
+  let innerRadius = 100;
+  let outerRadius = 10;
   let bars = dataArray.length * 0.8;
 
   let barWidth = (2 * Math.PI * outerRadius) / bars;
