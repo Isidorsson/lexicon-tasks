@@ -53,7 +53,7 @@ fetch("https://majazocom.github.io/Data/books.json")
 fetch("https://majazocom.github.io/Data/attendees.json")
   .then((response) => response.json())
   .then((data) => {
-    console.log(data);
+    // console.log(data);
     const parentDiv = document.querySelector(".display-attendees");
     const attendeesWithAllergies = data.filter(
       (attendee) => attendee.allergies.length > 0
