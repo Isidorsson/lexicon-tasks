@@ -3,9 +3,11 @@
 This repository contains all the tasks I have done during my time at Lexicon.
 
 ## Html, Css and JavaScript
-
-- [ ] [Task](lexicon-task-music-player-two/) - [Music player](https://cloticc.github.io/lexicon-tasks/lexicon-task-music-player-two/)
-- [ ] [Task](lexicon-task-hangman/) - [Hangman](https://cloticc.github.io/lexicon-tasks/lexicon-task-hangman/)
+<!-- lexicon-task-catalog -->
+- [ ] [Task](lexicon-task-catalog/) - [Catalog](https://cloticc.github.io/lexicon-tasks/lexicon-task-catalog/)
+- [ ] [Task](lexicon-task-api-bootcamp/) - [API Bootcamp](https://cloticc.github.io/lexicon-tasks/lexicon-task-api-bootcamp/)
+- [x] - [x] [Task](lexicon-task-music-player-two/) - [Music player](https://cloticc.github.io/lexicon-tasks/lexicon-task-music-player-two/)
+- [x] [Task](lexicon-task-hangman/) - [Hangman](https://cloticc.github.io/lexicon-tasks/lexicon-task-hangman/)
 
 ## JavaScript
 
@@ -19,12 +21,11 @@ This repository contains all the tasks I have done during my time at Lexicon.
 - [x] [Task JS - Functions](lexicon-task-functions/)
 - [x] [Task JS - Objects](lexicon-task-objects/)
 - [x] [Task JS - Sauna](lexicon-task-sauna/)
-- [x] [Task JS - Sirius Minishop](lexicon-task-sirius-minishop/)  - [Sirius Minishop](https://cloticc.github.io/lexicon-tasks/lexicon-task-sirius-minishop/)
-- [x] [Task JS - Todo-List](lexicon-task-todo-list/) - [Todo-List](https://cloticc.github.io/lexicon-tasks/lexicon-task-todo-list/)  
+- [x] [Task JS - Sirius Minishop](lexicon-task-sirius-minishop/) - [Sirius Minishop](https://cloticc.github.io/lexicon-tasks/lexicon-task-sirius-minishop/)
+- [x] [Task JS - Todo-List](lexicon-task-todo-list/) - [Todo-List](https://cloticc.github.io/lexicon-tasks/lexicon-task-todo-list/)
 - [x] [Task JS - Variables and Datatypes](lexicon-task-variable-datatype/)
 
 ## Html, Css
-
 
 - [x] [Task 1](lexicon-task-about) - [About site](https://cloticc.github.io/lexicon-tasks/lexicon-task-about/)
 - [x] [Task 2](lexicon-task-favorite-recipe) - [Favorite Recipie site](https://cloticc.github.io/lexicon-tasks/lexicon-task-favorite-recipe/)
