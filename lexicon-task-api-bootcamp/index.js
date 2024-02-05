@@ -22,9 +22,9 @@ fetch("https://majazocom.github.io/Data/dogs.json")
       dogDiv.innerHTML += `<h3>Owner: ${dog.owner.name} ${dog.owner.lastName}</h3>`;
       dogDiv.innerHTML += `<p>Dog breed: ${dog.breed}</p>`;
       dogDiv.innerHTML += `<p>Dog age: ${dog.age}</p>`;
+      dogDiv.innerHTML += `<p>Phone: ${dog.owner.phoneNumber}</p>`;
       dogDiv.innerHTML += `<p>Dog sex: ${dog.sex}</p>`;
       dogDiv.innerHTML += `<p>Dog chip: ${dog.chipNumber}</p>`;
-      dogDiv.innerHTML += `<p>Phone: ${dog.owner.phoneNumber}</p>`;
       dogDiv.innerHTML += `<p>Present: ${dog.present}</p>`;
 
       parentDiv.appendChild(dogDiv);
@@ -38,9 +38,7 @@ fetch("https://majazocom.github.io/Data/books.json")
     data.forEach((book) => {
       console.log(book);
       const bookDiv = document.createElement("grid-book");
-      // render if less then 500 pages
       if (book.pages < 500) {
-        //  add text saying all books with less then 500 pages
         bookDiv.innerHTML = `<h2>Books with less then 500 pages</h2>`;
         bookDiv.innerHTML = `<h3>Book title: ${book.title}</h3>`;
         bookDiv.innerHTML += `<p>Author: ${book.author}</p>`;
