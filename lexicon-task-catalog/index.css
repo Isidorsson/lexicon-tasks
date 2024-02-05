@@ -1,0 +1,322 @@
+/* Desktop - 1 */
+body {
+  position: relative;
+  width: 1440px;
+  height: 1024px;
+  background: #ffffff;
+}
+
+/* Header */
+header {
+  position: absolute;
+  width: 1440px;
+  height: 347px;
+  left: 0px;
+  top: 0px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+/* header-background */
+.header-background {
+  position: absolute;
+  width: 1440px;
+  height: 347px;
+  left: 0px;
+  top: 0px;
+  background: url(assets/2024-02-05-17-52-27.png);
+}
+
+/* Heading */
+.heading {
+  position: absolute;
+  width: 380px;
+  height: 143px;
+  left: 67px;
+  top: 105px;
+  font-family: "Ropa Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 69px;
+  letter-spacing: 0.15em;
+  color: #ffd600;
+}
+
+/* Content */
+.content {
+  position: absolute;
+  width: 1440px;
+  height: 720px;
+  left: 0px;
+  top: 304px;
+  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.24));
+}
+
+/* Rectangle 2 */
+.rectangle-2 {
+  position: absolute;
+  width: 1560px;
+  height: 677px;
+  left: -120px;
+  top: 43px;
+  background: #424242;
+}
+
+/* Character Info */
+.character-info {
+  position: absolute;
+  width: 484px;
+  height: 624px;
+  left: 780px;
+  top: -2px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+/* Rectangle 1 */
+.rectangle-1 {
+  position: absolute;
+  width: 484px;
+  height: 624px;
+  left: 0px;
+  top: 0px;
+  background: #748687;
+  border-radius: 10px 10px 0px 0px;
+}
+
+/* Rectangle 3 */
+.rectangle-3 {
+  position: absolute;
+  width: 484px;
+  height: 550px;
+  left: 0px;
+  top: 74px;
+  background: #c4c4c4;
+}
+
+/* Details */
+.details {
+  position: absolute;
+  width: 183px;
+  height: 31px;
+  left: 151px;
+  top: -1px;
+  font-family: "Ropa Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 32px;
+  text-align: center;
+  letter-spacing: 0.2em;
+  color: #ffd600;
+  border: 0.5px solid #ffd600;
+}
+
+/* Planet Details */
+.planet-details {
+  position: absolute;
+  width: 485px;
+  height: 284px;
+  left: 0px;
+  top: 340px;
+}
+
+/* Rectangle 5 */
+.rectangle-5 {
+  position: absolute;
+  width: 484px;
+  height: 287px;
+  left: 0px;
+  top: -3px;
+  background: #8e8e8e;
+}
+
+/* Tattoiin */
+.tattoiin {
+  position: absolute;
+  width: 308px;
+  height: 40px;
+  left: 25px;
+  top: 7px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 35px;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+}
+
+/* Planet Description */
+.planet-description {
+  position: absolute;
+  width: 308px;
+  height: 214px;
+  left: 25px;
+  top: 47px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+}
+
+/* Character Details */
+.character-details {
+  position: absolute;
+  width: 484px;
+  height: 267px;
+  left: 0px;
+  top: 73px;
+}
+
+/* Character Name */
+.character-name {
+  position: absolute;
+  width: 308px;
+  height: 40px;
+  left: 21px;
+  top: 13px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 35px;
+  letter-spacing: 0.2em;
+  color: #000000;
+}
+
+/* Character Description */
+.character-description {
+  position: absolute;
+  width: 308px;
+  height: 214px;
+  left: 21px;
+  top: 53px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.2em;
+  color: #000000;
+}
+
+/* Character List */
+.character-list {
+  position: absolute;
+  width: 484px;
+  height: 624px;
+  left: 176px;
+  top: 0px;
+}
+
+/* Rectangle 1 */
+.rectangle-1 {
+  position: absolute;
+  width: 484px;
+  height: 624px;
+  left: 0px;
+  top: 0px;
+  background: #535556;
+  border-radius: 10px 10px 0px 0px;
+}
+
+/* Rectangle 3 */
+.rectangle-3 {
+  position: absolute;
+  width: 484px;
+  height: 547px;
+  left: 0px;
+  top: 77px;
+  background: #c4c4c4;
+}
+
+/* List */
+.list {
+  position: absolute;
+  width: 437px;
+  height: 490px;
+  left: 3px;
+  top: 66px;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* List Item */
+.list-item {
+  position: absolute;
+  width: 484px;
+  height: 55px;
+  left: 0px;
+  top: 0px;
+}
+
+/* Rectangle 4 */
+.rectangle-4 {
+  position: absolute;
+  width: 484px;
+  height: 55px;
+  left: 0px;
+  top: 0px;
+}
+
+/* Character Name in List Item */
+.character-name {
+  position: absolute;
+  width: 211px;
+  height: 28px;
+  left: 20px;
+  top: 13px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0.15em;
+  color: #ffffff;
+}
+
+/* Characters */
+.characters {
+  position: absolute;
+  width: 183px;
+  height: 31px;
+  left: 150px;
+  top: -1px;
+  font-family: "Ropa Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 32px;
+  text-align: center;
+  letter-spacing: 0.2em;
+  color: #ffd600;
+  border: 0.5px solid #ffd600;
+}
+
+/* Pagination */
+.pagination {
+  position: absolute;
+  width: 484px;
+  height: 44px;
+  left: 176px;
+  top: 580px;
+}
+
+/* ◁ 1 / 8 ▷ */
+.page-info {
+  position: absolute;
+  width: 221px;
+  height: 34px;
+  left: -40px;
+  top: -20px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 35px;
+  text-align: center;
+  letter-spacing: 0.2em;
+  color: #000000;
+}
