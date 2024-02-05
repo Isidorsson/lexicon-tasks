@@ -10,7 +10,7 @@ const hints = [
 let word = words[Math.floor(Math.random() * words.length)];
 
 let wrongGuesses = 0;
-let totalLives = 6;
+let totalLives = 4;
 let guessedLetters = Array(word.length).fill("_");
 
 let usedLetters = [];
@@ -63,6 +63,15 @@ function startTimer() {
     clearInterval(timerId);
   }
 
+  if (wrongGuesses > 4) {
+    return;
+  }
+
+  if (!guessedLetters.includes("_")) {
+    clearInterval(timerId);
+    return;
+  }
+
   timeLeft = 10;
 
   timerId = setInterval(() => {
@@ -85,6 +94,10 @@ function updateUsedLettersDisplay() {
   usedLettersElement.textContent = "Used letters: " + usedLetters.join(", ");
 }
 
+function updateLiveDisplay() {
+  livesLeft.textContent = `Lives Left: ${totalLives - wrongGuesses}`;
+}
+
 updateWordDisplay();
 
 function checkWin() {
@@ -98,10 +111,11 @@ function restartGame() {
   word = words[Math.floor(Math.random() * words.length)];
 
   guessedLetters = Array(word.length).fill("_");
+  
   usedLetters = [];
-
+  // usedLetters.length = 0;
   wrongGuesses = 0;
-  totalLives = 6;
+
   svgPaths.forEach((path) => (path.style.opacity = 0));
 
   const buttons = document.querySelectorAll(".used-letter");
@@ -110,8 +124,13 @@ function restartGame() {
   });
 
   updateWordDisplay();
-  updateUsedLettersDisplay();
 
+  usedLetters = [];
+
+  usedLetters.length = 0;
+
+  updateUsedLettersDisplay();
+  updateLiveDisplay();
   hintMessageElement.textContent = "";
   gameMessageElement.textContent = "";
 
@@ -155,7 +174,7 @@ function handleGuess(letter) {
     startTimer();
     showHangmanParts();
   }
-  if (wrongGuesses >= 6) {
+  if (wrongGuesses > 5) {
     gameMessageElement.textContent = "You lost!";
     // restartButton.style.display = "block";
   }
