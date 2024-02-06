@@ -1,6 +1,6 @@
 let characters = [];
 let currentPage = 1;
-const itemsPerPage = 8;
+const itemsPerPage = 6;
 
 //  query selector to select the elements
 const searchInput = document.querySelector(".search-input");
