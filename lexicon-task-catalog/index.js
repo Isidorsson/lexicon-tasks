@@ -156,6 +156,13 @@ function updateCharacterList(characters) {
 }
 
 
+/**
+ * The above code is an asynchronous function in JavaScript that fetches data from the Star Wars API
+ * (SWAPI) and updates the character list, character details, and planet details on a webpage.
+ * @param [url=https://swapi.dev/api/people/] - The `url` parameter is the URL of the API endpoint that
+ * returns a list of Star Wars characters. By default, it is set to `'https://swapi.dev/api/people/'`,
+ * which is the base URL of the Star Wars API.
+ */
 async function fetchAllPeople(url = 'https://swapi.dev/api/people/') {
   const response = await fetch(url);
   const data = await response.json();
@@ -185,7 +192,10 @@ if (characters.length === 0) {
     hideLoaders();
   }, 1000);
 }
-// Add an event listener for the 'input' event
+
+/* The `searchInput.addEventListener("input", function (event) { ... })` code block is adding an event
+listener to the search input field. It listens for the "input" event, which is triggered whenever
+the user types or deletes text in the input field. */
 searchInput.addEventListener("input", function (event) {
   const query = event.target.value.toLowerCase();
   console.log(query);
@@ -200,7 +210,6 @@ searchInput.addEventListener("input", function (event) {
   if (filteredCharacters.length > 0) {
     updateCharacterDetails(filteredCharacters[0]);
 
-    // Fetch and display planet details for the first filtered character
     fetch(filteredCharacters[0].homeworld)
       .then((response) => response.json())
       .then((planet) => updatePlanetDetails(planet));
