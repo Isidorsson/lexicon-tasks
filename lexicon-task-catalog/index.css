@@ -10,6 +10,12 @@ html {
   /* background-repeat: no-repeat; */
   /* background-position: top; */
 
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  height: 100vh;
+  width: 100%;
+
   margin: 0;
   padding: 0;
 }
@@ -296,12 +302,10 @@ p {
 /* Character name right */
 .character-name-right {
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
   position: relative;
-  width: 242px;
-  left: 91px;
-  top: -19px;
+  width: 218px;
+  left: 126px;
+  top: -24px;
   padding: 10px;
   letter-spacing: 0.2em;
   /* font-family: "Roboto"; */
@@ -312,6 +316,8 @@ p {
   cursor: pointer;
   /* color: white; */
   flex-direction: row;
+  /* background-color: red; */
+  justify-content: center;
 }
 
 /* Character Description */
