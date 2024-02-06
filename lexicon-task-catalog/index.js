@@ -1,11 +1,11 @@
 let characters = [];
 let currentPage = 1;
-const itemsPerPage = 5;
+const itemsPerPage = 8;
 
 //  query selector to select the elements
 const searchInput = document.querySelector(".search-input");
 const characterName = document.querySelector(".character-name");
-const planetName = document.querySelector(".tattoiin");
+const planetName = document.querySelector(".planet");
 const planetDescription = document.querySelector(".planet-description");
 const characterDescription = document.querySelector(".character-description");
 const firstButton = document.querySelector(".first");
@@ -45,34 +45,34 @@ function updateCharacterDetails(character) {
   characterName.textContent = character.name;
 
   // Clear previous character details
-  characterDescription.innerHTML = '';
+  characterDescription.innerHTML = "";
 
   // Create a new <p> tag for each detail
-  const height = document.createElement('p');
+  const height = document.createElement("p");
   height.textContent = `Height: ${character.height}`;
   characterDescription.appendChild(height);
 
-  const mass = document.createElement('p');
+  const mass = document.createElement("p");
   mass.textContent = `Mass: ${character.mass}`;
   characterDescription.appendChild(mass);
 
-  const hairColor = document.createElement('p');
+  const hairColor = document.createElement("p");
   hairColor.textContent = `Hair color: ${character.hair_color}`;
   characterDescription.appendChild(hairColor);
 
-  const skinColor = document.createElement('p');
+  const skinColor = document.createElement("p");
   skinColor.textContent = `Skin color: ${character.skin_color}`;
   characterDescription.appendChild(skinColor);
 
-  const eyeColor = document.createElement('p');
+  const eyeColor = document.createElement("p");
   eyeColor.textContent = `Eye color: ${character.eye_color}`;
   characterDescription.appendChild(eyeColor);
 
-  const birthYear = document.createElement('p');
+  const birthYear = document.createElement("p");
   birthYear.textContent = `Birth year: ${character.birth_year}`;
   characterDescription.appendChild(birthYear);
 
-  const gender = document.createElement('p');
+  const gender = document.createElement("p");
   gender.textContent = `Gender: ${character.gender}`;
   characterDescription.appendChild(gender);
 }
@@ -80,7 +80,34 @@ function updateCharacterDetails(character) {
 // Function to update planet details
 function updatePlanetDetails(planet) {
   planetName.textContent = planet.name;
-  planetDescription.textContent = `Rotation period: ${planet.rotation_period} Orbital period: ${planet.orbital_period} Diameter: ${planet.diameter} Climate: ${planet.climate} Gravity: ${planet.gravity} Terrain: ${planet.terrain}`;
+
+  // Clear previous planet details
+  planetDescription.innerHTML = "";
+
+  // Create a new <p> tag for each detail
+  const rotationPeriod = document.createElement("p");
+  rotationPeriod.textContent = `Rotation period: ${planet.rotation_period}`;
+  planetDescription.appendChild(rotationPeriod);
+
+  const orbitalPeriod = document.createElement("p");
+  orbitalPeriod.textContent = `Orbital period: ${planet.orbital_period}`;
+  planetDescription.appendChild(orbitalPeriod);
+
+  const diameter = document.createElement("p");
+  diameter.textContent = `Diameter: ${planet.diameter}`;
+  planetDescription.appendChild(diameter);
+
+  const climate = document.createElement("p");
+  climate.textContent = `Climate: ${planet.climate}`;
+  planetDescription.appendChild(climate);
+
+  const gravity = document.createElement("p");
+  gravity.textContent = `Gravity: ${planet.gravity}`;
+  planetDescription.appendChild(gravity);
+
+  const terrain = document.createElement("p");
+  terrain.textContent = `Terrain: ${planet.terrain}`;
+  planetDescription.appendChild(terrain);
 }
 
 // Function to update character list
@@ -128,16 +155,25 @@ function updateCharacterList(characters) {
     currentPage === Math.ceil(characters.length / itemsPerPage);
 }
 
+
+function fetchAllPeople(url = 'https://swapi.dev/api/people/') {
+  return fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      characters = characters.concat(data.results); 
+
+      if (data.next) {
+        return fetchAllPeople(data.next);
+      }
+    });
+}
+
 if (characters.length === 0) {
   showLoaders();
   setTimeout(() => {
-    fetch("https://swapi.dev/api/people/")
-      .then((response) => response.json())
-      .then((data) => {
-        characters = data.results;
-
+    fetchAllPeople()
+      .then(() => {
         updateCharacterList(characters);
-
         updateCharacterDetails(characters[0]);
 
         fetch(characters[0].homeworld)
