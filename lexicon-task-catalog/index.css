@@ -1,5 +1,6 @@
 * {
   font-family: "Roboto", sans-serif;
+
 }
 
 body {
@@ -213,22 +214,6 @@ header {
   background: #8e8e8e;
 }
 
-/* Tattoiin */
-.tattoiin {
-  position: absolute;
-  width: 308px;
-  height: 40px;
-  left: 25px;
-  top: 7px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 30px;
-  line-height: 35px;
-  letter-spacing: 0.2em;
-  color: #ffffff;
-}
-
 /* Planet Description */
 .planet-description {
   position: absolute;
@@ -256,34 +241,70 @@ header {
 
 /* Character Name */
 .character-name {
-  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
   width: 308px;
   height: 40px;
   left: 21px;
   top: 13px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 30px;
-  line-height: 35px;
+  padding: 10px;
   letter-spacing: 0.2em;
-  color: #000000;
+  /* font-family: "Roboto"; */
+  font-style: normal;
+  /* font-weight: 400; */
+  font-size: 20px;
+  line-height: 35px;
+  cursor: pointer;
 }
 
+/* Character name hover */
+.character-name:hover {
+  color: white;
+}
+
+/* Character name right */
+.character-name-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  /* position: relative; */
+  width: 308px;
+  height: 40px;
+  left: 21px;
+  top: 13px;
+  padding: 10px;
+  letter-spacing: 0.2em;
+  /* font-family: "Roboto"; */
+  font-style: normal;
+  /* font-weight: 400; */
+  font-size: 20px;
+  line-height: 35px;
+  cursor: pointer;
+  /* color: white; */
+  flex-direction: row;
+}
 /* Character Description */
 .character-description {
-  position: absolute;
-  width: 308px;
-  height: 214px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* gap: 20px; */
+  position: relative;
+  /* width: 308px; */
+  /* height: 214px; */
   left: 21px;
-  top: 53px;
-  font-family: "Roboto";
+  top: -35px;
+
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 21px;
   letter-spacing: 0.2em;
-  color: #000000;
+  
+
+  /* color: #000000; */
 }
 
 /* Character List */
@@ -355,22 +376,6 @@ header {
   top: 0px;
 }
 
-/* Character Name in List Item */
-.character-name {
-  position: relative;
-  width: 366px;
-  height: 28px;
-  left: 20px;
-  top: 16px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 10px;
-  letter-spacing: 0.1em;
-  /* color: #ffffff; */
-}
-
 /* Characters */
 .characters {
   position: absolute;
@@ -432,9 +437,6 @@ header {
   color: black;
 }
 
-
-
-
 .loader {
   position: absolute;
   display: none;
@@ -448,7 +450,6 @@ header {
   border-radius: 50%;
   color: #fff;
   z-index: 2;
-
 }
 .loader:before,
 .loader:after {
