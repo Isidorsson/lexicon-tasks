@@ -2,13 +2,17 @@
   font-family: "Roboto", sans-serif;
 }
 
-body {
-  position: relative;
+body, html {
+  /* position: relative; */
   /* background-color: gray; */
   /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGJRWU_YXlUVCrsk24LZKWBBn9JrQSJ31IifvXmQHouP7adsxzNHPPEYIYn7yesFahIog&usqp=CAU"); */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top;
+  /* background-size: cover; */
+  /* background-repeat: no-repeat; */
+  /* background-position: top; */
+
+   margin: 0;
+  padding: 0;
+  
 }
 
 p {
@@ -98,14 +102,14 @@ p {
 } */
 
 /* Header */
-header {
-  position: absolute;
+/* header {
+  position: r;
   width: 1440px;
   height: 347px;
   left: 0px;
   top: 0px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
+} */
 
 /* header-background */
 .header-background {
@@ -559,6 +563,15 @@ header {
   .wrapper {
     /* width: 100%; */
     /* top: 0; */
+    width: 135px;
+  }
+  header {
+    position: relative;
+    width: 81px;
+    height: 9px;
+    left: 0px;
+    top: 0px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   }
   .heading {
     position: absolute;
@@ -577,10 +590,10 @@ header {
 
   .header-background {
     position: relative;
-    width: 871px;
+    width: 511px;
     height: 351px;
     left: -189px;
-    top: -288px;
+    top: -341px;
     background: url(assets/2024-02-05-17-52-27.png);
   }
   .search {
@@ -591,31 +604,29 @@ header {
   }
   .content {
     /* position: relative; */
-    width: 1388px;
+    width: 306px;
     height: 720px;
     left: 0px;
     top: 304px;
     /* filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.24)); */
-  }
+}
 
   .rectangle-2 {
     width: 510px;
     height: 1217px;
     left: -187px;
     top: -244px;
-}
-.character-list {
-  position: absolute;
-  width: 493px;
-  height: 624px;
-  left: -174px;
-  top: -314px;
-}
-.character-info {
-  width: 1000px;
-  left: -173px;
-  top: 323px;
-}
-
-
+  }
+  .character-list {
+    position: absolute;
+    width: 493px;
+    height: 624px;
+    left: -174px;
+    top: -314px;
+  }
+  .character-info {
+    width: 26px;
+    left: -173px;
+    top: 323px;
+  }
 }
