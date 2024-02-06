@@ -62,6 +62,12 @@ body {
   color: #000000;
 }
 
+/* Search hover */
+.search-button:hover {
+  background: #000000;
+  color: #ffd600;
+}
+
 /* Search Results */
 /* .search-results {
   position: absolute;
