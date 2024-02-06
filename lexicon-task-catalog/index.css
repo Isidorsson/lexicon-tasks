@@ -638,7 +638,7 @@ p {
     list-style-type: none;
     margin-bottom: 10px;
     cursor: pointer;
-    background-color: red;
+    /* background-color: red; */
   }
 
   .character-name {
