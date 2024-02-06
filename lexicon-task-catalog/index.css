@@ -220,18 +220,18 @@ header {
 
 /* planet */
 .planet {
-  position: relative;
-  width: 308px;
-  height: 40px;
-  left: 15px;
-  top: -18px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 30px;
-  line-height: 35px;
-  letter-spacing: 0.2em;
-  color: #ffffff;
+    position: relative;
+    width: 308px;
+    height: 40px;
+    left: 15px;
+    top: -18px;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 35px;
+    letter-spacing: 0.2em;
+    color: #ffffff;
 }
 
 /* Planet Description */
