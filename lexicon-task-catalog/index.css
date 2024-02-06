@@ -1,6 +1,5 @@
 * {
   font-family: "Roboto", sans-serif;
-
 }
 
 body {
@@ -11,6 +10,11 @@ body {
   background-repeat: no-repeat;
   background-position: top;
   overflow: hidden;
+}
+
+p {
+  margin: 0;
+  padding: 0;
 }
 
 .wrapper {
@@ -214,29 +218,49 @@ header {
   background: #8e8e8e;
 }
 
+/* planet */
+.planet {
+  position: relative;
+  width: 308px;
+  height: 40px;
+  left: 15px;
+  top: -18px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 35px;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+}
+
 /* Planet Description */
 .planet-description {
-  position: absolute;
-  width: 308px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 451px;
   height: 214px;
-  left: 25px;
-  top: 47px;
-  font-family: "Roboto";
+  left: 17px;
+  top: -42px;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 21px;
   letter-spacing: 0.2em;
   color: #ffffff;
+  /* background-color: red; */
 }
 
 /* Character Details */
 .character-details {
-  position: absolute;
+  position: relative;
   width: 484px;
   height: 267px;
   left: 0px;
   top: 73px;
+
 }
 
 /* Character Name */
@@ -264,17 +288,15 @@ header {
 .character-name:hover {
   color: white;
 }
-
 /* Character name right */
 .character-name-right {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
-  /* position: relative; */
-  width: 308px;
-  height: 40px;
-  left: 21px;
-  top: 13px;
+  position: relative;
+  width: 242px;
+  left: 91px;
+  top: -19px;
   padding: 10px;
   letter-spacing: 0.2em;
   /* font-family: "Roboto"; */
@@ -286,25 +308,22 @@ header {
   /* color: white; */
   flex-direction: row;
 }
+
 /* Character Description */
 .character-description {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* gap: 20px; */
+  display: flex;
+  flex-direction: column;
   position: relative;
-  /* width: 308px; */
-  /* height: 214px; */
+  width: 448px;
+  height: 207px;
   left: 21px;
-  top: -35px;
-
+  top: -42px;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 21px;
   letter-spacing: 0.2em;
-  
-
-  /* color: #000000; */
+  /* background-color: red; */
 }
 
 /* Character List */
