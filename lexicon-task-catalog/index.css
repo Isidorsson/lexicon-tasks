@@ -1,16 +1,21 @@
-.wrapper {
-  position: relative;
-  top: 579px;
-  left: 197px;
-  background: #ffffff;
+* {
+  font-family: "Roboto", sans-serif;
 }
 
-/* Desktop - 1 */
 body {
   position: relative;
-  width: 1440px;
-  height: 1024px;
-  background: #ffffff;
+  /* background-color: gray; */
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGJRWU_YXlUVCrsk24LZKWBBn9JrQSJ31IifvXmQHouP7adsxzNHPPEYIYn7yesFahIog&usqp=CAU");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  overflow: hidden;
+}
+
+.wrapper {
+  position: relative;
+  top: 296px;
+  left: 187px;
 }
 
 /* Search */
@@ -319,17 +324,26 @@ header {
   left: 3px;
   top: 66px;
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  /* add scroll */
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #ffd600 #535556;
 }
 
 /* List Item */
 .list-item {
-  position: absolute;
-  width: 484px;
+  position: relative;
+  width: 200px;
   height: 55px;
   left: 0px;
   top: 0px;
-
   list-style-type: none;
+  /* background: #535556; */
+  /* border-radius: 10px; */
+  /* margin-bottom: 10px; */
+  /* padding: 10px; */
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  cursor: pointer;
 }
 
 /* Rectangle 4 */
@@ -343,18 +357,18 @@ header {
 
 /* Character Name in List Item */
 .character-name {
-  position: absolute;
-  width: 211px;
+  position: relative;
+  width: 366px;
   height: 28px;
   left: 20px;
-  top: 13px;
+  top: 16px;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
-  line-height: 28px;
-  letter-spacing: 0.15em;
-  color: #ffffff;
+  line-height: 10px;
+  letter-spacing: 0.1em;
+  /* color: #ffffff; */
 }
 
 /* Characters */
@@ -377,26 +391,43 @@ header {
 
 /* Pagination */
 .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   width: 484px;
   height: 44px;
-  left: 176px;
+  left: 13px;
   top: 580px;
+
+  gap: 10px;
+}
+.pagination button {
+  background-color: gray;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
 }
 
-/* ◁ 1 / 8 ▷ */
-.page-info {
-  position: absolute;
-  width: 221px;
-  height: 34px;
-  left: -40px;
-  top: -20px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 30px;
-  line-height: 35px;
-  text-align: center;
-  letter-spacing: 0.2em;
-  color: #000000;
+.pagination button:hover {
+  background-color: white;
+  color: black;
+}
+
+.pagination button:disabled {
+  background-color: #555555;
+  color: white;
+  cursor: not-allowed;
+}
+
+.pagination .active {
+  background-color: yellow;
+  color: black;
 }
