@@ -89,23 +89,19 @@ function updateCharacterList(characters) {
   lastButton.disabled =
     currentPage === Math.ceil(characters.length / itemsPerPage);
 }
-// Check if characters array is empty
+
 if (characters.length === 0) {
   showLoaders();
   setTimeout(() => {
-    // Fetch the data from the SWAPI
     fetch("https://swapi.dev/api/people/")
       .then((response) => response.json())
       .then((data) => {
         characters = data.results;
 
-        // Display characters in the list
         updateCharacterList(characters);
 
-        // Display first character details by default
         updateCharacterDetails(characters[0]);
 
-        // Fetch and display planet details for the first character
         fetch(characters[0].homeworld)
           .then((response) => response.json())
           .then((planet) => {
