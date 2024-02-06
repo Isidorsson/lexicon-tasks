@@ -1,5 +1,6 @@
 * {
   font-family: "Roboto", sans-serif;
+
 }
 
 body {
@@ -9,7 +10,6 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
-  overflow: hidden;
 }
 
 p {
@@ -18,9 +18,15 @@ p {
 }
 
 .wrapper {
-  position: relative;
-  top: 296px;
-  left: 187px;
+ /* scale */
+scale: 0.8;
+position: relative;
+  width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+  top: 10rem;
+
+
 }
 
 /* Search */
