@@ -43,7 +43,38 @@ function hideLoaders() {
 // Function to update character details
 function updateCharacterDetails(character) {
   characterName.textContent = character.name;
-  characterDescription.textContent = `Height: ${character.height} Mass: ${character.mass} Hair color: ${character.hair_color} Skin color: ${character.skin_color} Eye color: ${character.eye_color} Birth year: ${character.birth_year} Gender: ${character.gender}`;
+
+  // Clear previous character details
+  characterDescription.innerHTML = '';
+
+  // Create a new <p> tag for each detail
+  const height = document.createElement('p');
+  height.textContent = `Height: ${character.height}`;
+  characterDescription.appendChild(height);
+
+  const mass = document.createElement('p');
+  mass.textContent = `Mass: ${character.mass}`;
+  characterDescription.appendChild(mass);
+
+  const hairColor = document.createElement('p');
+  hairColor.textContent = `Hair color: ${character.hair_color}`;
+  characterDescription.appendChild(hairColor);
+
+  const skinColor = document.createElement('p');
+  skinColor.textContent = `Skin color: ${character.skin_color}`;
+  characterDescription.appendChild(skinColor);
+
+  const eyeColor = document.createElement('p');
+  eyeColor.textContent = `Eye color: ${character.eye_color}`;
+  characterDescription.appendChild(eyeColor);
+
+  const birthYear = document.createElement('p');
+  birthYear.textContent = `Birth year: ${character.birth_year}`;
+  characterDescription.appendChild(birthYear);
+
+  const gender = document.createElement('p');
+  gender.textContent = `Gender: ${character.gender}`;
+  characterDescription.appendChild(gender);
 }
 
 // Function to update planet details
@@ -74,6 +105,13 @@ function updateCharacterList(characters) {
 
     const characterName = document.createElement("p");
     characterName.classList.add("character-name");
+    if (charactersOnPage.indexOf(character) % 3 === 0) {
+      characterName.style.backgroundColor = "#8E8E8E";
+    } else if (charactersOnPage.indexOf(character) % 3 === 1) {
+      characterName.style.backgroundColor = "#E1DEDE";
+    } else {
+      characterName.style.backgroundColor = "#444444";
+    }
     characterName.textContent = character.name;
 
     listItem.appendChild(characterName);
