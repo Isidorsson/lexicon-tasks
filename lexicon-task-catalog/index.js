@@ -4,7 +4,7 @@ const itemsPerPage = 6;
 
 //  query selector to select the elements
 const searchInput = document.querySelector(".search-input");
-const characterName = document.querySelector(".character-name");
+const characterName = document.querySelector(".character-name-right");
 const planetName = document.querySelector(".planet");
 const planetDescription = document.querySelector(".planet-description");
 const characterDescription = document.querySelector(".character-description");
