@@ -42,52 +42,46 @@ function hideLoaders() {
 
 // Function to update character details
 function updateCharacterDetails(character) {
-  showLoaders();
-  setTimeout(() => {
-    characterName.textContent = character.name;
-    characterDescription.textContent = `Height: ${character.height} Mass: ${character.mass} Hair color: ${character.hair_color} Skin color: ${character.skin_color} Eye color: ${character.eye_color} Birth year: ${character.birth_year} Gender: ${character.gender}`;
-    hideLoaders();
-  }, 500);
+  characterName.textContent = character.name;
+  characterDescription.textContent = `Height: ${character.height} Mass: ${character.mass} Hair color: ${character.hair_color} Skin color: ${character.skin_color} Eye color: ${character.eye_color} Birth year: ${character.birth_year} Gender: ${character.gender}`;
 }
 
 // Function to update planet details
 function updatePlanetDetails(planet) {
-  showLoaders();
-  setTimeout(() => {
-    planetName.textContent = planet.name;
-    planetDescription.textContent = `Rotation period: ${planet.rotation_period} Orbital period: ${planet.orbital_period} Diameter: ${planet.diameter} Climate: ${planet.climate} Gravity: ${planet.gravity} Terrain: ${planet.terrain}`;
-    hideLoaders();
-  }, 500);
+  planetName.textContent = planet.name;
+  planetDescription.textContent = `Rotation period: ${planet.rotation_period} Orbital period: ${planet.orbital_period} Diameter: ${planet.diameter} Climate: ${planet.climate} Gravity: ${planet.gravity} Terrain: ${planet.terrain}`;
 }
+
 // Function to update character list
 function updateCharacterList(characters) {
   const list = document.querySelector(".list");
   list.innerHTML = "";
 
-  showLoaders();
-
   const start = (currentPage - 1) * itemsPerPage;
   const end = start + itemsPerPage;
 
   const charactersOnPage = characters.slice(start, end);
-  setTimeout(() => {
-    charactersOnPage.forEach((character) => {
-      const listItem = document.createElement("li");
-      listItem.classList.add("list-item");
 
-      const characterName = document.createElement("p");
-      characterName.classList.add("character-name");
-      characterName.textContent = character.name;
-
-      listItem.appendChild(characterName);
-      list.appendChild(listItem);
+  charactersOnPage.forEach((character) => {
+    const listItem = document.createElement("li");
+    listItem.classList.add("list-item");
+    listItem.addEventListener("click", function () {
+      updateCharacterDetails(character);
+      fetch(character.homeworld)
+        .then((response) => response.json())
+        .then((planet) => updatePlanetDetails(planet));
     });
-    hideLoaders();
-  }, 500);
 
-  // Update page number
+    const characterName = document.createElement("p");
+    characterName.classList.add("character-name");
+    characterName.textContent = character.name;
+
+    listItem.appendChild(characterName);
+    list.appendChild(listItem);
+  });
+
   pageNumber.textContent = currentPage;
-  // Enable or disable pagination buttons
+
   firstButton.disabled = currentPage === 1;
   previousButton.disabled = currentPage === 1;
   nextButton.disabled =
@@ -122,7 +116,7 @@ if (characters.length === 0) {
         console.error("Error:", error);
       });
     hideLoaders();
-  }, 100);
+  }, 1000);
 }
 // Add an event listener for the 'input' event
 searchInput.addEventListener("input", function (event) {
