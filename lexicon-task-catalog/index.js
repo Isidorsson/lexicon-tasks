@@ -156,35 +156,32 @@ function updateCharacterList(characters) {
 }
 
 
-function fetchAllPeople(url = 'https://swapi.dev/api/people/') {
-  return fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      characters = characters.concat(data.results); 
+async function fetchAllPeople(url = 'https://swapi.dev/api/people/') {
+  const response = await fetch(url);
+  const data = await response.json();
 
-      if (data.next) {
-        return fetchAllPeople(data.next);
-      }
-    });
+  characters = characters.concat(data.results);
+
+  if (data.next) {
+    console.log(data.next);
+    await fetchAllPeople(data.next);
+  }
 }
 
 if (characters.length === 0) {
   showLoaders();
-  setTimeout(() => {
-    fetchAllPeople()
-      .then(() => {
-        updateCharacterList(characters);
-        updateCharacterDetails(characters[0]);
+  setTimeout(async () => {
+    try {
+      await fetchAllPeople();
+      updateCharacterList(characters);
+      updateCharacterDetails(characters[0]);
 
-        fetch(characters[0].homeworld)
-          .then((response) => response.json())
-          .then((planet) => {
-            updatePlanetDetails(planet);
-          });
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+      const response = await fetch(characters[0].homeworld);
+      const planet = await response.json();
+      updatePlanetDetails(planet);
+    } catch (error) {
+      console.error("Error:", error);
+    }
     hideLoaders();
   }, 1000);
 }
