@@ -2,7 +2,8 @@
   font-family: "Roboto", sans-serif;
 }
 
-body, html {
+body,
+html {
   /* position: relative; */
   /* background-color: gray; */
   /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGJRWU_YXlUVCrsk24LZKWBBn9JrQSJ31IifvXmQHouP7adsxzNHPPEYIYn7yesFahIog&usqp=CAU"); */
@@ -10,9 +11,8 @@ body, html {
   /* background-repeat: no-repeat; */
   /* background-position: top; */
 
-   margin: 0;
+  margin: 0;
   padding: 0;
-  
 }
 
 p {
@@ -609,7 +609,7 @@ p {
     left: 0px;
     top: 304px;
     /* filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.24)); */
-}
+  }
 
   .rectangle-2 {
     width: 510px;
@@ -628,5 +628,16 @@ p {
     width: 26px;
     left: -173px;
     top: 323px;
+  }
+
+
+
+  .blur {
+    width: 485px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    display: block;
   }
 }
