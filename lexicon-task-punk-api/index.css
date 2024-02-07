@@ -115,6 +115,14 @@ nav ul li a.active:hover {
   overflow-y: auto;
 }
 
+.random-beer-info h2 {
+  margin: 1rem 0;
+}
+
+.random-beer-info p {
+  margin: 1rem 0;
+}
+
 /* style scroll */
 .random-beer-info::-webkit-scrollbar {
   width: 10px;
@@ -187,6 +195,7 @@ nav ul li a.active:hover {
   border: 1px solid #888;
   width: 35%;
   height: 50%;
+  border-radius: 20px;
   overflow-y: scroll;
 }
 
