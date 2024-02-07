@@ -248,7 +248,7 @@ nav ul li a.active:hover {
 }
 
 .search-page {
-  width: 80%;
+  width: 50%;
   margin: 0 auto;
   padding: 20px;
 }
@@ -289,6 +289,41 @@ nav ul li a.active:hover {
   padding: 0;
 }
 
+#dropdown {
+  position: absolute;
+  width: auto;
+  background-color: white;
+  border: 1px solid #ddd;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  height: 500px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ddd #f0f0f0;
+}
+
+#dropdown::-webkit-scrollbar {
+  width: 8px;
+}
+
+#dropdown::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+
+#dropdown::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+}
+
+#dropdown li {
+  width: 400px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#dropdown li:hover {
+  background-color: #f0f0f0;
+}
 
 .beers {
   display: flex;
