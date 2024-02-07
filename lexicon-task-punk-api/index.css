@@ -62,6 +62,20 @@ nav ul li a.active:hover {
   color: #333;
 }
 
+/* local storage */
+.clear-local-storage-btn {
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #333;
+  border: 2px solid #333;
+  color: #f2f2f2;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+}
+
 .landing-page {
   display: flex;
   align-items: center;
@@ -248,7 +262,7 @@ nav ul li a.active:hover {
 }
 
 .search-page {
-  width: 50%;
+  width: auto;
   margin: 0 auto;
   padding: 20px;
 }
@@ -339,7 +353,6 @@ nav ul li a.active:hover {
   margin: 1rem 2rem;
   flex-wrap: wrap;
   justify-content: space-between;
-
 }
 
 /* .beers h2 {
@@ -380,4 +393,56 @@ nav ul li a.active:hover {
 
 .beer-card p {
   margin: 1rem 0;
+}
+
+/* loader */
+
+.loading-overlay {
+  position: fixed; 
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.4); 
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+
+
+.loader {
+  width: 150px;
+  height: 150px;
+  background-color: #ff3d00;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 30px 4px rgba(0, 0, 0, 0.5) inset,
+    0 5px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 45%;
+  top: -40%;
+  background-color: #fff;
+  animation: wave 5s linear infinite;
+}
+.loader:before {
+  border-radius: 30%;
+  background: rgba(255, 255, 255, 0.4);
+  animation: wave 5s linear infinite;
+}
+@keyframes wave {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
