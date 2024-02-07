@@ -2,7 +2,7 @@
 
 let beerData = [];
 
-let currentBeer = null; 
+let currentBeer = null;
 
 const randomBeerImg = document.querySelector(".random-beer-img");
 const randomBeerInfo = document.querySelector(".random-beer-info");
@@ -10,6 +10,10 @@ const randomBeerName = document.querySelector(".random-beer-name");
 const randomBeerViewMore = document.querySelector(".random-beer-view-more-btn");
 const randomBeerBtn = document.querySelector(".random-beer-btn");
 const clearLocalStorageBtn = document.querySelector(".clear-local-storage-btn");
+const beerList = document.querySelector(".beer-list");
+
+const searchInput = document.querySelector(".search-input");
+const beerName = document.getElementById("beer-name");
 
 const modal = document.querySelector(".modal");
 const modalText = document.querySelector(".modal-text");
@@ -26,22 +30,21 @@ clearLocalStorageBtn.addEventListener("click", clearLocalStorage);
 async function fetchBeerData() {
   try {
     // Check if data is in local storage
-    let beerData = localStorage.getItem("beerData");
+    let storedData = localStorage.getItem("beerData");
 
     // If data is not in local storage, fetch from API
-    if (!beerData) {
+    if (!storedData) {
       console.log("Fetching data from API");
       const response = await fetch("https://api.punkapi.com/v2/beers");
       const data = await response.json();
-      beerData = data;
+      beerData = data; // update the global beerData variable
 
       // Store data in local storage
       localStorage.setItem("beerData", JSON.stringify(beerData));
     } else {
       console.log("Fetching data from local storage");
       // If data is in local storage, parse it to JSON
-      beerData = JSON.parse(beerData);
-      // console.log(beerData);
+      beerData = JSON.parse(storedData); // update the global beerData variable
     }
 
     return beerData;
@@ -79,12 +82,12 @@ randomBeerViewMore.onclick = function () {
     <p><strong>First Brewed:</strong> ${currentBeer.first_brewed}</p>
     <p><strong>Description:</strong> ${currentBeer.description}</p>
     <p><strong>Alcohol by volume (ABV):</strong> ${currentBeer.abv}</p>
-    <p><strong>Volume:</strong> ${currentBeer.volume.value} ${currentBeer.volume.unit}</p>
+    <p><strong>Volume:</strong> ${currentBeer.volume.value} ${
+      currentBeer.volume.unit
+    }</p>
     <p><strong>Food Pairing:</strong></p>
     <ul>
-    ${currentBeer.food_pairing
-      .map((food) => `<li>${food}</li>`)
-      .join("")}
+    ${currentBeer.food_pairing.map((food) => `<li>${food}</li>`).join("")}
     </ul>
     <p><strong>Brewers Tips:</strong> ${currentBeer.brewers_tips}</p>
     <p><strong>Ingredients:</strong></p>
@@ -120,3 +123,45 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
+
+function displayBeers(beerData) {
+  beerList.innerHTML = beerData
+    .map(
+      (beer) => `
+  <li class="beer-card">
+    <img src="${beer.image_url}" alt="beer image" />
+    <h3>${beer.name}</h3>
+    <p>${beer.description}</p>
+    <a href="beer.html?beerId=${beer.id}" class="view-more-btn">View More</a>
+  </li>
+  
+  
+  `
+    )
+    .join("");
+  // console.log(`Displaying ${beerData.length} beers.`);
+}
+
+displayBeers(beerData);
+
+function searchBeers() {
+  const searchTerm = searchInput.value.toLowerCase();
+  const filteredBeers = beerData.filter((beer) =>
+    beer.name.toLowerCase().includes(searchTerm)
+  );
+
+  beerName.innerHTML = "";
+
+  for (const beer of filteredBeers) {
+    const option = document.createElement("option");
+    option.value = beer.name;
+    beerName.appendChild(option);
+  }
+  console.log(filteredBeers);
+  displayBeers(filteredBeers); 
+}
+
+searchInput.addEventListener("input", searchBeers);
+document.querySelector("form").addEventListener("submit", (event) => {
+  event.preventDefault();
+});
