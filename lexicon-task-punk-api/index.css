@@ -325,34 +325,45 @@ nav ul li a.active:hover {
   background-color: #f0f0f0;
 }
 
-.beers {
+/* .beer-div {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 2rem 0;
+} */
+
+.beers {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  margin: 1rem 2rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
 }
 
-.beers h2 {
+/* .beers h2 {
   margin: 1rem 0;
-}
+} */
 
-.beer-list {
+/* .beer-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
-}
+
+} */
 
 .beer-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #546e7a;
-  padding: 2rem;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 300px;
   height: auto;
+  background-color: #546e7a;
+  padding: 2rem 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
 }
 
 .beer-card img {
