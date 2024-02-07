@@ -149,6 +149,8 @@ window.onclick = function (event) {
   }
 };
 
+
+
 function displayBeers(beers) {
   const beersDiv = document.querySelector(".beers");
   beersDiv.innerHTML = "";
@@ -170,14 +172,17 @@ function displayBeers(beers) {
     beerDescription.textContent = beer.description;
     beerCard.appendChild(beerDescription);
 
-    // const viewMoreBtn = document.createElement("a");
+    const viewMoreBtn = document.createElement("a");
     // viewMoreBtn.href = `beer.html?beerId=${beer.id}`;
-    // viewMoreBtn.className = "view-more-btn";
-    // viewMoreBtn.textContent = "View More";
-    // beerCard.appendChild(viewMoreBtn);
+    // set so it wont do anything a modal will pop up instead
+     viewMoreBtn.href = "#";
+    viewMoreBtn.className = "view-more-btn";
+    viewMoreBtn.textContent = "View More";
+    beerCard.appendChild(viewMoreBtn);
 
     // Add click event listener to beer card
     beerCard.addEventListener("click", function () {
+      event.preventDefault();
       currentBeer = beer;
       modal.style.display = "block";
       modalText.innerHTML = `
