@@ -7,9 +7,7 @@
 html,
 body {
   font-family: "Roboto", sans-serif;
-  /* arial */
-
-  background-color: gray;
+   background-color: gray;
 }
 
 nav {
@@ -62,7 +60,7 @@ nav ul li a.active:hover {
   color: #333;
 }
 
-/* local storage */
+
 .clear-local-storage-btn {
   padding: 10px 15px;
   border-radius: 5px;
@@ -74,6 +72,10 @@ nav ul li a.active:hover {
   letter-spacing: 1px;
   transition: all 0.3s ease;
   margin-left: 1rem;
+  
+  position: fixed;
+  top: 10px;
+  right: 10px;
 }
 
 .landing-page {
@@ -189,7 +191,7 @@ nav ul li a.active:hover {
   background-color: #f2f2f2;
   color: #333;
 }
-
+/* modal  */
 .modal {
   display: none;
   position: fixed;
@@ -261,6 +263,7 @@ nav ul li a.active:hover {
   margin: 1rem 2rem;
 }
 
+/* search */
 .search-page {
   width: auto;
   margin: 0 auto;
