@@ -63,13 +63,33 @@
       <h2>Search for a Beer</h2>
       <form class="search-form">
         <label for="search-term">Beer Name:</label>
-        <input type="text" class="search-term" name="search-term" required>
+        <input type="text" class="search-input" list="beer-name" name="search-term" placeholder="Search for a beer..."
+          autocomplete="off">
+        <datalist id="beer-name"></datalist>
         <button type="submit">Search</button>
       </form>
       <ul class="search-results"></ul>
     </section>
     <section class="beer-info-page">
     </section>
+
+
+
+    <section class="beers">
+      <h2>Beers</h2>
+      <ul class="beer-list">
+        <!-- <li class="beer-card">
+          <img src="https://images.punkapi.com/v2/keg.png" alt="beer image" />
+          <h3>Beer Name</h3>
+          <p>Beer description</p>
+        </li> -->
+      </ul>
+
+
+    </section>
+
+
+
   </main>
 
 </body>
