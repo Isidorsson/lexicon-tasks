@@ -60,7 +60,7 @@ async function displayRandomBeer() {
     <p><strong>ABV:</strong> ${randomBeer.abv}%</p>
     <p><strong>IBU:</strong> ${randomBeer.ibu}</p>
   `;
-// add to see the ingredients
+
 randomBeerInfo.innerHTML += `
   <p><strong>Ingredients:</strong></p>
   <p><strong>Hops:</strong></p>
