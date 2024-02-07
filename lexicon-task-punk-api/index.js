@@ -74,6 +74,28 @@ randomBeerBtn.addEventListener("click", displayRandomBeer);
 
 displayRandomBeer();
 
+function generateFoodPairingList(food_pairing) {
+  return food_pairing.map((food) => `<li>${food}</li>`).join("");
+}
+
+function generateHopsList(hops) {
+  return hops
+    .map(
+      (hop) =>
+        `<li>${hop.name} (Amount: ${hop.amount.value} ${hop.amount.unit})</li>`
+    )
+    .join("");
+}
+
+function generateMaltList(malt) {
+  return malt
+    .map(
+      (malt) =>
+        `<li>${malt.name} (Amount: ${malt.amount.value} ${malt.amount.unit})</li>`
+    )
+    .join("");
+}
+// dont like this part gotta refactor
 randomBeerViewMore.onclick = function () {
   if (currentBeer) {
     modal.style.display = "block";
@@ -87,29 +109,13 @@ randomBeerViewMore.onclick = function () {
       currentBeer.volume.unit
     }</p>
     <p><strong>Food Pairing:</strong></p>
-    <ul>
-    ${currentBeer.food_pairing.map((food) => `<li>${food}</li>`).join("")}
-    </ul>
+    <ul>${generateFoodPairingList(currentBeer.food_pairing)}</ul>
     <p><strong>Brewers Tips:</strong> ${currentBeer.brewers_tips}</p>
     <p><strong>Ingredients:</strong></p>
     <p><strong>Hops:</strong></p>
-    <ul>
-    ${currentBeer.ingredients.hops
-      .map(
-        (hop) =>
-          `<li>${hop.name} (Amount: ${hop.amount.value} ${hop.amount.unit})</li>`
-      )
-      .join("")}
-    </ul>
+    <ul>${generateHopsList(currentBeer.ingredients.hops)}</ul>
     <p><strong>Malt:</strong></p>
-    <ul>
-    ${currentBeer.ingredients.malt
-      .map(
-        (malt) =>
-          `<li>${malt.name} (Amount: ${malt.amount.value} ${malt.amount.unit})</li>`
-      )
-      .join("")}
-    </ul>
+    <ul>${generateMaltList(currentBeer.ingredients.malt)}</ul>
     <p><strong>Yeast:</strong> ${currentBeer.ingredients.yeast}</p>
     `;
   }
@@ -125,26 +131,83 @@ window.onclick = function (event) {
   }
 };
 
-function displayBeers(beerData) {
-  beerList.innerHTML = beerData
-    .map(
-      (beer) => `
-  <li class="beer-card">
-    <img src="${beer.image_url}" alt="beer image" />
-    <h3>${beer.name}</h3>
-    <p>${beer.description}</p>
-    <a href="beer.html?beerId=${beer.id}" class="view-more-btn">View More</a>
-  </li>
-  
-  
-  `
-    )
-    .join("");
-  // console.log(`Displaying ${beerData.length} beers.`);
+function displayBeers(beers) {
+  const beersDiv = document.querySelector(".beers");
+  beersDiv.innerHTML = "";
+
+  beers.forEach((beer) => {
+    const beerCard = document.createElement("div");
+    beerCard.className = "beer-card";
+
+    const beerImage = document.createElement("img");
+    beerImage.src = beer.image_url;
+    beerImage.alt = "beer image";
+    beerCard.appendChild(beerImage);
+
+    const beerName = document.createElement("h3");
+    beerName.textContent = beer.name;
+    beerCard.appendChild(beerName);
+
+    const beerDescription = document.createElement("p");
+    beerDescription.textContent = beer.description;
+    beerCard.appendChild(beerDescription);
+
+    // const viewMoreBtn = document.createElement("a");
+    // viewMoreBtn.href = `beer.html?beerId=${beer.id}`;
+    // viewMoreBtn.className = "view-more-btn";
+    // viewMoreBtn.textContent = "View More";
+    // beerCard.appendChild(viewMoreBtn);
+
+    // Add click event listener to beer card
+    beerCard.addEventListener("click", function () {
+      currentBeer = beer;
+      modal.style.display = "block";
+      modalText.innerHTML = `
+        <h3><strong>Name: </strong> ${currentBeer.name}</h3>
+        <p><strong>Tagline:</strong> ${currentBeer.tagline}</p>
+        <p><strong>First Brewed:</strong> ${currentBeer.first_brewed}</p>
+        <p><strong>Description:</strong> ${currentBeer.description}</p>
+        <p><strong>Alcohol by volume (ABV):</strong> ${currentBeer.abv}</p>
+        <p><strong>Volume:</strong> ${currentBeer.volume.value} ${
+        currentBeer.volume.unit
+      }</p>
+        <p><strong>Food Pairing:</strong></p>
+        <ul>${generateFoodPairingList(currentBeer.food_pairing)}</ul>
+        <p><strong>Brewers Tips:</strong> ${currentBeer.brewers_tips}</p>
+        <p><strong>Ingredients:</strong></p>
+        <p><strong>Hops:</strong></p>
+        <ul>${generateHopsList(currentBeer.ingredients.hops)}</ul>
+        <p><strong>Malt:</strong></p>
+        <ul>${generateMaltList(currentBeer.ingredients.malt)}</ul>
+        <p><strong>Yeast:</strong> ${currentBeer.ingredients.yeast}</p>
+      `;
+    });
+
+    beersDiv.appendChild(beerCard);
+  });
 }
 
 displayBeers(beerData);
 
+// function displayBeers(beerData) {
+
+//   beerList.innerHTML = beerData
+//     .map(
+//       (beer) => `
+//   <li class="beer-card">
+//     <img src="${beer.image_url}" alt="beer image" />
+//     <h3>${beer.name}</h3>
+//     <p>${beer.description}</p>
+//     <a href="beer.html?beerId=${beer.id}" class="view-more-btn">View More</a>
+//   </li>
+
+//   `
+//     )
+//     .join("");
+//   // console.log(`Displaying ${beerData.length} beers.`);
+// }
+
+// displayBeers(beerData);
 
 // Search and display beers in dropdown need to fix this
 function searchAndDisplayBeers(searchTerm) {
@@ -192,4 +255,7 @@ document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     dropdown.style.display = "none";
   }
+});
+searchInput.addEventListener("click", function () {
+  searchAndDisplayBeers("");
 });
