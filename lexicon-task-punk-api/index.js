@@ -29,6 +29,8 @@ clearLocalStorageBtn.addEventListener("click", clearLocalStorage);
 
 // Fetch beer data from API might change later
 async function fetchBeerData() {
+  // document.querySelector(".loader").style.display = "block";
+  document.querySelector(".loading-overlay").style.display = "flex";
   try {
     // Check if data is in local storage
     let storedData = localStorage.getItem("beerData");
@@ -41,38 +43,54 @@ async function fetchBeerData() {
       beerData = data; // update the global beerData variable
 
       // Store data in local storage
-      localStorage.setItem("beerData", JSON.stringify(beerData));
+      // localStorage.setItem("beerData", JSON.stringify(beerData));
     } else {
       console.log("Fetching data from local storage");
       // If data is in local storage, parse it to JSON
       beerData = JSON.parse(storedData); // update the global beerData variable
     }
 
+    document.querySelector(".loading-overlay").style.display = "none";
+    // document.querySelector(".loader").style.display = "none";
+
     return beerData;
+  } catch (error) {
+    console.error("Error:", error);
+    document.querySelector(".loading-overlay").style.display = "none";
+    // document.querySelector(".loader").style.display = "none";
+  }
+}
+fetchBeerData();
+
+async function initialize() {
+  try {
+    await fetchBeerData();
+    displayRandomBeer();
   } catch (error) {
     console.error("Error:", error);
   }
 }
 
-fetchBeerData();
-
-async function displayRandomBeer() {
-  const beerData = await fetchBeerData();
-  const randomBeer = beerData[Math.floor(Math.random() * beerData.length)];
-  currentBeer = randomBeer;
-  randomBeerInfo.innerHTML = `
-   <h3><strong>Name: </strong> ${randomBeer.name}</h3>
-    <p><strong>Tagline:</strong> ${randomBeer.tagline}</p>
-    <p><strong>Description:</strong> ${randomBeer.description}</p>
-    <p><strong>Food Pairing:</strong> ${randomBeer.food_pairing}</p>
+function displayRandomBeer() {
+  try {
+    const randomBeer = beerData[Math.floor(Math.random() * beerData.length)];
+    currentBeer = randomBeer;
+    randomBeerInfo.innerHTML = `
+      <h3><strong>Name: </strong> ${randomBeer.name}</h3>
+      <p><strong>Tagline:</strong> ${randomBeer.tagline}</p>
+      <p><strong>Description:</strong> ${randomBeer.description}</p>
+      <p><strong>Food Pairing:</strong> ${randomBeer.food_pairing}</p>
     `;
-  randomBeerImg.src = randomBeer.image_url;
-  randomBeerViewMore.href = `beer.html?beerId=${randomBeer.id}`;
+    randomBeerImg.src = randomBeer.image_url;
+    randomBeerViewMore.href = `beer.html?beerId=${randomBeer.id}`;
+  } catch (error) {
+    console.error("Error:", error);
+  }
 }
-
+initialize();
 randomBeerBtn.addEventListener("click", displayRandomBeer);
 
-displayRandomBeer();
+// displayRandomBeer();
 
 function generateFoodPairingList(food_pairing) {
   return food_pairing.map((food) => `<li>${food}</li>`).join("");
