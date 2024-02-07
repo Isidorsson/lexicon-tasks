@@ -288,6 +288,8 @@ nav ul li a.active:hover {
   list-style-type: none;
   padding: 0;
 }
+
+
 .beers {
   display: flex;
   flex-direction: column;
