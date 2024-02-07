@@ -14,7 +14,7 @@ nav {
   display: flex;
   align-items: center;
   min-height: 8vh;
-  background-color: #f2f2f2;
+  background-color: #CFD8DC;
   padding: 0 10%;
   justify-content: flex-start;
 }
@@ -83,7 +83,7 @@ nav ul li a.active:hover {
   align-items: center;
 }
 
-.random-beer {
+.random-beer-img {
   display: flex;
   flex-direction: column;
   justify-content: center;
