@@ -246,3 +246,90 @@ nav ul li a.active:hover {
   /* margin-left: 25px; */
   margin: 1rem 2rem;
 }
+
+.search-page {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-form label {
+  font-size: 1.2em;
+}
+
+.search-form input {
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.search-form button {
+  padding: 10px 20px;
+  font-size: 1em;
+  color: white;
+  background-color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-form button:hover {
+  background-color: #444;
+}
+
+.search-results {
+  list-style-type: none;
+  padding: 0;
+}
+.beers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.beers h2 {
+  margin: 1rem 0;
+}
+
+.beer-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.beer-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #546e7a;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  height: auto;
+}
+
+.beer-card img {
+  width: 100px;
+  aspect-ratio: 1/2;
+  object-fit: contain;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.beer-card h3 {
+  margin: 1rem 0;
+}
+
+.beer-card p {
+  margin: 1rem 0;
+}
