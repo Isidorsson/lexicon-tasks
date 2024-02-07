@@ -1,6 +1,5 @@
 // https://api.punkapi.com/v2/
 
-// generate some random data to display on the page for testing and adjusting
 
 let beerData = [];
 
@@ -18,6 +17,7 @@ function clearLocalStorage() {
 
 clearLocalStorageBtn.addEventListener("click", clearLocalStorage);
 
+// Fetch beer data from API might change later
 async function fetchBeerData() {
   try {
     // Check if data is in local storage
@@ -36,6 +36,7 @@ async function fetchBeerData() {
       console.log("Fetching data from local storage");
       // If data is in local storage, parse it to JSON
       beerData = JSON.parse(beerData);
+      console.log(beerData);
     }
 
     return beerData;
@@ -59,9 +60,23 @@ async function displayRandomBeer() {
     <p><strong>ABV:</strong> ${randomBeer.abv}%</p>
     <p><strong>IBU:</strong> ${randomBeer.ibu}</p>
   `;
-
+// add to see the ingredients
+randomBeerInfo.innerHTML += `
+  <p><strong>Ingredients:</strong></p>
+  <p><strong>Hops:</strong></p>
+  <ul>
+    ${randomBeer.ingredients.hops.map(hop => `<li>${hop.name} ( Amount: ${hop.amount.value} ${hop.amount.unit})</li>`).join("")}
+  </ul>
+  <p><strong>Malt:</strong></p>
+  <ul>
+    ${randomBeer.ingredients.malt.map(malt => `<li>${malt.name} (Amount: ${malt.amount.value} ${malt.amount.unit})</li>`).join("")}
+  </ul>
+  <p><strong>Yeast:</strong> ${randomBeer.ingredients.yeast}</p>
+`;
   randomBeerImg.src = randomBeer.image_url;
   randomBeerViewMore.href = `beer.html?beerId=${randomBeer.id}`;
 }
 
 randomBeerBtn.addEventListener("click", displayRandomBeer);
+
+displayRandomBeer()
