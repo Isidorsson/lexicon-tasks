@@ -14,6 +14,7 @@ const beerList = document.querySelector(".beer-list");
 
 const searchInput = document.querySelector(".search-input");
 const beerName = document.getElementById("beer-name");
+const dropdown = document.getElementById("dropdown");
 
 const modal = document.querySelector(".modal");
 const modalText = document.querySelector(".modal-text");
@@ -144,24 +145,51 @@ function displayBeers(beerData) {
 
 displayBeers(beerData);
 
-function searchBeers() {
-  const searchTerm = searchInput.value.toLowerCase();
-  const filteredBeers = beerData.filter((beer) =>
-    beer.name.toLowerCase().includes(searchTerm)
-  );
 
-  beerName.innerHTML = "";
+// Search and display beers in dropdown need to fix this
+function searchAndDisplayBeers(searchTerm) {
+  dropdown.innerHTML = "";
 
-  for (const beer of filteredBeers) {
-    const option = document.createElement("option");
-    option.value = beer.name;
-    beerName.appendChild(option);
+  const matchingBeers = beerData
+    .filter((beer) => beer.name.toLowerCase().includes(searchTerm))
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  if (matchingBeers.length > 0) {
+    matchingBeers.forEach((beer) => {
+      const listItem = document.createElement("li");
+      listItem.textContent = beer.name;
+      dropdown.appendChild(listItem);
+
+      const option = document.createElement("option");
+      option.value = beer.name;
+
+      listItem.addEventListener("click", function () {
+        searchInput.value = beer.name;
+        searchAndDisplayBeers(beer.name.toLowerCase());
+        dropdown.style.display = "none";
+      });
+    });
+
+    dropdown.style.display = "block";
+  } else {
+    dropdown.style.display = "none";
   }
-  console.log(filteredBeers);
-  displayBeers(filteredBeers); 
+  displayBeers(matchingBeers);
 }
 
-searchInput.addEventListener("input", searchBeers);
-document.querySelector("form").addEventListener("submit", (event) => {
-  event.preventDefault();
+searchInput.addEventListener("input", function () {
+  const searchTerm = searchInput.value.toLowerCase();
+  searchAndDisplayBeers(searchTerm);
+});
+
+document.addEventListener("click", function (event) {
+  if (!dropdown.contains(event.target) && !searchInput.contains(event.target)) {
+    dropdown.style.display = "none";
+  }
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    dropdown.style.display = "none";
+  }
 });
