@@ -7,14 +7,14 @@
 html,
 body {
   font-family: "Roboto", sans-serif;
-   background-color: gray;
+   background-color: #546E7A;
 }
 
 nav {
   display: flex;
   align-items: center;
   min-height: 8vh;
-  background-color: #cfd8dc;
+  background-color: #78909C;
   padding: 0 10%;
   justify-content: flex-start;
 }
@@ -93,10 +93,10 @@ nav ul li a.active:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #546e7a;
+  background-color: #78909C;
   padding: 2rem;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   margin: 2rem;
   flex-wrap: wrap;
   /* width: 300px; */
@@ -384,10 +384,10 @@ nav ul li a.active:hover {
   align-items: center;
   width: 300px;
   height: auto;
-  background-color: #546e7a;
+  background-color: #78909C;
   padding: 2rem 1rem;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   margin: 10px 0;
 }
 
