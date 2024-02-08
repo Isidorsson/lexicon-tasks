@@ -21,6 +21,7 @@ const lastButton = document.querySelector(".last");
  * returns a list of Star Wars characters. By default, it is set to `'https://swapi.dev/api/people/'`,
  * which is the base URL of the Star Wars API.
  */
+// Fetch all people from SWAPI
 async function fetchAllPeople(url = "https://swapi.dev/api/people/") {
   const response = await fetch(url);
   const data = await response.json();
@@ -28,26 +29,56 @@ async function fetchAllPeople(url = "https://swapi.dev/api/people/") {
   characters = characters.concat(data.results);
 
   if (data.next) {
-    console.log(data.next);
     await fetchAllPeople(data.next);
   }
 }
 
-if (characters.length === 0) {
+// Fetch planet details
+async function fetchPlanetDetails(url) {
+  const response = await fetch(url);
+  const planet = await response.json();
+  return planet;
+}
+
+// Initialize the application
+async function initializeApp() {
   showLoaders();
+
   try {
-    await fetchAllPeople();
+    let storedCharacters = localStorage.getItem("characters");
+    if (storedCharacters) {
+      console.log("Using stored characters");
+      characters = JSON.parse(storedCharacters);
+    } else {
+      await fetchAllPeople();
+      console.log("Fetching characters");
+      localStorage.setItem("characters", JSON.stringify(characters));
+    }
+
     updateCharacterList(characters);
     updateCharacterDetails(characters[0]);
 
-    const response = await fetch(characters[0].homeworld);
-    const planet = await response.json();
+    let storedPlanet = localStorage.getItem("planet");
+    let planet;
+    if (storedPlanet) {
+      console.log("Using stored planet");
+      planet = JSON.parse(storedPlanet);
+    } else {
+      console.log("Fetching planet");
+      planet = await fetchPlanetDetails(characters[0].homeworld);
+
+      localStorage.setItem("planet", JSON.stringify(planet));
+    }
+
     updatePlanetDetails(planet);
-    hideLoaders();
   } catch (error) {
     console.error("Error:", error);
+  } finally {
+    hideLoaders();
   }
 }
+
+initializeApp();
 
 /**
  * The above code defines two functions, `showLoaders()` and `hideLoaders()`, which respectively
