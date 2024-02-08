@@ -15,9 +15,45 @@ const nextButton = document.querySelector(".next");
 const lastButton = document.querySelector(".last");
 
 /**
+ * The above code is an asynchronous function in JavaScript that fetches data from the Star Wars API
+ * (SWAPI) and updates the character list, character details, and planet details on a webpage.
+ * @param [url=https://swapi.dev/api/people/] - The `url` parameter is the URL of the API endpoint that
+ * returns a list of Star Wars characters. By default, it is set to `'https://swapi.dev/api/people/'`,
+ * which is the base URL of the Star Wars API.
+ */
+async function fetchAllPeople(url = "https://swapi.dev/api/people/") {
+  const response = await fetch(url);
+  const data = await response.json();
+
+  characters = characters.concat(data.results);
+
+  if (data.next) {
+    console.log(data.next);
+    await fetchAllPeople(data.next);
+  }
+}
+
+if (characters.length === 0) {
+  showLoaders();
+  try {
+    await fetchAllPeople();
+    updateCharacterList(characters);
+    updateCharacterDetails(characters[0]);
+
+    const response = await fetch(characters[0].homeworld);
+    const planet = await response.json();
+    updatePlanetDetails(planet);
+    hideLoaders();
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+/**
  * The above code defines two functions, `showLoaders()` and `hideLoaders()`, which respectively
  * display and hide elements with the class name "loader".
  */
+
 function showLoaders() {
   const loaders = document.querySelectorAll(".loader");
   loaders.forEach((loader) => {
@@ -153,44 +189,6 @@ function updateCharacterList(characters) {
     currentPage === Math.ceil(characters.length / itemsPerPage);
   lastButton.disabled =
     currentPage === Math.ceil(characters.length / itemsPerPage);
-}
-
-
-/**
- * The above code is an asynchronous function in JavaScript that fetches data from the Star Wars API
- * (SWAPI) and updates the character list, character details, and planet details on a webpage.
- * @param [url=https://swapi.dev/api/people/] - The `url` parameter is the URL of the API endpoint that
- * returns a list of Star Wars characters. By default, it is set to `'https://swapi.dev/api/people/'`,
- * which is the base URL of the Star Wars API.
- */
-async function fetchAllPeople(url = 'https://swapi.dev/api/people/') {
-  const response = await fetch(url);
-  const data = await response.json();
-
-  characters = characters.concat(data.results);
-
-  if (data.next) {
-    console.log(data.next);
-    await fetchAllPeople(data.next);
-  }
-}
-
-if (characters.length === 0) {
-  showLoaders();
-  setTimeout(async () => {
-    try {
-      await fetchAllPeople();
-      updateCharacterList(characters);
-      updateCharacterDetails(characters[0]);
-
-      const response = await fetch(characters[0].homeworld);
-      const planet = await response.json();
-      updatePlanetDetails(planet);
-    } catch (error) {
-      console.error("Error:", error);
-    }
-    hideLoaders();
-  }, 1000);
 }
 
 /* The `searchInput.addEventListener("input", function (event) { ... })` code block is adding an event
