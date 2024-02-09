@@ -203,76 +203,156 @@ function displayBeers(beers) {
   });
 }
 
+function getSearchValues() {
+  const name = document.querySelector('.name').value;
+  const hops = document.querySelector('.hops').value;
+  const malt = document.querySelector('.malt').value;
+  const brewedBefore = new Date(document.querySelector('.brewed-before').value);
+  const brewedAfter = new Date(document.querySelector('.brewed-after').value);
+  const abvGt = document.querySelector('.abv-gt').value;
+  const abvLt = document.querySelector('.abv-lt').value;
 
-
-// function displayBeers(beerData) {
-
-//   beerList.innerHTML = beerData
-//     .map(
-//       (beer) => `
-//   <li class="beer-card">
-//     <img src="${beer.image_url}" alt="beer image" />
-//     <h3>${beer.name}</h3>
-//     <p>${beer.description}</p>
-//     <a href="beer.html?beerId=${beer.id}" class="view-more-btn">View More</a>
-//   </li>
-
-//   `
-//     )
-//     .join("");
-//   // console.log(`Displaying ${beerData.length} beers.`);
-// }
-
-// displayBeers(beerData);
-
-// Search and display beers in dropdown need to fix this
-function searchAndDisplayBeers(searchTerm) {
-  dropdown.innerHTML = "";
-
-  const matchingBeers = beerData
-    .filter((beer) => beer.name.toLowerCase().includes(searchTerm))
-    .sort((a, b) => a.name.localeCompare(b.name));
-
-  if (matchingBeers.length > 0) {
-    matchingBeers.forEach((beer) => {
-      const listItem = document.createElement("li");
-      listItem.textContent = beer.name;
-      dropdown.appendChild(listItem);
-
-      const option = document.createElement("option");
-      option.value = beer.name;
-
-      listItem.addEventListener("click", function () {
-        searchInput.value = beer.name;
-        searchAndDisplayBeers(beer.name.toLowerCase());
-        dropdown.style.display = "none";
-      });
-    });
-
-    dropdown.style.display = "block";
-  } else {
-    dropdown.style.display = "none";
-  }
-  displayBeers(matchingBeers);
+  return { name, hops, malt, brewedBefore, brewedAfter, abvGt, abvLt };
 }
+function updateDropdownMenu(beerData, name) {
+  const matchingBeers = beerData.filter(beer => beer.name.toLowerCase().includes(name.toLowerCase()));
 
-searchInput.addEventListener("input", function () {
-  const searchTerm = searchInput.value.toLowerCase();
-  searchAndDisplayBeers(searchTerm);
+  const dropdownMenu = document.querySelector('.dropdown');
+  dropdownMenu.innerHTML = '';
+
+  matchingBeers.forEach(beer => {
+    const listItem = document.createElement('li');
+    listItem.textContent = beer.name;
+    dropdownMenu.appendChild(listItem);
+  });
+
+  dropdownMenu.style.display = matchingBeers.length > 0 ? 'block' : 'none';
+}
+document.querySelector('.name').addEventListener('input', function (event) {
+  const name = event.target.value;
+  updateDropdownMenu(beerData, name);
 });
 
-document.addEventListener("click", function (event) {
-  if (!dropdown.contains(event.target) && !searchInput.contains(event.target)) { 
-    dropdown.style.display = "none";
+function filterBeers(beerData, { name, hops, malt, brewedBefore, brewedAfter, abvGt, abvLt }) {
+  return beerData.filter(beer => {
+    const beerName = beer.name.toLowerCase();
+    const beerHops = beer.ingredients.hops.map(hop => hop.name.toLowerCase());
+    const beerMalt = beer.ingredients.malt.map(malt => malt.name.toLowerCase());
+    const beerBrewed = new Date(beer.first_brewed.split('/').reverse().join('-'));
+    const beerAbv = beer.abv;
+
+    return beerName.includes(name.toLowerCase()) &&
+      beerHops.some(hop => hop.includes(hops.toLowerCase())) &&
+      beerMalt.some(malt => malt.includes(malt.toLowerCase())) &&
+      (isNaN(brewedBefore) || beerBrewed <= brewedBefore) &&
+      (isNaN(brewedAfter) || beerBrewed >= brewedAfter) &&
+      (abvGt === '' || beerAbv > abvGt) &&
+      (abvLt === '' || beerAbv < abvLt);
+  });
+}
+
+
+
+
+document.querySelector('.search-form').addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  const searchValues = getSearchValues();
+  const results = filterBeers(beerData, searchValues);
+
+  displayBeers(results);
+});
+
+document.querySelector('.name').addEventListener("input", function () {
+  const searchTerm = this.value.toLowerCase();
+  updateDropdownMenu(beerData, searchTerm);
+});
+
+document.querySelector('.dropdown').addEventListener('click', function(event) {
+  if (event.target.tagName.toLowerCase() === 'li') {
+    const selectedBeerName = event.target.textContent;
+    document.querySelector('.name').value = selectedBeerName;
+    this.style.display = 'none';
+
+    const selectedBeer = beerData.find(beer => beer.name === selectedBeerName);
+    displayBeers([selectedBeer]);
+  }
+});
+document.addEventListener('click', function (event) {
+  const dropdown = document.querySelector('.dropdown');
+  if (!dropdown.contains(event.target) && !document.querySelector('.name').contains(event.target)) {
+    dropdown.style.display = 'none';
   }
 });
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
-    dropdown.style.display = "none";
+    document.querySelector('.dropdown').style.display = "none";
   }
 });
-searchInput.addEventListener("click", function () {
-  searchAndDisplayBeers("");
+
+document.querySelector('.name').addEventListener("click", function () {
+  updateDropdownMenu(beerData, "");
 });
 
+// document.querySelector('#search-form').addEventListener('submit', function(event) {
+//   event.preventDefault();
+
+//   const name = document.querySelector('#name').value;
+//   const hops = document.querySelector('#hops').value;
+//   const malt = document.querySelector('#malt').value;
+//   const brewedBefore = new Date(document.querySelector('#brewed-before').value);
+//   const brewedAfter = new Date(document.querySelector('#brewed-after').value);
+//   const abvGt = document.querySelector('#abv-gt').value;
+//   const abvLt = document.querySelector('#abv-lt').value;
+
+//   const results = beerData.filter(beer => {
+//     const beerName = beer.name.toLowerCase();
+//     const beerHops = beer.ingredients.hops.map(hop => hop.name.toLowerCase());
+//     const beerMalt = beer.ingredients.malt.map(malt => malt.name.toLowerCase());
+//     const beerBrewed = new Date(beer.first_brewed.split('/').reverse().join('-'));
+//     const beerAbv = beer.abv;
+
+//     return beerName.includes(name.toLowerCase()) &&
+//       beerHops.some(hop => hop.includes(hops.toLowerCase())) &&
+//       beerMalt.some(malt => malt.includes(malt.toLowerCase())) &&
+//       (isNaN(brewedBefore) || beerBrewed <= brewedBefore) &&
+//       (isNaN(brewedAfter) || beerBrewed >= brewedAfter) &&
+//       (abvGt === '' || beerAbv > abvGt) &&
+//       (abvLt === '' || beerAbv < abvLt);
+//   });
+
+//   // Display the results
+//   displayBeers(results);
+// });
+
+// // Search and display beers in dropdown need to fix this
+// function searchAndDisplayBeers(searchTerm) {
+//   dropdown.innerHTML = "";
+
+//   const matchingBeers = beerData
+//     .filter((beer) => beer.name.toLowerCase().includes(searchTerm))
+//     .sort((a, b) => a.name.localeCompare(b.name));
+
+//   if (matchingBeers.length > 0) {
+//     matchingBeers.forEach((beer) => {
+//       const listItem = document.createElement("li");
+//       listItem.textContent = beer.name;
+//       dropdown.appendChild(listItem);
+
+//       const option = document.createElement("option");
+//       option.value = beer.name;
+
+//       listItem.addEventListener("click", function () {
+//         searchInput.value = beer.name;
+//         searchAndDisplayBeers(beer.name.toLowerCase());
+//         dropdown.style.display = "none";
+//       });
+//     });
+
+//     dropdown.style.display = "block";
+//   } else {
+//     dropdown.style.display = "none";
+//   }
+//   displayBeers(matchingBeers);
+// }
