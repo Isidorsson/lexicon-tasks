@@ -7,14 +7,14 @@
 html,
 body {
   font-family: "Roboto", sans-serif;
-   background-color: #546E7A;
+  background-color: #546e7a;
 }
 
 nav {
   display: flex;
   align-items: center;
   min-height: 8vh;
-  background-color: #78909C;
+  background-color: #78909c;
   padding: 0 10%;
   justify-content: flex-start;
 }
@@ -60,7 +60,6 @@ nav ul li a.active:hover {
   color: #333;
 }
 
-
 .clear-local-storage-btn {
   padding: 10px 15px;
   border-radius: 5px;
@@ -72,7 +71,7 @@ nav ul li a.active:hover {
   letter-spacing: 1px;
   transition: all 0.3s ease;
   margin-left: 1rem;
-  
+
   position: fixed;
   top: 10px;
   right: 10px;
@@ -83,17 +82,24 @@ nav ul li a.active:hover {
   align-items: center;
   flex-direction: column;
   /* height: 30rem; */
+  /* position: relative;
+  top: -38px; */
 }
 
 .landing-page h2 {
   font-size: 2rem;
   margin: 1rem 0;
+  /* position: relative;
+  top: 72px;
+  left: -397px;
+  rotate: -29deg;
+  width: 500px; */
 }
 .card-random {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #78909C;
+  background-color: #78909c;
   padding: 2rem;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
@@ -101,15 +107,15 @@ nav ul li a.active:hover {
   flex-wrap: wrap;
   /* width: 300px; */
   /* height: 300px; */
-  height: 40rem;
-  /* width: 64rem; */
-  width: auto;
-
+  height: 40em;
+  width: 32rem;
+  /* width: auto; */
+  /* overflow: auto; */
 }
-.random-beet-wrapper {
+.random-beer-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   width: 50%;
   height: 100%;
   justify-content: center;
@@ -129,15 +135,14 @@ nav ul li a.active:hover {
   display: flex;
   flex-direction: column;
   position: relative;
-  top: 0;
-  left: -78px;
-  width: 30rem;
+  top: 8px;
+  left: -38px;
+  width: 18rem;
   height: 30rem;
   /* overflow-y: auto; */
-  word-wrap: break-word; 
+  word-wrap: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
-
 }
 
 .random-beer-info h2 {
@@ -365,6 +370,10 @@ nav ul li a.active:hover {
   margin: 1rem 2rem;
   flex-wrap: wrap;
   justify-content: space-between;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ddd #f0f0f0;
+  height: 50vh;
 }
 
 /* .beers h2 {
@@ -384,7 +393,7 @@ nav ul li a.active:hover {
   align-items: center;
   width: 300px;
   height: auto;
-  background-color: #78909C;
+  background-color: #78909c;
   padding: 2rem 1rem;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
@@ -410,19 +419,18 @@ nav ul li a.active:hover {
 /* loader */
 
 .loading-overlay {
-  position: fixed; 
-  z-index: 1000; 
+  position: fixed;
+  z-index: 1000;
   left: 0;
   top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgba(0,0,0,0.4); 
-  display: flex; 
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
   align-items: center;
   justify-content: center;
 }
-
 
 .loader {
   width: 150px;
