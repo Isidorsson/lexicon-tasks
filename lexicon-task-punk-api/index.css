@@ -281,15 +281,18 @@ nav ul li a.active:hover {
 
 /* search */
 .search-page {
-  width: auto;
+  display: flex;
+  width: 90%;
   margin: 0 auto;
   padding: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-
 .search-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* gap: 10px; */
 }
 
 .search-form label {
@@ -322,9 +325,11 @@ nav ul li a.active:hover {
   padding: 0;
 }
 
-#dropdown {
+.dropdown {
   position: absolute;
   width: auto;
+  top: 996px;
+  left: 19px;
   background-color: white;
   border: 1px solid #ddd;
   list-style-type: none;
@@ -335,26 +340,25 @@ nav ul li a.active:hover {
   scrollbar-width: thin;
   scrollbar-color: #ddd #f0f0f0;
 }
-
-#dropdown::-webkit-scrollbar {
+.dropdown::-webkit-scrollbar {
   width: 8px;
 }
 
-#dropdown::-webkit-scrollbar-track {
+.dropdown::-webkit-scrollbar-track {
   background-color: #f0f0f0;
 }
 
-#dropdown::-webkit-scrollbar-thumb {
+.dropdown::-webkit-scrollbar-thumb {
   background-color: #ddd;
 }
 
-#dropdown li {
+.dropdown li {
   width: 400px;
   padding: 10px;
   cursor: pointer;
 }
 
-#dropdown li:hover {
+.dropdown li:hover {
   background-color: #f0f0f0;
 }
 
