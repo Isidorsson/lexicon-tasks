@@ -328,8 +328,8 @@ nav ul li a.active:hover {
 .dropdown {
   position: absolute;
   width: auto;
-  top: 996px;
-  left: 19px;
+  /* top: 996px; */
+  /* left: 19px; */
   background-color: white;
   border: 1px solid #ddd;
   list-style-type: none;
