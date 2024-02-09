@@ -112,16 +112,17 @@ nav ul li a.active:hover {
   /* width: auto; */
   /* overflow: auto; */
 }
+
 .random-beer-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   width: 50%;
   height: 100%;
   justify-content: center;
   padding: 2rem 0;
-}
 
+}
 .random-beer-img {
   display: flex;
   flex-direction: column;
@@ -179,6 +180,7 @@ nav ul li a.active:hover {
   font-weight: bold;
   letter-spacing: 1px;
   transition: all 0.3s ease;
+
 }
 
 .random-beer-view-more-btn:hover {
