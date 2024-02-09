@@ -26,6 +26,10 @@ function clearLocalStorage() {
 
 clearLocalStorageBtn.addEventListener("click", clearLocalStorage);
 
+/**
+ * The function fetches beer data either from an API or from local storage and returns the data.
+ * @returns the beerData, which is an array of beer objects.
+ */
 async function fetchBeerData() {
   document.querySelector(".loading-overlay").style.display = "flex";
   try {
@@ -36,17 +40,17 @@ async function fetchBeerData() {
       // const response = await fetch("https://api.punkapi.com/v2/beers");
       const response = await fetch("https://api.punkapi.com/v2/beers?per_page=50");
       const data = await response.json();
-      beerData = data; 
+      beerData = data;
       localStorage.setItem("beerData", JSON.stringify(beerData));
-      
+
 
     } else {
       console.log("Fetching data from local storage");
       beerData = JSON.parse(storedData);
     }
- 
+
     return beerData;
-    
+
   } catch (error) {
     console.error("Error:", error);
     document.querySelector(".loading-overlay").style.display = "none";
@@ -68,7 +72,11 @@ async function initialize() {
     console.error("Error:", error);
   }
 }
-
+initialize();
+/**
+ * The function `displayRandomBeer` selects a random beer from an array of beer data, updates the HTML
+ * elements on the page with information about the beer, and sets the URL for a "View More" link.
+ */
 function displayRandomBeer() {
   try {
     const randomBeer = beerData[Math.floor(Math.random() * beerData.length)];
@@ -85,7 +93,7 @@ function displayRandomBeer() {
     console.error("Error:", error);
   }
 }
-initialize();
+
 randomBeerBtn.addEventListener("click", displayRandomBeer);
 
 // displayRandomBeer();
@@ -179,7 +187,6 @@ function displayBeers(beers) {
 
     // Add click event listener to beer card
     beerCard.addEventListener("click", function () {
-      event.preventDefault();
       currentBeer = beer;
       modal.style.display = "block";
       modalText.innerHTML = `
@@ -289,6 +296,7 @@ dropdown.addEventListener('click', function (event) {
 });
 
 document.addEventListener('click', function (event) {
+
 
   if (!dropdown.contains(event.target) && !document.querySelector('.name').contains(event.target)) {
     dropdown.style.display = 'none';
