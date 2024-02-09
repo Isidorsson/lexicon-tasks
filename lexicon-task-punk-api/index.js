@@ -13,8 +13,7 @@ const clearLocalStorageBtn = document.querySelector(".clear-local-storage-btn");
 const beerList = document.querySelector(".beer-list");
 
 const searchInput = document.querySelector(".search-input");
-const beerName = document.getElementById("beer-name");
-const dropdown = document.getElementById("dropdown");
+const dropdown = document.querySelector(".dropdown");
 
 const modal = document.querySelector(".modal");
 const modalText = document.querySelector(".modal-text");
@@ -26,6 +25,7 @@ function clearLocalStorage() {
 }
 
 clearLocalStorageBtn.addEventListener("click", clearLocalStorage);
+
 async function fetchBeerData() {
   document.querySelector(".loading-overlay").style.display = "flex";
   try {
@@ -274,7 +274,7 @@ document.querySelector('.name').addEventListener('input', function (event) {
   updateDropdownMenu(beerData, searchTerm);
 });
 
-document.querySelector('.dropdown').addEventListener('click', function (event) {
+dropdown.addEventListener('click', function (event) {
   if (event.target.tagName.toLowerCase() === 'li') {
     const selectedBeerName = event.target.textContent;
     document.querySelector('.name').value = selectedBeerName;
@@ -286,7 +286,7 @@ document.querySelector('.dropdown').addEventListener('click', function (event) {
 });
 
 document.addEventListener('click', function (event) {
-  const dropdown = document.querySelector('.dropdown');
+
   if (!dropdown.contains(event.target) && !document.querySelector('.name').contains(event.target)) {
     dropdown.style.display = 'none';
   }
@@ -294,7 +294,7 @@ document.addEventListener('click', function (event) {
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
-    document.querySelector('.dropdown').style.display = "none";
+    dropdown.style.display = "none";
   }
 });
 
