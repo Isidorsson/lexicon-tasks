@@ -214,8 +214,13 @@ function getSearchValues() {
 
   return { name, hops, malt, brewedBefore, brewedAfter, abvGt, abvLt };
 }
-function updateDropdownMenu(beerData, name) {
-  const matchingBeers = beerData.filter(beer => beer.name.toLowerCase().includes(name.toLowerCase()));
+
+function updateDropdownMenu(beerData, searchTerm) {
+  // console.log('Updating dropdown menu with search term:', searchTerm);
+
+  const matchingBeers = beerData.filter(beer => beer.name.toLowerCase().includes(searchTerm.toLowerCase()));
+
+  // console.log('Found', matchingBeers.length, 'matching beers');
 
   const dropdownMenu = document.querySelector('.dropdown');
   dropdownMenu.innerHTML = '';
@@ -225,9 +230,10 @@ function updateDropdownMenu(beerData, name) {
     listItem.textContent = beer.name;
     dropdownMenu.appendChild(listItem);
   });
-
+  displayBeers(matchingBeers);
   dropdownMenu.style.display = matchingBeers.length > 0 ? 'block' : 'none';
 }
+
 document.querySelector('.name').addEventListener('input', function (event) {
   const name = event.target.value;
   updateDropdownMenu(beerData, name);
@@ -263,12 +269,12 @@ document.querySelector('.search-form').addEventListener('submit', function (even
   displayBeers(results);
 });
 
-document.querySelector('.name').addEventListener("input", function () {
-  const searchTerm = this.value.toLowerCase();
+document.querySelector('.name').addEventListener('input', function (event) {
+  const searchTerm = event.target.value;
   updateDropdownMenu(beerData, searchTerm);
 });
 
-document.querySelector('.dropdown').addEventListener('click', function(event) {
+document.querySelector('.dropdown').addEventListener('click', function (event) {
   if (event.target.tagName.toLowerCase() === 'li') {
     const selectedBeerName = event.target.textContent;
     document.querySelector('.name').value = selectedBeerName;
@@ -278,6 +284,7 @@ document.querySelector('.dropdown').addEventListener('click', function(event) {
     displayBeers([selectedBeer]);
   }
 });
+
 document.addEventListener('click', function (event) {
   const dropdown = document.querySelector('.dropdown');
   if (!dropdown.contains(event.target) && !document.querySelector('.name').contains(event.target)) {
@@ -293,6 +300,11 @@ document.addEventListener("keydown", function (event) {
 
 document.querySelector('.name').addEventListener("click", function () {
   updateDropdownMenu(beerData, "");
+});
+
+document.querySelector('.search-btn-clear').addEventListener('click', function () {
+  document.querySelector('.search-form').reset();
+  displayBeers(beerData);
 });
 
 // document.querySelector('#search-form').addEventListener('submit', function(event) {
