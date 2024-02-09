@@ -26,46 +26,41 @@ function clearLocalStorage() {
 }
 
 clearLocalStorageBtn.addEventListener("click", clearLocalStorage);
-
-// Fetch beer data from API might change later
 async function fetchBeerData() {
-  // document.querySelector(".loader").style.display = "block";
   document.querySelector(".loading-overlay").style.display = "flex";
   try {
-    // Check if data is in local storage
-    let storedData = localStorage.getItem("beerData");
+    const storedData = localStorage.getItem("beerData");
 
-    // If data is not in local storage, fetch from API
     if (!storedData) {
       console.log("Fetching data from API");
-      const response = await fetch("https://api.punkapi.com/v2/beers");
+      // const response = await fetch("https://api.punkapi.com/v2/beers");
+      const response = await fetch("https://api.punkapi.com/v2/beers?per_page=50");
       const data = await response.json();
-      beerData = data; // update the global beerData variable
-
-      // Store data in local storage
-      // localStorage.setItem("beerData", JSON.stringify(beerData));
+      beerData = data;
     } else {
       console.log("Fetching data from local storage");
-      // If data is in local storage, parse it to JSON
-      beerData = JSON.parse(storedData); // update the global beerData variable
+      beerData = JSON.parse(storedData);
     }
-
-    document.querySelector(".loading-overlay").style.display = "none";
-    // document.querySelector(".loader").style.display = "none";
 
     return beerData;
   } catch (error) {
     console.error("Error:", error);
     document.querySelector(".loading-overlay").style.display = "none";
-    // document.querySelector(".loader").style.display = "none";
+    // Display an error message to the user
+    // document.querySelector(".error-message").textContent = "An error occurred while fetching the beer data.";
+  } finally {
+    document.querySelector(".loading-overlay").style.display = "none";
+    console.log(`Fetched ${beerData.length} beers.`);
   }
 }
+
 fetchBeerData();
 
 async function initialize() {
   try {
     await fetchBeerData();
     displayRandomBeer();
+    displayBeers(beerData);
   } catch (error) {
     console.error("Error:", error);
   }
@@ -123,9 +118,8 @@ randomBeerViewMore.onclick = function () {
     <p><strong>First Brewed:</strong> ${currentBeer.first_brewed}</p>
     <p><strong>Description:</strong> ${currentBeer.description}</p>
     <p><strong>Alcohol by volume (ABV):</strong> ${currentBeer.abv}</p>
-    <p><strong>Volume:</strong> ${currentBeer.volume.value} ${
-      currentBeer.volume.unit
-    }</p>
+    <p><strong>Volume:</strong> ${currentBeer.volume.value} ${currentBeer.volume.unit
+      }</p>
     <p><strong>Food Pairing:</strong></p>
     <ul>${generateFoodPairingList(currentBeer.food_pairing)}</ul>
     <p><strong>Brewers Tips:</strong> ${currentBeer.brewers_tips}</p>
@@ -175,7 +169,7 @@ function displayBeers(beers) {
     const viewMoreBtn = document.createElement("a");
     // viewMoreBtn.href = `beer.html?beerId=${beer.id}`;
     // set so it wont do anything a modal will pop up instead
-     viewMoreBtn.href = "#";
+    viewMoreBtn.href = "#";
     viewMoreBtn.className = "view-more-btn";
     viewMoreBtn.textContent = "View More";
     beerCard.appendChild(viewMoreBtn);
@@ -191,9 +185,8 @@ function displayBeers(beers) {
         <p><strong>First Brewed:</strong> ${currentBeer.first_brewed}</p>
         <p><strong>Description:</strong> ${currentBeer.description}</p>
         <p><strong>Alcohol by volume (ABV):</strong> ${currentBeer.abv}</p>
-        <p><strong>Volume:</strong> ${currentBeer.volume.value} ${
-        currentBeer.volume.unit
-      }</p>
+        <p><strong>Volume:</strong> ${currentBeer.volume.value} ${currentBeer.volume.unit
+        }</p>
         <p><strong>Food Pairing:</strong></p>
         <ul>${generateFoodPairingList(currentBeer.food_pairing)}</ul>
         <p><strong>Brewers Tips:</strong> ${currentBeer.brewers_tips}</p>
@@ -210,7 +203,7 @@ function displayBeers(beers) {
   });
 }
 
-displayBeers(beerData);
+
 
 // function displayBeers(beerData) {
 
@@ -269,7 +262,7 @@ searchInput.addEventListener("input", function () {
 });
 
 document.addEventListener("click", function (event) {
-  if (!dropdown.contains(event.target) && !searchInput.contains(event.target)) {
+  if (!dropdown.contains(event.target) && !searchInput.contains(event.target)) { 
     dropdown.style.display = "none";
   }
 });
@@ -282,3 +275,4 @@ document.addEventListener("keydown", function (event) {
 searchInput.addEventListener("click", function () {
   searchAndDisplayBeers("");
 });
+
