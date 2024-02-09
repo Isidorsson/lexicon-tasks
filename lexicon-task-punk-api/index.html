@@ -34,8 +34,8 @@
 
 
   <main>
-     <!-- <span class="loader"></span> -->
-     <div class="loading-overlay" style="display: none;">
+    <!-- <span class="loader"></span> -->
+    <div class="loading-overlay" style="display: none;">
       <span class="loader"></span>
     </div>
     <section class="landing-page">
@@ -60,20 +60,28 @@
         </section>
       </aside>
 
-     
+
     </section>
+
     <section class="search-page">
       <h2>Search for a Beer</h2>
       <form class="search-form">
-        <!-- <label for="search-term">Beer Name:</label> -->
-        <input type="text" class="search-input" list="beer-name" name="search-term" placeholder="Search for a beer..."
-          autocomplete="off">
-        <!-- <datalist id="beer-name"></datalist> -->
-        <!-- <button type="submit">Search</button> -->
+        <input type="text" class="name" list="beer-name" name="search-term" autocomplete="off" placeholder="Name">
+        <input type="text" class="hops" placeholder="Hops">
+        <input type="text" class="malt" placeholder="Malt">
+        <input type="date" class="brewed-before" placeholder="Brewed Before">
+        <input type="date" class="brewed-after" placeholder="Brewed After">
+        <input type="number" class="abv-gt" placeholder="ABV Greater Than">
+        <input type="number" class="abv-lt" placeholder="ABV Less Than">
+        <button type="submit">Search</button>
       </form>
       <ul class="search-results"></ul>
-      <ul id="dropdown" style="display: none;"></ul>
+      <ul class="dropdown" style="display: none;"></ul>
     </section>
+
+
+
+
     <section class="beer-info-page">
     </section>
 
@@ -82,7 +90,7 @@
     <section class="beers">
       <!-- <h2>Beers</h2> -->
       <!-- <ul class="beer-list"> -->
-        <!-- <li class="beer-card">
+      <!-- <li class="beer-card">
           <img src="https://images.punkapi.com/v2/keg.png" alt="beer image" />
           <h3>Beer Name</h3>
           <p>Beer description</p>
