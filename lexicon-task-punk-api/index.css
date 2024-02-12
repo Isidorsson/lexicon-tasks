@@ -125,11 +125,11 @@ nav ul li a.active:hover {
 .card-random p {
   color: var(--quaternary-color);
   /* outline: 1px solid red; */
-    /* if text exeed words cut off */
-    /* overflow: hidden; */
-    text-overflow: ellipsis;
-    /* white-space: nowrap; */
-    /* word-wrap: break-word; */
+  /* if text exeed words cut off */
+  /* overflow: hidden; */
+  text-overflow: ellipsis;
+  /* white-space: nowrap; */
+  /* word-wrap: break-word; */
 }
 
 .random-beer-wrapper {
