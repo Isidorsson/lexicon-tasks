@@ -428,6 +428,8 @@ nav ul li a.active:hover {
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   /* margin: 10px 0; */
+  
+ 
 }
 
 .beer-card img {
@@ -445,12 +447,16 @@ nav ul li a.active:hover {
   margin: 1rem 0;
   margin: 0 0;
   /* outline: 1px solid red; */
-  width: max-content;
+  width: 100%;
   height: max-content;
   color: var(--quaternary-color);
+  /* fix so if length exceed wrap */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
-.beer-card h3::after {
+/* .beer-card h3::after {
   content: "";
   position: absolute;
   height: 4px;
@@ -458,7 +464,7 @@ nav ul li a.active:hover {
   bottom: -5px;
   width: 100%;
   background-color: #607d8b;
-}
+} */
 
 .beer-card p {
   grid-area: p;
