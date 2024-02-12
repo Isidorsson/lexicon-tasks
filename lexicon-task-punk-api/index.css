@@ -427,7 +427,7 @@ nav ul li a.active:hover {
   padding: 2rem 1rem;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-  /* margin: 10px 0; */
+  margin: 10px 0;
   
  
 }
@@ -454,6 +454,7 @@ nav ul li a.active:hover {
   word-wrap: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
+
 }
 
 /* .beer-card h3::after {
