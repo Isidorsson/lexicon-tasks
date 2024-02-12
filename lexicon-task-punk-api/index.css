@@ -399,9 +399,9 @@ nav ul li a.active:hover {
   grid-template-columns: 105px 100px;
   grid-template-rows: auto;
   grid-template-areas:
-    "img h3 h3 h3"
-    "img p p p"
-    "img a a a";
+    "beerImg title title"
+    "beerImg p p"
+    "beerImg a a";
 
   width: 600px;
   height: auto;
@@ -409,11 +409,11 @@ nav ul li a.active:hover {
   padding: 2rem 1rem;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-  margin: 10px 0;
+  /* margin: 10px 0; */
 }
 
 .beer-card img {
-  grid-area: img;
+  grid-area: beerImg;
   width: 100px;
   aspect-ratio: 1/2;
   object-fit: contain;
@@ -422,24 +422,41 @@ nav ul li a.active:hover {
 }
 
 .beer-card h3 {
-  grid-area: h3;
+  position: relative;
+  grid-area: title;
   margin: 1rem 0;
+  margin: 0 0;
+  /* outline: 1px solid red; */
+  width: max-content;
+  height: max-content;
+}
+
+.beer-card h3::after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  background-color: #607D8B;
 }
 
 .beer-card p {
   grid-area: p;
   margin: 1rem 0;
+
 }
 
 .beer-card a {
-  color: #333; /* Change the color as per your preference */
-  text-decoration: none; /* Removes underline */
-  font-weight: bold; /* Makes text bold */
-  transition: color 0.3s ease; /* Smooth transition for color change */
+  color: #3F51B5; 
+  text-decoration: none;
+  font-weight: bold; 
+  transition: color 0.3s ease;
+  
 }
 
 .beer-card a:hover {
-  color: #007bff; /* Change color on hover */
+  color: #304FFE; /* Change color on hover */
 }
 /* loader */
 
