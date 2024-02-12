@@ -186,7 +186,7 @@ function displayBeers(beers) {
     beerCard.appendChild(viewMoreBtn);
 
     // Add click event listener to beer card
-    beerCard.addEventListener("click", function () {
+    viewMoreBtn.addEventListener("click", function () {
       currentBeer = beer;
       modal.style.display = "block";
       modalText.innerHTML = `
