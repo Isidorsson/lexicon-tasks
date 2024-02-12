@@ -269,6 +269,37 @@ function filterBeers(beerData, { name, hops, malt, brewedBefore, brewedAfter, ab
 
 
 
+/**
+ * The function `sendToFilter` takes an array of beer data, extracts the unique beer types, and adds
+ * them as options to a select element with the class `beerFilter`.
+ * @param beerData - The `beerData` parameter is an array of objects representing different beers. Each
+ * object in the array has properties such as `tagline`, which is a string representing the tagline of
+ * the beer.
+ */
+function sendToFilter(beerData) {
+  const beerFilter = document.querySelector('.beerFilter');
+  const beerTypes = beerData.map(beer => beer.tagline.split(' ')[0].toLowerCase());
+  const uniqueBeerTypes = [...new Set(beerTypes)];
+  uniqueBeerTypes.forEach(beerType => {
+    const option = document.createElement('option');
+    option.value = beerType;
+    option.textContent = beerType[0].toUpperCase() + beerType.slice(1);
+    beerFilter.appendChild(option);
+  });
+}
+
+sendToFilter(beerData);
+
+document.querySelector('.beerFilter').addEventListener('change', function (event) {
+  const beerType = event.target.value;
+  const results = beerData.filter(beer => beer.tagline.toLowerCase().includes(beerType.toLowerCase()));
+  displayBeers(results);
+}
+);
+
+
+
+
 
 document.querySelector('.search-form').addEventListener('submit', function (event) {
   event.preventDefault();
