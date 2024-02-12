@@ -4,17 +4,24 @@
   box-sizing: border-box;
 }
 
+:root {
+  --primary-color: #546E7A;
+  --secondary-color: #455A64;
+  --tertiary-color: #37474F;
+  --quaternary-color: #263238;
+}
+
 html,
 body {
   font-family: "Roboto", sans-serif;
-  background-color: #546e7a;
+  background-color: var(--quaternary-color)
 }
 
 nav {
   display: flex;
   align-items: center;
   min-height: 8vh;
-  background-color: #78909c;
+  background-color: var(--quaternary-color);
   padding: 0 10%;
   justify-content: flex-start;
 }
@@ -46,7 +53,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background-color: #333;
+  background-color: var(--tertiary-color);
   color: #f2f2f2;
 }
 
@@ -99,7 +106,8 @@ nav ul li a.active:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #78909c;
+  background-color: var(--primary-color);
+
   padding: 2rem;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
@@ -111,6 +119,13 @@ nav ul li a.active:hover {
   width: 45rem;
   /* width: auto; */
   /* overflow: auto; */
+}
+
+.card-random h3,
+.card-random p {
+  color: var(--quaternary-color)
+  /* outline: 1px solid red; */
+
 }
 
 .random-beer-wrapper {
@@ -172,9 +187,9 @@ nav ul li a.active:hover {
   margin-top: 1rem;
   padding: 10px 15px;
   border-radius: 5px;
-  background-color: #333;
-  border: 2px solid #333;
-  color: #f2f2f2;
+  background-color: var(--quaternary-color);
+  border: 2px solid var(--secondary-color);
+  color: var(--primary-color);
   font-size: 18px;
   font-weight: bold;
   letter-spacing: 1px;
@@ -182,7 +197,7 @@ nav ul li a.active:hover {
 }
 
 .random-beer-view-more-btn:hover {
-  background-color: #f2f2f2;
+  background-color: var(--primary-color);
   color: #333;
 }
 
@@ -190,10 +205,9 @@ nav ul li a.active:hover {
   /* margin-top: 1rem; */
   padding: 10px 15px;
   border-radius: 5px;
-  background-color: #333;
-  border: 2px solid #333;
-  color: #f2f2f2;
-  color: #f2f2f2;
+  background-color: var(--quaternary-color);
+  border: 2px solid var(--secondary-color);
+  color: var(--primary-color);
   font-size: 18px;
   font-weight: bold;
   letter-spacing: 1px;
@@ -202,7 +216,7 @@ nav ul li a.active:hover {
 }
 
 .random-beer-btn:hover {
-  background-color: #f2f2f2;
+  background-color: var(--primary-color);
   color: #333;
 }
 /* modal  */
@@ -307,8 +321,9 @@ nav ul li a.active:hover {
 .search-form button {
   padding: 10px 20px;
   font-size: 1em;
-  color: white;
-  background-color: #333;
+  background-color: var(--quaternary-color);
+  border: 2px solid var(--secondary-color);
+  color: var(--primary-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -405,7 +420,7 @@ nav ul li a.active:hover {
 
   width: 600px;
   height: auto;
-  background-color: #78909c;
+  background-color: var(--primary-color);
   padding: 2rem 1rem;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
@@ -429,6 +444,7 @@ nav ul li a.active:hover {
   /* outline: 1px solid red; */
   width: max-content;
   height: max-content;
+  color: var(--quaternary-color);
 }
 
 .beer-card h3::after {
@@ -438,25 +454,24 @@ nav ul li a.active:hover {
   left: 0;
   bottom: -5px;
   width: 100%;
-  background-color: #607D8B;
+  background-color: #607d8b;
 }
 
 .beer-card p {
   grid-area: p;
   margin: 1rem 0;
-
+  color: var(--quaternary-color);
 }
 
 .beer-card a {
-  color: #3F51B5; 
+  color: #3f51b5;
   text-decoration: none;
-  font-weight: bold; 
+  font-weight: bold;
   transition: color 0.3s ease;
-  
 }
 
 .beer-card a:hover {
-  color: #304FFE; /* Change color on hover */
+  color: #304ffe; /* Change color on hover */
 }
 /* loader */
 
