@@ -15,14 +15,6 @@ const nextButton = document.querySelector(".next");
 const lastButton = document.querySelector(".last");
 
 /**
- * The above code is an asynchronous function in JavaScript that fetches data from the Star Wars API
- * (SWAPI) and updates the character list, character details, and planet details on a webpage.
- * @param [url=https://swapi.dev/api/people/] - The `url` parameter is the URL of the API endpoint that
- * returns a list of Star Wars characters. By default, it is set to `'https://swapi.dev/api/people/'`,
- * which is the base URL of the Star Wars API.
- */
-
-/**
  * The above code defines two async functions, `fetchAllPeople` and `fetchPlanetDetails`, which fetch
  * data from the Star Wars API.
  * @param [url=https://swapi.dev/api/people/] - The `url` parameter is the URL of the API endpoint that
