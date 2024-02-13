@@ -21,7 +21,14 @@ const lastButton = document.querySelector(".last");
  * returns a list of Star Wars characters. By default, it is set to `'https://swapi.dev/api/people/'`,
  * which is the base URL of the Star Wars API.
  */
-// Fetch all people from SWAPI
+
+/**
+ * The above code defines two async functions, `fetchAllPeople` and `fetchPlanetDetails`, which fetch
+ * data from the Star Wars API.
+ * @param [url=https://swapi.dev/api/people/] - The `url` parameter is the URL of the API endpoint that
+ * we want to fetch data from. In the `fetchAllPeople` function, it is the URL of the Star Wars API's
+ * "people" endpoint. In the `fetchPlanetDetails` function, it is the URL of the API endpoint
+ */
 async function fetchAllPeople(url = "https://swapi.dev/api/people/") {
   const response = await fetch(url);
   const data = await response.json();
@@ -32,15 +39,16 @@ async function fetchAllPeople(url = "https://swapi.dev/api/people/") {
     await fetchAllPeople(data.next);
   }
 }
-
-// Fetch planet details
 async function fetchPlanetDetails(url) {
   const response = await fetch(url);
   const planet = await response.json();
   return planet;
 }
 
-// Initialize the application
+/**
+ * The `initializeApp` function fetches character data and planet details, either from local storage or
+ * from an API, and updates the UI accordingly.
+ */
 async function initializeApp() {
   showLoaders();
 
@@ -107,14 +115,14 @@ function hideLoaders() {
   });
 }
 
-// Function to update character details
+/**
+ * The function `updateCharacterDetails` updates the character details on a webpage.
+ * @param character - The `character` parameter is an object that contains the details of a character.
+ * It should have the following properties:
+ */
 function updateCharacterDetails(character) {
   characterName.textContent = character.name;
-
-  // Clear previous character details
   characterDescription.innerHTML = "";
-
-  // Create a new <p> tag for each detail
   const height = document.createElement("p");
   height.textContent = `Height: ${character.height}`;
   characterDescription.appendChild(height);
@@ -144,14 +152,17 @@ function updateCharacterDetails(character) {
   characterDescription.appendChild(gender);
 }
 
-// Function to update planet details
+
+/**
+ * The function `updatePlanetDetails` updates the details of a planet on a webpage.
+ * @param planet - The parameter "planet" is an object that contains the details of a planet. It should
+ * have the following properties:
+ */
 function updatePlanetDetails(planet) {
   planetName.textContent = planet.name;
 
-  // Clear previous planet details
   planetDescription.innerHTML = "";
 
-  // Create a new <p> tag for each detail
   const rotationPeriod = document.createElement("p");
   rotationPeriod.textContent = `Rotation period: ${planet.rotation_period}`;
   planetDescription.appendChild(rotationPeriod);
@@ -177,7 +188,13 @@ function updatePlanetDetails(planet) {
   planetDescription.appendChild(terrain);
 }
 
-// Function to update character list
+
+/**
+ * The `updateCharacterList` function updates the character list on a webpage, displaying a subset of
+ * characters based on the current page and number of items per page.
+ * @param characters - The `characters` parameter is an array of objects representing different
+ * characters. Each character object should have properties such as `name`, `homeworld`, etc.
+ */
 function updateCharacterList(characters) {
   const list = document.querySelector(".list");
   list.innerHTML = "";
@@ -246,7 +263,9 @@ searchInput.addEventListener("input", function (event) {
   currentPage = 1;
 });
 
-/* The code block is adding event listeners to the buttons on the page. */
+
+/* The code block is adding event listeners to the buttons with class names "first", "previous",
+"next", and "last". */
 firstButton.addEventListener("click", function () {
   currentPage = 1;
   updateCharacterList(characters);
