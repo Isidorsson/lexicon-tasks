@@ -219,10 +219,23 @@ function getSearchValues() {
   const malt = document.querySelector('.malt').value;
   const brewedBefore = new Date(document.querySelector('.brewed-before').value);
   const brewedAfter = new Date(document.querySelector('.brewed-after').value);
-  const abvGt = document.querySelector('.abv-gt').value;
-  const abvLt = document.querySelector('.abv-lt').value;
+  // const abvGt = document.querySelector('.abv-gt').value;
+  // const abvLt = document.querySelector('.abv-lt').value;
 
-  return { name, hops, malt, brewedBefore, brewedAfter, abvGt, abvLt };
+  let abvRangeInput = document.querySelector('.abv-range').value;
+  let abvRange = abvRangeInput.split('-').map(Number);
+
+  if (abvRange.length === 1) {
+    abvRange = [abvRange[0], Infinity];
+    // abvRange = [abvRange[0], ''];
+  }
+
+  // abvRange[0] is the "greater than" value
+  // abvRange[1] is the "less than" value
+
+
+  // return { name, hops, malt, brewedBefore, brewedAfter, abvGt, abvLt };
+  return { name, hops, malt, brewedBefore, brewedAfter, abvGt: abvRange[0], abvLt: abvRange[1] };
 }
 
 function updateDropdownMenu(beerData, searchTerm) {
@@ -268,7 +281,6 @@ function filterBeers(beerData, { name, hops, malt, brewedBefore, brewedAfter, ab
 }
 
 
-
 /**
  * The function `sendToFilter` takes an array of beer data, extracts the unique beer types, and adds
  * them as options to a select element with the class `beerFilter`.
@@ -301,7 +313,7 @@ document.querySelector('.beer-filter').addEventListener('change', function (even
 
 
 
-document.querySelector('.search-form').addEventListener('submit', function (event) {
+document.querySelector('.search-form').addEventListener('input', function (event) {
   event.preventDefault();
 
   const searchValues = getSearchValues();
