@@ -277,7 +277,7 @@ function filterBeers(beerData, { name, hops, malt, brewedBefore, brewedAfter, ab
  * the beer.
  */
 function sendToFilter(beerData) {
-  const beerFilter = document.querySelector('.beerFilter');
+  const beerFilter = document.querySelector('.beer-filter');
   const beerTypes = beerData.map(beer => beer.tagline.split(' ')[0].toLowerCase());
   const uniqueBeerTypes = [...new Set(beerTypes)];
   uniqueBeerTypes.forEach(beerType => {
@@ -290,7 +290,7 @@ function sendToFilter(beerData) {
 
 sendToFilter(beerData);
 
-document.querySelector('.beerFilter').addEventListener('change', function (event) {
+document.querySelector('.beer-filter').addEventListener('change', function (event) {
   const beerType = event.target.value;
   const results = beerData.filter(beer => beer.tagline.toLowerCase().includes(beerType.toLowerCase()));
   displayBeers(results);
