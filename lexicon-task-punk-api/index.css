@@ -346,6 +346,14 @@ nav ul li a.active:hover {
   padding: 0;
 }
 
+.search-form select {
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+
+}
+
 .dropdown {
   position: absolute;
   width: auto;
