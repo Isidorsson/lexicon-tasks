@@ -351,7 +351,6 @@ nav ul li a.active:hover {
   font-size: 1em;
   border: 1px solid #ddd;
   border-radius: 5px;
-
 }
 
 .dropdown {
@@ -391,13 +390,14 @@ nav ul li a.active:hover {
   background-color: #f0f0f0;
 }
 
-/* .beer-div {
+.current-beers {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin: 2rem 0;
-} */
-
+}
+/* list of beers */
 .beers {
   display: flex;
   flex-direction: row;
