@@ -39,13 +39,16 @@ async function fetchBeerData() {
 
     if (!storedData) {
       console.log("Fetching data from API");
-      // const response = await fetch("https://api.punkapi.com/v2/beers");
-      const response = await fetch("https://api.punkapi.com/v2/beers?per_page=80");
-      const data = await response.json();
-      beerData = data;
+      beerData = [];
+      let page = 1;
+      let data = [];
+      do {
+        const response = await fetch(`https://api.punkapi.com/v2/beers?page=${page}&per_page=80`);
+        data = await response.json();
+        beerData = beerData.concat(data);
+        page++;
+      } while (data.length === 80);
       localStorage.setItem("beerData", JSON.stringify(beerData));
-
-
     } else {
       console.log("Fetching data from local storage");
       beerData = JSON.parse(storedData);
@@ -56,14 +59,11 @@ async function fetchBeerData() {
   } catch (error) {
     console.error("Error:", error);
     document.querySelector(".loading-overlay").style.display = "none";
-    // document.querySelector(".error-message").textContent = "An error occurred while fetching the beer data.";
   } finally {
     document.querySelector(".loading-overlay").style.display = "none";
     console.log(`Fetched ${beerData.length} beers.`);
   }
 }
-
-
 
 /**
  * The `initialize` function fetches beer data, displays a random beer, and displays all the beers.
