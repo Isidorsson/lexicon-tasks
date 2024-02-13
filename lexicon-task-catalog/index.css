@@ -1,5 +1,3 @@
-* {
-}
 
 body,
 html {
@@ -12,7 +10,7 @@ html {
 
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   height: 100vh;
   width: 100%;
 
@@ -90,32 +88,6 @@ p {
   color: #ffd600;
 }
 
-/* Search Results */
-/* .search-results {
-  position: absolute;
-  width: 484px;
-  height: 44px;
-  left: 176px;
-  top: 44px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 21px;
-  letter-spacing: 0.2em;
-  color: #000000;
-} */
-
-/* Header */
-/* header {
-  position: r;
-  width: 1440px;
-  height: 347px;
-  left: 0px;
-  top: 0px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-} */
-
 /* header-background */
 .header-background {
   position: absolute;
@@ -128,6 +100,8 @@ p {
 
 /* Heading */
 .heading {
+  display: flex;
+
   position: absolute;
   width: 380px;
   height: 143px;
@@ -154,7 +128,8 @@ p {
 
 /* Rectangle 2 */
 .rectangle-2 {
-  position: absolute;
+  display: flex;
+  position: relative;
   width: 1440px;
   height: 677px;
   left: 0px;
@@ -594,6 +569,8 @@ p {
   }
 
   .header-background {
+    display: flex;
+
     position: relative;
     width: 511px;
     height: 351px;
@@ -659,7 +636,7 @@ p {
     letter-spacing: 0.2em;
     font-family: "Roboto";
     flex-direction: row;
-}
+  }
 
   .character-info {
     width: 26px;
