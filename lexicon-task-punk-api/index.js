@@ -28,6 +28,7 @@ function clearLocalStorage() {
 
 clearLocalStorageBtn.addEventListener("click", clearLocalStorage);
 
+
 /**
  * The function fetches beer data either from an API or from local storage and returns the data.
  * @returns the beerData, which is an array of beer objects.
