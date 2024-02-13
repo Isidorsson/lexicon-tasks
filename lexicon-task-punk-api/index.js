@@ -83,7 +83,6 @@ function displayRandomBeer() {
     currentBeer = randomBeer;
     randomBeerInfo.innerHTML = `
       <h3><strong>Name: </strong> ${randomBeer.name}</h3>
-      <p><strong>Tagline:</strong> ${randomBeer.tagline}</p>
       <p><strong>Description:</strong> ${randomBeer.description}</p>
       <p><strong>Food Pairing:</strong> ${randomBeer.food_pairing}</p>
     `;
