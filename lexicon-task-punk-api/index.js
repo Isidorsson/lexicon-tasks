@@ -12,6 +12,8 @@ const randomBeerBtn = document.querySelector(".random-beer-btn");
 const clearLocalStorageBtn = document.querySelector(".clear-local-storage-btn");
 const beerList = document.querySelector(".beer-list");
 
+
+
 const searchInput = document.querySelector(".search-input");
 const dropdown = document.querySelector(".dropdown");
 
@@ -38,7 +40,7 @@ async function fetchBeerData() {
     if (!storedData) {
       console.log("Fetching data from API");
       // const response = await fetch("https://api.punkapi.com/v2/beers");
-      const response = await fetch("https://api.punkapi.com/v2/beers?per_page=50");
+      const response = await fetch("https://api.punkapi.com/v2/beers?per_page=80");
       const data = await response.json();
       beerData = data;
       localStorage.setItem("beerData", JSON.stringify(beerData));
@@ -63,16 +65,26 @@ async function fetchBeerData() {
 
 
 
+/**
+ * The `initialize` function fetches beer data, displays a random beer, and displays all the beers.
+ */
 async function initialize() {
   try {
     await fetchBeerData();
     displayRandomBeer();
     displayBeers(beerData);
+    sendToFilter(beerData);
+
   } catch (error) {
     console.error("Error:", error);
   }
 }
 initialize();
+
+
+
+
+
 /**
  * The function `displayRandomBeer` selects a random beer from an array of beer data, updates the HTML
  * elements on the page with information about the beer, and sets the URL for a "View More" link.
@@ -156,6 +168,7 @@ window.onclick = function (event) {
 
 
 function displayBeers(beers) {
+  let beerDataElement = document.querySelector('.current-beers');
   const beersDiv = document.querySelector(".beers");
   beersDiv.innerHTML = "";
 
@@ -186,7 +199,7 @@ function displayBeers(beers) {
 
     // Add click event listener to beer card
     viewMoreBtn.addEventListener("click", function () {
-      currentBeer = beer;
+      // currentBeer = beer;
       modal.style.display = "block";
       modalText.innerHTML = `
         <h3><strong>Name: </strong> ${currentBeer.name}</h3>
@@ -207,7 +220,7 @@ function displayBeers(beers) {
         <p><strong>Yeast:</strong> ${currentBeer.ingredients.yeast}</p>
       `;
     });
-
+    beerDataElement.textContent = `Displaying ${beers.length} beers`;
     beersDiv.appendChild(beerCard);
   });
 }
@@ -261,6 +274,13 @@ document.querySelector('.name').addEventListener('input', function (event) {
   updateDropdownMenu(beerData, name);
 });
 
+/**
+ * The function `filterBeers` filters an array of beer data based on various criteria such as name,
+ * hops, malt, brewed date, and ABV (alcohol by volume).
+ * @param beerData - An array of objects representing beer data. Each object should have the following
+ * properties:
+ * @returns a filtered array of beer objects that match the specified filter criteria.
+ */
 function filterBeers(beerData, { name, hops, malt, brewedBefore, brewedAfter, abvGt, abvLt }) {
   return beerData.filter(beer => {
     const beerName = beer.name.toLowerCase();
@@ -299,7 +319,7 @@ function sendToFilter(beerData) {
   });
 }
 
-sendToFilter(beerData);
+
 
 document.querySelector('.beer-filter').addEventListener('change', function (event) {
   const beerType = event.target.value;
@@ -359,6 +379,16 @@ document.querySelector('.search-btn-clear').addEventListener('click', function (
   document.querySelector('.search-form').reset();
   displayBeers(beerData);
 });
+
+// if (Array.isArray(beerData)) {
+//   beerDataElement.textContent = `Displaying ${beerData.length} beers`;
+// } else {
+//   beerDataElement.textContent = 'No beers to display';
+// }
+
+
+
+
 
 // document.querySelector('#search-form').addEventListener('submit', function(event) {
 //   event.preventDefault();
