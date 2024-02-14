@@ -77,7 +77,7 @@ async function initialize() {
     sendToFilter(beerData);
 
   } catch (error) {
-    console.error("Error:", error);
+    console.error(`Error: ${error}`);
   }
 }
 initialize();
@@ -178,10 +178,9 @@ function displayBeers(beers) {
     beerCard.className = "beer-card";
 
     const beerImage = document.createElement("img");
-    beerImage.src = beer.image_url;
+    beerImage.src = beer.image_url || "https://images.punkapi.com/v2/keg.png";
     beerImage.alt = "beer image";
     beerCard.appendChild(beerImage);
-
     const beerName = document.createElement("h3");
     beerName.textContent = beer.name;
     beerCard.appendChild(beerName);
