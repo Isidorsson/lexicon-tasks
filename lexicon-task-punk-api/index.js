@@ -1,5 +1,6 @@
 // https://api.punkapi.com/v2/
 
+import { clearLocalStorage } from './utils.js';
 import { fetchBeerData } from "./fetch.js";
 
 let beerData = [];
@@ -12,23 +13,17 @@ const randomBeerName = document.querySelector(".random-beer-name");
 const randomBeerViewMore = document.querySelector(".random-beer-view-more-btn");
 const randomBeerBtn = document.querySelector(".random-beer-btn");
 const clearLocalStorageBtn = document.querySelector(".clear-local-storage-btn");
-const beerList = document.querySelector(".beer-list");
-
-
-
-const searchInput = document.querySelector(".search-input");
-const dropdown = document.querySelector(".dropdown");
 
 const modal = document.querySelector(".modal");
 const modalText = document.querySelector(".modal-text");
 const span = document.querySelector(".close");
 
-export function clearLocalStorage() {
-  localStorage.clear();
-  location.reload();
-  beerData = [];
+
+// clearLocalStorageBtn.addEventListener("click", clearLocalStorage);
+if (clearLocalStorageBtn) {
+  clearLocalStorageBtn.addEventListener('click', clearLocalStorage);
+
 }
-clearLocalStorageBtn.addEventListener("click", clearLocalStorage);
 
 
 async function initializeRandom() {

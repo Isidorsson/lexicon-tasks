@@ -1,16 +1,9 @@
-import { clearLocalStorage } from './index.js';
+import { clearLocalStorage } from './utils.js';
 import { fetchBeerData } from './fetch.js';
 
 let currentBeer = null;
 
-fetchBeerData().then((data) => {
-    beerData = data;
-
-}
-);
-
-
-
+let beerData = [];
 async function initializeList() {
     try {
         beerData = [];
@@ -41,9 +34,11 @@ const searchInput = document.querySelector(".search-input");
 const dropdown = document.querySelector(".dropdown");
 
 
+// clearLocalStorageBtn.addEventListener("click", clearLocalStorage());
 
-
-clearLocalStorageBtn.addEventListener("click", clearLocalStorage());
+if (clearLocalStorageBtn) {
+    clearLocalStorageBtn.addEventListener('click', clearLocalStorage);
+}
 
 
 
@@ -301,3 +296,4 @@ document.querySelector('.search-btn-clear').addEventListener('click', function (
     document.querySelector('.search-form').reset();
     displayBeers(beerData);
 });
+
