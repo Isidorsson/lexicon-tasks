@@ -35,12 +35,10 @@ nav {
 nav ul {
   display: flex;
   justify-content: space-between;
-  
 }
 
 nav ul li {
   list-style: none;
-  
 }
 
 nav ul li a {
@@ -427,7 +425,6 @@ nav ul li a.active:hover {
   background-color: #000000;
 }
 
-
 .beer-card {
   /* display: flex;
   flex-direction: column;
@@ -448,6 +445,16 @@ nav ul li a.active:hover {
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   margin: 10px 0;
+  /* display: none; */
+  transform: translateY(20px);
+  opacity: 0;
+  transition:100ms;
+}
+
+.beer-card.is-visible {
+  /* display: grid; */
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .beer-card img {
