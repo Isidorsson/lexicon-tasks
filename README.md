@@ -5,7 +5,7 @@ This repository contains all the tasks I have done during my time at Lexicon.
 ## Html, Css and JavaScript
 <!-- lexicon-task-punk-api -->
 - [ ] [Task](lexicon-task-punk-api/) - [Punk API](https://cloticc.github.io/lexicon-tasks/lexicon-task-punk-api/)
-- [ ] [Task](lexicon-task-catalog/) - [Catalog](https://cloticc.github.io/lexicon-tasks/lexicon-task-catalog/)
+- [x] [Task](lexicon-task-catalog/) - [Catalog](https://cloticc.github.io/lexicon-tasks/lexicon-task-catalog/)
 - [x] [Task](lexicon-task-api-bootcamp/) - [API Bootcamp](https://cloticc.github.io/lexicon-tasks/lexicon-task-api-bootcamp/)
 - [x] [Task](lexicon-task-music-player-two/) - [Music player](https://cloticc.github.io/lexicon-tasks/lexicon-task-music-player-two/)
 - [x] [Task](lexicon-task-hangman/) - [Hangman](https://cloticc.github.io/lexicon-tasks/lexicon-task-hangman/)
