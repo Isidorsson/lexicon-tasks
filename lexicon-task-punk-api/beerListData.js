@@ -120,10 +120,6 @@ function displayBeers(beers) {
           <p><strong>Yeast:</strong> ${currentBeer.ingredients.yeast}</p>
         `;
         });
-
-
-
-
         beerDataElement.textContent = `Displaying ${beers.length} beers`;
         beersDiv.appendChild(beerCard);
     });
