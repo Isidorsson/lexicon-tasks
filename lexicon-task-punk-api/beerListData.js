@@ -72,7 +72,25 @@ function displayBeers(beers) {
     const beersDiv = document.querySelector(".beers");
     beersDiv.innerHTML = "";
 
+    const observer = new IntersectionObserver(entries => {
+        console.log(entries);
+        entries.forEach(entry => {
+            entry.target.classList.toggle('is-visible', entry.isIntersecting);
+            // if (entry.isIntersecting) {
+            //     entry.target.src = entry.target.dataset.src;
+            //     observer.unobserve(entry.target);
+            // }
+        });
+    },
+        {
+            rootMargin: '100px',
+            threshold: 0.5
+        }
+    )
+
+
     beers.forEach((beer) => {
+
         const beerCard = document.createElement("div");
         beerCard.className = "beer-card";
 
@@ -121,6 +139,7 @@ function displayBeers(beers) {
         `;
         });
         beerDataElement.textContent = `Displaying ${beers.length} beers`;
+        observer.observe(beerCard);
         beersDiv.appendChild(beerCard);
     });
 }
