@@ -85,7 +85,7 @@ function displayBeers(beers) {
         {
             rootMargin: '100px',
             threshold: 0.2
-            
+
         }
     )
 
