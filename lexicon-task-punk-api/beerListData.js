@@ -26,11 +26,11 @@ const modalText = document.querySelector(".modal-text");
 const span = document.querySelector(".close");
 
 const clearLocalStorageBtn = document.querySelector(".clear-local-storage-btn");
-const beerList = document.querySelector(".beer-list");
+// const beerList = document.querySelector(".beer-list");
 
 
 
-const searchInput = document.querySelector(".search-input");
+// const searchInput = document.querySelector(".search-input");
 const dropdown = document.querySelector(".dropdown");
 
 
