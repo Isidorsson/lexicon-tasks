@@ -368,6 +368,7 @@ nav ul li a.active:hover {
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #ddd #f0f0f0;
+  z-index: 100;
 }
 .dropdown::-webkit-scrollbar {
   width: 8px;
