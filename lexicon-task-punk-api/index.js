@@ -9,7 +9,7 @@ let currentBeer = null;
 
 const randomBeerImg = document.querySelector(".random-beer-img");
 const randomBeerInfo = document.querySelector(".random-beer-info");
-const randomBeerName = document.querySelector(".random-beer-name");
+// const randomBeerName = document.querySelector(".random-beer-name");
 const randomBeerViewMore = document.querySelector(".random-beer-view-more-btn");
 const randomBeerBtn = document.querySelector(".random-beer-btn");
 const clearLocalStorageBtn = document.querySelector(".clear-local-storage-btn");
