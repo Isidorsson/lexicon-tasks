@@ -73,13 +73,14 @@ function displayBeers(beers) {
     beersDiv.innerHTML = "";
 
     const observer = new IntersectionObserver(entries => {
-        console.log(entries);
+        // console.log(entries);
         entries.forEach(entry => {
             entry.target.classList.toggle('is-visible', entry.isIntersecting);
             // if (entry.isIntersecting) {
             //     entry.target.src = entry.target.dataset.src;
             //     observer.unobserve(entry.target);
             // }
+
         });
     },
         {
