@@ -449,7 +449,7 @@ nav ul li a.active:hover {
   /* display: none; */
   transform: translateY(20px);
   opacity: 0;
-  transition:100ms;
+  transition: 100ms;
 }
 
 .beer-card.is-visible {
