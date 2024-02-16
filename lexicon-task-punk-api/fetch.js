@@ -1,3 +1,5 @@
+const API_URL = 'https://api.punkapi.com/v2/beers';
+const PAGE_SIZE = 80;
 
 let beerData = [];
 
@@ -11,11 +13,11 @@ async function fetchBeerData() {
       let page = 1;
       let data = [];
       do {
-        const response = await fetch(`https://api.punkapi.com/v2/beers?page=${page}&per_page=80`);
+        const response = await fetch(`${API_URL}?page=${page}&per_page=${PAGE_SIZE}`);
         data = await response.json();
         beerData = beerData.concat(data);
         page++;
-      } while (data.length === 80);
+      } while (data.length === PAGE_SIZE);
       localStorage.setItem("beerData", JSON.stringify(beerData));
     } else {
       console.log("Fetching data from local storage");
@@ -26,13 +28,11 @@ async function fetchBeerData() {
 
   } catch (error) {
     console.error("Error:", error);
-    document.querySelector(".loading-overlay").style.display = "none";
+    throw error;
   } finally {
     document.querySelector(".loading-overlay").style.display = "none";
     console.log(`Fetched ${beerData.length} beers.`);
   }
-
 }
 
 export { fetchBeerData };
-
