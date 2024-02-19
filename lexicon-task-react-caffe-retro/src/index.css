@@ -17,6 +17,12 @@
   align-items: center;
 }
 
+
+#menu-hot,
+#menu-juicy {
+  border-bottom: 10px solid rgb(139, 0, 0, 0.7);
+}
+
 h2 {
   font-size: 3em;
   color: white;
