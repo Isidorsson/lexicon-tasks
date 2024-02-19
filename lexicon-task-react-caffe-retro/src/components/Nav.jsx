@@ -2,9 +2,9 @@ import "./Nav.css";
 
 export function Nav() {
   const link = [
-    { name: "Hot", url: "hot" },
-    { name: "Juice", url: "juice" },
-    { name: "Cozy", url: "cozy" },
+    { name: "Hot", url: "#menu-hot" },
+    { name: "Juice", url: "#menu-juicy" },
+    { name: "Cozy", url: "#menu-cozy" },
   ]
 
 
