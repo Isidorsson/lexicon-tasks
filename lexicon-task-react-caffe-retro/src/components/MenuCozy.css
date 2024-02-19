@@ -8,3 +8,66 @@
   justify-content: center;
   align-items: center;
 }
+
+#menu-cozy h2 {
+  font-size: 3em;
+  color: white;
+  font-family: "Spirax", sans-serif;
+  color: red;
+}
+
+#menu-cozy p {
+  font-size: 1.5em;
+  color: white;
+  font-family: "Poiret One", sans-serif;
+  background-color: rgba(255, 0, 0, 0.4);
+  padding: 0.5em;
+  font-family: "Poiret One", sans-serif;
+  margin-left: 100px;
+  margin-right: 250px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 21px;
+  font-weight: 500;
+}
+
+#menu-cozy p:nth-child(even) {
+  margin-left: 100px;
+  margin-right: 250px;
+}
+
+#menu-cozy p:nth-child(odd) {
+  margin-left: 250px;
+  margin-right: 100px;
+}
+
+#menu-cozy div {
+  display: grid;
+  grid-template-areas: "left right";
+  justify-content: space-between;
+  font-size: 1.5em;
+  color: white;
+  font-family: "Poiret One", sans-serif;
+  background-color: rgb(0, 0, 0, 0.7);
+  padding: 10px 40px;
+  width: 100%;
+  max-width: 500px;
+}
+
+#menu-cozy .left {
+  grid-area: left;
+  font-size: 1.5em;
+  color: white;
+  font-family: "Poiret One", sans-serif;
+  font-size: 21px;
+  font-weight: 500;
+}
+
+#menu-cozy .right {
+  grid-area: right;
+  font-size: 1.5em;
+  color: white;
+  font-family: "Poiret One", sans-serif;
+  font-size: 21px;
+  font-weight: 500;
+}
