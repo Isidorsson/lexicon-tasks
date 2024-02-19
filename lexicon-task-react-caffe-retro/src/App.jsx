@@ -4,7 +4,7 @@ import './components/MenuCozy.css';
 
 import { MenuSection } from './components/MenuSection';
 import { Nav } from './components/Nav';
-import textData from './components/textData.json';
+import textData from './data/textData.json';
 
 export function App() {
   return (
