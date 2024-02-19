@@ -1,13 +1,26 @@
 import "./Nav.css";
 
 export function Nav() {
+  const link = [
+    { name: "Hot", url: "hot" },
+    { name: "Juice", url: "juice" },
+    { name: "Cozy", url: "cozy" },
+  ]
+
+
+
   return (
     <nav className="navbar">
       <ul>
-        <li><a href="#">Hot</a></li>
-        <li><a href="#">Juice</a></li>
-        <li><a href="#">Cozy</a></li>
+        {link.map((item, index) => {
+          return (
+            <li key={index}> <a href={item
+              .url}>{item.name}</a></li>
+          )
+        }
+        )}
       </ul>
+
     </nav>
   );
 }

@@ -1,3 +1,30 @@
 .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
   background-color: rgba(97, 0, 68, 0.4);
+  padding: 1em;
+  font-size: 2em;
+  font-family: "Spirax", sans-serif;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar li {
+  display: inline;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1em;
+}
+
+.navbar a:hover {
+  color: #f7d7f7;
 }
