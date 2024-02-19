@@ -1,0 +1,70 @@
+#menu-hot {
+  background-image: url(../assets/hot.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#menu-hot h2 {
+  font-size: 3em;
+  color: white;
+  font-family: "Spirax", sans-serif;
+  color: red;
+}
+
+#menu-hot p {
+  font-size: 1.5em;
+  color: white;
+  font-family: "Poiret One", sans-serif;
+
+  background-color: rgba(255, 0, 0, 0.4);
+  padding: 0.5em;
+  font-family: "Poiret One", sans-serif;
+  margin-left: 100px;
+  margin-right: 250px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 21px;
+  font-weight: 500;
+}
+
+#menu-hot p:nth-child(odd) {
+  margin-left: 250px;
+  margin-right: 100px;
+}
+
+#menu-hot div {
+  display: grid;
+  grid-template-areas: "left right";
+  justify-content: space-between;
+  font-size: 1.5em;
+  color: white;
+  font-family: "Poiret One", sans-serif;
+  background-color: rgb(0, 0, 0, 0.7);
+  padding: 10px 40px;
+  width: 50rem;
+}
+
+#menu-hot .left {
+  grid-area: left;
+  /* styles for the text on the left */
+  font-size: 1.5em;
+  color: white;
+  font-family: "Poiret One", sans-serif;
+  font-size: 21px;
+  font-weight: 500;
+}
+
+#menu-hot .right {
+  grid-area: right;
+  /* styles for the number on the right */
+  font-size: 1.5em;
+  color: white;
+  font-family: "Poiret One", sans-serif;
+  font-size: 21px;
+  font-weight: 500;
+}

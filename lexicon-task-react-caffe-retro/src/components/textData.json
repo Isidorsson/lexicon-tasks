@@ -1,0 +1,70 @@
+[
+  {
+    "strId": "menu-hot",
+    "strTitle": "Hot",
+    "strTextOne": "Hot freshly ground black coffee or a cup of exquisite tea?",
+    "strTextTwo": "We give you that perfect cup every time.",
+    "items": [
+      {
+        "name": "Mocha Latte",
+        "price": "€7.50"
+      },
+      {
+        "name": "Caffè Formaggio",
+        "price": "€5.00"
+      },
+      {
+        "name": "Espresso",
+        "price": "€3.50"
+      },
+      {
+        "name": "Chai Verde Latte",
+        "price": "€5.50"
+      }
+    ]
+  },
+  {
+    "strId": "menu-juicy",
+    "strTitle": "Juicy",
+    "strTextOne": "Freshly squeezed juice from the ripest fruits.",
+    "strTextTwo": "We give you that perfect cup every time.",
+    "items": [
+      {
+        "name": "Mango Tango",
+        "price": "€7.50"
+      },
+      {
+        "name": "Pineapple Passion",
+        "price": "€5.00"
+      },
+      {
+        "name": "Strawberry Sunrise",
+        "price": "€3.50"
+      },
+      {
+        "name": "Orange Juice",
+        "price": "€5.50"
+      }
+    ]
+  },
+  {
+    "strId": "menu-cozy",
+    "strTitle": "Cozy",
+    "strTextOne": "Hang around. Enjoy the settings.",
+    "strTextTwo": "Use our fast WiFi. Borrow a newspaper or a novel.",
+    "items": [
+      {
+        "name": "Mon-Sun",
+        "time": "8am-10pm"
+      },
+      {
+        "name": "Caffe Retro",
+        "area": "Conta IV"
+      },
+      {
+        "name": "0123-45 67 89",
+        "email": "caffe@lorem.pge"
+      }
+    ]
+  }
+]
