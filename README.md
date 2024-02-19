@@ -4,7 +4,7 @@ This repository contains all the tasks I have done during my time at Lexicon.
 
 ## React
 
-- [ ] [Task](lexicon-task-react-caffe-retro/)
+- [ ] [Task - caffe-retro](lexicon-task-react-caffe-retro/)
 
 ## Html, Css and JavaScript
 
