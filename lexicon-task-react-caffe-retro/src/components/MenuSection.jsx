@@ -38,22 +38,3 @@ MenuSection.propTypes = {
   className: PropTypes.string.isRequired,
 };
 
-
-// export function MenuSection() {
-//   return (
-//     <>
-//       {textData.map((data, index) => (
-//         <section key={index} id={data.strId}>
-//           <h2>{data.strTitle}</h2>
-//           <p>{data.strTextOne}</p>
-//           <p>{data.strTextTwo}</p>
-//           <p>{data.strTextThree}</p>
-//           <p>{data.strTextFour}</p>
-//           <p>{data.strTextFive}</p>
-//           {data.strTextSix && <p>{data.strTextSix}</p>}
-//         </section>
-//       ))}
-//     </>
-//   );
-// }
-
