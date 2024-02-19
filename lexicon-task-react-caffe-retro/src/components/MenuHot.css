@@ -32,6 +32,11 @@
   font-weight: 500;
 }
 
+#menu-hot p:nth-child(even) {
+  margin-left: 100px;
+  margin-right: 250px;
+}
+
 #menu-hot p:nth-child(odd) {
   margin-left: 250px;
   margin-right: 100px;
@@ -46,12 +51,12 @@
   font-family: "Poiret One", sans-serif;
   background-color: rgb(0, 0, 0, 0.7);
   padding: 10px 40px;
-  width: 50rem;
+  width: 100%;
+  max-width: 500px;
 }
 
 #menu-hot .left {
   grid-area: left;
-  /* styles for the text on the left */
   font-size: 1.5em;
   color: white;
   font-family: "Poiret One", sans-serif;
@@ -61,7 +66,6 @@
 
 #menu-hot .right {
   grid-area: right;
-  /* styles for the number on the right */
   font-size: 1.5em;
   color: white;
   font-family: "Poiret One", sans-serif;
