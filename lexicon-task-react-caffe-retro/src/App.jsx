@@ -1,7 +1,13 @@
+import Cozy from './components/Cozy';
+import Hot from './components/Hot';
+import Juice from './components/Juice';
+
 export function App() {
   return (
     <>
-      <h1>This is the App Component</h1>
+      <Cozy />
+      <Hot />
+      <Juice />
     </>
   );
 }
