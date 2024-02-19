@@ -49,6 +49,14 @@ p {
   max-width: 600px;
 }
 
+p {
+  visibility: visible;
+}
+
+p::after {
+  content: "";
+  display: block;
+}
 p:nth-child(even) {
   margin-left: 100px;
   margin-right: 250px;
@@ -69,9 +77,12 @@ p:nth-child(odd) {
   color: white;
   font-family: "Poiret One", sans-serif;
   background-color: rgb(0, 0, 0, 0.7);
+
   padding: 10px 40px;
   width: 100%;
   max-width: 600px;
+  height: 100%;
+  max-height: 40px;
 }
 
 .left {
@@ -89,4 +100,63 @@ p:nth-child(odd) {
   font-family: "Poiret One", sans-serif;
   font-size: 21px;
   font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    margin-top: 2rem;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  p {
+    visibility: hidden;
+  }
+
+  #menu-hot p::after,
+  #menu-juicy p::after,
+  #menu-cozy p::after {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    color: white;
+    font-family: "Poiret One", sans-serif;
+    background-color: rgba(255, 0, 0, 0.4);
+    padding: 1rem;
+    margin: 2rem 1rem;
+    font-size: 21px;
+    font-weight: 500;
+    width: 100%;
+    max-width: 20rem;
+    visibility: visible;
+  }
+
+  #menu-hot p::after {
+    content: "Hot freshly grounded black coffee or a cup of exquisite tea?.";
+  }
+
+  #menu-juicy p::after {
+    content: "Ripe fruit - frehly squeezed.";
+  }
+
+  #menu-cozy p::after {
+    content: "Hang around. Enjoy the settings.";
+  }
+  p:nth-child(even) {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  p:nth-child(odd) {
+    display: none;
+  }
+
+  #menu-hot div,
+  #menu-juicy div,
+  #menu-cozy div {
+    padding: 10px 20px;
+ max-width: 23rem;
+  }
 }

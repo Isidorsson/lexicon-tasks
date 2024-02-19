@@ -26,3 +26,7 @@ The different images, fonts, texts and video are available in the asssets folder
 - Every background image should cover its entire section.
 - The website should have as many semantic elements as possible.
 - The menu should be fixed to the top of the window at all time.
+
+
+font-family: "Poiret One", sans-serif;
+font-family: "Spirax", sans-serif;
