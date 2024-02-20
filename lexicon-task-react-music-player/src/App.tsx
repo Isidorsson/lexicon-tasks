@@ -9,7 +9,7 @@ import { SongList } from './components/SongList';
 export function App() {
   return (
     <div className="main-wrapper">
-      <h1>visual</h1>
+      {/* <h1>Music Player</h1> */}
       {SongIcon()}
       {SongInfo()}
       {Nav()}
