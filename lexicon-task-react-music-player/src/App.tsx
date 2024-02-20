@@ -1,13 +1,22 @@
 import './index.css';
 
 import { Nav } from './components/Nav';
-// import SongData from './data/SongData.json';
+import SongData from './data/SongData.json';
 import { SongIcon } from './components/SongIcon';
 import { SongInfo } from './components/SongInfo';
 import { SongList } from './components/SongList';
 import { SongVolume } from './components/SongVolume';
+import { useState } from 'react';
 
 export function App() {
+
+  const [songs, setSongs] = useState(SongData.songs);
+
+  const removeSong = (index: number) => {
+    setSongs(songs => songs.filter((song, i) => i !== index));
+    // Not implemented yet
+  };
+
   return (
     <div className="main-wrapper">
       {/* <h1>Music Player</h1> */}
@@ -15,7 +24,7 @@ export function App() {
       {SongInfo()}
       {Nav()}
       {SongVolume()}
-      {SongList()}
+      <SongList SongData={{ songs }} removeSong={removeSong} />
     </div>
   );
 }

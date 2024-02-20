@@ -4,7 +4,7 @@
   align-items: center;
   margin: 1.5rem;
   max-width: 100%;
-  width: 100%;
+  width: 25rem;
   margin-top: 1rem;
   /* background-color: red; */
   margin: 3rem auto;
@@ -70,4 +70,17 @@
 
 .song-list-favorit::-webkit-scrollbar-thumb:hover {
   background: #8f8f8f;
+}
+
+.btn-remove {
+  float: right;
+  margin-right: 20px;
+  color: #ae80d6;
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+.btn-remove:hover {
+  color: #8f8f8f;
 }
