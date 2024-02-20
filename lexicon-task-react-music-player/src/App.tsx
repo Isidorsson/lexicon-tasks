@@ -5,7 +5,7 @@ import { Nav } from './components/Nav';
 import { SongIcon } from './components/SongIcon';
 import { SongInfo } from './components/SongInfo';
 import { SongList } from './components/SongList';
-import { Volume } from './components/Volume';
+import { SongVolume } from './components/SongVolume';
 
 export function App() {
   return (
@@ -14,7 +14,7 @@ export function App() {
       {SongIcon()}
       {SongInfo()}
       {Nav()}
-      {Volume()}
+      {SongVolume()}
       {SongList()}
     </div>
   );

@@ -1,7 +1,11 @@
-import './Volume.css';
+import './SongVolume.css';
 
-export function Volume() {
+export function SongVolume() {
 
+
+  function adjustVolume(arg0: number): void {
+    throw new Error('Function not implemented.');
+  }
 
   return (
     <section className="volume-wrapper">
