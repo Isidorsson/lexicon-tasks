@@ -6,8 +6,8 @@ export function SongList() {
   return (
     <aside className="song-list-wrapper">
       <ul className="song-list">
-        {SongData.songs.map((song) => (
-          <li>{song.title}</li>
+        {SongData.songs.map((song, index) => (
+          <li key={index}>{song.title}</li>
         ))}
       </ul>
     </aside >
