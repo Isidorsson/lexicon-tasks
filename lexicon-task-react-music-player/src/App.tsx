@@ -1,16 +1,19 @@
-import {Nav} from './components/Nav';
-import {SongIcon} from './components/SongIcon';
-import {SongInfo} from './components/SongInfo';
-import {SongList} from './components/SongList';
+import './index.css';
+
+import { Nav } from './components/Nav';
+// import SongData from './data/SongData.json';
+import { SongIcon } from './components/SongIcon';
+import { SongInfo } from './components/SongInfo';
+import { SongList } from './components/SongList';
 
 export function App() {
   return (
-    <>
-      <h1>My App</h1>
+    <div className="main-wrapper">
+      <h1>visual</h1>
       {SongIcon()}
       {SongInfo()}
       {Nav()}
       {SongList()}
-    </>
+    </div>
   );
 }

@@ -1,0 +1,36 @@
+.song-info-title {
+  display: inline-block;
+  color: rgba(174, 128, 214, 1);
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  margin-right: -10px;
+  font-size: 1.25em; 
+  font-weight: bold;
+  width: 100%; 
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.song-info-artist,
+.song-info-album {
+  letter-spacing: 1px;
+  font-size: 1em; 
+  width: auto;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 10px auto;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.song-info-artist {
+  color: #623f80;
+}
+
+.song-info-album {
+  color: #54376d;
+}
