@@ -15,7 +15,7 @@ This structure helps to enforce type checking and ensure that the component rece
 data structure as props. */
 interface ISongListProps {
   SongData: { songs: ISong[] };
-  removeSong: (index: number) => void; // Add this line
+  removeSong: (index: number) => void; 
 }
 
 export function SongList({ SongData }: ISongListProps) {
@@ -29,7 +29,7 @@ export function SongList({ SongData }: ISongListProps) {
       <ul className="song-list">
         {SongData.songs.map((song, index) => (
           <li key={index}>{song.title}
-            <button className="btn-remove"  onClick={() => removeSong(index)}>Remove</button> {/* Add this line */}
+            <button className="btn-remove"  onClick={() => removeSong(index)}>Remove</button>
           </li>
         ))}
       </ul>
