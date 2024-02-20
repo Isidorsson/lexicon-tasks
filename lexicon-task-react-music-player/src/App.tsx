@@ -13,8 +13,8 @@ export function App() {
   const [songs, setSongs] = useState(SongData.songs);
 
   const removeSong = (index: number) => {
-    setSongs(songs => songs.filter((song, i) => i !== index));
-    // Not implemented yet
+    setSongs(songs => songs.filter((_song, i) => i !== index));
+    // Not implemented yet - will be used to remove a song from the list
   };
 
   return (
