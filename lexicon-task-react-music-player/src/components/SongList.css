@@ -1,0 +1,72 @@
+.song-list-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 1.5rem;
+  max-width: 100%;
+  width: 100%;
+  margin-top: 1rem;
+  /* background-color: red; */
+}
+.song-list {
+  /* opacity: 0; */
+  transition: opacity 0.5s ease-in-out;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  width: 500px;
+  height: 300px;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.song-list li {
+  padding: 10px;
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+  color: #ae80d6;
+}
+
+.song-list li:hover {
+  background-color: #4d3f61;
+}
+
+.song-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.song-list::-webkit-scrollbar-track {
+  background: #4d3f61;
+}
+
+.song-list::-webkit-scrollbar-thumb {
+  background: #ae80d6;
+  border-radius: 10px;
+}
+
+.song-list::-webkit-scrollbar-thumb:hover {
+  background: #8f8f8f;
+}
+
+.song-list-favorit li:hover {
+  background-color: #4d3f61;
+}
+
+.song-list-favorit::-webkit-scrollbar {
+  width: 10px;
+}
+
+.song-list-favorit::-webkit-scrollbar-track {
+  background: #4d3f61;
+}
+
+.song-list-favorit::-webkit-scrollbar-thumb {
+  background: #ae80d6;
+  border-radius: 10px;
+}
+
+.song-list-favorit::-webkit-scrollbar-thumb:hover {
+  background: #8f8f8f;
+}
