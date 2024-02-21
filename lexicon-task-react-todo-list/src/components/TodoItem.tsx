@@ -14,9 +14,9 @@ export function TodoItem({ todo, onToggleTodo, onRemoveTodo }: ITodoItemProps) {
 
   return (
     <li className={completed ? 'completed' : ''}>
-      <input type="checkbox" checked={completed} onChange={() => onToggleTodo(id)} />
-      <span>{text}</span>
-      <button onClick={() => onRemoveTodo(todo.id)}>Remove</button>
+      <input className='todo-checkbox' type="checkbox" checked={completed} onChange={() => onToggleTodo(id)} />
+      <span className='todo-item'>{text}</span>
+      <button className='todo-btn-remove' onClick={() => onRemoveTodo(todo.id)}>Remove</button>
     </li>
   );
 }

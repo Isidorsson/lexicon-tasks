@@ -1,0 +1,51 @@
+.todo-checkbox {
+  margin-right: 20px;
+  cursor: pointer;
+
+  /* add some metrial design to checkbox */
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #eee;
+  border-radius: 50%;
+  vertical-align: middle;
+  transition: background-color 0.3s;
+}
+
+.todo-checkbox::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.todo-checkbox:checked::after {
+  display: block;
+  top: 3px;
+  left: 7px;
+  width: 6px;
+  height: 12px;
+  border: solid #000;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.todo-item {
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.todo-btn-remove {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 0 30px;
+}
+
+.todo-btn-remove:hover {
+  background-color: darkred;
+}
