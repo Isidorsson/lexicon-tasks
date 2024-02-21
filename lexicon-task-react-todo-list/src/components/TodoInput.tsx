@@ -23,9 +23,9 @@ export function TodoInput({ onAddTodo }: ITodoInputProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" value={text} onChange={handleChange} placeholder="Add a todo..." />
-      <button type="submit">Add</button>
+    <form className='todo-form' onSubmit={handleSubmit}>
+      <input className='todo-input' type="text" value={text} onChange={handleChange} placeholder="Add a todo..." />
+      <button className='todo-sub-btn' type="submit">Add</button>
     </form>
   );
 }
