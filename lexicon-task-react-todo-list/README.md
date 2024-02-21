@@ -1,3 +1,5 @@
+![alt text](image.png)
+
 # React Todo List
 
 In this exercise I want you to create a todo list with React Typescript. The todo list is will be simple, not any fancy functionalities or animations _(unless you relly want to get creative)_. The purpose is to solve as much as possible with React and apply a react mindeset. I have created a React TS application to you that is ready to be used.
