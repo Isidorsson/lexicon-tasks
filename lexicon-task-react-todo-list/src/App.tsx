@@ -1,4 +1,5 @@
 import { ITodo } from './components/TodoInterface';
+import {SortSelect} from './components/SortSelect';
 import { TodoInput } from './components/TodoInput';
 import { TodoList } from './components/TodoList';
 import { useState } from 'react';
@@ -74,17 +75,7 @@ export function App() {
       }}
       onEndEditTodo={editTodo}
     />
-    <div>
-      <label>Sort by:</label>
-      <select value={sortItem} onChange={event => setSortItem(event.target.value as 'asc' | 'desc' | 'completed' | 'uncompleted' | 'timestamp' | 'author')}>
-        <option value="timestamp">Timestamp</option>
-        <option value="author">Author</option>
-        <option value="asc">A-Z</option>
-        <option value="desc">Z-A</option>
-        <option value="completed">Completed</option>
-        <option value="uncompleted">Uncompleted</option>
-      </select>
-    </div>
+    <SortSelect sortItem={sortItem} setSortItem={setSortItem} />
   </div>
   );
 

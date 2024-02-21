@@ -29,3 +29,7 @@ export interface ITodoInputProps {
 }
 
 
+export interface SortSelectProps {
+  sortItem: 'asc' | 'desc' | 'completed' | 'uncompleted' | 'timestamp' | 'author';
+  setSortItem: (value: 'asc' | 'desc' | 'completed' | 'uncompleted' | 'timestamp' | 'author') => void;
+}
