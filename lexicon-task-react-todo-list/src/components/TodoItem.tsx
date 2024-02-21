@@ -23,15 +23,22 @@ export function TodoItem({ todo, onToggleTodo, onRemoveTodo, onStartEditTodo, on
     onEndEditTodo(id, e.target.value);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      onEndEditTodo(id, e.currentTarget.value);
+    }
+  }
+  
+
   return (
     <li className={`todo-item ${completed ? 'completed' : ''}`}>
-    <input className='todo-checkbox' type="checkbox" checked={completed} onChange={() => onToggleTodo(id)} />
-    {isEditing ? (
-      <input type="text" defaultValue={text} onBlur={handleBlur} autoFocus />
-    ) : (
-      <span onDoubleClick={handleDoubleClick}>{text}</span>
-    )}
-    <button className='todo-btn-remove' onClick={() => onRemoveTodo(todo.id)}>Remove</button>
-  </li>
+      <input className='todo-checkbox' type="checkbox" checked={completed} onChange={() => onToggleTodo(id)} />
+      {isEditing ? (
+        <input type="text" defaultValue={text} onBlur={handleBlur} onKeyDown={handleKeyDown} autoFocus />
+      ) : (
+        <span onDoubleClick={handleDoubleClick}>{text}</span>
+      )}
+      <button className='todo-btn-remove' onClick={() => onRemoveTodo(todo.id)}>Remove</button>
+    </li>
   );
 }
