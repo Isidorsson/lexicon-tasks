@@ -4,6 +4,8 @@ export interface ITodo {
   text: string;
   completed: boolean;
   isEditing: boolean;
+  createdAt: Date;
+  author: string;
 }
 
 export interface ITodoListProps {

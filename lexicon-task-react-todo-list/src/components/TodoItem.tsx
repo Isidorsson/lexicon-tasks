@@ -22,6 +22,10 @@ export function TodoItem({ todo, onToggleTodo, onRemoveTodo, onStartEditTodo, on
 
   return (
     <li className={`todo-item ${completed ? 'completed' : ''}`}>
+      <span className='todo-timestamp'>{todo.createdAt.toLocaleTimeString("en-GB")}</span>
+      {/* <span className='todo-timestamp'>{todo.createdAt.toLocaleDateString("en-GB")}</span> */}
+      {/* <span className='todo-timestamp'>{todo.createdAt.toLocaleTimeString("en-GB")}</span> */}
+
       <input className='todo-checkbox' type="checkbox" checked={completed} onChange={() => onToggleTodo(id)} />
       {isEditing ? (
         <input type="text" defaultValue={text} onBlur={handleBlur} onKeyDown={handleKeyDown} autoFocus />
