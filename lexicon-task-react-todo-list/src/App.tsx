@@ -6,13 +6,14 @@ export interface ITodo {
   id: number;
   text: string;
   completed: boolean;
+  isEditing: boolean;
 }
 
 export function App() {
   const [todos, setTodos] = useState<ITodo[]>([]);
 
   const addTodo = (text: string) => {
-    setTodos([...todos, { id: Date.now(), text, completed: false }]);
+    setTodos([...todos, { id: Date.now(), text, completed: false, isEditing: false }]);
   };
 
   const toggleTodo = (id: number) => {
@@ -26,13 +27,17 @@ export function App() {
       todos.filter((todo) => todo.id !== id)
     );
   }
-
-
   const [title, setTitle] = useState<string>('Todo');
   const [isEditingTitle, setIsEditingTitle] = useState<boolean>(false);
   const editTitle = () => {
     setIsEditingTitle(!isEditingTitle);
   }
+
+  const editTodo = (id: number, newText: string) => {
+    setTodos(
+      todos.map((todo) => todo.id === id ? { ...todo, text: newText, isEditing: !todo.isEditing } : todo)
+    );
+  };
 
   return (
     <div className="App">
@@ -40,7 +45,20 @@ export function App() {
       {isEditingTitle && <input type="text" value={title} onChange={e => setTitle(e.target.value)} />}
       <button onClick={editTitle}>{isEditingTitle ? 'Save Title' : 'Edit Title'}</button>
       <TodoInput onAddTodo={addTodo} />
-      <TodoList todos={todos} onToggleTodo={toggleTodo} onRemoveTodo={removeTodo} />
+      <TodoList
+        todos={todos}
+        onToggleTodo={toggleTodo}
+        onRemoveTodo={removeTodo}
+        onStartEditTodo={id => {
+          setTodos(
+            todos.map((todo) => todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo)
+          );
+        }}
+        onEndEditTodo={editTodo}
+      />
+
+
+
     </div>
   );
 }
