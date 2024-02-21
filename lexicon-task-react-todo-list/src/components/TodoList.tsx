@@ -13,7 +13,7 @@ interface ITodoListProps {
 }
 
 
-export function TodoList({ todos, onToggleTodo, onRemoveTodo,  onStartEditTodo, onEndEditTodo }: ITodoListProps) {
+export function TodoList({ todos, onToggleTodo, onRemoveTodo, onStartEditTodo, onEndEditTodo }: ITodoListProps) {
 
   return (
     <ul className='todo-list'>
@@ -25,7 +25,7 @@ export function TodoList({ todos, onToggleTodo, onRemoveTodo,  onStartEditTodo, 
           onRemoveTodo={onRemoveTodo}
           onStartEditTodo={onStartEditTodo}
           onEndEditTodo={onEndEditTodo}
-          
+
         />
       ))}
     </ul>
