@@ -2,8 +2,8 @@
   margin-top: 20px;
   list-style: none;
   overflow-y: scroll;
-  max-height: 30rem;
-  height: 30rem;
+  max-height: 100%;
+  height: 25rem;
   max-width: 100%;
   width: 23rem;
   border-top: 1px solid #e0e0e0;
