@@ -4,7 +4,7 @@ This repository contains all the tasks I have done during my time at Lexicon.
 
 ## React
 
-- [x] [Task - Todo-list](lexicon-task-react-todo-list/)
+- [ ] [Task - Todo-list](lexicon-task-react-todo-list/)
 - [x] [Task - Music-player](lexicon-task-react-music-player/)
 - [x] [Task - caffe-retro](lexicon-task-react-caffe-retro/)
 
