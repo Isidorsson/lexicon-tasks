@@ -31,8 +31,6 @@ export function App() {
   const [title, setTitle] = useState<string>('Todo');
   const [isEditingTitle, setIsEditingTitle] = useState<boolean>(false);
   const editTitle = () => {
-
-    
     setIsEditingTitle(!isEditingTitle);
   }
 
