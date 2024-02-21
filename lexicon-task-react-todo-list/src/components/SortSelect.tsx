@@ -1,6 +1,6 @@
-import { SortSelectProps } from "./TodoInterface";
+import { ISortSelectProps } from "./TodoInterface";
 
-export const SortSelect: React.FC<SortSelectProps> = ({ sortItem, setSortItem }) => {
+export const SortSelect: React.FC<ISortSelectProps> = ({ sortItem, setSortItem }) => {
   return (
     <div>
       <label>Sort by:</label>
