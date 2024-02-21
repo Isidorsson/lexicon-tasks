@@ -19,13 +19,13 @@ export function TodoItem({ todo, onToggleTodo, onRemoveTodo, onStartEditTodo, on
     onStartEditTodo(id);
   };
 
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    onEndEditTodo(id, e.target.value);
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+    onEndEditTodo(id, event.target.value);
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      onEndEditTodo(id, e.currentTarget.value);
+      onEndEditTodo(id, event.currentTarget.value);
     }
   }
   
