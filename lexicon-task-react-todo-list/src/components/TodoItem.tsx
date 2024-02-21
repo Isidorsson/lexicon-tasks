@@ -24,7 +24,7 @@ export function TodoItem({ todo, onToggleTodo, onRemoveTodo, onStartEditTodo, on
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
+    if (event.key === 'Enter') {
       onEndEditTodo(id, event.currentTarget.value);
     }
   }
