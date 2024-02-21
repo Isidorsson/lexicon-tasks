@@ -23,16 +23,24 @@ export function App() {
 
   const removeTodo = (id: number) => {
     setTodos(
-      todos.filter((todo) => todo.id !== id)  
+      todos.filter((todo) => todo.id !== id)
     );
   }
-  
+
+
+  const [title, setTitle] = useState<string>('');
+  const [isEditingTitle, setIsEditingTitle] = useState<boolean>(false);
+  const editTitle = () => {
+    setIsEditingTitle(!isEditingTitle);
+  }
 
   return (
     <div className="App">
-      <h1>Todo List</h1>
+      <h1>{title}</h1>
+      {isEditingTitle && <input type="text" value={title} onChange={e => setTitle(e.target.value)} />}
+      <button onClick={editTitle}>{isEditingTitle ? 'Save Title' : 'Edit Title'}</button>
       <TodoInput onAddTodo={addTodo} />
-      <TodoList todos={todos} onToggleTodo={toggleTodo}  onRemoveTodo={removeTodo} />
+      <TodoList todos={todos} onToggleTodo={toggleTodo} onRemoveTodo={removeTodo} />
     </div>
   );
 }
