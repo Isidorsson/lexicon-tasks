@@ -1,3 +1,5 @@
+import '../styles/TodoInput.css';
+
 import { useState } from 'react';
 
 interface ITodoInputProps {

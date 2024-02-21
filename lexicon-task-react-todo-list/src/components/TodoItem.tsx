@@ -1,3 +1,5 @@
+import '../styles/TodoItem.css'
+
 import { ITodo } from '../App';
 
 interface ITodoItemProps {

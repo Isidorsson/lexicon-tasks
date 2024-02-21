@@ -1,3 +1,5 @@
+import '../styles/TodoList.css';
+
 import { ITodo } from '../App';
 import { TodoItem } from '../components/TodoItem';
 
@@ -5,7 +7,7 @@ interface ITodoListProps {
   todos: ITodo[];
   onToggleTodo: (id: number) => void;
   onRemoveTodo: (id: number) => void;
-  
+
 }
 
 
