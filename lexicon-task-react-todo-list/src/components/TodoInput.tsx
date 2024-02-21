@@ -14,7 +14,7 @@ export function TodoInput({ onAddTodo }: ITodoInputProps) {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     // const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-    console.log(`Submitting: ${text}`);
+    // console.log(`Submitting: ${text}`);
     if (!text.trim()) return;
     onAddTodo(text);
     setText('');
