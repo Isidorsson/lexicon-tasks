@@ -10,7 +10,6 @@ interface ITodoItemProps {
 export function TodoItem({ todo, onToggleTodo, onRemoveTodo }: ITodoItemProps) {
   const { id, text, completed } = todo;
 
-
   return (
     <li className={completed ? 'completed' : ''}>
       <input type="checkbox" checked={completed} onChange={() => onToggleTodo(id)} />
