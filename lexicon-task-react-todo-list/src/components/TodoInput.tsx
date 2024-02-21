@@ -1,10 +1,7 @@
 import '../styles/TodoInput.css';
 
+import { ITodoInputProps } from './TodoInterface';
 import { useState } from 'react';
-
-interface ITodoInputProps {
-  onAddTodo: (text: string) => void;
-}
 
 export function TodoInput({ onAddTodo }: ITodoInputProps) {
   const [text, setText] = useState('');
@@ -12,7 +9,7 @@ export function TodoInput({ onAddTodo }: ITodoInputProps) {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setText(event.target.value);
   };
-
+ 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     // const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();

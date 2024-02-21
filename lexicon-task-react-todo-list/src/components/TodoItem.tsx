@@ -1,16 +1,6 @@
 import '../styles/TodoItem.css'
 
-import { ITodo } from '../App';
-
-interface ITodoItemProps {
-  todo: ITodo;
-  onToggleTodo: (id: number) => void;
-  onRemoveTodo: (id: number) => void;
-  onStartEditTodo: (id: number) => void;
-  onEndEditTodo: (id: number, newText: string) => void;
-
-
-}
+import { ITodoItemProps } from './TodoInterface';
 
 export function TodoItem({ todo, onToggleTodo, onRemoveTodo, onStartEditTodo, onEndEditTodo }: ITodoItemProps) {
   const { id, text, completed, isEditing } = todo;
@@ -28,7 +18,7 @@ export function TodoItem({ todo, onToggleTodo, onRemoveTodo, onStartEditTodo, on
       onEndEditTodo(id, event.currentTarget.value);
     }
   }
-  
+
 
   return (
     <li className={`todo-item ${completed ? 'completed' : ''}`}>

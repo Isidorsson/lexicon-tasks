@@ -1,13 +1,7 @@
+import { ITodo } from './components/TodoInterface';
 import { TodoInput } from './components/TodoInput';
 import { TodoList } from './components/TodoList';
 import { useState } from 'react';
-
-export interface ITodo {
-  id: number;
-  text: string;
-  completed: boolean;
-  isEditing: boolean;
-}
 
 export function App() {
   const [todos, setTodos] = useState<ITodo[]>([]);
