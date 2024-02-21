@@ -1,5 +1,5 @@
 import { ITodo } from './components/TodoInterface';
-import {SortSelect} from './components/SortSelect';
+import { SortSelect } from './components/SortSelect';
 import { TodoInput } from './components/TodoInput';
 import { TodoList } from './components/TodoList';
 import { useState } from 'react';
@@ -8,7 +8,7 @@ export function App() {
   const [todos, setTodos] = useState<ITodo[]>([]);
 
   const addTodo = (text: string) => {
-    setTodos([...todos, { id: Date.now(), text, completed: false, isEditing: false, createdAt: new Date(), author: 'Anonymous'}]);
+    setTodos([...todos, { id: Date.now(), text, completed: false, isEditing: false, createdAt: new Date(), author: '' }]);
   };
 
   const toggleTodo = (id: number) => {
@@ -48,7 +48,7 @@ export function App() {
       case 'timestamp':
         return todos.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
       case 'author':
-        return todos.sort((a, b) => a.author.localeCompare(b.author)); 
+        return todos.sort((a, b) => a.author.localeCompare(b.author));
       default:
         return todos;
     }
@@ -56,27 +56,25 @@ export function App() {
 
 
 
-
-
   return (
     <div className="App">
-    <h1>{title}</h1>
-    {isEditingTitle && <input type="text" value={title} onChange={e => setTitle(e.target.value)} />}
-    <button onClick={editTitle}>{isEditingTitle ? 'Save Title' : 'Edit Title'}</button>
-    <TodoInput onAddTodo={addTodo} />
-    <TodoList
-      todos={sortTodos(todos)}
-      onToggleTodo={toggleTodo}
-      onRemoveTodo={removeTodo}
-      onStartEditTodo={id => {
-        setTodos(
-          todos.map((todo) => todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo)
-        );
-      }}
-      onEndEditTodo={editTodo}
-    />
-    <SortSelect sortItem={sortItem} setSortItem={setSortItem} />
-  </div>
+      <h1>{title}</h1>
+      {isEditingTitle && <input type="text" value={title} onChange={e => setTitle(e.target.value)} />}
+      <button onClick={editTitle}>{isEditingTitle ? 'Save Title' : 'Edit Title'}</button>
+      <SortSelect sortItem={sortItem} setSortItem={setSortItem} />
+      <TodoInput onAddTodo={addTodo} />
+      <TodoList
+        todos={sortTodos(todos)}
+        onToggleTodo={toggleTodo}
+        onRemoveTodo={removeTodo}
+        onStartEditTodo={id => {
+          setTodos(
+            todos.map((todo) => todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo)
+          );
+        }}
+        onEndEditTodo={editTodo}
+      />
+    </div>
   );
 
 }
