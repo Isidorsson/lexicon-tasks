@@ -9,14 +9,14 @@ export const useTodos = () => {
     setTodos([...todos, { id: Date.now(), text, completed: false, isEditing: false, createdAt: new Date(), author: 'Author Name' }]);
   };
 
-    const startEditTodo = (id: number) => {
+  const startEditTodo = (id: number) => {
     setTodos(todos.map((todo) => todo.id === id ? { ...todo, isEditing: true } : todo));
   };
 
   const endEditTodo = (id: number, newText: string) => {
     setTodos(todos.map((todo) => todo.id === id ? { ...todo, text: newText, isEditing: false } : todo));
   };
-  
+
   const toggleTodo = (id: number) => {
     setTodos(todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo)));
   };
@@ -48,5 +48,5 @@ export const useTodos = () => {
     }
   };
 
-  return { todos, addTodo, toggleTodo, removeTodo,  startEditTodo, endEditTodo, sortTodos, sortItem, setSortItem };
+  return { todos, addTodo, toggleTodo, removeTodo, startEditTodo, endEditTodo, sortTodos, sortItem, setSortItem };
 };

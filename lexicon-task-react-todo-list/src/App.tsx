@@ -27,6 +27,7 @@ export function App() {
         onRemoveTodo={removeTodo}
         onStartEditTodo={startEditTodo}
         onEndEditTodo={endEditTodo}
+         
       />
     </div>
   );

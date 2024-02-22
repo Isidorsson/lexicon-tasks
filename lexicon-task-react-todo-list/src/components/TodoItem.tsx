@@ -5,6 +5,8 @@ import { ITodoItemProps } from './TodoInterface';
 export function TodoItem({ todo, onToggleTodo, onRemoveTodo, onStartEditTodo, onEndEditTodo }: ITodoItemProps) {
   const { id, text, completed, isEditing } = todo;
 
+
+
   const handleDoubleClick = () => {
     onStartEditTodo(id);
   };
@@ -28,11 +30,12 @@ export function TodoItem({ todo, onToggleTodo, onRemoveTodo, onStartEditTodo, on
 
       <input className='todo-checkbox' type="checkbox" checked={completed} onChange={() => onToggleTodo(id)} />
       {isEditing ? (
-        <input  type="text" defaultValue={text} onBlur={handleBlur} onKeyDown={handleKeyDown} autoFocus />
+        <input type="text" defaultValue={text} onBlur={handleBlur} onKeyDown={handleKeyDown} autoFocus />
       ) : (
         <span onDoubleClick={handleDoubleClick}>{text}</span>
       )}
       <button className='todo-btn-remove' onClick={() => onRemoveTodo(todo.id)}>Remove</button>
+
     </li>
   );
 }
