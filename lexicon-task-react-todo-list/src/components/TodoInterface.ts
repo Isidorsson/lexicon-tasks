@@ -14,6 +14,9 @@ export interface ITodoListProps {
   onRemoveTodo: (id: number) => void;
   onStartEditTodo: (id: number) => void;
   onEndEditTodo: (id: number, newText: string) => void;
+  onMoveTodoUp: (id: number) => void;
+  onMoveTodoDown: (id: number) => void;
+  version: number;
 }
 
 export interface ITodoItemProps {
@@ -22,6 +25,9 @@ export interface ITodoItemProps {
   onRemoveTodo: (id: number) => void;
   onStartEditTodo: (id: number) => void;
   onEndEditTodo: (id: number, newText: string) => void;
+  onMoveTodoUp: (id: number) => void;
+  onMoveTodoDown: (id: number) => void;
+  version: number;
 }
 
 export interface ITodoInputProps {

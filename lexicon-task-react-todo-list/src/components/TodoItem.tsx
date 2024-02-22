@@ -2,7 +2,7 @@ import '../styles/TodoItem.css'
 
 import { ITodoItemProps } from './TodoInterface';
 
-export function TodoItem({ todo, onToggleTodo, onRemoveTodo, onStartEditTodo, onEndEditTodo }: ITodoItemProps) {
+export function TodoItem({ todo, onToggleTodo, onRemoveTodo, onStartEditTodo, onEndEditTodo, onMoveTodoUp, onMoveTodoDown }: ITodoItemProps) {
   const { id, text, completed, isEditing } = todo;
 
 
@@ -20,8 +20,14 @@ export function TodoItem({ todo, onToggleTodo, onRemoveTodo, onStartEditTodo, on
       onEndEditTodo(id, event.currentTarget.value);
     }
   }
+ 
+  const handleMoveUp = () => {
+    onMoveTodoUp(todo.id);
+  };
 
-
+  const handleMoveDown = () => {
+    onMoveTodoDown(todo.id);
+  };
   return (
     <li className={`todo-item ${completed ? 'completed' : ''}`}>
       <span className='todo-timestamp'>{todo.createdAt.toLocaleTimeString("en-GB")}</span>
@@ -35,7 +41,8 @@ export function TodoItem({ todo, onToggleTodo, onRemoveTodo, onStartEditTodo, on
         <span onDoubleClick={handleDoubleClick}>{text}</span>
       )}
       <button className='todo-btn-remove' onClick={() => onRemoveTodo(todo.id)}>Remove</button>
-
+      <button className='todo-btn-move-up' onClick={handleMoveUp}>Move Up</button>
+      <button className='todo-btn-move-down' onClick={handleMoveDown}>Move Down</button>
     </li>
   );
 }

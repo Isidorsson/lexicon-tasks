@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useTodos } from './hooks/useTodos';
 
 export function App() {
-  const { todos, addTodo, toggleTodo, removeTodo, startEditTodo, endEditTodo, sortTodos, sortItem, setSortItem } = useTodos();
+  const { todos, addTodo, toggleTodo, removeTodo, startEditTodo, endEditTodo, sortTodos, sortItem, setSortItem, moveTodoUp, moveTodoDown, version } = useTodos();
 
   const [title, setTitle] = useState<string>('Todo');
   const [isEditingTitle, setIsEditingTitle] = useState<boolean>(false);
@@ -28,7 +28,9 @@ export function App() {
         onRemoveTodo={removeTodo}
         onStartEditTodo={startEditTodo}
         onEndEditTodo={endEditTodo}
-         
+        onMoveTodoUp={moveTodoUp}
+        onMoveTodoDown={moveTodoDown}
+        version={version}
       />
     </div>
   );

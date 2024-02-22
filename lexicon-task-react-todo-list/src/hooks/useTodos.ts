@@ -6,7 +6,7 @@ export const useTodos = () => {
   const [sortItem, setSortItem] = useState<'asc' | 'desc' | 'completed' | 'uncompleted' | 'timestamp' | 'author'>('timestamp');
 
   const addTodo = (text: string, authorTitle: string) => {
-    setTodos([...todos, { id: Date.now(), text, completed: false, isEditing: false, createdAt: new Date(),  author: authorTitle }]);
+    setTodos([...todos, { id: Date.now(), text, completed: false, isEditing: false, createdAt: new Date(), author: authorTitle,  }]);
   };
 
   const startEditTodo = (id: number) => {
@@ -47,6 +47,32 @@ export const useTodos = () => {
         return todos;
     }
   };
+  const [version, setVersion] = useState(0);
 
-  return { todos, addTodo, toggleTodo, removeTodo, startEditTodo, endEditTodo, sortTodos, sortItem, setSortItem };
+  const moveTodoUp = (id: number) => {
+    setTodos(prevTodos => {
+      const index = prevTodos.findIndex(todo => todo.id === id);
+      if (index === 0) return prevTodos; // If it's the first item, return early
+      const newTodos = [...prevTodos];
+      const temp = newTodos[index];
+      newTodos[index] = newTodos[index - 1];
+      newTodos[index - 1] = temp;
+      return newTodos;
+    });
+    setVersion(version + 1);
+  };
+
+  const moveTodoDown = (id: number) => {
+    setTodos(prevTodos => {
+      const index = prevTodos.findIndex(todo => todo.id === id);
+      if (index === prevTodos.length - 1) return prevTodos; // If it's the last item, return early
+      const newTodos = [...prevTodos];
+      const temp = newTodos[index];
+      newTodos[index] = newTodos[index + 1];
+      newTodos[index + 1] = temp;
+      return newTodos;
+    });
+    setVersion(version + 1);
+  };
+  return { todos, addTodo, toggleTodo, removeTodo, startEditTodo, endEditTodo, sortTodos, sortItem, setSortItem, moveTodoUp, moveTodoDown, version};
 };
