@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export const useTodos = () => {
   const [todos, setTodos] = useState<ITodo[]>([]);
-  const [sortItem, setSortItem] = useState<'asc' | 'desc' | 'completed' | 'uncompleted' | 'timestamp' | 'author'>('timestamp');
+  const [sortItem, setSortItem] = useState<'asc' | 'desc' | 'completed' | 'uncompleted' | 'timestamp' | 'author'>('author');
 
   const addTodo = (text: string, authorTitle: string) => {
     setTodos([...todos, { id: Date.now(), text, completed: false, isEditing: false, createdAt: new Date(), author: authorTitle,  }]);
@@ -50,29 +50,29 @@ export const useTodos = () => {
   const [version, setVersion] = useState(0);
 
   const moveTodoUp = (id: number) => {
-    setTodos(prevTodos => {
-      const index = prevTodos.findIndex(todo => todo.id === id);
-      if (index === 0) return prevTodos; // If it's the first item, return early
-      const newTodos = [...prevTodos];
+    const index = todos.findIndex((todo) => todo.id === id);
+    if (index > 0) {
+      const newTodos = [...todos];
       const temp = newTodos[index];
       newTodos[index] = newTodos[index - 1];
       newTodos[index - 1] = temp;
-      return newTodos;
-    });
-    setVersion(version + 1);
+      setTodos(newTodos);
+      setVersion(version + 1);
+    }
   };
 
   const moveTodoDown = (id: number) => {
-    setTodos(prevTodos => {
-      const index = prevTodos.findIndex(todo => todo.id === id);
-      if (index === prevTodos.length - 1) return prevTodos; // If it's the last item, return early
-      const newTodos = [...prevTodos];
+    const index = todos.findIndex((todo) => todo.id === id);
+    if (index < todos.length - 1) {
+      const newTodos = [...todos];
       const temp = newTodos[index];
       newTodos[index] = newTodos[index + 1];
       newTodos[index + 1] = temp;
-      return newTodos;
-    });
-    setVersion(version + 1);
+      setTodos(newTodos);
+      setVersion(version + 1);
+    }
   };
+
+
   return { todos, addTodo, toggleTodo, removeTodo, startEditTodo, endEditTodo, sortTodos, sortItem, setSortItem, moveTodoUp, moveTodoDown, version};
 };
