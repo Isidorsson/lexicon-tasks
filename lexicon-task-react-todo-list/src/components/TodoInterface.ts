@@ -16,7 +16,6 @@ export interface ITodoListProps {
   onEndEditTodo: (id: number, newText: string) => void;
   onMoveTodoUp: (id: number) => void;
   onMoveTodoDown: (id: number) => void;
-  version: number;
 }
 
 export interface ITodoItemProps {
@@ -27,7 +26,6 @@ export interface ITodoItemProps {
   onEndEditTodo: (id: number, newText: string) => void;
   onMoveTodoUp: (id: number) => void;
   onMoveTodoDown: (id: number) => void;
-  version: number;
 }
 
 export interface ITodoInputProps {

@@ -47,32 +47,31 @@ export const useTodos = () => {
         return todos;
     }
   };
-  const [version, setVersion] = useState(0);
 
   const moveTodoUp = (id: number) => {
-    const index = todos.findIndex((todo) => todo.id === id);
-    if (index > 0) {
-      const newTodos = [...todos];
+    setTodos(prevTodos => {
+      const index = prevTodos.findIndex(todo => todo.id === id);
+      if (index === 0) return prevTodos; 
+      const newTodos = [...prevTodos];
       const temp = newTodos[index];
       newTodos[index] = newTodos[index - 1];
       newTodos[index - 1] = temp;
-      setTodos(newTodos);
-      setVersion(version + 1);
-    }
+      return newTodos;
+    });
   };
-
+  
   const moveTodoDown = (id: number) => {
-    const index = todos.findIndex((todo) => todo.id === id);
-    if (index < todos.length - 1) {
-      const newTodos = [...todos];
+    setTodos(prevTodos => {
+      const index = prevTodos.findIndex(todo => todo.id === id);
+      if (index === prevTodos.length - 1) return prevTodos;
+      const newTodos = [...prevTodos];
       const temp = newTodos[index];
       newTodos[index] = newTodos[index + 1];
       newTodos[index + 1] = temp;
-      setTodos(newTodos);
-      setVersion(version + 1);
-    }
+      return newTodos;
+    });
   };
 
 
-  return { todos, addTodo, toggleTodo, removeTodo, startEditTodo, endEditTodo, sortTodos, sortItem, setSortItem, moveTodoUp, moveTodoDown, version};
+  return { todos, addTodo, toggleTodo, removeTodo, startEditTodo, endEditTodo, sortTodos, sortItem, setSortItem, moveTodoUp, moveTodoDown};
 };
