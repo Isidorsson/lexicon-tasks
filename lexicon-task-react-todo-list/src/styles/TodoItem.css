@@ -40,6 +40,14 @@
   transition: background-color 0.3s;
 }
 
+.todo-item:hover {
+  background-color: #f0f0f0;
+}
+.todo-timestamp {
+  font-size: 0.8rem;
+  color: #666;
+}
+
 .todo-btn-remove {
   background-color: red;
   color: white;
