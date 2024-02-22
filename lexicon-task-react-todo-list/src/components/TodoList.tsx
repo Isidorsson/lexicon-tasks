@@ -8,6 +8,7 @@ export function TodoList({ todos, onToggleTodo, onRemoveTodo, onStartEditTodo, o
   return (
     <ul className='todo-list'>
       {todos.map((todo) => (
+        console.log(todo),
         <TodoItem
           key={todo.id}
           todo={todo}

@@ -5,8 +5,8 @@ export const useTodos = () => {
   const [todos, setTodos] = useState<ITodo[]>([]);
   const [sortItem, setSortItem] = useState<'asc' | 'desc' | 'completed' | 'uncompleted' | 'timestamp' | 'author'>('timestamp');
 
-  const addTodo = (text: string) => {
-    setTodos([...todos, { id: Date.now(), text, completed: false, isEditing: false, createdAt: new Date(), author: 'Author Name' }]);
+  const addTodo = (text: string, authorTitle: string) => {
+    setTodos([...todos, { id: Date.now(), text, completed: false, isEditing: false, createdAt: new Date(),  author: authorTitle }]);
   };
 
   const startEditTodo = (id: number) => {

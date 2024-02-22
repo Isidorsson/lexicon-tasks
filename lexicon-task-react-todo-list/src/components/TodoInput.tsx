@@ -9,13 +9,13 @@ export function TodoInput({ onAddTodo }: ITodoInputProps) {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setText(event.target.value);
   };
- 
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     // const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
     // console.log(`Submitting: ${text}`);
     if (!text.trim()) return;
-    onAddTodo(text);
+    onAddTodo(text, 'Todo');
     setText('');
   };
 

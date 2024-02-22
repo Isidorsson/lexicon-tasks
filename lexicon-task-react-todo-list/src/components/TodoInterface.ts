@@ -25,7 +25,8 @@ export interface ITodoItemProps {
 }
 
 export interface ITodoInputProps {
-  onAddTodo: (text: string) => void;
+  onAddTodo: (text: string, authorTitle: string) => void;
+
 }
 
 

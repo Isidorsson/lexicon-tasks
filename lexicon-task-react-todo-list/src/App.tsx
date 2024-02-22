@@ -10,6 +10,7 @@ export function App() {
   const [title, setTitle] = useState<string>('Todo');
   const [isEditingTitle, setIsEditingTitle] = useState<boolean>(false);
 
+
   const editTitle = () => {
     setIsEditingTitle(!isEditingTitle);
   }
@@ -17,10 +18,10 @@ export function App() {
   return (
     <div className="App">
       <h1>{title}</h1>
-      {isEditingTitle && <input className='edit-title-input' type="text" value={title} onChange={e => setTitle(e.target.value)} />}
+      {isEditingTitle && <input className='edit-title-input' type="text" value={title} onChange={event => setTitle(event.target.value)} />}
       <button className='edit-title-btn' onClick={editTitle}>{isEditingTitle ? 'Save Title' : 'Edit Title'}</button>
       <SortSelect sortItem={sortItem} setSortItem={setSortItem} />
-      <TodoInput onAddTodo={addTodo} />
+      <TodoInput  onAddTodo={(text) => addTodo(text, title)} />
       <TodoList
         todos={sortTodos(todos)}
         onToggleTodo={toggleTodo}
