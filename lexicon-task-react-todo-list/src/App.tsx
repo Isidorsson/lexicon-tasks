@@ -17,8 +17,8 @@ export function App() {
   return (
     <div className="App">
       <h1>{title}</h1>
-      {isEditingTitle && <input type="text" value={title} onChange={e => setTitle(e.target.value)} />}
-      <button onClick={editTitle}>{isEditingTitle ? 'Save Title' : 'Edit Title'}</button>
+      {isEditingTitle && <input className='edit-title-input' type="text" value={title} onChange={e => setTitle(e.target.value)} />}
+      <button className='edit-title-btn' onClick={editTitle}>{isEditingTitle ? 'Save Title' : 'Edit Title'}</button>
       <SortSelect sortItem={sortItem} setSortItem={setSortItem} />
       <TodoInput onAddTodo={addTodo} />
       <TodoList

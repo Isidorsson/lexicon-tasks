@@ -24,3 +24,30 @@ body {
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.edit-title-btn {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 10px;
+  border-radius: 1px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 0.5rem 0;
+}
+
+.edit-title-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.edit-title-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+
+.edit-title-input:focus {
+  border: 1px solid #000;
+}
