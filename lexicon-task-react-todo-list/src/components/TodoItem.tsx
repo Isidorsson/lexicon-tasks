@@ -28,7 +28,7 @@ export function TodoItem({ todo, onToggleTodo, onRemoveTodo, onStartEditTodo, on
 
       <input className='todo-checkbox' type="checkbox" checked={completed} onChange={() => onToggleTodo(id)} />
       {isEditing ? (
-        <input type="text" defaultValue={text} onBlur={handleBlur} onKeyDown={handleKeyDown} autoFocus />
+        <input  type="text" defaultValue={text} onBlur={handleBlur} onKeyDown={handleKeyDown} autoFocus />
       ) : (
         <span onDoubleClick={handleDoubleClick}>{text}</span>
       )}
