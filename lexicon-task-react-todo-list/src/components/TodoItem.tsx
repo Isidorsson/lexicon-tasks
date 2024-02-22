@@ -20,7 +20,7 @@ export function TodoItem({ todo, onToggleTodo, onRemoveTodo, onStartEditTodo, on
       onEndEditTodo(id, event.currentTarget.value);
     }
   }
- 
+
   const handleMoveUp = () => {
     onMoveTodoUp(todo.id);
   };
@@ -38,11 +38,13 @@ export function TodoItem({ todo, onToggleTodo, onRemoveTodo, onStartEditTodo, on
       {isEditing ? (
         <input type="text" defaultValue={text} onBlur={handleBlur} onKeyDown={handleKeyDown} autoFocus />
       ) : (
-        <span onDoubleClick={handleDoubleClick}>{text}</span>
+        <span className='item-text' onDoubleClick={handleDoubleClick}>{text}</span>
       )}
-      <button className='todo-btn-remove' onClick={() => onRemoveTodo(todo.id)}>Remove</button>
-      <button className='todo-btn-move-up' onClick={handleMoveUp}>Move Up</button>
-      <button className='todo-btn-move-down' onClick={handleMoveDown}>Move Down</button>
+      <div className='btn-wrapper'>
+        <button className='todo-btn-remove' onClick={() => onRemoveTodo(todo.id)}>Remove</button>
+        <button className='todo-btn-move-up' onClick={handleMoveUp}>Move Up</button>
+        <button className='todo-btn-move-down' onClick={handleMoveDown}>Move Down</button>
+      </div>
     </li>
   );
 }
