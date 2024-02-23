@@ -3,21 +3,21 @@ import '../styles/TodoList.css';
 import { ITodoListProps } from './TodoInterface';
 import { TodoItem } from '../components/TodoItem';
 
-export function TodoList({ todos, onToggleTodo, onRemoveTodo, onStartEditTodo, onEndEditTodo, onMoveTodoUp, onMoveTodoDown }: ITodoListProps) {
+export function TodoList(props: ITodoListProps) {
 
   return (
     <ul className='todo-list'>
-      {todos.map((todo) => (
-        // console.log(todo),
+      {props.todos.map((todo) => (
+
         <TodoItem
           key={todo.id}
           todo={todo}
-          onToggleTodo={onToggleTodo}
-          onRemoveTodo={onRemoveTodo}
-          onStartEditTodo={onStartEditTodo}
-          onEndEditTodo={onEndEditTodo}
-          onMoveTodoUp={onMoveTodoUp}
-          onMoveTodoDown={onMoveTodoDown}
+          onToggleTodo={props.onToggleTodo}
+          onRemoveTodo={props.onRemoveTodo}
+          onStartEditTodo={props.onStartEditTodo}
+          onEndEditTodo={props.onEndEditTodo}
+          onMoveTodoUp={props.onMoveTodoUp}
+          onMoveTodoDown={props.onMoveTodoDown}
         />
       ))}
     </ul>

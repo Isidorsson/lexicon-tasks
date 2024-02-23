@@ -3,7 +3,7 @@ import '../styles/TodoInput.css';
 import { ITodoInputProps } from './TodoInterface';
 import { useState } from 'react';
 
-export function TodoInput({ onAddTodo }: ITodoInputProps) {
+export function TodoInput(props: ITodoInputProps) {
   const [text, setText] = useState('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -15,7 +15,7 @@ export function TodoInput({ onAddTodo }: ITodoInputProps) {
     event.preventDefault();
     // console.log(`Submitting: ${text}`);
     if (!text.trim()) return;
-    onAddTodo(text, 'Todo');
+    props.onAddTodo(text, 'Todo');
     setText('');
   };
 
