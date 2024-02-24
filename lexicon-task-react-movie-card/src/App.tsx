@@ -1,7 +1,11 @@
-export function App() {
+import React from 'react';
+
+export const App: React.FC = () => {
   return (
-    <>
-      <h1>This is the App component</h1>
-    </>
+    <div className="App">
+
+    </div>
   );
-}
+};
+
+
