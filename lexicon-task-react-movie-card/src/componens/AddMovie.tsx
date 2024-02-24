@@ -1,4 +1,8 @@
 
+export interface IMovie { 
+
+}
+
 
 export const AddMovie: React.FC = () => {
   return (
