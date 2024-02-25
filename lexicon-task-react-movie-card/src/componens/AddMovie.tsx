@@ -14,14 +14,20 @@ export const AddMovie: React.FC = () => {
   return (
     <div>
       <h2>Add Movie</h2>
-      <input type="text"
+      <input
+        type="text"
         placeholder="Title"
         value={title}
         onChange={(event) => setTitle(event.target.value)}
       />
-      <input type="range" min={0} max={5} value={rating}
+      <input
+        type="range"
+        min={0}
+        max={5}
+        value={rating}
         onChange={(event) => setRating(parseInt(event.target.value))}
       />
     </div>
   );
+
 }
