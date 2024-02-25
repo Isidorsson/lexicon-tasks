@@ -14,7 +14,7 @@ export const AddMovie: React.FC = () => {
   const [genre, setGenre] = useState('');
   const [description, setDescription] = useState('');
   const [movies, setMovies] = useState<IMovie[]>([]);
-  
+
   return (
     <div>
       <h2>Add Movie</h2>
@@ -31,7 +31,15 @@ export const AddMovie: React.FC = () => {
         value={rating}
         onChange={(event) => setRating(Number(event.target.value))}
       />
-
+      <select value={genre} onChange={(event) => setGenre(event.target.value)}>
+        <option value="">Select Genre</option>
+        <option value="action">Action</option>
+        <option value="comedy">Comedy</option>
+        <option value="drama">Drama</option>
+      </select>
+      <textarea name="Description"
+        value={description}
+        onChange={(event) => setDescription(event.target.value)}></textarea>
     </div>
   );
 
