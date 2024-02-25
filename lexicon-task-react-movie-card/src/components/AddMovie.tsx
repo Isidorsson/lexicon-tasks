@@ -53,7 +53,7 @@ export const AddMovie = () => {
       <input
         className='input-rating'
         type="range"
-        min={0}
+        min={1}
         max={5}
         value={rating}
         onChange={(event) => setRating(Number(event.target.value))} />
