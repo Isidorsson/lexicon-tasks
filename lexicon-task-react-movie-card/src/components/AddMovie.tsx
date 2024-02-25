@@ -18,7 +18,7 @@ export const AddMovie = () => {
   const [movies, setMovies] = useState<IMovie[]>([]);
 
   const handleAddMovie = () => {
-    if (!title || !rating || !genre || !description) {
+    if (!title || !genre || !description) {
       alert('Please fill out all fields');
       return;
     }
@@ -42,23 +42,21 @@ export const AddMovie = () => {
   };
 
   return (
-    <div className="controls-wrapper">
+    <><div className="controls-wrapper">
       <h2>Add Movie </h2>
       <input
         className='input-title'
         type="text"
         placeholder="Title"
         value={title}
-        onChange={(event) => setTitle(event.target.value)}
-      />
+        onChange={(event) => setTitle(event.target.value)} />
       <input
         className='input-rating'
         type="range"
         min={0}
         max={5}
         value={rating}
-        onChange={(event) => setRating(Number(event.target.value))}
-      />
+        onChange={(event) => setRating(Number(event.target.value))} />
       <select className='input-genre' value={genre} onChange={(event) => setGenre(event.target.value)}>
         <option value="">Select Genre</option>
         <option value="action">Action</option>
@@ -70,17 +68,18 @@ export const AddMovie = () => {
         name="Description"
         placeholder='Description'
         value={description}
-        onChange={(event) => setDescription(event.target.value)}
-      />
+        onChange={(event) => setDescription(event.target.value)} />
 
       <div className='btn-wrapper'>
         {/* <button className='add-movie-btn' onClick={() => { handleAddMovie }}>Add Movie</button> */}
-        <button className='clear-movie-btn' onClick={handleRemoveMovie} >Clear</button>
+        <button className='clear-movie-btn' onClick={handleRemoveMovie}>Clear</button>
         <button className='add-movie-btn' onClick={handleAddMovie}>Add Movie</button>
       </div>
-
-      <MovieList movies={movies} />
+    
     </div>
+    <MovieList movies={movies} />
+    
+    </>
   );
 
 };
