@@ -11,6 +11,10 @@ export interface IMovie {
 export const AddMovie: React.FC = () => {
   const [title, setTitle] = useState('');
   const [rating, setRating] = useState(0);
+  const [genre, setGenre] = useState('');
+  const [description, setDescription] = useState('');
+  const [movies, setMovies] = useState<IMovie[]>([]);
+  
   return (
     <div>
       <h2>Add Movie</h2>
@@ -27,6 +31,7 @@ export const AddMovie: React.FC = () => {
         value={rating}
         onChange={(event) => setRating(Number(event.target.value))}
       />
+
     </div>
   );
 
