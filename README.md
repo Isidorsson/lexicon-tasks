@@ -3,7 +3,10 @@
 This repository contains all the tasks I have done during my time at Lexicon.
 
 ## React
-
+ 
+ <!-- https://cloticc.github.io/lexicon-tasks/lexicon-task-react-movie-card/
+ -->
+- [ ] [Task - Movie-card](lexicon-task-react-movie-card/) - [Movie-card](https://cloticc.github.io/lexicon-tasks/lexicon-task-react-movie-card/)
 - [ ] [Task - Todo-list](lexicon-task-react-todo-list/)
 - [x] [Task - Music-player](lexicon-task-react-music-player/)
 - [x] [Task - caffe-retro](lexicon-task-react-caffe-retro/)
