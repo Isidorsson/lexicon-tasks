@@ -18,7 +18,7 @@ export const AddMovie: React.FC = () => {
         value={title}
         onChange={(event) => setTitle(event.target.value)}
       />
-
+<input type="range" min="1" max="5" value="4" />
     </div>
   );
 }
