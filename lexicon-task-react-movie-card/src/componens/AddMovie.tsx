@@ -1,5 +1,6 @@
 import '../styles/AddMovie.css';
 
+import { MovieList } from './MovieList';
 import { useState } from "react";
 
 export interface IMovie {
@@ -57,7 +58,7 @@ export const AddMovie: React.FC = () => {
         value={description}
         onChange={(event) => setDescription(event.target.value)} />
       <button className='add-movie-button' onClick={() => { handleAddMovie }}>Add Movie</button>
-
+      <MovieList movies={movies} />
     </div>
   );
 
