@@ -1,7 +1,8 @@
 import '../styles/AddMovie.css';
 
+import { useEffect, useRef, useState } from 'react';
+
 import { MovieList } from './MovieList';
-import { useState } from 'react';
 
 export interface IMovie {
   title: string;
@@ -12,7 +13,7 @@ export interface IMovie {
 
 export const AddMovie = () => {
   const [title, setTitle] = useState('');
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(1);
   const [genre, setGenre] = useState('');
   const [description, setDescription] = useState('');
   const [movies, setMovies] = useState<IMovie[]>([]);
@@ -41,6 +42,16 @@ export const AddMovie = () => {
     }
   };
 
+
+  const indicatorRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    if (indicatorRef.current) {
+      indicatorRef.current.style.left = `calc((100% / (5 - 1)) * (${rating} - 1))`;
+    }
+  }, [rating]);
+
+
   return (
     <><div className="controls-wrapper">
       <h2>Add Movie </h2>
@@ -57,6 +68,9 @@ export const AddMovie = () => {
         max={5}
         value={rating}
         onChange={(event) => setRating(Number(event.target.value))} />
+      <div className='indicator-wrapper'>
+        <span ref={indicatorRef} className='indicator-rating'>{rating}</span>
+      </div>
       <select className='input-genre' value={genre} onChange={(event) => setGenre(event.target.value)}>
         <option value="">Select Genre</option>
         <option value="action">Action</option>
@@ -75,10 +89,10 @@ export const AddMovie = () => {
         <button className='clear-movie-btn' onClick={handleRemoveMovie}>Clear</button>
         <button className='add-movie-btn' onClick={handleAddMovie}>Add Movie</button>
       </div>
-    
+
     </div>
-    <MovieList movies={movies} />
-    
+      <MovieList movies={movies} />
+
     </>
   );
 

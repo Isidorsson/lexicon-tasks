@@ -19,13 +19,32 @@
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .controls-wrapper input:focus {
   outline: none;
   border-color: #007bff;
 }
+
+.indicator-wrapper {
+  position: relative;
+}
+
+.indicator-rating {
+  position: absolute;
+  top: -24px;
+  left: 0;
+  background: #007bff;
+  color: white;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  max-width: 15px;
+  min-width: 15px;
+}
+
 
 .controls-wrapper textarea {
   margin-bottom: 10px;
