@@ -1,7 +1,7 @@
 import '../styles/AddMovie.css';
 
 import { MovieList } from './MovieList';
-import { useState } from "react";
+import { useState } from 'react';
 
 export interface IMovie {
   title: string;
@@ -20,7 +20,6 @@ export const AddMovie: React.FC = () => {
 
   const handleAddMovie = () => {
     const newMovie = { title, rating, genre, description };
-    console.log(`Adding movie: ${JSON.stringify(newMovie)}`);
     setMovies([...movies, newMovie]);
     setTitle('');
     setRating(0);
@@ -28,7 +27,7 @@ export const AddMovie: React.FC = () => {
     setDescription('');
   }
 
-  
+
 
   return (
     <div className="controls-wrapper">
