@@ -11,7 +11,7 @@ export interface IMovie {
   description: string;
 }
 
-export const AddMovie: React.FC = () => {
+export const AddMovie = () => {
   const [title, setTitle] = useState('');
   const [rating, setRating] = useState(0);
   const [genre, setGenre] = useState('');
