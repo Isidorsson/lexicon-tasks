@@ -15,6 +15,26 @@
   width: 100%;
 }
 
+.controls-wrapper input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.controls-wrapper textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  height: 10rem;
+  width: 100%;
+  resize: none;
+}
+
+.controls-wrapper textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
 .controls-wrapper button {
   padding: 10px;
   border-radius: 5px;
