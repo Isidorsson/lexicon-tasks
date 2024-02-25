@@ -26,8 +26,8 @@ export const AddMovie: React.FC = () => {
   }
 
   return (
-    <div>
-      <h2>Add Movie</h2>
+    <div className="controls-wrapper">
+      <h2>Add Movie </h2>
       <input
         type="text"
         placeholder="Title"
@@ -51,7 +51,6 @@ export const AddMovie: React.FC = () => {
         value={description}
         onChange={(event) => setDescription(event.target.value)} />
       <button onClick={() => {handleAddMovie}}>Add Movie</button>
-      
 
     </div>
   );
