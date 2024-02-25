@@ -39,7 +39,8 @@ export const AddMovie: React.FC = () => {
       </select>
       <textarea name="Description"
         value={description}
-        onChange={(event) => setDescription(event.target.value)}></textarea>
+        onChange={(event) => setDescription(event.target.value)} />
+      
     </div>
   );
 
