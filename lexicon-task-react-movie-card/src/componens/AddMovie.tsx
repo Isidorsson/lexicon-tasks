@@ -31,28 +31,32 @@ export const AddMovie: React.FC = () => {
     <div className="controls-wrapper">
       <h2>Add Movie </h2>
       <input
+        className='input-title'
         type="text"
         placeholder="Title"
         value={title}
         onChange={(event) => setTitle(event.target.value)}
       />
       <input
+        className='input-rating'
         type="range"
         min={0}
         max={5}
         value={rating}
         onChange={(event) => setRating(Number(event.target.value))}
       />
-      <select value={genre} onChange={(event) => setGenre(event.target.value)}>
+      <select className='input-genre' value={genre} onChange={(event) => setGenre(event.target.value)}>
         <option value="">Select Genre</option>
         <option value="action">Action</option>
         <option value="comedy">Comedy</option>
         <option value="drama">Drama</option>
       </select>
-      <textarea name="Description"
+      <textarea
+        className='input-description'
+        name="Description"
         value={description}
         onChange={(event) => setDescription(event.target.value)} />
-      <button onClick={() => {handleAddMovie}}>Add Movie</button>
+      <button className='add-movie-button' onClick={() => { handleAddMovie }}>Add Movie</button>
 
     </div>
   );
