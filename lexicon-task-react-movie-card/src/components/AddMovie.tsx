@@ -1,8 +1,7 @@
 import '../styles/AddMovie.css';
 
-import React, { useState } from 'react';
-
 import { MovieList } from './MovieList';
+import { useState } from 'react';
 
 export interface IMovie {
   title: string;
@@ -19,6 +18,10 @@ export const AddMovie = () => {
   const [movies, setMovies] = useState<IMovie[]>([]);
 
   const handleAddMovie = () => {
+    if (!title || !rating || !genre || !description) {
+      alert('Please fill out all fields');
+      return;
+    }
     const newMovie: IMovie = {
       title,
       rating,
