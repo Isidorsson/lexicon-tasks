@@ -1,3 +1,5 @@
+import '../styles/AddMovie.css';
+
 import { useState } from "react";
 
 export interface IMovie {
