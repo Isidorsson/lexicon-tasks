@@ -1,7 +1,8 @@
 import '../styles/AddMovie.css';
 
+import React, { useState } from 'react';
+
 import { MovieList } from './MovieList';
-import { useState } from 'react';
 
 export interface IMovie {
   title: string;
@@ -9,7 +10,6 @@ export interface IMovie {
   genre: string;
   description: string;
 }
-
 
 export const AddMovie: React.FC = () => {
   const [title, setTitle] = useState('');
@@ -19,15 +19,18 @@ export const AddMovie: React.FC = () => {
   const [movies, setMovies] = useState<IMovie[]>([]);
 
   const handleAddMovie = () => {
-    const newMovie = { title, rating, genre, description };
+    const newMovie: IMovie = {
+      title,
+      rating,
+      genre,
+      description,
+    };
     setMovies([...movies, newMovie]);
     setTitle('');
     setRating(0);
     setGenre('');
     setDescription('');
-  }
-
-
+  };
 
   return (
     <div className="controls-wrapper">
@@ -56,11 +59,13 @@ export const AddMovie: React.FC = () => {
       <textarea
         className='input-description'
         name="Description"
+        placeholder='Description'
         value={description}
-        onChange={(event) => setDescription(event.target.value)} />
+        onChange={(event) => setDescription(event.target.value)}
+      />
       <button className='add-movie-button' onClick={() => { handleAddMovie }}>Add Movie</button>
       <MovieList movies={movies} />
     </div>
   );
 
-}
+};

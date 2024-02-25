@@ -1,9 +1,9 @@
 import { IMovie } from './AddMovie';
+import React from 'react';
 
-export const MovieCard: React.FC<IMovie> = (props: IMovie) => {
+export const MovieCard: React.FC<IMovie> = (props) => {
   return (
-    <div className='movie-card'>
-      <h1>test</h1>
+    <div className="movie-card">
       <h3>{props.title}</h3>
       <p>Rating: {props.rating}</p>
       <p>Genre: {props.genre}</p>
@@ -11,5 +11,4 @@ export const MovieCard: React.FC<IMovie> = (props: IMovie) => {
     </div>
   );
 };
-
 

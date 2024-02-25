@@ -1,4 +1,4 @@
-import { AddMovie } from './componens/AddMovie';
+import { AddMovie } from './components/AddMovie';
 import React from 'react';
 
 export const App: React.FC = () => {
