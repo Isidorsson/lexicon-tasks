@@ -1,3 +1,5 @@
+import '../styles/MovieCard.css';
+
 import { IMovie } from './AddMovie';
 
 export const MovieCard = ({ title, rating, genre, description }: IMovie) => {

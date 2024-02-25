@@ -5,8 +5,8 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
- background-color: gray;
+  font-family: "Roboto", sans-serif;
+  background-color: gray;
 }
 
 .App {
@@ -16,4 +16,6 @@ body {
   height: 100vh;
   background-color: gray;
   flex-direction: column;
+  position: relative;
+  right: 10rem;
 }

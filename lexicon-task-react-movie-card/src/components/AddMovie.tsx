@@ -36,7 +36,9 @@ export const AddMovie = () => {
   };
 
   const handleRemoveMovie = () => {
-    setMovies([]);
+    if (window.confirm('Are you sure you want to clear all movies?')) {
+      setMovies([]);
+    }
   };
 
   return (
@@ -73,7 +75,7 @@ export const AddMovie = () => {
 
       <div className='btn-wrapper'>
         {/* <button className='add-movie-btn' onClick={() => { handleAddMovie }}>Add Movie</button> */}
-        <button className='clear-movie-btn' onClick={handleRemoveMovie} > </button>
+        <button className='clear-movie-btn' onClick={handleRemoveMovie} >Clear</button>
         <button className='add-movie-btn' onClick={handleAddMovie}>Add Movie</button>
       </div>
 

@@ -1,12 +1,19 @@
 .controls-wrapper {
   display: flex;
-  justify-content: center;
   margin-top: 20px;
   flex-direction: column;
   max-height: 30rem;
   height: 100%;
+  max-width: 30rem;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+  align-items: stretch;
 }
-
 .controls-wrapper input {
   margin-bottom: 10px;
   padding: 10px;
@@ -35,13 +42,33 @@
   border-color: #007bff;
 }
 
-.controls-wrapper button {
+.clear-movie-btn {
+  margin-top: 10px;
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
   width: 100%;
   background-color: #f4f4f4;
   cursor: pointer;
+}
+
+.clear-movie-bt n:hover {
+  background-color: #e4e4e4;
+}
+
+.add-movie-btn {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #007bff;
+  width: 100%;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.add-movie-btn:hover {
+  background-color: #0056b3;
 }
 
 .controls-wrapper button:hover {
