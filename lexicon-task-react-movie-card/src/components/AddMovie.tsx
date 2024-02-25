@@ -35,6 +35,10 @@ export const AddMovie = () => {
     setDescription('');
   };
 
+  const handleRemoveMovie = () => {
+    setMovies([]);
+  };
+
   return (
     <div className="controls-wrapper">
       <h2>Add Movie </h2>
@@ -66,8 +70,13 @@ export const AddMovie = () => {
         value={description}
         onChange={(event) => setDescription(event.target.value)}
       />
-      {/* <button className='add-movie-button' onClick={() => { handleAddMovie }}>Add Movie</button> */}
-      <button className='add-movie-button' onClick={handleAddMovie}>Add Movie</button>
+
+      <div className='btn-wrapper'>
+        {/* <button className='add-movie-btn' onClick={() => { handleAddMovie }}>Add Movie</button> */}
+        <button className='clear-movie-btn' onClick={handleRemoveMovie} > </button>
+        <button className='add-movie-btn' onClick={handleAddMovie}>Add Movie</button>
+      </div>
+
       <MovieList movies={movies} />
     </div>
   );
