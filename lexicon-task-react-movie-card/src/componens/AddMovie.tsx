@@ -15,6 +15,16 @@ export const AddMovie: React.FC = () => {
   const [description, setDescription] = useState('');
   const [movies, setMovies] = useState<IMovie[]>([]);
 
+  const handleAddMovie = () => {
+    const newMovie = { title, rating, genre, description };
+    console.log(`Adding movie: ${JSON.stringify(newMovie)}`);
+    setMovies([...movies, newMovie]);
+    setTitle('');
+    setRating(0);
+    setGenre('');
+    setDescription('');
+  }
+
   return (
     <div>
       <h2>Add Movie</h2>
@@ -40,7 +50,9 @@ export const AddMovie: React.FC = () => {
       <textarea name="Description"
         value={description}
         onChange={(event) => setDescription(event.target.value)} />
+      <button onClick={() => {handleAddMovie}}>Add Movie</button>
       
+
     </div>
   );
 
