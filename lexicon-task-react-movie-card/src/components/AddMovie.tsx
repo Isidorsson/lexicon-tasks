@@ -23,6 +23,11 @@ export const AddMovie = () => {
       alert('Please fill out all fields');
       return;
     }
+    if (title && movies.some((movie) => movie.title === title)) {
+      alert('Movie already exists');
+      return;
+    }
+    
     const newMovie: IMovie = {
       title,
       rating,
