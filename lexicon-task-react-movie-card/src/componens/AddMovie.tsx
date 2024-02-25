@@ -28,6 +28,8 @@ export const AddMovie: React.FC = () => {
     setDescription('');
   }
 
+  
+
   return (
     <div className="controls-wrapper">
       <h2>Add Movie </h2>
