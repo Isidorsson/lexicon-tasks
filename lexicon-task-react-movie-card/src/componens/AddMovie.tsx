@@ -25,7 +25,7 @@ export const AddMovie: React.FC = () => {
         min={0}
         max={5}
         value={rating}
-        onChange={(event) => setRating(parseInt(event.target.value))}
+        onChange={(event) => setRating(Number(event.target.value))}
       />
     </div>
   );
