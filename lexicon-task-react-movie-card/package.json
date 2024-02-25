@@ -2,7 +2,7 @@
   "name": "test",
   "private": true,
   "version": "0.0.0",
-  "homepage": "http://cloticc.github.io/lexicon-task-react-movie-card",
+  "homepage": "http://cloticc.github.io/lexicon-task-react-movie-card/",
   "scripts": {
     "dev": "vite",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
