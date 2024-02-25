@@ -36,7 +36,7 @@ export const AddMovie = () => {
     };
     setMovies([...movies, newMovie]);
     setTitle('');
-    setRating(0);
+    setRating(1);
     setGenre('');
     setDescription('');
   };
