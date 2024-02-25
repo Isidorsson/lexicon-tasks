@@ -1,0 +1,42 @@
+.controls-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  flex-direction: column;
+  max-height: 30rem;
+  height: 100%;
+}
+
+.controls-wrapper input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.controls-wrapper button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  background-color: #f4f4f4;
+  cursor: pointer;
+}
+
+.controls-wrapper button:hover {
+  background-color: #e4e4e4;
+}
+
+.controls-wrapper button:active {
+  background-color: #d4d4d4;
+}
+
+.controls-wrapper button:disabled {
+  background-color: #f4f4f4;
+  cursor: not-allowed;
+}
+
+.controls-wrapper button:disabled:hover {
+  background-color: #f4f4f4;
+}
