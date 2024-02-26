@@ -1,15 +1,26 @@
-import '../styles/Header.css';
+import '../styles/LissenDirectly.css';
 
-export const Header = () => {
+export const LissenDirectly = () => {
   return (
-    <header>
+    <header className='header-wrapper'>
       <ul>
         <li>
-          <img src="https://t3.ftcdn.net/jpg/04/67/94/94/360_F_467949419_woOzXXQZNzl8Y6gfkRnefQlJkwP5dqur.jpg" alt="svt logo" />
+          <a
+            href="http://" target="_blank" rel="noopener noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Logo-de-World-Hits-Radio.png" alt="svt logo" />
+          </a>
         </li>
         <li>
-        <img src="https://t3.ftcdn.net/jpg/04/67/94/94/360_F_467949419_woOzXXQZNzl8Y6gfkRnefQlJkwP5dqur.jpg" alt="svt logo" />
+          <a href="http://" target="_blank" rel="noopener noreferrer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Logo-de-World-Hits-Radio.png" alt="svt logo" />
+          </a>
+
         </li>
+        <li>
+          <a href="http://" target="_blank" rel="noopener noreferrer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Logo-de-World-Hits-Radio.png" alt="svt logo" />
+          </a>
+        </li>
+        
       </ul>
     </header>
   );

@@ -3,7 +3,7 @@ import '../styles/Navbar.css';
 export function Navbar() {
   return (
     <nav className="navbar">
-      <img src="https://t3.ftcdn.net/jpg/04/67/94/94/360_F_467949419_woOzXXQZNzl8Y6gfkRnefQlJkwP5dqur.jpg" alt="svt logo" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Logo-de-World-Hits-Radio.png" alt="svt logo" />
       <input type="text" placeholder="Sök Kanal" />
       <ul>
         <li>Kanal</li>

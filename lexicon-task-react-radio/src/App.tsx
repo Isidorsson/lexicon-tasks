@@ -1,8 +1,8 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 import { Channel } from "./components/Channel";
-import { Header } from "./components/LissenDirectly";
 import { Home } from './components/Home';
+import { LissenDirectly } from "./components/LissenDirectly";
 import { LoginForm } from "./components/LoginForm";
 import { MyPage } from "./components/MyPage";
 import { Navbar } from "./components/Navbar";
@@ -12,7 +12,7 @@ export function App() {
   return (
     <Router>
       <Navbar />
-      <Header />
+      <LissenDirectly />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Channel" element={<Channel />} />
