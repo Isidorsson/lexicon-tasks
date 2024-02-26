@@ -1,6 +1,6 @@
 import '../styles/TodoInput.css';
 
-import { ITodoInputProps } from './TodoInterface';
+import { ITodoInputProps } from '../interfaces/TodoInterfaces';
 import { useState } from 'react';
 
 export function TodoInput(props: ITodoInputProps) {
