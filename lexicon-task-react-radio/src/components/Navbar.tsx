@@ -3,7 +3,14 @@ import '../styles/Navbar.css';
 export function Navbar() {
   return (
     <nav className="navbar">
-      <h1>Navbar</h1>
+      <img src="" alt="svt logo" />
+      <input type="text" placeholder="Sök Kanal" />
+      <ul>
+        <li>Kanal</li>
+        <li>Program</li>
+        <li>Min Sida</li>
+        <li>Logga In</li>
+      </ul>
     </nav>
   );
 }
