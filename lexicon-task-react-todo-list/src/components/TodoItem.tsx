@@ -8,8 +8,6 @@ import { ITodoItemProps, ITodoProps } from '../interfaces/TodoInterfaces';
 export function TodoItem(props: ITodoItemProps & ITodoProps) {
   const { id, text, completed, isEditing }   = props.todo;
 
-
-
   const handleDoubleClick = () => {
     props.onStartEditTodo(id);
   };
@@ -25,11 +23,11 @@ export function TodoItem(props: ITodoItemProps & ITodoProps) {
   }
 
   const handleMoveUp = () => {
-    props.onMoveTodoUp(props.todo.id);
+    props.onMoveTodoUp(id);
   };
 
   const handleMoveDown = () => {
-    props.onMoveTodoDown(props.todo.id);
+    props.onMoveTodoDown(id);
   };
   return (
     <li className={`todo-item ${completed ? 'completed' : ''}`}>
@@ -44,7 +42,7 @@ export function TodoItem(props: ITodoItemProps & ITodoProps) {
         <span className='item-text' onDoubleClick={handleDoubleClick}>{text}</span>
       )}
       <div className='btn-wrapper'>
-        <button className='todo-btn-remove' onClick={() => props.onRemoveTodo(props.todo.id)}>Remove</button>
+        <button className='todo-btn-remove' onClick={() => props.onRemoveTodo(id)}>Remove</button>
         <button className='todo-btn-move-up' onClick={handleMoveUp}>Move Up</button>
         <button className='todo-btn-move-down' onClick={handleMoveDown}>Move Down</button>
       </div>
