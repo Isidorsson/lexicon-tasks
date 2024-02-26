@@ -6,10 +6,7 @@ import { TodoItem } from '../components/TodoItem';
 // import { ITodoListProps } from './TodoInterface';
 // import { ITodoListProps } from '../interfaces/TodoInterfaces';
 
-
-
 export function TodoList(props: ITodoProps) {
-
   return (
     <ul className='todo-list'>
       {props.todos.map((todo) => (
