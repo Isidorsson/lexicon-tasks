@@ -1,4 +1,4 @@
-import { ITodo } from "../components/TodoInterface";
+import { ITodo } from "../interfaces//TodoInterfaces";
 import { useState } from "react";
 
 export const useTodos = () => {
@@ -6,7 +6,7 @@ export const useTodos = () => {
   const [sortItem, setSortItem] = useState<'asc' | 'desc' | 'completed' | 'uncompleted' | 'timestamp' | 'author'>('author');
 
   const addTodo = (text: string, authorTitle: string) => {
-    setTodos([...todos, { id: Date.now(), text, completed: false, isEditing: false, createdAt: new Date(), author: authorTitle,  }]);
+    setTodos([...todos, { id: Date.now(), text, completed: false, isEditing: false, createdAt: new Date(), author: authorTitle, }]);
   };
 
   const startEditTodo = (id: number) => {
@@ -51,7 +51,7 @@ export const useTodos = () => {
   const moveTodoUp = (id: number) => {
     setTodos(prevTodos => {
       const index = prevTodos.findIndex(todo => todo.id === id);
-      if (index === 0) return prevTodos; 
+      if (index === 0) return prevTodos;
       const newTodos = [...prevTodos];
       const temp = newTodos[index];
       newTodos[index] = newTodos[index - 1];
@@ -59,7 +59,7 @@ export const useTodos = () => {
       return newTodos;
     });
   };
-  
+
   const moveTodoDown = (id: number) => {
     setTodos(prevTodos => {
       const index = prevTodos.findIndex(todo => todo.id === id);
@@ -73,5 +73,5 @@ export const useTodos = () => {
   };
 
 
-  return { todos, addTodo, toggleTodo, removeTodo, startEditTodo, endEditTodo, sortTodos, sortItem, setSortItem, moveTodoUp, moveTodoDown};
+  return { todos, addTodo, toggleTodo, removeTodo, startEditTodo, endEditTodo, sortTodos, sortItem, setSortItem, moveTodoUp, moveTodoDown };
 };

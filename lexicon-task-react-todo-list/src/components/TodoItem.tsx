@@ -1,9 +1,12 @@
 import '../styles/TodoItem.css'
 
-import { ITodoItemProps } from './TodoInterface';
+import { ITodoItemProps, ITodoProps } from '../interfaces/TodoInterfaces';
 
-export function TodoItem(props: ITodoItemProps) {
-  const { id, text, completed, isEditing } = props.todo;
+// import { ITodoItemProps } from './TodoInterface';
+
+// export function TodoItem(props: ITodoItemProps) {
+export function TodoItem(props: ITodoItemProps & ITodoProps) {
+  const { id, text, completed, isEditing }   = props.todo;
 
 
 

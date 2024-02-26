@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useTodos } from './hooks/useTodos';
 
 export function App() {
-  const  { todos, addTodo, toggleTodo, removeTodo, startEditTodo, endEditTodo, sortTodos, moveTodoUp, moveTodoDown, sortItem, setSortItem } = useTodos();
+  const { todos, addTodo, toggleTodo, removeTodo, startEditTodo, endEditTodo, sortTodos, moveTodoUp, moveTodoDown, sortItem, setSortItem } = useTodos();
 
   const [title, setTitle] = useState<string>('Todo');
   const [isEditingTitle, setIsEditingTitle] = useState<boolean>(false);
@@ -21,7 +21,7 @@ export function App() {
       {isEditingTitle && <input className='edit-title-input' type="text" value={title} onChange={event => setTitle(event.target.value)} />}
       <button className='edit-title-btn' onClick={editTitle}>{isEditingTitle ? 'Save Title' : 'Edit Title'}</button>
       <SortSelect sortItem={sortItem} setSortItem={setSortItem} />
-      <TodoInput  onAddTodo={(text) => addTodo(text, title)} />
+      <TodoInput onAddTodo={(text: string) => addTodo(text, title)} />
       <TodoList
         todos={sortTodos(todos)}
         onToggleTodo={toggleTodo}

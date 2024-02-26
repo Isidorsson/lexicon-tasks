@@ -1,9 +1,14 @@
 import '../styles/TodoList.css';
 
-import { ITodoListProps } from './TodoInterface';
+import { ITodoProps } from '../interfaces/TodoInterfaces';
 import { TodoItem } from '../components/TodoItem';
 
-export function TodoList(props: ITodoListProps) {
+// import { ITodoListProps } from './TodoInterface';
+// import { ITodoListProps } from '../interfaces/TodoInterfaces';
+
+
+
+export function TodoList(props: ITodoProps) {
 
   return (
     <ul className='todo-list'>
@@ -17,8 +22,7 @@ export function TodoList(props: ITodoListProps) {
           onStartEditTodo={props.onStartEditTodo}
           onEndEditTodo={props.onEndEditTodo}
           onMoveTodoUp={props.onMoveTodoUp}
-          onMoveTodoDown={props.onMoveTodoDown}
-        />
+          onMoveTodoDown={props.onMoveTodoDown} todos={[]} />
       ))}
     </ul>
   );
