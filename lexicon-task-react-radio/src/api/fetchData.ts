@@ -9,7 +9,7 @@ export const fetchData = async (endpoint: string) => {
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(xmlData, "text/xml");
     data = xmlDoc;
-  } catch (err: unknown) {
+  } catch (err: unknown) { // had to add : unknown to get rid of error from eslint
     if (err instanceof Error) {
       error = err.message;
     } else {
