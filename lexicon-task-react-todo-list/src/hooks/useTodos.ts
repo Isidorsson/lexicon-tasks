@@ -1,4 +1,4 @@
-import { ITodo } from "../interfaces//TodoInterfaces";
+import { ITodo } from "../interfaces/TodoInterfaces";
 import { useState } from "react";
 
 export const useTodos = () => {
@@ -14,7 +14,7 @@ export const useTodos = () => {
   };
 
   const endEditTodo = (id: number, newText: string) => {
-    setTodos(todos.map((todo) => todo.id === id ? { ...todo, text: newText, isEditing: false } : todo));
+    setTodos(todos.map((todo) => todo.id === id ? { ...todo, text: newText, isEditing: false } : todo)); 
   };
 
   const toggleTodo = (id: number) => {
