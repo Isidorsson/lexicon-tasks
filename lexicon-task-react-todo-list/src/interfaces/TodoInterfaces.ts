@@ -22,6 +22,17 @@ export interface ITodoItemProps extends ITodoProps {
   todo: ITodo;
 }
 
+export interface ITodoInputProps {
+  onAddTodo: (text: string, authorTitle: string) => void;
+
+}
+
+
+export interface ISortSelectProps {
+  sortItem: 'asc' | 'desc' | 'completed' | 'uncompleted' | 'timestamp' | 'author';
+  setSortItem: (value: 'asc' | 'desc' | 'completed' | 'uncompleted' | 'timestamp' | 'author') => void;
+}
+
 
 // export interface ITodoListProps {
 //   todos: ITodo[];
@@ -45,13 +56,3 @@ export interface ITodoItemProps extends ITodoProps {
 
 
 
-export interface ITodoInputProps {
-  onAddTodo: (text: string, authorTitle: string) => void;
-
-}
-
-
-export interface ISortSelectProps {
-  sortItem: 'asc' | 'desc' | 'completed' | 'uncompleted' | 'timestamp' | 'author';
-  setSortItem: (value: 'asc' | 'desc' | 'completed' | 'uncompleted' | 'timestamp' | 'author') => void;
-}
