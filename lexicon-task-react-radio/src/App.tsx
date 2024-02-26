@@ -2,6 +2,7 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 import { Channel } from "./components/Channel";
 import { Header } from "./components/LissenDirectly";
+import { Home } from './components/Home';
 import { LoginForm } from "./components/LoginForm";
 import { MyPage } from "./components/MyPage";
 import { Navbar } from "./components/Navbar";
@@ -13,18 +14,11 @@ export function App() {
       <Navbar />
       <Header />
       <Routes>
-        <Route path="/Channel">
-          <Channel />
-        </Route>
-        <Route path="/Program">
-          <Program />
-        </Route>
-        <Route path="/MyPage">
-          <MyPage />
-        </Route>
-        <Route path="/Login">
-          <LoginForm />
-        </Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/Channel" element={<Channel />} />
+        <Route path="/Program" element={<Program />} />
+        <Route path="/MyPage" element={<MyPage />} />
+        <Route path="/Login" element={<LoginForm />} />
       </Routes>
     </Router>
   );
