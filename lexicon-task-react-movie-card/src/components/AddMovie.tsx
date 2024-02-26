@@ -12,10 +12,10 @@ export interface IMovie {
 }
 
 export const AddMovie = () => {
-  const [title, setTitle] = useState('');
-  const [rating, setRating] = useState(1);
-  const [genre, setGenre] = useState('');
-  const [description, setDescription] = useState('');
+  const [title, setTitle] = useState<string>('');
+  const [rating, setRating] = useState<number>(1);
+  const [genre, setGenre] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
   const [movies, setMovies] = useState<IMovie[]>([]);
 
   const handleAddMovie = () => {
