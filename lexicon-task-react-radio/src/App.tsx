@@ -15,7 +15,7 @@ export function App() {
       <Navbar />
       <LissenDirectly />
       <Routes>
-        <Route index element={<Home />} />
+        <Route  path="/" element={<Home />} />
         <Route path="/Channel" element={<Channel />} />
         <Route path="/Program" element={<Program />} />
         <Route path="/MyPage" element={<MyPage />} />
