@@ -226,6 +226,7 @@ export const Program: React.FC = () => {
           <h2>Channels</h2>
 
           {programs.map((program, index) => (
+            /* TODO: Fix card stuff */
             <li key={`${program.id}-${index}`} ref={index === programs.length - 1 ? lastProgramElementRef : null}>
               <img src={program.programimage} alt={program.name} />
               <h3>{program.channel.name}</h3>
