@@ -1,8 +1,12 @@
 import '../styles/Program.css';
 
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
 
 import { fetchData } from '../api/fetchData';
+
+// import React from 'react';
+
+
 
 interface Pagination {
   page: number;
@@ -59,17 +63,28 @@ interface Sr {
 export const Program: React.FC = () => {
   const [programCategories, setProgramCategories] = useState<ProgramCategory[]>([]);
   const [programs, setPrograms] = useState<Program[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<ProgramCategory | null>(null);
-  const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(null);
-  const [selectedProgram, setSelectedProgram] = useState<Program | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
+  // const [selectedProgram, setSelectedProgram] = useState<Program | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [page, setPage] = useState(1);
+
+  const observer = useRef<IntersectionObserver | null>(null);
+  const lastProgramElementRef = useCallback((node: Element) => {
+    if (isLoading) return;
+    if (observer.current) observer.current.disconnect();
+    observer.current = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting && selectedCategory !== null) {
+        setPage(prevPage => prevPage + 1);
+      }
+    });
+    if (node) observer.current.observe(node);
+  }, [isLoading, selectedCategory]);
 
 
   const handleCategoryChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    const selectedCategoryId = Number(event.target.value);
-    console.log('Selected category:', selectedCategoryId);
-    setSelectedCategoryId(selectedCategoryId);
+    const selectedCategory = Number(event.target.value);
+    setSelectedCategory(selectedCategory);
   };
 
 
@@ -107,35 +122,67 @@ export const Program: React.FC = () => {
     fetchProgramCategories();
   }, []);
 
+  // useEffect(() => {
+  //   const fetchPrograms = async () => {
+  //     if (selectedCategory !== null) {
+  //       setIsLoading(true);
+  //       let page = 1;
+  //       let totalPages = 1;
+  //       let programs: Program[] = [];
+
+  //       while (page <= totalPages) {
+  //         try {
+  //           const response = await fetch(`https://api.sr.se/api/v2/programs/index?programcategoryid=${selectedCategory}&format=json&page=${page}`);
+  //           const data = await response.json();
+
+  //           console.log(data);
+
+  //           if (data) {
+  //             programs = [...programs, ...data.programs];
+  //             totalPages = data.pagination.totalpages;
+  //           } else {
+  //             setError('No programs found for this category');
+  //           }
+  //         } catch (error) {
+  //           setError(`An error occurred: ${error}`)
+  //           setIsLoading(false);
+  //         }
+
+  //         page++;
+  //       }
+
+  //       setPrograms(programs);
+  //       setIsLoading(false);
+  //     } else {
+  //       setPrograms([]);
+  //     }
+  //   };
+
+  //   fetchPrograms();
+  // }, [selectedCategory]);
+
   useEffect(() => {
     const fetchPrograms = async () => {
-      if (selectedCategoryId !== null) {
+      if (selectedCategory !== null) {
         setIsLoading(true);
         try {
-          const response = await fetch(`https://api.sr.se/api/v2/programs/index?programcategoryid=${selectedCategoryId}&format=json`);
+          const response = await fetch(`https://api.sr.se/api/v2/programs/index?programcategoryid=${selectedCategory}&format=json&page=${page}`);
           const data = await response.json();
 
-          console.log(data);
-
           if (data) {
-            setPrograms(data.programs);
+            setPrograms(prevPrograms => [...prevPrograms, ...data.programs]);
           } else {
             setError('No programs found for this category');
           }
-
-          setIsLoading(false);
         } catch (error) {
-          setError(error.message);
-          setIsLoading(false);
+          setError(`An error occurred: ${error}`)
         }
-      } else {
-        setPrograms([]);
+        setIsLoading(false);
       }
     };
 
     fetchPrograms();
-  }, [selectedCategoryId]);
-
+  }, [selectedCategory, page]);
 
   if (isLoading) {
     return (
@@ -159,7 +206,7 @@ export const Program: React.FC = () => {
     <div className="Program">
       <h2>Programs</h2>
       <>
-        <select value={selectedCategory?.id || ''} onChange={handleCategoryChange}>
+        <select value={selectedCategory?.toString()} onChange={handleCategoryChange}>
           <option value="">Select a category</option>
           {programCategories.map(category => (
             <option key={category.id} value={category.id}>
@@ -170,14 +217,25 @@ export const Program: React.FC = () => {
         <aside>
           <h2>Channels</h2>
           <ul>
-            {programs.map((program) => (
-              <li key={program.id}>
+            {programs.map((program, index) => (
+              <li key={program.id} ref={index === programs.length - 1 ? lastProgramElementRef : null}>
+                <img src={program.programimage} alt={program.name} />
                 <h3>{program.channel.name}</h3>
                 <p>{program.description}</p>
-                <img src={program.programimage} alt={program.name} />
+                <p>{program.broadcastinfo}</p>
               </li>
             ))}
           </ul>
+          {/* <ul>
+            {programs.map((program) => (
+              <li key={program.id}>
+                <img src={program.programimage} alt={program.name} />
+                <h3>{program.channel.name}</h3>
+                <p>{program.description}</p>
+                <p>{program.broadcastinfo}</p>
+              </li>
+            ))}
+          </ul> */}
         </aside>
       </>
 
