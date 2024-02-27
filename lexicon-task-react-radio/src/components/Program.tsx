@@ -69,21 +69,14 @@ export const Program: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [page, setPage] = useState(1);
 
-  const observer = useRef<IntersectionObserver | null>(null);
-  const lastProgramElementRef = useCallback((node: HTMLLIElement | null) => {
-    if (isLoading) return;
-    if (observer.current) observer.current.disconnect();
-    observer.current = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting && selectedCategory !== null) {
-        setPage(prevPage => prevPage + 1);
-      }
-    });
-    if (node) observer.current.observe(node);
-  }, [isLoading, selectedCategory]);
+
+
 
   const handleCategoryChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const selectedCategory = Number(event.target.value);
     setSelectedCategory(selectedCategory);
+    setPrograms([]);
+    setPage(1);
   };
 
 
@@ -121,75 +114,42 @@ export const Program: React.FC = () => {
     fetchProgramCategories();
   }, []);
 
-  // useEffect(() => {
-  //   const fetchPrograms = async () => {
-  //     if (selectedCategory !== null) {
-  //       setIsLoading(true);
-  //       let page = 1;
-  //       let totalPages = 1;
-  //       let programs: Program[] = [];
+useEffect(() => {
+  const fetchPrograms = async () => {
+    if (selectedCategory !== null) {
+      setIsLoading(true);
+      let page = 1;
+      let totalPages = 1;
+      let allPrograms: Program[] = [];
 
-  //       while (page <= totalPages) {
-  //         try {
-  //           const response = await fetch(`https://api.sr.se/api/v2/programs/index?programcategoryid=${selectedCategory}&format=json&page=${page}`);
-  //           const data = await response.json();
-
-  //           console.log(data);
-
-  //           if (data) {
-  //             programs = [...programs, ...data.programs];
-  //             totalPages = data.pagination.totalpages;
-  //           } else {
-  //             setError('No programs found for this category');
-  //           }
-  //         } catch (error) {
-  //           setError(`An error occurred: ${error}`)
-  //           setIsLoading(false);
-  //         }
-
-  //         page++;
-  //       }
-
-  //       setPrograms(programs);
-  //       setIsLoading(false);
-  //     } else {
-  //       setPrograms([]);
-  //     }
-  //   };
-
-  //   fetchPrograms();
-  // }, [selectedCategory]);
-
-  useEffect(() => {
-    const fetchPrograms = async () => {
-      if (selectedCategory !== null) {
-        setIsLoading(true);
+      while (page <= totalPages) {
         try {
           const response = await fetch(`https://api.sr.se/api/v2/programs/index?programcategoryid=${selectedCategory}&format=json&page=${page}`);
           const data = await response.json();
-  // console.log('Data:', data);
-  // console.log('Loading:', isLoading);
-  // console.log('Error:', error);
-  
+
           if (data) {
-            setPrograms(prevPrograms => [...prevPrograms, ...data.programs]);
+            allPrograms = allPrograms.concat(data.programs);
+            totalPages = data.pagination.totalpages;
           } else {
             setError('No programs found for this category');
-          } 
-          
+            break;
+          }
         } catch (error) {
-          setError(`An error occurred: ${error}`)
+          setError(`An error occurred: ${error}`);
+          break;
         }
-        setIsLoading(false);
+
+        page++;
       }
-    };
-  
-    fetchPrograms();
-  }, [selectedCategory, page]);
-  
-  useEffect(() => {
-    setPage(1);
-  }, [selectedCategory]);
+
+      setPrograms(allPrograms);
+      setIsLoading(false);
+    }
+  };
+
+  fetchPrograms(); 
+}, [selectedCategory]);
+
 
   if (isLoading) {
     return (
@@ -221,31 +181,15 @@ export const Program: React.FC = () => {
             </option>
           ))}
         </select>
-        <aside>
-          <h2>Channels</h2>
-
+           <aside className='program-channels-wrapper'>
           {programs.map((program, index) => (
-            /* TODO: Fix card stuff */
-            <li key={`${program.id}-${index}`} ref ={index === programs.length - 1 ? lastProgramElementRef : null}>
+            <li key={`${program.id}-${index}`} className='program-card'>
               <img src={program.programimage} alt={program.name} />
               <h3>{program.channel.name}</h3>
               <p>{program.description}</p>
               <p>{program.broadcastinfo}</p>
             </li>
           ))}
-
-
-          {/* <ul>
-            {programs.map((program, index) => (
-              <li key={program.id} ref={index === programs.length - 1 ? lastProgramElementRef : null}>
-                <img src={program.programimage} alt={program.name} />
-                <h3>{program.channel.name}</h3>
-                <p>{program.description}</p>
-                <p>{program.broadcastinfo}</p>
-              </li>
-            ))}
-          </ul> */}
-
         </aside>
       </>
 
