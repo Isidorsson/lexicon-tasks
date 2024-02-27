@@ -168,25 +168,29 @@ export const Program: React.FC = () => {
         try {
           const response = await fetch(`https://api.sr.se/api/v2/programs/index?programcategoryid=${selectedCategory}&format=json&page=${page}`);
           const data = await response.json();
-
+  // console.log('Data:', data);
+  // console.log('Loading:', isLoading);
+  // console.log('Error:', error);
+  
           if (data) {
-            if (page === 1) {
-              setPrograms(data.programs);
-            } else {
-              setPrograms(prevPrograms => [...prevPrograms, ...data.programs]);
-            }
+            setPrograms(prevPrograms => [...prevPrograms, ...data.programs]);
           } else {
             setError('No programs found for this category');
-          }
+          } 
+          
         } catch (error) {
           setError(`An error occurred: ${error}`)
         }
         setIsLoading(false);
       }
     };
-
+  
     fetchPrograms();
   }, [selectedCategory, page]);
+  
+  useEffect(() => {
+    setPage(1);
+  }, [selectedCategory]);
 
   if (isLoading) {
     return (
