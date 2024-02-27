@@ -170,7 +170,11 @@ export const Program: React.FC = () => {
           const data = await response.json();
 
           if (data) {
-            setPrograms(prevPrograms => [...prevPrograms, ...data.programs]);
+            if (page === 1) {
+              setPrograms(data.programs);
+            } else {
+              setPrograms(prevPrograms => [...prevPrograms, ...data.programs]);
+            }
           } else {
             setError('No programs found for this category');
           }
@@ -216,7 +220,18 @@ export const Program: React.FC = () => {
         </select>
         <aside>
           <h2>Channels</h2>
-          <ul>
+
+          {programs.map((program, index) => (
+            <li key={`${program.id}-${index}`} ref={index === programs.length - 1 ? lastProgramElementRef : null}>
+              <img src={program.programimage} alt={program.name} />
+              <h3>{program.channel.name}</h3>
+              <p>{program.description}</p>
+              <p>{program.broadcastinfo}</p>
+            </li>
+          ))}
+
+
+          {/* <ul>
             {programs.map((program, index) => (
               <li key={program.id} ref={index === programs.length - 1 ? lastProgramElementRef : null}>
                 <img src={program.programimage} alt={program.name} />
@@ -225,17 +240,8 @@ export const Program: React.FC = () => {
                 <p>{program.broadcastinfo}</p>
               </li>
             ))}
-          </ul>
-          {/* <ul>
-            {programs.map((program) => (
-              <li key={program.id}>
-                <img src={program.programimage} alt={program.name} />
-                <h3>{program.channel.name}</h3>
-                <p>{program.description}</p>
-                <p>{program.broadcastinfo}</p>
-              </li>
-            ))}
           </ul> */}
+
         </aside>
       </>
 
