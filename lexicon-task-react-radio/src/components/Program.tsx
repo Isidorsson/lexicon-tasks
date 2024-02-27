@@ -1,6 +1,6 @@
 import '../styles/Program.css';
 
-import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 
 import { fetchData } from '../api/fetchData';
 
@@ -67,7 +67,7 @@ export const Program: React.FC = () => {
   // const [selectedProgram, setSelectedProgram] = useState<Program | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [page, setPage] = useState(1);
+
 
 
 
@@ -76,7 +76,7 @@ export const Program: React.FC = () => {
     const selectedCategory = Number(event.target.value);
     setSelectedCategory(selectedCategory);
     setPrograms([]);
-    setPage(1);
+    
   };
 
 
