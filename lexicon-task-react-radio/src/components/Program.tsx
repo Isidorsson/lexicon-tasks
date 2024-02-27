@@ -70,7 +70,7 @@ export const Program: React.FC = () => {
   const [page, setPage] = useState(1);
 
   const observer = useRef<IntersectionObserver | null>(null);
-  const lastProgramElementRef = useCallback((node: Element) => {
+  const lastProgramElementRef = useCallback((node: HTMLLIElement | null) => {
     if (isLoading) return;
     if (observer.current) observer.current.disconnect();
     observer.current = new IntersectionObserver(entries => {
@@ -80,7 +80,6 @@ export const Program: React.FC = () => {
     });
     if (node) observer.current.observe(node);
   }, [isLoading, selectedCategory]);
-
 
   const handleCategoryChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const selectedCategory = Number(event.target.value);
@@ -227,7 +226,7 @@ export const Program: React.FC = () => {
 
           {programs.map((program, index) => (
             /* TODO: Fix card stuff */
-            <li key={`${program.id}-${index}`} ref={index === programs.length - 1 ? lastProgramElementRef : null}>
+            <li key={`${program.id}-${index}`} ref ={index === programs.length - 1 ? lastProgramElementRef : null}>
               <img src={program.programimage} alt={program.name} />
               <h3>{program.channel.name}</h3>
               <p>{program.description}</p>
