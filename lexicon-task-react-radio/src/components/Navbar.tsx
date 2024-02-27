@@ -3,11 +3,11 @@ import '../styles/Navbar.css';
 import { Link } from 'react-router-dom';
 
 const links = [
-  { to: "/", label: "Hem" },
-  { to: "/Channel", label: "Kanal" },
+  { to: "/", label: "Home" },
+  { to: "/Channel", label: "Channel" },
   { to: "/Program", label: "Program" },
-  { to: "/MyPage", label: "Min Sida" },
-  { to: "/Login", label: "Logga In" },
+  { to: "/MyPage", label: "My Page" },
+  { to: "/Login", label: "Sign in" },
 ];
 
 export function Navbar() {
